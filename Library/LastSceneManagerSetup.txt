@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/new_book_v2.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
