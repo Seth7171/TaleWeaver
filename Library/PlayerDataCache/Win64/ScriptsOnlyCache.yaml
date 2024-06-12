@@ -322,6 +322,9 @@ ScriptsOnlyBuild:
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
   - assembly: Assembly-CSharp
+    fullTypeName: NewBehaviourScript
+    methodName: updateVolume
+  - assembly: Assembly-CSharp
     fullTypeName: PauseMenu
     methodName: LoadMainMenu
   - assembly: Assembly-CSharp
@@ -696,6 +699,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 6430}
     - Class: 114
       Script: {instanceID: 6672}
+    - Class: 114
+      Script: {instanceID: 7224}
     - Class: 114
       Script: {instanceID: 7704}
     - Class: 114
