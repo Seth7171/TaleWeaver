@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - MobileDisableAutoSwitchControls
     - NewBehaviourScript
     - PauseMenu
+    - SelectPlayer
     - StarterAssets.FirstPersonController
     - StarterAssets.StarterAssetsInputs
     - StarterAssets.UICanvasControllerInput
@@ -103,8 +104,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -291,6 +294,21 @@ ScriptsOnlyBuild:
   - assembly: Unity.RenderPipelines.Core.Runtime
     fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
     methodName: ResetDebugManager
+  - assembly: Assembly-CSharp
+    fullTypeName: SelectPlayer
+    methodName: StartNewAdventure
+  - assembly: Assembly-CSharp
+    fullTypeName: SelectPlayer
+    methodName: LoadMainMenu
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: NewBehaviourScript
+    methodName: updateVolume
   - assembly: Assembly-CSharp
     fullTypeName: echo17.EndlessBook.Demo01.Demo01
     methodName: VentureForth
@@ -752,6 +770,69 @@ ScriptsOnlyBuild:
     - Class: 258
       Script: {instanceID: 0}
     - Class: 850595691
+      Script: {instanceID: 0}
+    Assets/Scenes/PlayerSelection.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1776}
+    - Class: 114
+      Script: {instanceID: 1778}
+    - Class: 114
+      Script: {instanceID: 1822}
+    - Class: 114
+      Script: {instanceID: 4800}
+    - Class: 114
+      Script: {instanceID: 5560}
+    - Class: 114
+      Script: {instanceID: 6672}
+    - Class: 114
+      Script: {instanceID: 7224}
+    - Class: 114
+      Script: {instanceID: 8306}
+    - Class: 114
+      Script: {instanceID: 8466}
+    - Class: 114
+      Script: {instanceID: 8806}
+    - Class: 114
+      Script: {instanceID: 10406}
+    - Class: 114
+      Script: {instanceID: 10480}
+    - Class: 114
+      Script: {instanceID: 11402}
+    - Class: 114
+      Script: {instanceID: 29698}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -2800,9 +2881,16 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 653bb4a44e1b58d7c3a3d0e5ac4a7fe8
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SelectPlayer
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
+  - Assets/Scenes/PlayerSelection.unity
   - Assets/Scenes/NewBook.unity
   - Assets/Scenes/GameWorld.unity
   playerPath: "D:/\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD/\u05E1\u05DE\u05E1\u05D8\u05E8

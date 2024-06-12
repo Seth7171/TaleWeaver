@@ -80,6 +80,7 @@
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\Demo02.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\BookAnimationCompleted.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 03 - Manual Page Turn\Scripts\Demo03.cs" />
+    <Compile Include="Assets\Scripts\SelectPlayer.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map_Left.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageData.cs" />

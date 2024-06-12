@@ -349,6 +349,7 @@
 "Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/MusicPlayerScript.cs"
 "Assets/Scripts/PauseMenu.cs"
+"Assets/Scripts/SelectPlayer.cs"
 "Assets/Scripts/VentureForthButton.cs"
 "Assets/StarterAssets/FirstPersonController/Scripts/FirstPersonController.cs"
 "Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs"
