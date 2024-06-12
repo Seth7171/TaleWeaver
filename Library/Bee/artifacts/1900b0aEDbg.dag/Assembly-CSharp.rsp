@@ -395,6 +395,7 @@
 "Assets/HandyHands/scripts/VisualizeJoint.cs"
 "Assets/Scripts/DoNotDestroy.cs"
 "Assets/Scripts/EnsureWordWrapping.cs"
+"Assets/Scripts/HandBookController.cs"
 "Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/MusicPlayerScript.cs"
 "Assets/Scripts/PauseMenu.cs"
@@ -409,6 +410,7 @@
 "Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualTouchZone.cs"
 "Assets/StarterAssets/ThirdPersonController/Scripts/BasicRigidBodyPush.cs"
 "Assets/StarterAssets/ThirdPersonController/Scripts/ThirdPersonController.cs"
+"Assets/ToggleFlashLight.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 
