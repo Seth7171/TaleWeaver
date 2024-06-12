@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/new_book_v2.unity
+- path: Assets/Scenes/GameWorld.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

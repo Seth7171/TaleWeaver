@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using UnityEngine;
     using echo17.EndlessBook;
+    using UnityEngine.SceneManagement;
 
     public class Demo01 : MonoBehaviour
     {
@@ -144,6 +145,10 @@
                     bookOpenSound.Play();
                     break;
             }
+        }
+        public void VentureForth()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

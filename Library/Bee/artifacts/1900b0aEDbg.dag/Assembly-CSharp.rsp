@@ -391,9 +391,14 @@
 "Assets/EndlessBook/Demos/Demo 02/Scripts/RotateObject.cs"
 "Assets/EndlessBook/Demos/Demo 02/Scripts/TouchPad.cs"
 "Assets/EndlessBook/Demos/Demo 03 - Manual Page Turn/Scripts/Demo03.cs"
-"Assets/EnsureWordWrapping.cs"
 "Assets/HandyHands/scripts/showcasecam.cs"
 "Assets/HandyHands/scripts/VisualizeJoint.cs"
+"Assets/Scripts/DoNotDestroy.cs"
+"Assets/Scripts/EnsureWordWrapping.cs"
+"Assets/Scripts/MainMenu.cs"
+"Assets/Scripts/MusicPlayerScript.cs"
+"Assets/Scripts/PauseMenu.cs"
+"Assets/Scripts/VentureForthButton.cs"
 "Assets/StarterAssets/FirstPersonController/Scripts/FirstPersonController.cs"
 "Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs"
 "Assets/StarterAssets/Mobile/Scripts/CanvasInputs/UICanvasControllerInput.cs"
@@ -404,7 +409,6 @@
 "Assets/StarterAssets/ThirdPersonController/Scripts/BasicRigidBodyPush.cs"
 "Assets/StarterAssets/ThirdPersonController/Scripts/ThirdPersonController.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
-"Assets/VentureForthButton.cs"
 -langversion:9.0
 
 /deterministic

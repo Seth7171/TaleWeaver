@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaverdev-main\\taleweaverdev-main\\assets\\endlessbook\\demos\\demo 01\\scripts\\demo01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaverdev-main\\taleweaverdev-main\\assets\\scripts\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaverdev-main\\taleweaverdev-main\\assets\\scripts\\musicplayerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\musicplayerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaverdev-main\\taleweaverdev-main\\assets\\scripts\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaverdev-main\\taleweaverdev-main\\assets\\donotdestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\donotdestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\assets\\endlessbook\\demos\\demo 01\\scripts\\demo01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|solutionrelative:assets\\endlessbook\\demos\\demo 01\\scripts\\demo01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaverdev-main\\taleweaverdev-main\\assets\\endlessbook\\demos\\demo 02\\scripts\\demo02.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\assets\\endlessbook\\demos\\demo 02\\scripts\\demo02.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{00985517-755A-762E-A8FC-5EF93E84CDD5}|Assembly-CSharp.csproj|solutionrelative:assets\\endlessbook\\demos\\demo 02\\scripts\\demo02.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\MainMenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\MainMenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +38,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\Scripts\\MainMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\Scripts\\MainMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T14:37:49.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PauseMenu.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\Scripts\\PauseMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PauseMenu.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\Scripts\\PauseMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PauseMenu.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwC0AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T13:54:07.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MusicPlayerScript.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\Scripts\\MusicPlayerScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MusicPlayerScript.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\Scripts\\MusicPlayerScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MusicPlayerScript.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T12:38:14.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\MainMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\MainMenu.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\MainMenu.cs",
+              "RelativeToolTip": "Assets\\MainMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T10:06:30.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DoNotDestroy.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\DoNotDestroy.cs",
+              "RelativeDocumentMoniker": "Assets\\DoNotDestroy.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\DoNotDestroy.cs",
+              "RelativeToolTip": "Assets\\DoNotDestroy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T12:17:50.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Demo02.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\EndlessBook\\Demos\\Demo 02\\Scripts\\Demo02.cs",
               "RelativeDocumentMoniker": "Assets\\EndlessBook\\Demos\\Demo 02\\Scripts\\Demo02.cs",
@@ -30,21 +113,19 @@
               "RelativeToolTip": "Assets\\EndlessBook\\Demos\\Demo 02\\Scripts\\Demo02.cs",
               "ViewState": "AQIAANAAAAAAAAAAAAAcwLMAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-11T12:43:36.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-11T12:43:36.022Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Demo01.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\EndlessBook\\Demos\\Demo 01\\Scripts\\Demo01.cs",
               "RelativeDocumentMoniker": "Assets\\EndlessBook\\Demos\\Demo 01\\Scripts\\Demo01.cs",
               "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaverDev-main\\TaleWeaverDev-main\\Assets\\EndlessBook\\Demos\\Demo 01\\Scripts\\Demo01.cs",
               "RelativeToolTip": "Assets\\EndlessBook\\Demos\\Demo 01\\Scripts\\Demo01.cs",
-              "ViewState": "AQIAAH0AAAAAAAAAAAAQwJQAAAABAAAA",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAAAJAAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-11T12:35:44.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-11T12:35:44.982Z"
             }
           ]
         }
