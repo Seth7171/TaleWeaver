@@ -1,6 +1,7 @@
 { "pid": 35942, "tid": -1, "ph": "M", "name": "process_name", "args": { "name": "netcorerun.dll" } },
 { "pid": 35942, "tid": -1, "ph": "M", "name": "process_sort_index", "args": { "sort_index": "-1" } },
 { "pid": 35942, "tid": 1, "ph": "M", "name": "thread_name", "args": { "name": "" } },
+<<<<<<< HEAD
 { "pid": 35942, "tid": 1, "ts": 1718209715801327, "dur": 131376, "ph": "X", "name": "BuildProgram", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1718209715802491, "dur": 41135, "ph": "X", "name": "BuildProgramContextConstructor", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1718209715851897, "dur": 55997, "ph": "X", "name": "RunBuildProgram", "args": {} },
@@ -13,3 +14,12 @@
 { "pid": 35942, "tid": 1, "ts": 1718209715919181, "dur": 12943, "ph": "X", "name": "JsonToString", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1718209715939047, "dur": 1225, "ph": "X", "name": "", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1718209715938664, "dur": 1808, "ph": "X", "name": "Write chrome-trace events", "args": {} },
+=======
+{ "pid": 35942, "tid": 1, "ts": 1718208418917563, "dur": 571418, "ph": "X", "name": "BuildProgram", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718208418919223, "dur": 92166, "ph": "X", "name": "BuildProgramContextConstructor", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718208419407308, "dur": 5170, "ph": "X", "name": "OutputData.Write", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718208419412487, "dur": 76479, "ph": "X", "name": "Backend.Write", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718208419414078, "dur": 52399, "ph": "X", "name": "JsonToString", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718208419497828, "dur": 1632, "ph": "X", "name": "", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718208419497245, "dur": 2508, "ph": "X", "name": "Write chrome-trace events", "args": {} },
+>>>>>>> d137a026 (added book and hands animations)
