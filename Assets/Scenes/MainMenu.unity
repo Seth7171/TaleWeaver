@@ -4154,7 +4154,7 @@ GameObject:
   - component: {fileID: 1856086734}
   - component: {fileID: 1856086735}
   m_Layer: 5
-  m_Name: music volume
+  m_Name: musicVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4290,7 +4290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db953fa5cb24c647baaefd5edc5fa5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 1374790658}
+  volumeSlider: {fileID: 1856086735}
+  ObjectMusic: {fileID: 1374790657}
 --- !u!1 &2028037773
 GameObject:
   m_ObjectHideFlags: 0
