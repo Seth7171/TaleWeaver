@@ -1,23 +1,25 @@
-using UnityEngine;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using UnityEngine;
 
 public static class DataManager
 {
-    private static string filePath = Path.Combine(Application.persistentDataPath, "playerData.json");
-
-    public static void SaveData(PlayerData playerData)
-    {
-        string json = JsonUtility.ToJson(playerData, true);
-        File.WriteAllText(filePath, json);
-    }
+    private static string dataPath = Application.persistentDataPath + "/playerData.json";
 
     public static PlayerData LoadData()
     {
-        if (File.Exists(filePath))
+        if (File.Exists(dataPath))
         {
-            string json = File.ReadAllText(filePath);
+            string json = File.ReadAllText(dataPath);
             return JsonUtility.FromJson<PlayerData>(json);
         }
         return new PlayerData();
+    }
+
+    public static void SaveData(PlayerData data)
+    {
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(dataPath, json);
     }
 }

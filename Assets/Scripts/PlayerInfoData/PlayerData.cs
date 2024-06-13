@@ -21,17 +21,6 @@ public class PlayerData
         return true;
     }
 
-    public bool AddBookToPlayer(string playerName, string book)
-    {
-        Player player = Players.Find(p => p.PlayerName == playerName);
-        if (player != null)
-        {
-            player.Books.Add(book);
-            return true;
-        }
-        return false; // Player not found
-    }
-
     public bool DeletePlayer(string playerName)
     {
         Player player = Players.Find(p => p.PlayerName == playerName);

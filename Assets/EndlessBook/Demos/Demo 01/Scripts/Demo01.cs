@@ -5,6 +5,8 @@
     using UnityEngine;
     using echo17.EndlessBook;
     using UnityEngine.SceneManagement;
+    using TMPro;
+    using UnityEngine.UI;
 
     public class Demo01 : MonoBehaviour
     {
@@ -12,6 +14,9 @@
         public float stateAnimationTime = 1f;
         public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
         public float turnTime = 1f;
+        public TMP_InputField bookNameInput;
+        public Button ventureForthButton;
+        public TMP_Text feedbackText;
 
         // Sound-related fields from Demo02
         public AudioSource bookOpenSound;
@@ -27,8 +32,25 @@
         public GameObject startButton;
         public float canvasEnableDelay = 2f; // Delay before enabling the canvas
 
+        // Current Player that entered the game
+        private PlayerData playerData;
+        private Player currentPlayer;
+
         void Awake()
         {
+            // Getting player data
+            string playerName = PlayerSession.SelectedPlayerName;
+            string apiKey = PlayerSession.SelectedPlayerApiKey;
+
+            playerData = DataManager.LoadData();
+            currentPlayer = playerData.Players.Find(player => player.PlayerName == playerName && player.ApiKey == apiKey);
+
+            if (currentPlayer == null)
+            {
+                feedbackText.text = "Player not found.";
+                ventureForthButton.interactable = false;
+            }
+
             // Cache the book
             book = GameObject.Find("Book").GetComponent<EndlessBook>();
 
@@ -148,7 +170,35 @@
         }
         public void VentureForth()
         {
+            string bookName = bookNameInput.text;
+
+            if (string.IsNullOrEmpty(bookName))
+            {
+                feedbackText.text = "Book name cannot be empty.";
+                StartCoroutine(ClearFeedbackText());
+                return;
+            }
+
+            // Save the book name in the player's books array
+            if (currentPlayer != null)
+            {
+                currentPlayer.Books.Add(new Book(bookName, ""));
+                DataManager.SaveData(playerData);
+
+                feedbackText.text = "Book saved successfully.";
+                StartCoroutine(ClearFeedbackText());
+            }
+            else
+            {
+                feedbackText.text = "Player not found.";
+                StartCoroutine(ClearFeedbackText());
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        private IEnumerator ClearFeedbackText()
+        {
+            yield return new WaitForSeconds(3);
+            feedbackText.text = "";
         }
     }
 }

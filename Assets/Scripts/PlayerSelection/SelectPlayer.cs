@@ -70,6 +70,9 @@ public class SelectPlayer : MonoBehaviour
     {
         if (currentPlayerIndex >= 0 && currentPlayerIndex < players.Count)
         {
+            Player selectedPlayer = players[currentPlayerIndex];
+            PlayerSession.SelectedPlayerName = selectedPlayer.PlayerName;
+            PlayerSession.SelectedPlayerApiKey = selectedPlayer.ApiKey;
             // Load the next scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -169,4 +172,9 @@ public class SelectPlayer : MonoBehaviour
         }
     }
 
+    private IEnumerator ClearFeedbackText()
+    {
+        yield return new WaitForSeconds(displayDuration);
+        feedbackText.text = "";
+    }
 }

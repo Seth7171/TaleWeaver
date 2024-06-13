@@ -75,12 +75,14 @@
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_02.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\RotateObject.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
+    <Compile Include="Assets\Scripts\PlayerSession.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\SelectPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\Player.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView.cs" />
     <Compile Include="Assets\Scripts\EnsureWordWrapping.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageAnimationCompleted.cs" />
     <Compile Include="Assets\HandyHands\scripts\showcasecam.cs" />
+    <Compile Include="Assets\Scripts\BookInfo\Book.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\Demo02.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\BookAnimationCompleted.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 03 - Manual Page Turn\Scripts\Demo03.cs" />
