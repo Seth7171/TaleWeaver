@@ -74,8 +74,8 @@
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_02.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\RotateObject.cs" />
+    <Compile Include="Assets\Scripts\PlayerSelection\PlayerSession.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
-    <Compile Include="Assets\Scripts\PlayerSession.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\SelectPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\Player.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView.cs" />
@@ -91,15 +91,16 @@
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageData.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\PlayerData.cs" />
     <Compile Include="Assets\Scripts\DoNotDestroy.cs" />
+    <Compile Include="Assets\Scripts\newBook\VentureForthButton.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\EndlessBook.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\MimicChild.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map_Right.cs" />
+    <Compile Include="Assets\Scripts\OpenAI API\OpenAIInterface.cs" />
     <Compile Include="Assets\HandyHands\scripts\VisualizeJoint.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
-    <Compile Include="Assets\Scripts\VentureForthButton.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\DataManager.cs" />
     <Compile Include="Assets\StarterAssets\FirstPersonController\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\StarterAssets\InputSystem\StarterAssetsInputs.cs" />

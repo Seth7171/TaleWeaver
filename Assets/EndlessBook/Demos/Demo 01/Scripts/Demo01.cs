@@ -14,7 +14,6 @@
         public float stateAnimationTime = 1f;
         public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
         public float turnTime = 1f;
-        public TMP_InputField bookNameInput;
         public Button ventureForthButton;
         public TMP_Text feedbackText;
 
@@ -167,33 +166,6 @@
                     bookOpenSound.Play();
                     break;
             }
-        }
-        public void VentureForth()
-        {
-            string bookName = bookNameInput.text;
-
-            if (string.IsNullOrEmpty(bookName))
-            {
-                feedbackText.text = "Book name cannot be empty.";
-                StartCoroutine(ClearFeedbackText());
-                return;
-            }
-
-            // Save the book name in the player's books array
-            if (currentPlayer != null)
-            {
-                currentPlayer.Books.Add(new Book(bookName, ""));
-                DataManager.SaveData(playerData);
-
-                feedbackText.text = "Book saved successfully.";
-                StartCoroutine(ClearFeedbackText());
-            }
-            else
-            {
-                feedbackText.text = "Player not found.";
-                StartCoroutine(ClearFeedbackText());
-            }
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         private IEnumerator ClearFeedbackText()
         {
