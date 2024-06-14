@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class VentureForthButton : MonoBehaviour
 {
@@ -13,22 +13,18 @@ public class VentureForthButton : MonoBehaviour
     public TMP_InputField narrativeInput;
     public TMP_Text feedbackText;
 
-    // Current Player that entered the game
-    private PlayerData playerData;
     private Player currentPlayer;
 
     void Awake()
     {
         string playerName = PlayerSession.SelectedPlayerName;
-        string apiKey = PlayerSession.SelectedPlayerApiKey;
-
-        playerData = DataManager.LoadData();
-        currentPlayer = playerData.Players.Find(player => player.PlayerName == playerName && player.ApiKey == apiKey);
+        currentPlayer = DataManager.LoadPlayerData(playerName);
     }
 
     public void VentureForth()
     {
         string bookName = bookNameInput.text;
+        string narrative = narrativeInput.text;
 
         if (string.IsNullOrEmpty(bookName))
         {
@@ -37,11 +33,13 @@ public class VentureForthButton : MonoBehaviour
             return;
         }
 
-        // Save the book name in the player's books array
         if (currentPlayer != null)
         {
-            currentPlayer.Books.Add(new Book(bookName, ""));
-            DataManager.SaveData(playerData);
+            currentPlayer.BookNames.Add(bookName);
+            DataManager.SavePlayerData(currentPlayer);
+
+            Book newBook = new Book(bookName, narrative);
+            DataManager.SaveBookData(currentPlayer.PlayerName, newBook);
 
             feedbackText.text = "Book saved successfully.";
             CreateBookJson();
@@ -72,7 +70,7 @@ public class VentureForthButton : MonoBehaviour
             return;
         }
 
-        var bookData = new
+/*        var bookData = new
         {
             page0 = new
             {
@@ -82,12 +80,14 @@ public class VentureForthButton : MonoBehaviour
         };
 
         string json = JsonUtility.ToJson(bookData, true);
-        File.WriteAllText($"{Application.persistentDataPath}/{bookName}.json", json);
+        string bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, bookName);
+        string bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
+        File.WriteAllText(bookFilePath, json);*/
 
         // Call the OpenAI Interface
         if (OpenAIInterface.Instance != null)
         {
-            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, narrative);
+            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, narrative, "1");
         }
         else
         {
@@ -95,11 +95,10 @@ public class VentureForthButton : MonoBehaviour
         }
     }
 
+
     private IEnumerator ClearFeedbackText()
     {
         yield return new WaitForSeconds(3);
         feedbackText.text = "";
     }
-
-
 }

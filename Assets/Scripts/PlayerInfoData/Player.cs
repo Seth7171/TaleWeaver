@@ -6,12 +6,12 @@ public class Player
 {
     public string PlayerName;
     public string ApiKey;
-    public List<Book> Books;
+    public List<string> BookNames;
 
     public Player(string playerName, string apiKey)
     {
         PlayerName = playerName;
         ApiKey = apiKey;
-        Books = new List<Book>();
+        BookNames = new List<string>();
     }
 }

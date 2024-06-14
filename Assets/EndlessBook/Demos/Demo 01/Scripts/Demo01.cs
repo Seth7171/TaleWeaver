@@ -31,24 +31,24 @@
         public GameObject startButton;
         public float canvasEnableDelay = 2f; // Delay before enabling the canvas
 
-        // Current Player that entered the game
+/*        // Current Player that entered the game
         private PlayerData playerData;
-        private Player currentPlayer;
+        private Player currentPlayer;*/
 
         void Awake()
         {
-            // Getting player data
+/*            // Getting player data
             string playerName = PlayerSession.SelectedPlayerName;
             string apiKey = PlayerSession.SelectedPlayerApiKey;
 
-            playerData = DataManager.LoadData();
+            playerData = DataManager.LoadData(playerName);
             currentPlayer = playerData.Players.Find(player => player.PlayerName == playerName && player.ApiKey == apiKey);
 
             if (currentPlayer == null)
             {
                 feedbackText.text = "Player not found.";
                 ventureForthButton.interactable = false;
-            }
+            }*/
 
             // Cache the book
             book = GameObject.Find("Book").GetComponent<EndlessBook>();

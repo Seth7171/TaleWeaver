@@ -1,9 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SelectPlayer : MonoBehaviour
 {
@@ -19,14 +19,14 @@ public class SelectPlayer : MonoBehaviour
     public Button rightArrowButton;
     public float displayDuration = 3f;
 
-    private PlayerData playerData;
-    private List<Player> players;
+    private PlayerManager playerManager;
+    private List<string> players;
     private int currentPlayerIndex = -1;
 
     void Start()
     {
-        playerData = DataManager.LoadData();
-        players = playerData.Players;
+        playerManager = DataManager.LoadPlayerManager();
+        players = playerManager.PlayerNames;
 
         if (players.Count > 0)
         {
@@ -47,13 +47,12 @@ public class SelectPlayer : MonoBehaviour
     {
         if (currentPlayerIndex >= 0 && currentPlayerIndex < players.Count)
         {
-            playerNameText.text = players[currentPlayerIndex].PlayerName;
+            playerNameText.text = players[currentPlayerIndex];
             startNewAdventureButton.interactable = true;
             viewPreviousAdventuresButton.interactable = true;
             deletePlayerButton.interactable = true;
             leftArrowButton.interactable = true;
             rightArrowButton.interactable = true;
-
         }
         else
         {
@@ -70,21 +69,24 @@ public class SelectPlayer : MonoBehaviour
     {
         if (currentPlayerIndex >= 0 && currentPlayerIndex < players.Count)
         {
-            Player selectedPlayer = players[currentPlayerIndex];
-            PlayerSession.SelectedPlayerName = selectedPlayer.PlayerName;
-            PlayerSession.SelectedPlayerApiKey = selectedPlayer.ApiKey;
-            // Load the next scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            string selectedPlayer = players[currentPlayerIndex];
+            Player player = DataManager.LoadPlayerData(selectedPlayer);
+
+            if (player != null)
+            {
+                PlayerSession.SelectedPlayerName = player.PlayerName;
+                PlayerSession.SelectedPlayerApiKey = player.ApiKey;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else
+            {
+                feedbackText.text = "Failed to load player data.";
+            }
         }
         else
         {
             feedbackText.text = "Please select a player first.";
         }
-    }
-
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 
     public void CreatePlayer()
@@ -99,13 +101,16 @@ public class SelectPlayer : MonoBehaviour
         }
 
         Player newPlayer = new Player(playerName, apiKey);
-        bool playerAdded = playerData.AddPlayer(newPlayer);
+        bool playerAdded = playerManager.AddPlayer(playerName);
 
         if (playerAdded)
         {
-            DataManager.SaveData(playerData);
+            DataManager.CreatePlayerFolder(playerName);
+            DataManager.SavePlayerManager(playerManager);
+            DataManager.SavePlayerData(newPlayer);
+
             feedbackText.text = "Player created successfully.";
-            players = playerData.Players;
+            players = playerManager.PlayerNames;
             currentPlayerIndex = players.Count - 1;
             DisplayCurrentPlayer();
             playerNameInput.text = "";
@@ -122,14 +127,16 @@ public class SelectPlayer : MonoBehaviour
     {
         if (currentPlayerIndex >= 0 && currentPlayerIndex < players.Count)
         {
-            string playerName = players[currentPlayerIndex].PlayerName;
-            bool playerDeleted = playerData.DeletePlayer(playerName);
+            string playerName = players[currentPlayerIndex];
+            bool playerDeleted = playerManager.DeletePlayer(playerName);
 
             if (playerDeleted)
             {
-                DataManager.SaveData(playerData);
+                DataManager.DeletePlayerFolder(playerName);
+                DataManager.SavePlayerManager(playerManager);
+
                 feedbackText.text = "Player deleted successfully.";
-                players = playerData.Players;
+                players = playerManager.PlayerNames;
                 currentPlayerIndex = players.Count > 0 ? 0 : -1;
                 DisplayCurrentPlayer();
             }
