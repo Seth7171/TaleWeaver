@@ -71,6 +71,13 @@ public class ImageGenerationRequest
     public string size;
 }
 
+[System.Serializable]
+public class ConfigData
+{
+    public string openAIKey;
+    public string assistantID;
+}
+
 
 
 public class OpenAIInterface : MonoBehaviour
@@ -90,10 +97,29 @@ public class OpenAIInterface : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             Debug.Log("OpenAIInterface instance initialized.");
+            LoadConfig();
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void LoadConfig()
+    {
+        string configPath = Path.Combine(Application.dataPath, "Scripts/OpenAI API/config.json");
+        Debug.Log(configPath);
+        if (File.Exists(configPath))
+        {
+            string json = File.ReadAllText(configPath);
+            ConfigData configData = JsonUtility.FromJson<ConfigData>(json);
+            user_APIKey = configData.openAIKey;
+            assistant_ID = configData.assistantID;
+            Debug.Log("Config loaded successfully.");
+        }
+        else
+        {
+            Debug.LogError("Config file not found.");
         }
     }
 

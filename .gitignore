@@ -1,1 +1,4 @@
+# Ignore OpenAI API configuration files
+Assets/Scripts/OpenAI API/config.json
+Assets/Scripts/OpenAI API/config.json.meta
 Temp/
