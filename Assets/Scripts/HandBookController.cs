@@ -146,7 +146,7 @@ public class HandBookController : MonoBehaviour
         EnableControls();
     }
 
-    void DisableControls()
+    public void DisableControls()
     {
         if (cameraController != null)
         {
@@ -161,7 +161,7 @@ public class HandBookController : MonoBehaviour
         }
     }
 
-    void EnableControls()
+    public void EnableControls()
     {
         if (cameraController != null)
         {
