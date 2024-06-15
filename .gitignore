@@ -3,3 +3,6 @@ Assets/Scripts/OpenAI API/config.json
 Assets/Scripts/OpenAI API/config.json.meta
 Temp/
 Library/
+obj/
+Logs/
+UserSettings/
