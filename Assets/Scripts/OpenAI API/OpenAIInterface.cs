@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using System.Text;
 using System.IO;
 using TMPro;
+using System.Linq;
 
 [System.Serializable]
 public class APIResponse
@@ -78,8 +79,6 @@ public class ConfigData
     public string assistantID;
 }
 
-
-
 public class OpenAIInterface : MonoBehaviour
 {
     public static OpenAIInterface Instance { get; private set; }
@@ -88,7 +87,7 @@ public class OpenAIInterface : MonoBehaviour
     private string apiBaseUrl = "https://api.openai.com/v1/threads";
     private string game_APIThread;
     public string current_Page = "0";
-    public string current_Nerrative;
+    public string current_Narrative;
 
     private void Awake()
     {
@@ -127,7 +126,7 @@ public class OpenAIInterface : MonoBehaviour
     {
         Debug.Log($"SendNarrativeToAPI called with bookName: {bookName}, narrative: {narrative}");
         this.current_Page = pagenum;
-        this.current_Nerrative = narrative;
+        this.current_Narrative = narrative;
         StartCoroutine(SendNarrativeCoroutine(bookName, narrative));
     }
 
@@ -136,7 +135,7 @@ public class OpenAIInterface : MonoBehaviour
         Debug.Log("SendNarrativeCoroutine started.");
         var bookData = new
         {
-            page = new 
+            page = new
             {
                 book_name = bookName,
                 narrative = narrative
@@ -426,10 +425,13 @@ public class OpenAIInterface : MonoBehaviour
                 }
                 else
                 {
-                    bookData = new Book(bookName, this.current_Nerrative);
+                    bookData = new Book(bookName, this.current_Narrative);
                 }
 
-                bookData.Pages.Add(new Page(pageText, imagePath));
+                // Parse the narrative into the structured format
+                var page = ParsePage(pageText, imagePath);
+
+                bookData.Pages.Add(page);
 
                 string json = JsonUtility.ToJson(bookData, true);
                 Debug.Log("Final JSON: " + json);
@@ -437,4 +439,125 @@ public class OpenAIInterface : MonoBehaviour
             }
         }
     }
+
+    private Page ParsePage(string narrative, string imageUrl)
+    {
+        try
+        {
+            // Split the narrative text into lines
+            string[] lines = narrative.Split(new[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
+
+            // Extract Encounter Number and Name
+            string encounterLine = lines.FirstOrDefault(line => line.StartsWith("###"));
+            if (encounterLine == null) throw new System.Exception("Encounter line not found");
+            string[] encounterParts = encounterLine.Replace("###", "").Trim().Split(new[] { ':' }, 2);
+            string encounterNum = encounterParts[0].Trim();
+            string encounterName = encounterParts.Length > 1 ? encounterParts[1].Trim() : "";
+
+            // Initialize sections
+            string encounterIntroduction = "";
+            string encounterDescription = "";
+            string imageGeneration = "";
+            string encounterAction = "";
+            List<Option> choices = new List<Option>();
+
+            // Extract sections dynamically
+            bool inIntroduction = false, inDescription = false, inImageGeneration = false, inChoices = false;
+            bool encounterActionFound = false;
+
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("**Encounter Introduction:**"))
+                {
+                    inIntroduction = true;
+                    inDescription = false;
+                    inImageGeneration = false;
+                    inChoices = false;
+                    continue;
+                }
+                if (line.StartsWith("**Encounter Description:**"))
+                {
+                    inIntroduction = false;
+                    inDescription = true;
+                    inImageGeneration = false;
+                    inChoices = false;
+                    continue;
+                }
+                if (line.StartsWith("**Image Generation:**"))
+                {
+                    inIntroduction = false;
+                    inDescription = false;
+                    inImageGeneration = true;
+                    inChoices = false;
+                    continue;
+                }
+                if (line.StartsWith("**End Image Generation:**"))
+                {
+                    inIntroduction = false;
+                    inDescription = false;
+                    inImageGeneration = false;
+                    inChoices = false;
+                    continue;
+                }
+                if (line.StartsWith("**Choices:**"))
+                {
+                    inIntroduction = false;
+                    inDescription = false;
+                    inImageGeneration = false;
+                    inChoices = true;
+                    continue;
+                }
+
+                // Accumulate section content
+                if (inIntroduction)
+                {
+                    encounterIntroduction += " " + line.Trim();
+                }
+                else if (inDescription)
+                {
+                    encounterDescription += " " + line.Trim();
+                }
+                else if (inImageGeneration)
+                {
+                    imageGeneration += " " + line.Trim();
+                }
+                else if (inChoices)
+                {
+                    if (!encounterActionFound)
+                    {
+                        encounterAction = line.Trim();
+                        encounterActionFound = true;
+                    }
+                    else if (line.StartsWith("1.") || line.StartsWith("2.") || line.StartsWith("3."))
+                    {
+                        choices.Add(new Option(line.Substring(2).Trim(), 145));
+                    }
+                }
+            }
+
+            // Truncate sections to their word limits
+            encounterIntroduction = TruncateText(encounterIntroduction.Trim(), 145);
+            encounterDescription = TruncateText(encounterDescription.Trim(), 600);
+
+            return new Page(encounterNum, encounterName, encounterIntroduction, imageGeneration, encounterDescription, encounterAction, choices, imageUrl);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Error parsing page: " + ex.Message);
+            return null;
+        }
+    }
+
+    private string TruncateText(string text, int maxWords)
+    {
+        string[] words = text.Split(' ');
+        if (words.Length > maxWords)
+        {
+            return string.Join(" ", words, 0, maxWords) + "...";
+        }
+        return text;
+    }
+
+
+
 }
