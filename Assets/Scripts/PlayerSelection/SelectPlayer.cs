@@ -11,9 +11,11 @@ public class SelectPlayer : MonoBehaviour
     public TMP_Text feedbackText;
     public TMP_InputField playerNameInput;
     public TMP_InputField apiKeyInput;
+    public TMP_InputField UpdatedapiKeyInput;
     public GameObject newPlayerMenu;
     public Button startNewAdventureButton;
     public Button viewPreviousAdventuresButton;
+    public Button editAPIkeyButton;
     public Button deletePlayerButton;
     public Button leftArrowButton;
     public Button rightArrowButton;
@@ -40,6 +42,7 @@ public class SelectPlayer : MonoBehaviour
             deletePlayerButton.interactable = false;
             leftArrowButton.interactable = false;
             rightArrowButton.interactable = false;
+            editAPIkeyButton.interactable = false;
         }
     }
 
@@ -53,6 +56,7 @@ public class SelectPlayer : MonoBehaviour
             deletePlayerButton.interactable = true;
             leftArrowButton.interactable = true;
             rightArrowButton.interactable = true;
+            editAPIkeyButton.interactable = true;
         }
         else
         {
@@ -62,6 +66,7 @@ public class SelectPlayer : MonoBehaviour
             deletePlayerButton.interactable = false;
             leftArrowButton.interactable = false;
             rightArrowButton.interactable = false;
+            editAPIkeyButton.interactable = false;
         }
     }
 
@@ -123,6 +128,40 @@ public class SelectPlayer : MonoBehaviour
         }
     }
 
+    public void UpdateAPIkey()
+    {
+        if (currentPlayerIndex >= 0 && currentPlayerIndex < players.Count)
+        {
+            string playerName = players[currentPlayerIndex];
+            string newApiKey = UpdatedapiKeyInput.text;
+
+            if (string.IsNullOrEmpty(newApiKey))
+            {
+                feedbackText.text = "API key cannot be empty.";
+                StartCoroutine(ClearFeedbackText());
+                return;
+            }
+
+            Player player = DataManager.LoadPlayerData(playerName);
+            if (player != null)
+            {
+                player.ApiKey = newApiKey;
+                DataManager.SavePlayerData(player);
+                feedbackText.text = "API key updated successfully.";
+            }
+            else
+            {
+                feedbackText.text = "Failed to load player data.";
+            }
+            UpdatedapiKeyInput.text = "";
+        }
+        else
+        {
+            feedbackText.text = "No player selected.";
+        }
+        StartCoroutine(ClearFeedbackText());
+    }
+
     public void DeletePlayer()
     {
         if (currentPlayerIndex >= 0 && currentPlayerIndex < players.Count)
@@ -177,6 +216,11 @@ public class SelectPlayer : MonoBehaviour
             currentPlayerIndex = (currentPlayerIndex + 1) % players.Count;
             DisplayCurrentPlayer();
         }
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     private IEnumerator ClearFeedbackText()
