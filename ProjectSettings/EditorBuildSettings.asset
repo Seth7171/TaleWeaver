@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameWorld.unity
     guid: f16ff2078e3198342ac67babaeeaee52
+  - enabled: 1
+    path: Assets/Scenes/ViewPrevAdv.unity
+    guid: 8813abc040518124a812b3fa5753c5a0
   m_configObjects: {}

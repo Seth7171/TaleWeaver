@@ -13,6 +13,9 @@ public class SelectPlayer : MonoBehaviour
     public TMP_InputField apiKeyInput;
     public TMP_InputField UpdatedapiKeyInput;
     public GameObject newPlayerMenu;
+    public GameObject previousAdventuresWindow;
+    public GameObject scrollViewContent;
+    public GameObject bookButtonPrefab;
     public Button startNewAdventureButton;
     public Button viewPreviousAdventuresButton;
     public Button editAPIkeyButton;
@@ -222,6 +225,71 @@ public class SelectPlayer : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void ShowPreviousAdventures()
+    {
+        Debug.Log("ShowPreviousAdventures called");
+
+        // Clear existing buttons
+        foreach (Transform child in scrollViewContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        if (currentPlayerIndex >= 0 && currentPlayerIndex < players.Count)
+        {
+            string selectedPlayer = players[currentPlayerIndex];
+            Player player = DataManager.LoadPlayerData(selectedPlayer);
+
+            if (player != null)
+            {
+                foreach (string bookName in player.BookNames)
+                {
+                    Debug.Log($"Creating button for book: {bookName}");
+                    GameObject button = Instantiate(bookButtonPrefab, scrollViewContent.transform);
+                    button.SetActive(true);
+                    TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
+                    if (buttonText != null)
+                    {
+                        buttonText.text = bookName;
+                    }
+                    else
+                    {
+                        Debug.LogError("TMP_Text component not found on button prefab.");
+                    }
+
+                    Button btnComponent = button.GetComponent<Button>();
+                    if (btnComponent != null)
+                    {
+                        btnComponent.onClick.AddListener(() => OnBookButtonClicked(selectedPlayer, bookName));
+                    }
+                    else
+                    {
+                        Debug.LogError("Button component not found on button prefab.");
+                    }
+                }
+            }
+            else
+            {
+                feedbackText.text = "Failed to load player data.";
+            }
+        }
+        else
+        {
+            feedbackText.text = "Please select a player first.";
+        }
+
+        previousAdventuresWindow.SetActive(true);
+    }
+
+    private void OnBookButtonClicked(string playerName, string bookName)
+    {
+        Debug.Log($"Button clicked for book: {bookName}");
+        PlayerSession.SelectedPlayerName = playerName;
+        PlayerSession.SelectedBookName = bookName;
+        SceneManager.LoadScene("ViewPrevAdv");
+    }
+
 
     private IEnumerator ClearFeedbackText()
     {
