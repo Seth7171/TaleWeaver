@@ -14,4 +14,9 @@ public class Player
         ApiKey = apiKey;
         BookNames = new List<string>();
     }
+
+    public void RemoveBook(string bookName)
+    {
+        BookNames.Remove(bookName);
+    }
 }
