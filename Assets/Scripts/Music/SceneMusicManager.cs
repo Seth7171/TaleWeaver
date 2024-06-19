@@ -13,6 +13,8 @@ public class SceneMusicManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         remainingTracks = new List<AudioClip>(musicTracks);
 
+        VolumeManager.Instance?.SetCurrentAudioSource(audioSource);
+
         if (remainingTracks.Count > 0)
         {
             PlayRandomTrack();
@@ -23,7 +25,6 @@ public class SceneMusicManager : MonoBehaviour
     {
         if (remainingTracks.Count == 0)
         {
-            // If all tracks have been played, reset the list
             remainingTracks = new List<AudioClip>(musicTracks);
         }
 
@@ -31,9 +32,8 @@ public class SceneMusicManager : MonoBehaviour
         audioSource.clip = remainingTracks[randomIndex];
         audioSource.Play();
 
-        remainingTracks.RemoveAt(randomIndex); // Remove the played track from the list
+        remainingTracks.RemoveAt(randomIndex);
 
-        // Schedule the next track to play when the current one finishes
         Invoke("PlayRandomTrack", audioSource.clip.length);
     }
 }

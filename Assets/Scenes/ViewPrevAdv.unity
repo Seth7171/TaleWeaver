@@ -8792,6 +8792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632059428}
   - component: {fileID: 632059429}
+  - component: {fileID: 632059430}
   m_Layer: 5
   m_Name: music volume slider
   m_TagString: Untagged
@@ -8873,7 +8874,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1317010380}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
         m_MethodName: updateVolume
         m_Mode: 0
@@ -8885,6 +8886,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &632059430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632059427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8705f1960397cdc4d836ca0d6077389b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 632059429}
 --- !u!1 &633715927
 GameObject:
   m_ObjectHideFlags: 0
@@ -15947,7 +15961,7 @@ GameObject:
   - component: {fileID: 1131239354}
   - component: {fileID: 1131239353}
   m_Layer: 0
-  m_Name: ScceneMusicManager
+  m_Name: SceneMusicManager
   m_TagString: GameMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15998,7 +16012,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -18853,52 +18867,6 @@ Transform:
   m_Children:
   - {fileID: 1442114539}
   m_Father: {fileID: 1007689046}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1317010379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1317010381}
-  - component: {fileID: 1317010380}
-  m_Layer: 0
-  m_Name: MusicPlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1317010380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317010379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0db953fa5cb24c647baaefd5edc5fa5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 632059429}
-  ObjectMusic: {fileID: 1131239352}
---- !u!4 &1317010381
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317010379}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 991.5339, y: 436.1664, z: 1043.3982}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319508065
 GameObject:
@@ -33034,5 +33002,4 @@ SceneRoots:
   - {fileID: 1605688819}
   - {fileID: 1215590895}
   - {fileID: 578034855}
-  - {fileID: 1317010381}
   - {fileID: 1131239355}

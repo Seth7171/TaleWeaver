@@ -16,6 +16,7 @@ public class DoNotDestroy : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         audioSource = GetComponent<AudioSource>();
+        VolumeManager.Instance?.SetCurrentAudioSource(audioSource);
     }
 
     private void OnEnable()
@@ -32,11 +33,11 @@ public class DoNotDestroy : MonoBehaviour
     {
         if (scene.name != "MainMenu" && scene.name != "PlayerSelection" && scene.name != "NewBook")
         {
-            audioSource.Pause(); // Pause the main theme music
+            Destroy(this.gameObject);
         }
         else
         {
-            audioSource.UnPause(); // Resume the main theme music
+            VolumeManager.Instance?.SetCurrentAudioSource(audioSource);
         }
     }
 }

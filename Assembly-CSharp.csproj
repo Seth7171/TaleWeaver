@@ -81,7 +81,6 @@
     <Compile Include="Assets\Scripts\PlayerSelection\SelectPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\Player.cs" />
     <Compile Include="Assets\Scripts\Music\DoNotDestroy.cs" />
-    <Compile Include="Assets\Scripts\Music\MusicPlayerScript.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView.cs" />
     <Compile Include="Assets\Scripts\EnsureWordWrapping.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageAnimationCompleted.cs" />
@@ -102,6 +101,7 @@
     <Compile Include="Assets\Scripts\newBook\VentureForthButton.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map.cs" />
     <Compile Include="Assets\Scripts\HealthBar\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Music\VolumeManager.cs" />
     <Compile Include="Assets\Scripts\Music\SceneMusicManager.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\EndlessBook.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\MimicChild.cs" />
@@ -113,6 +113,7 @@
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\DataManager.cs" />
     <Compile Include="Assets\StarterAssets\FirstPersonController\Scripts\FirstPersonController.cs" />
+    <Compile Include="Assets\Scripts\Music\VolumeControlUI.cs" />
     <Compile Include="Assets\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\Candle.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\ThirdPersonController.cs" />
