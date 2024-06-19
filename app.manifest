@@ -7,4 +7,11 @@
       </requestedPrivileges>
     </security>
   </trustInfo>
+  <application xmlns="urn:schemas-microsoft-com:asm.v3">
+    <windowsSettings>
+      <display>
+        <resolution width="1920" height="1080" />
+      </display>
+    </windowsSettings>
+  </application>
 </assembly>

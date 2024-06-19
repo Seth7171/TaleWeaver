@@ -1,0 +1,16 @@
+﻿=================
+Begin Activation Context Generation.
+Input Parameter:
+	Flags = 0
+	ProcessorArchitecture = AMD64
+	CultureFallBacks = en-US;en
+	ManifestPath = C:\Users\NitMa\Unity Projects\TaleWeaverDev\Build\TaleWeaver.exe
+	AssemblyDirectory = C:\Users\NitMa\Unity Projects\TaleWeaverDev\Build\
+	Application Config File = 
+-----------------
+INFO: Parsing Manifest File C:\Users\NitMa\Unity Projects\TaleWeaverDev\Build\TaleWeaver.exe.
+	INFO: Manifest Definition Identity is (null).
+	ERROR: Line 11: The element display appears as a child of element urn:schemas-microsoft-com:asm.v1^windowsSettings which is not supported by this version of Windows.
+ERROR: Activation Context generation failed.
+End Activation Context Generation.
+
