@@ -3575,6 +3575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 215973960}
   - component: {fileID: 215973961}
+  - component: {fileID: 215973962}
   m_Layer: 5
   m_Name: music volume slider
   m_TagString: Untagged
@@ -3668,6 +3669,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &215973962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215973959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8705f1960397cdc4d836ca0d6077389b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 215973961}
 --- !u!1 &216754088
 GameObject:
   m_ObjectHideFlags: 0
@@ -11595,52 +11609,6 @@ MonoBehaviour:
     pageNumber: 17
   - gameObjectName: Chapter 07
     pageNumber: 999
---- !u!1 &728983509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 728983511}
-  - component: {fileID: 728983510}
-  m_Layer: 0
-  m_Name: MusicPlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &728983510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728983509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0db953fa5cb24c647baaefd5edc5fa5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 215973961}
-  ObjectMusic: {fileID: 1234981390}
---- !u!4 &728983511
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728983509}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 991.5339, y: 436.1664, z: 1043.3982}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &736878416
 GameObject:
   m_ObjectHideFlags: 0
@@ -34847,7 +34815,6 @@ SceneRoots:
   - {fileID: 747874048}
   - {fileID: 485373822}
   - {fileID: 898909467}
-  - {fileID: 728983511}
   - {fileID: 1231816679}
   - {fileID: 1791852282}
   - {fileID: 601361489}
