@@ -78,7 +78,7 @@ public class BookLoader : MonoBehaviour
         {
             string jsonData = File.ReadAllText(bookFilePath);
             Book bookData = JsonUtility.FromJson<Book>(jsonData);
-            DisplayPage(bookData.Pages[0]);
+            DisplayPage(bookData.Pages[pageNumBasedon_objectName]);
         }
         else
         {
