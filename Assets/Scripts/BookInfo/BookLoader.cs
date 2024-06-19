@@ -31,8 +31,8 @@ public class BookLoader : MonoBehaviour
     void Start()
     {
         /*bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, "dark castle");*/
-        //bookFolderPath = Path.Combine("C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\ron\\dark castle\\");
-        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        bookFolderPath = Path.Combine("C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\ron\\dark castle\\");
+        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
 
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
