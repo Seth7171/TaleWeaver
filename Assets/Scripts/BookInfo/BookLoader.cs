@@ -12,7 +12,12 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI encounterName;
     public TextMeshProUGUI encounterDetails;
     public TextMeshProUGUI encounterAction;
-    public TextMeshProUGUI encounterOptions;
+    public TextMeshProUGUI encounterOptions1;
+    public TextMeshProUGUI encounterOptions2;
+    public TextMeshProUGUI encounterOptions3;
+    public TextMeshProUGUI encounterOptions1_copy;
+    public TextMeshProUGUI encounterOptions2_copy;
+    public TextMeshProUGUI encounterOptions3_copy;
     public Image encounterImage;
 
     private string bookFolderPath;
@@ -26,8 +31,8 @@ public class BookLoader : MonoBehaviour
     void Start()
     {
         /*bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, "dark castle");*/
-        bookFolderPath = Path.Combine("C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\ron\\dark castle\\");
-        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        //bookFolderPath = Path.Combine("C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\ron\\dark castle\\");
+        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
 
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
@@ -58,15 +63,14 @@ public class BookLoader : MonoBehaviour
         encounterAction.text = TruncateText(page.EncounterAction, EncounterActionMaxWords);
 
         // Parse and truncate choices
-        string optionsText = "";
-        int i = 0;
-        foreach (Option option in page.EncounterOptions)
-        {
-            i++;
-            optionsText += TruncateText($"{i}). "+option.option, EncounterOptionMaxWords) + "\n";
-        }
-        i = 0;
-        encounterOptions.text = optionsText.Trim();
+        encounterOptions1.text = page.EncounterOptions.Count > 0 ? TruncateText("1). " + page.EncounterOptions[0].option, EncounterOptionMaxWords) : "";
+        encounterOptions2.text = page.EncounterOptions.Count > 1 ? TruncateText("2). " + page.EncounterOptions[1].option, EncounterOptionMaxWords) : "";
+        encounterOptions3.text = page.EncounterOptions.Count > 2 ? TruncateText("3). " + page.EncounterOptions[2].option, EncounterOptionMaxWords) : "";
+
+        // Parse and truncate choices copies!
+        encounterOptions1_copy.text = page.EncounterOptions.Count > 0 ? TruncateText("1). " + page.EncounterOptions[0].option, EncounterOptionMaxWords) : "";
+        encounterOptions2_copy.text = page.EncounterOptions.Count > 1 ? TruncateText("2). " + page.EncounterOptions[1].option, EncounterOptionMaxWords) : "";
+        encounterOptions3_copy.text = page.EncounterOptions.Count > 2 ? TruncateText("3). " + page.EncounterOptions[2].option, EncounterOptionMaxWords) : "";
 
         // Load image
         StartCoroutine(LoadImage(page.ImageUrl));
