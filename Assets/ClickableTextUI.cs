@@ -36,9 +36,21 @@ public class ClickableTextUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (onClick != null)
         {
-            onClick.Invoke();
+            if (onClick != null)
+                if (onClick != null)
+                {
+                    {
+                        onClick.Invoke();
+                        onClick.Invoke();
+                    }
+                }
+            // Get the first character of the TextMeshPro text
+            string narrative = textMeshPro.text.Substring(0, 1);
+            // Get the current book name from the OpenAIInterface instance
+            string bookName = OpenAIInterface.Instance.current_BookName;
+            // Call SendMessageToExistingBook with the book name, narrative, and page number (using first character of the TextMeshPro)
+            OpenAIInterface.Instance.SendMessageToExistingBook(bookName, narrative, narrative);
         }
     }
 }

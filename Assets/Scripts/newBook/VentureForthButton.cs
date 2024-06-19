@@ -50,7 +50,7 @@ public class VentureForthButton : MonoBehaviour
             feedbackText.text = "Player not found.";
             StartCoroutine(ClearFeedbackText());
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("LoadingScene");
     }
 
     private void CreateBookJson()
