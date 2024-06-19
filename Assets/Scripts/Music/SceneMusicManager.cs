@@ -6,12 +6,14 @@ public class SceneMusicManager : MonoBehaviour
 {
     public List<AudioClip> musicTracks;
     private AudioSource audioSource;
+    private List<AudioClip> remainingTracks;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        remainingTracks = new List<AudioClip>(musicTracks);
 
-        if (musicTracks.Count > 0)
+        if (remainingTracks.Count > 0)
         {
             PlayRandomTrack();
         }
@@ -19,16 +21,19 @@ public class SceneMusicManager : MonoBehaviour
 
     private void PlayRandomTrack()
     {
-        if (musicTracks.Count == 0)
-            return;
+        if (remainingTracks.Count == 0)
+        {
+            // If all tracks have been played, reset the list
+            remainingTracks = new List<AudioClip>(musicTracks);
+        }
 
-        int randomIndex = Random.Range(0, musicTracks.Count);
-        audioSource.clip = musicTracks[randomIndex];
+        int randomIndex = Random.Range(0, remainingTracks.Count);
+        audioSource.clip = remainingTracks[randomIndex];
         audioSource.Play();
 
-        musicTracks.RemoveAt(randomIndex); // Remove the played track from the list
+        remainingTracks.RemoveAt(randomIndex); // Remove the played track from the list
 
-        // Play the next random track when the current one finishes
+        // Schedule the next track to play when the current one finishes
         Invoke("PlayRandomTrack", audioSource.clip.length);
     }
 }
