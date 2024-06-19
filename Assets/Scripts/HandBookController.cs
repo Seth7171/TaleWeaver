@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HandBookController : MonoBehaviour
@@ -44,12 +45,19 @@ public class HandBookController : MonoBehaviour
 
     private Coroutine transitionCoroutine;
 
+    public TextMeshProUGUI encounterOptions1_copy;
+    public TextMeshProUGUI encounterOptions2_copy;
+    public TextMeshProUGUI encounterOptions3_copy;
+
     void Start()
     {
         //Debug.Log("Start: Setting Hidden Position");
         SetHiddenPosition();
         is_readMode = false;
         is_flashLight_on = false;
+
+        // Initially hide the encounter options
+        HideEncounterOptions();
     }
 
     void Update()
@@ -77,11 +85,13 @@ public class HandBookController : MonoBehaviour
         switch (currentView)
         {
             case 0:
+                HideEncounterOptions();
                 EnableControls();
                 transitionCoroutine = StartCoroutine(TransitionToHidden());
                 Cursor.visible = false;
                 break;
             case 1:
+                HideEncounterOptions();
                 EnableControls();
                 transitionCoroutine = StartCoroutine(TransitionToMid());
                 Cursor.visible = false;
@@ -91,6 +101,7 @@ public class HandBookController : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
                 DisableControls();
+                StartCoroutine(ShowEncounterOptionsWithDelay());
                 break;
         }
 
@@ -179,6 +190,7 @@ public class HandBookController : MonoBehaviour
     IEnumerator TransitionToHidden()
     {
         //Debug.Log("Transition to Hidden");
+        HideEncounterOptions();
         Transform rightInnerHand = rightHand.Find("hand_right");
         Transform rightLowerArm = rightHand.Find("upperarm_r/lowerarm1_r");
         Transform leftInnerHand = leftHand.Find("hand_left");
@@ -236,7 +248,7 @@ public class HandBookController : MonoBehaviour
     IEnumerator TransitionToMid()
     {
         is_readMode = false;
-
+        HideEncounterOptions();
         //Debug.Log("Transition to Mid");
         Transform rightInnerHand = rightHand.Find("hand_right");
         Transform rightLowerArm = rightHand.Find("upperarm_r/lowerarm1_r");
@@ -370,5 +382,27 @@ public class HandBookController : MonoBehaviour
         book.localScale = readBookScale;
 
         DisableControls();
+    }
+    void HideEncounterOptions()
+    {
+        encounterOptions1_copy.gameObject.SetActive(false);
+        encounterOptions2_copy.gameObject.SetActive(false);
+        encounterOptions3_copy.gameObject.SetActive(false);
+    }
+
+    IEnumerator ShowEncounterOptionsWithDelay()
+    {
+        yield return new WaitForSeconds(1f); // Delay before showing the encounter options
+        if (is_readMode == true)
+        {
+            ShowEncounterOptions();
+        }
+    }
+
+    void ShowEncounterOptions()
+    {
+        encounterOptions1_copy.gameObject.SetActive(true);
+        encounterOptions2_copy.gameObject.SetActive(true);
+        encounterOptions3_copy.gameObject.SetActive(true);
     }
 }
