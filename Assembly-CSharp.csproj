@@ -91,8 +91,10 @@
     <Compile Include="Assets\EndlessBook\Demos\Demo 03 - Manual Page Turn\Scripts\Demo03.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map_Left.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
+    <Compile Include="Assets\ClickableTextUI.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageData.cs" />
     <Compile Include="Assets\Scripts\PauseMenus\PauseMenuGame.cs" />
+    <Compile Include="Assets\ClickableText.cs" />
     <Compile Include="Assets\Scripts\HealthBar\Health_Test.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\PlayerData.cs" />
     <Compile Include="Assets\Scripts\DoNotDestroy.cs" />
