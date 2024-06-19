@@ -6,6 +6,7 @@ using System.Text;
 using System.IO;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class APIResponse
@@ -88,6 +89,7 @@ public class OpenAIInterface : MonoBehaviour
     private string game_APIThread;
     public string current_Page = "0";
     public string current_Narrative;
+    public string current_BookName;
 
     private void Awake()
     {
@@ -127,10 +129,11 @@ public class OpenAIInterface : MonoBehaviour
         Debug.Log($"SendNarrativeToAPI called with bookName: {bookName}, narrative: {narrative}");
         this.current_Page = pagenum;
         this.current_Narrative = narrative;
-        StartCoroutine(SendNarrativeCoroutine(bookName, narrative));
+        this.current_BookName = bookName;
+        StartCoroutine(SendNarrativeCoroutine(bookName, narrative, true));
     }
 
-    private IEnumerator SendNarrativeCoroutine(string bookName, string narrative)
+    private IEnumerator SendNarrativeCoroutine(string bookName, string narrative, bool isNewBook)
     {
         Debug.Log("SendNarrativeCoroutine started.");
         var bookData = new
@@ -145,17 +148,8 @@ public class OpenAIInterface : MonoBehaviour
         string json = JsonUtility.ToJson(bookData, true);
         Debug.Log("SendNarrative JSON: " + json);
 
-        using (UnityWebRequest request = new UnityWebRequest(apiBaseUrl, "POST"))
+        yield return SendWebRequestCoroutine(apiBaseUrl, "POST", json, (request) =>
         {
-            byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", $"Bearer {user_APIKey}");
-            request.SetRequestHeader("OpenAI-Beta", "assistants=v2");
-
-            yield return request.SendWebRequest();
-
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError(request.error);
@@ -167,17 +161,17 @@ public class OpenAIInterface : MonoBehaviour
                 var response = JsonUtility.FromJson<APIResponse>(request.downloadHandler.text);
                 game_APIThread = response.id;
                 Debug.Log($"API Thread ID: {game_APIThread}");
-                SendMessageToThread(narrative, bookName);
+                SendMessageToThread(narrative, bookName, isNewBook);
             }
-        }
+        });
     }
 
-    private void SendMessageToThread(string narrative, string bookName)
+    private void SendMessageToThread(string narrative, string bookName, bool isNewBook)
     {
-        StartCoroutine(SendMessageCoroutine(narrative, bookName));
+        StartCoroutine(SendMessageCoroutine(narrative, bookName, isNewBook));
     }
 
-    private IEnumerator SendMessageCoroutine(string narrative, string bookName)
+    private IEnumerator SendMessageCoroutine(string narrative, string bookName, bool isNewBook)
     {
         string url = $"{apiBaseUrl}/{game_APIThread}/messages";
         var messageData = new MessageData
@@ -189,17 +183,8 @@ public class OpenAIInterface : MonoBehaviour
         string json = JsonUtility.ToJson(messageData);
         Debug.Log("SendMessage JSON: " + json);
 
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        yield return SendWebRequestCoroutine(url, "POST", json, (request) =>
         {
-            byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", $"Bearer {user_APIKey}");
-            request.SetRequestHeader("OpenAI-Beta", "assistants=v2");
-
-            yield return request.SendWebRequest();
-
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError(request.error);
@@ -208,17 +193,17 @@ public class OpenAIInterface : MonoBehaviour
             }
             else
             {
-                RunThread(bookName);
+                RunThread(bookName, isNewBook);
             }
-        }
+        });
     }
 
-    private void RunThread(string bookName)
+    private void RunThread(string bookName, bool isNewBook)
     {
-        StartCoroutine(RunThreadCoroutine(bookName));
+        StartCoroutine(RunThreadCoroutine(bookName, isNewBook));
     }
 
-    private IEnumerator RunThreadCoroutine(string bookName)
+    private IEnumerator RunThreadCoroutine(string bookName, bool isNewBook)
     {
         string url = $"{apiBaseUrl}/{game_APIThread}/runs";
         var runData = new RunsData
@@ -229,17 +214,8 @@ public class OpenAIInterface : MonoBehaviour
         string json = JsonUtility.ToJson(runData);
         Debug.Log("RunThread JSON: " + json);
 
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        yield return SendWebRequestCoroutine(url, "POST", json, (request) =>
         {
-            byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", $"Bearer {user_APIKey}");
-            request.SetRequestHeader("OpenAI-Beta", "assistants=v2");
-
-            yield return request.SendWebRequest();
-
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError(request.error);
@@ -248,17 +224,17 @@ public class OpenAIInterface : MonoBehaviour
             }
             else
             {
-                GetMessageResponse(bookName);
+                GetMessageResponse(bookName, isNewBook);
             }
-        }
+        });
     }
 
-    private void GetMessageResponse(string bookName)
+    private void GetMessageResponse(string bookName, bool isNewBook)
     {
-        StartCoroutine(GetMessageResponseCoroutine(bookName));
+        StartCoroutine(GetMessageResponseCoroutine(bookName, isNewBook));
     }
 
-    private IEnumerator GetMessageResponseCoroutine(string bookName)
+    private IEnumerator GetMessageResponseCoroutine(string bookName, bool isNewBook)
     {
         string url = $"{apiBaseUrl}/{game_APIThread}/messages?limit=1";
         int maxAttempts = 10;
@@ -267,21 +243,13 @@ public class OpenAIInterface : MonoBehaviour
 
         while (attempt < maxAttempts && !success)
         {
-            using (UnityWebRequest request = new UnityWebRequest(url, "GET"))
+            yield return SendWebRequestCoroutine(url, "GET", null, (request) =>
             {
-                request.downloadHandler = new DownloadHandlerBuffer();
-                request.SetRequestHeader("Content-Type", "application/json");
-                request.SetRequestHeader("Authorization", $"Bearer {user_APIKey}");
-                request.SetRequestHeader("OpenAI-Beta", "assistants=v1");
-
-                yield return request.SendWebRequest();
-
                 if (request.result != UnityWebRequest.Result.Success)
                 {
                     Debug.LogError(request.error);
                     Debug.LogError("Response Code: " + request.responseCode);
                     Debug.LogError("Response Text: " + request.downloadHandler.text);
-                    yield break; // Exit the coroutine if there's a network error
                 }
                 else
                 {
@@ -303,14 +271,14 @@ public class OpenAIInterface : MonoBehaviour
                                 Debug.Log("imageDescription Message Content: " + imageDescription);
                                 if (!string.IsNullOrEmpty(imageDescription))
                                 {
-                                    SendDescriptionToDalle(imageDescription, messageContent, bookName);
+                                    SendDescriptionToDalle(imageDescription, messageContent, bookName, isNewBook);
                                     success = true;
                                 }
                             }
                         }
                     }
                 }
-            }
+            });
 
             if (!success)
             {
@@ -327,24 +295,7 @@ public class OpenAIInterface : MonoBehaviour
         }
     }
 
-    private string ExtractImageDescription(string messageContent)
-    {
-        string startTag = "image generation";
-        string endTag = "end image generation";
-        string lowerCaseContent = messageContent.ToLower();
-
-        int startIndex = lowerCaseContent.IndexOf(startTag) + startTag.Length;
-        int endIndex = lowerCaseContent.IndexOf(endTag);
-
-        if (startIndex == -1 || endIndex == -1)
-        {
-            return null;
-        }
-
-        return messageContent.Substring(startIndex, endIndex - startIndex).Trim();
-    }
-
-    private void SendDescriptionToDalle(string description, string pageText, string bookName)
+    private void SendDescriptionToDalle(string description, string pageText, string bookName, bool isNewBook)
     {
         Debug.Log($"Sending description to DALL-E: {description}");
         if (string.IsNullOrEmpty(description))
@@ -353,10 +304,10 @@ public class OpenAIInterface : MonoBehaviour
             return;
         }
 
-        StartCoroutine(SendDescriptionToDalleCoroutine(description, pageText, bookName));
+        StartCoroutine(SendDescriptionToDalleCoroutine(description, pageText, bookName, isNewBook));
     }
 
-    private IEnumerator SendDescriptionToDalleCoroutine(string description, string pageText, string bookName)
+    private IEnumerator SendDescriptionToDalleCoroutine(string description, string pageText, string bookName, bool isNewBook)
     {
         string url = "https://api.openai.com/v1/images/generations";
         var imageRequest = new ImageGenerationRequest
@@ -369,16 +320,8 @@ public class OpenAIInterface : MonoBehaviour
         string json = JsonUtility.ToJson(imageRequest);
         Debug.Log("SendDescriptionToDalle JSON: " + json);
 
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        yield return SendWebRequestCoroutine(url, "POST", json, (request) =>
         {
-            byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", $"Bearer {user_APIKey}");
-
-            yield return request.SendWebRequest();
-
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError(request.error);
@@ -389,12 +332,12 @@ public class OpenAIInterface : MonoBehaviour
             {
                 var response = JsonUtility.FromJson<ImageResponse>(request.downloadHandler.text);
                 string imageUrl = response.data[0].url;
-                StartCoroutine(DownloadImageCoroutine(imageUrl, pageText, bookName));
+                StartCoroutine(DownloadImageCoroutine(imageUrl, pageText, bookName, isNewBook));
             }
-        }
+        });
     }
 
-    private IEnumerator DownloadImageCoroutine(string url, string pageText, string bookName)
+    private IEnumerator DownloadImageCoroutine(string url, string pageText, string bookName, bool isNewBook)
     {
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
         {
@@ -425,19 +368,64 @@ public class OpenAIInterface : MonoBehaviour
                 }
                 else
                 {
-                    bookData = new Book(bookName, this.current_Narrative);
+                    if (isNewBook)
+                    {
+                        bookData = new Book(bookName, this.current_Narrative);
+                    }
+                    else
+                    {
+                        Debug.LogError("Book file not found when attempting to add a new page.");
+                        yield break;
+                    }
                 }
 
                 // Parse the narrative into the structured format
                 var page = ParsePage(pageText, imagePath);
 
-                bookData.Pages.Add(page);
-
-                string json = JsonUtility.ToJson(bookData, true);
-                Debug.Log("Final JSON: " + json);
-                File.WriteAllText(bookFilePath, json);
+                if (page != null)
+                {
+                    bookData.Pages.Add(page);
+                    string json = JsonUtility.ToJson(bookData, true);
+                    Debug.Log("Final JSON: " + json);
+                    File.WriteAllText(bookFilePath, json);
+                    PlayerSession.SelectedBookName = bookName;
+                    SceneManager.LoadScene("GameWorld");
+                }
             }
         }
+    }
+
+    private string ExtractImageDescription(string messageContent)
+    {
+        string startTag = "**Image Generation:**";
+        string lowerCaseContent = messageContent.ToLower();
+        int startIndex = lowerCaseContent.IndexOf(startTag.ToLower());
+
+        if (startIndex == -1)
+        {
+            // The start tag was not found, so return null or an empty string
+            Debug.LogWarning("Start tag '**Image Generation:**' not found in message content.");
+            return null;
+        }
+
+        startIndex += startTag.Length;
+
+        // Get the substring from startIndex to the end of the content
+        string descriptionContent = messageContent.Substring(startIndex).Trim();
+
+        // Optionally, you could split by a known section starter if you want to cut off at that point
+        string[] possibleEndTags = new[] { "**Encounter Description:**", "**Choices:**" };
+        foreach (var endTag in possibleEndTags)
+        {
+            int endIndex = descriptionContent.IndexOf(endTag);
+            if (endIndex != -1)
+            {
+                descriptionContent = descriptionContent.Substring(0, endIndex).Trim();
+                break;
+            }
+        }
+
+        return descriptionContent;
     }
 
     private Page ParsePage(string narrative, string imageUrl)
@@ -488,14 +476,6 @@ public class OpenAIInterface : MonoBehaviour
                     inIntroduction = false;
                     inDescription = false;
                     inImageGeneration = true;
-                    inChoices = false;
-                    continue;
-                }
-                if (line.StartsWith("**End Image Generation:**"))
-                {
-                    inIntroduction = false;
-                    inDescription = false;
-                    inImageGeneration = false;
                     inChoices = false;
                     continue;
                 }
@@ -558,6 +538,245 @@ public class OpenAIInterface : MonoBehaviour
         return text;
     }
 
+    private IEnumerator SendWebRequestCoroutine(string url, string method, string json, System.Action<UnityWebRequest> callback)
+    {
+        using (UnityWebRequest request = new UnityWebRequest(url, method))
+        {
+            if (json != null)
+            {
+                byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
+                request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            }
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+            request.SetRequestHeader("Authorization", $"Bearer {user_APIKey}");
+            request.SetRequestHeader("OpenAI-Beta", "assistants=v2");
 
+            yield return request.SendWebRequest();
+            callback(request);
+        }
+    }
 
+    public void SendMessageToExistingBook(string bookName, string narrative, string pagenum)
+    {
+        Debug.Log($"SendMessageToExistingBook called with bookName: {bookName}, narrative: {narrative}, page: {pagenum}");
+        this.current_Page = pagenum;
+        this.current_Narrative = narrative;
+        StartCoroutine(SendMessageCoroutineForExistingBook(bookName, narrative));
+    }
+
+    private IEnumerator SendMessageCoroutineForExistingBook(string bookName, string narrative)
+    {
+        string url = $"{apiBaseUrl}/{game_APIThread}/messages";
+        var messageData = new MessageData
+        {
+            role = "user",
+            content = narrative
+        };
+
+        string json = JsonUtility.ToJson(messageData);
+        Debug.Log("SendMessage JSON: " + json);
+
+        yield return SendWebRequestCoroutine(url, "POST", json, (request) =>
+        {
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(request.error);
+                Debug.LogError("Response Code: " + request.responseCode);
+                Debug.LogError("Response Text: " + request.downloadHandler.text);
+            }
+            else
+            {
+                RunThreadForExistingBook(bookName);
+            }
+        });
+    }
+
+    private void RunThreadForExistingBook(string bookName)
+    {
+        StartCoroutine(RunThreadCoroutineForExistingBook(bookName));
+    }
+
+    private IEnumerator RunThreadCoroutineForExistingBook(string bookName)
+    {
+        string url = $"{apiBaseUrl}/{game_APIThread}/runs";
+        var runData = new RunsData
+        {
+            assistant_id = $"{assistant_ID}"
+        };
+
+        string json = JsonUtility.ToJson(runData);
+        Debug.Log("RunThread JSON: " + json);
+
+        yield return SendWebRequestCoroutine(url, "POST", json, (request) =>
+        {
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(request.error);
+                Debug.LogError("Response Code: " + request.responseCode);
+                Debug.LogError("Response Text: " + request.downloadHandler.text);
+            }
+            else
+            {
+                GetMessageResponseForExistingBook(bookName);
+            }
+        });
+    }
+
+    private void GetMessageResponseForExistingBook(string bookName)
+    {
+        StartCoroutine(GetMessageResponseCoroutineForExistingBook(bookName));
+    }
+
+    private IEnumerator GetMessageResponseCoroutineForExistingBook(string bookName)
+    {
+        string url = $"{apiBaseUrl}/{game_APIThread}/messages?limit=1";
+        int maxAttempts = 10;
+        int attempt = 0;
+        bool success = false;
+
+        while (attempt < maxAttempts && !success)
+        {
+            yield return SendWebRequestCoroutine(url, "GET", null, (request) =>
+            {
+                if (request.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.LogError(request.error);
+                    Debug.LogError("Response Code: " + request.responseCode);
+                    Debug.LogError("Response Text: " + request.downloadHandler.text);
+                }
+                else
+                {
+                    string responseText = request.downloadHandler.text;
+                    Debug.Log("Response Text: " + responseText);
+
+                    var response = JsonUtility.FromJson<ThreadMessageResponse>(responseText);
+                    if (response.data != null && response.data.Count > 0)
+                    {
+                        var messageData = response.data[0];
+                        if (messageData.content != null && messageData.content.Count > 0)
+                        {
+                            var contentData = messageData.content[0];
+                            if (contentData.text != null && !string.IsNullOrEmpty(contentData.text.value))
+                            {
+                                var messageContent = contentData.text.value;
+                                Debug.Log("Received Message Content: " + messageContent);
+                                string imageDescription = ExtractImageDescription(messageContent);
+                                Debug.Log("imageDescription Message Content: " + imageDescription);
+                                if (!string.IsNullOrEmpty(imageDescription))
+                                {
+                                    SendDescriptionToDalleForExistingBook(imageDescription, messageContent, bookName);
+                                    success = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            if (!success)
+            {
+                Debug.LogWarning("No valid message content received. Retrying...");
+                yield return new WaitForSeconds(3);
+                attempt++;
+            }
+        }
+
+        if (!success)
+        {
+            Debug.LogError("Failed to get a valid response after multiple attempts. Please try again later.");
+            // Notify the player here
+        }
+    }
+
+    private void SendDescriptionToDalleForExistingBook(string description, string pageText, string bookName)
+    {
+        Debug.Log($"Sending description to DALL-E: {description}");
+        if (string.IsNullOrEmpty(description))
+        {
+            Debug.LogError("Description is empty. Cannot send to DALL-E.");
+            return;
+        }
+
+        StartCoroutine(SendDescriptionToDalleCoroutineForExistingBook(description, pageText, bookName));
+    }
+
+    private IEnumerator SendDescriptionToDalleCoroutineForExistingBook(string description, string pageText, string bookName)
+    {
+        string url = "https://api.openai.com/v1/images/generations";
+        var imageRequest = new ImageGenerationRequest
+        {
+            prompt = description,
+            n = 1,
+            size = "1024x1024"
+        };
+
+        string json = JsonUtility.ToJson(imageRequest);
+        Debug.Log("SendDescriptionToDalle JSON: " + json);
+
+        yield return SendWebRequestCoroutine(url, "POST", json, (request) =>
+        {
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(request.error);
+                Debug.LogError("Response Code: " + request.responseCode);
+                Debug.LogError("Response Text: " + request.downloadHandler.text);
+            }
+            else
+            {
+                var response = JsonUtility.FromJson<ImageResponse>(request.downloadHandler.text);
+                string imageUrl = response.data[0].url;
+                StartCoroutine(DownloadImageCoroutineForExistingBook(imageUrl, pageText, bookName));
+            }
+        });
+    }
+
+    private IEnumerator DownloadImageCoroutineForExistingBook(string url, string pageText, string bookName)
+    {
+        using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(request.error);
+                Debug.LogError("Response Code: " + request.responseCode);
+                Debug.LogError("Response Text: " + request.downloadHandler.text);
+            }
+            else
+            {
+                Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+                byte[] imageBytes = texture.EncodeToPNG();
+                string imagePath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, bookName, $"page{this.current_Page}_image.png");
+                File.WriteAllBytes(imagePath, imageBytes);
+
+                string bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, bookName);
+                DataManager.CreateDirectoryIfNotExists(bookFolderPath);
+
+                string bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
+                Book bookData;
+                if (File.Exists(bookFilePath))
+                {
+                    string bookJson = File.ReadAllText(bookFilePath);
+                    bookData = JsonUtility.FromJson<Book>(bookJson);
+                }
+                else
+                {
+                    Debug.LogError("Book file not found when attempting to add a new page.");
+                    yield break;
+                }
+
+                // Parse the narrative into the structured format
+                var page = ParsePage(pageText, imagePath);
+
+                if (page != null)
+                {
+                    bookData.Pages.Add(page);
+                    string json = JsonUtility.ToJson(bookData, true);
+                    Debug.Log("Final JSON: " + json);
+                    File.WriteAllText(bookFilePath, json);
+                }
+            }
+        }
+    }
 }

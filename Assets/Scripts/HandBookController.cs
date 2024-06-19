@@ -16,9 +16,10 @@ public class HandBookController : MonoBehaviour
     public MonoBehaviour cameraController; // Add your camera controller script here
     public MonoBehaviour characterController; // Add your character controller script here
 
-    private Vector3 hiddenPositionRightHand = new Vector3(0.304f, -0.352f, -2.561f); // Hidden near the body
+    private Vector3 hiddenPositionRightHand = new Vector3(0.2318f, 0.0434f, -1.0674f); // Hidden near the body
     private Vector3 hiddenPositionLeftHand = new Vector3(-0.2f, -0.45f, -1.2f); // Hidden near the body
-    private Vector3 hiddenPositionBook = new Vector3(0.33f, -0.2f, 0.95f); // Hidden near the body
+    private Vector3 hiddenPositionBook = new Vector3(0.33f, -0.2f, 0.9f); // Hidden near the body
+    private Vector3 hiddenScaleBook = new Vector3(0.2f, 0.2f, 0.2f); // Hidden near the body
 
     private Vector3 midRightHandPosition = new Vector3(0.43f, 0.047f, -0.861f);  // Mid position for the right hand
     private Vector3 midBookPosition = new Vector3(0.204f, -0.192f, 0.871f); // Mid position for the book
@@ -42,6 +43,7 @@ public class HandBookController : MonoBehaviour
     private Vector3 readBookScale = new Vector3(0.7127827f, 0.7127827f, 0.7127827f);
 
     private int currentView = 0; // 0 = hidden, 1 = mid, 2 = read
+    private int targetView = 0; // to track the desired view state
 
     private Coroutine transitionCoroutine;
 
@@ -66,43 +68,32 @@ public class HandBookController : MonoBehaviour
 
         if (scrollInput > 0f)
         {
-            currentView++;
-            if (currentView > 2) currentView = 2;
+            if (targetView == 0)
+            {
+                targetView = 1;
+            }
+            else if (targetView == 1)
+            {
+                targetView = 2;
+            }
         }
         else if (scrollInput < 0f)
         {
-            currentView--;
-            if (currentView < 0) currentView = 0;
+            if (targetView == 2)
+            {
+                targetView = 1;
+            }
+            else if (targetView == 1)
+            {
+                targetView = 0;
+            }
         }
 
-        //Debug.Log($"Update: Current View - {currentView}");
+        //Debug.Log($"Update: Target View - {targetView}");
 
-        if (transitionCoroutine != null)
+        if (transitionCoroutine == null)
         {
-            StopCoroutine(transitionCoroutine);
-        }
-
-        switch (currentView)
-        {
-            case 0:
-                HideEncounterOptions();
-                EnableControls();
-                transitionCoroutine = StartCoroutine(TransitionToHidden());
-                Cursor.visible = false;
-                break;
-            case 1:
-                HideEncounterOptions();
-                EnableControls();
-                transitionCoroutine = StartCoroutine(TransitionToMid());
-                Cursor.visible = false;
-                break;
-            case 2:
-                transitionCoroutine = StartCoroutine(TransitionToRead());
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
-                DisableControls();
-                StartCoroutine(ShowEncounterOptionsWithDelay());
-                break;
+            transitionCoroutine = StartCoroutine(TransitionToView(targetView));
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -116,15 +107,53 @@ public class HandBookController : MonoBehaviour
                     Debug.Log("and flash ligh turn off");
                     flashLight.enabled = false;
                 }
-
                 else
                 {
                     Debug.Log("and flash ligh turn on");
                     flashLight.enabled = true;
-                }     
+                }
+            }
+        }
+    }
+
+    IEnumerator TransitionToView(int view)
+    {
+        while (currentView != view)
+        {
+            if (currentView < view)
+            {
+                currentView++;
+            }
+            else if (currentView > view)
+            {
+                currentView--;
             }
 
+            switch (currentView)
+            {
+                case 0:
+                    Cursor.visible = false;
+                    HideEncounterOptions();
+                    EnableControls();
+                    yield return StartCoroutine(TransitionToHidden());
+                    break;
+                case 1:
+                    Cursor.visible = false;
+                    HideEncounterOptions();
+                    EnableControls();
+                    yield return StartCoroutine(TransitionToMid());
+                    break;
+                case 2:
+                    yield return StartCoroutine(TransitionToRead());
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
+                    DisableControls();
+                    StartCoroutine(ShowEncounterOptionsWithDelay());
+                    break;
+            }
         }
+
+        transitionCoroutine = null;
     }
 
     void SetHiddenPosition()
@@ -150,7 +179,8 @@ public class HandBookController : MonoBehaviour
         if (book != null)
         {
             book.localPosition = hiddenPositionBook;
-            book.localRotation = hiddenRotation;
+            book.localScale = hiddenScaleBook;
+            book.localRotation = midBookRotation;
             book.gameObject.SetActive(false);
         }
 
@@ -221,7 +251,7 @@ public class HandBookController : MonoBehaviour
         Quaternion startBookRotation = book.localRotation;
         Vector3 startBookScale = book.localScale;
 
-        float duration = 0.5f; // Transition duration
+        float duration = 0.4f; // Transition duration
         float elapsed = 0f;
 
         while (elapsed < duration)
@@ -236,8 +266,8 @@ public class HandBookController : MonoBehaviour
             leftInnerHand.localRotation = Quaternion.Lerp(startLeftHandRotation, hiddenRotation, t);
             leftLowerArm.localRotation = Quaternion.Lerp(Quaternion.Euler(startLeftLowerArmRotation), midLeftLowerArmRotation, t);
             book.localPosition = Vector3.Lerp(startBookPosition, hiddenPositionBook, t);
-            book.localRotation = Quaternion.Lerp(startBookRotation, hiddenRotation, t);
-            book.localScale = Vector3.Lerp(startBookScale, Vector3.zero, t);
+            //book.localRotation = Quaternion.Lerp(startBookRotation, hiddenRotation, t);
+            book.localScale = Vector3.Lerp(startBookScale, hiddenScaleBook, t);
 
             yield return null;
         }
@@ -280,7 +310,7 @@ public class HandBookController : MonoBehaviour
         Quaternion startBookRotation = book.localRotation;
         Vector3 startBookScale = book.localScale;
 
-        float duration = 0.2f; // Transition duration
+        float duration = 0.4f; // Transition duration
         float elapsed = 0f;
 
         while (elapsed < duration)
@@ -350,7 +380,7 @@ public class HandBookController : MonoBehaviour
         Quaternion startBookRotation = book.localRotation;
         Vector3 startBookScale = book.localScale;
 
-        float duration = 0.2f; // Transition duration
+        float duration = 0.4f; // Transition duration
         float elapsed = 0f;
 
         while (elapsed < duration)
@@ -383,6 +413,7 @@ public class HandBookController : MonoBehaviour
 
         DisableControls();
     }
+
     void HideEncounterOptions()
     {
         encounterOptions1_copy.gameObject.SetActive(false);
@@ -392,7 +423,7 @@ public class HandBookController : MonoBehaviour
 
     IEnumerator ShowEncounterOptionsWithDelay()
     {
-        yield return new WaitForSeconds(1f); // Delay before showing the encounter options
+        yield return new WaitForSeconds(0.5f); // Delay before showing the encounter options
         if (is_readMode == true)
         {
             ShowEncounterOptions();
