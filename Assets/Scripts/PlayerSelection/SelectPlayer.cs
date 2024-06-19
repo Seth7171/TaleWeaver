@@ -22,14 +22,19 @@ public class SelectPlayer : MonoBehaviour
     public Button deletePlayerButton;
     public Button leftArrowButton;
     public Button rightArrowButton;
+    public Button StartPrevAdventure;
+    public Button DeletePrevAdventure;
     public float displayDuration = 3f;
 
     private PlayerManager playerManager;
     private List<string> players;
     private int currentPlayerIndex = -1;
+    private TMP_Text selectedBookButtonText = null;
 
     void Start()
     {
+        StartPrevAdventure.interactable = false;
+        DeletePrevAdventure.interactable = false;
         playerManager = DataManager.LoadPlayerManager();
         players = playerManager.PlayerNames;
 
@@ -230,6 +235,7 @@ public class SelectPlayer : MonoBehaviour
     {
         Debug.Log("ShowPreviousAdventures called");
 
+
         // Clear existing buttons
         foreach (Transform child in scrollViewContent.transform)
         {
@@ -261,7 +267,7 @@ public class SelectPlayer : MonoBehaviour
                     Button btnComponent = button.GetComponent<Button>();
                     if (btnComponent != null)
                     {
-                        btnComponent.onClick.AddListener(() => OnBookButtonClicked(selectedPlayer, bookName));
+                        btnComponent.onClick.AddListener(() => OnBookButtonClicked(selectedPlayer, bookName, btnComponent, buttonText));
                     }
                     else
                     {
@@ -282,13 +288,77 @@ public class SelectPlayer : MonoBehaviour
         previousAdventuresWindow.SetActive(true);
     }
 
-    private void OnBookButtonClicked(string playerName, string bookName)
+    private void OnBookButtonClicked(string playerName, string bookName, Button button, TMP_Text buttonText)
     {
         Debug.Log($"Button clicked for book: {bookName}");
+
+
+        // Reset the color of the previously selected button's text
+        if (selectedBookButtonText != null)
+        {
+            selectedBookButtonText.color = new Color(192 / 255f, 0f, 137 / 255f); // Default text color
+        }
+
+        // Set the color of the newly selected button's text
+        buttonText.color = new Color(123 / 255f, 40 / 255f, 7 / 255f); ; // Selected text color
+
+        // Update the selected button text reference
+        selectedBookButtonText = buttonText;
+
+
         PlayerSession.SelectedPlayerName = playerName;
         PlayerSession.SelectedBookName = bookName;
+        StartPrevAdventure.interactable = true;
+        DeletePrevAdventure.interactable = true;
+
+        // Pass the playerName and bookName to the DeletePrevAdventureButtonClicked method
+        DeletePrevAdventure.onClick.RemoveAllListeners(); // Clear any previous listeners
+        DeletePrevAdventure.onClick.AddListener(() => DeletePrevAdventureButtonClicked(playerName, bookName));
+    }
+
+    public void StartPrevAdventureButtonClicked()
+    {
+        StartPrevAdventure.interactable = false;
+        DeletePrevAdventure.interactable = false;
         SceneManager.LoadScene("ViewPrevAdv");
     }
+
+    private void DeletePrevAdventureButtonClicked(string playerName, string bookName)
+    {
+        if (!string.IsNullOrEmpty(playerName) && !string.IsNullOrEmpty(bookName))
+        {
+            Player player = DataManager.LoadPlayerData(playerName);
+            if (player != null && player.BookNames.Contains(bookName))
+            {
+                // Remove the book from the player's list
+                player.RemoveBook(bookName);
+                // Save the updated player data
+                DataManager.SavePlayerData(player);
+
+                // Delete the book data from the filesystem
+                DataManager.DeleteBookData(playerName, bookName);
+
+                feedbackText.text = $"Book '{bookName}' deleted successfully.";
+
+                // Optionally, update the previous adventures window
+                ShowPreviousAdventures();
+            }
+            else
+            {
+                feedbackText.text = "Book not found in player data.";
+            }
+        }
+        else
+        {
+            feedbackText.text = "No book selected to delete.";
+        }
+
+        StartPrevAdventure.interactable = false;
+        DeletePrevAdventure.interactable = false;
+
+        //StartCoroutine(ClearFeedbackText());
+    }
+
 
 
     private IEnumerator ClearFeedbackText()

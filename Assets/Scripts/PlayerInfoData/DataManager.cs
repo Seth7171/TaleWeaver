@@ -70,6 +70,20 @@ public static class DataManager
         File.WriteAllText(Path.Combine(bookFolderPath, "bookData.json"), json);
     }
 
+    public static void DeleteBookData(string playerName, string bookName)
+    {
+        string bookFolderPath = Path.Combine(Application.persistentDataPath, playerName, bookName);
+        if (Directory.Exists(bookFolderPath))
+        {
+            Directory.Delete(bookFolderPath, true);
+            Debug.Log($"Book folder deleted at {bookFolderPath}");
+        }
+        else
+        {
+            Debug.LogWarning($"Book folder does not exist at {bookFolderPath}");
+        }
+    }
+
     public static void CreateDirectoryIfNotExists(string path)
     {
         if (!Directory.Exists(path))
