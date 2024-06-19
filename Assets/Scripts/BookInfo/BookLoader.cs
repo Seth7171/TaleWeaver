@@ -19,6 +19,9 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI encounterOptions2_copy;
     public TextMeshProUGUI encounterOptions3_copy;
     public Image encounterImage;
+    private Dictionary<string, int> nameToNumberMap;
+    private string objectName;
+    private int pageNumBasedon_objectName;
 
     private string bookFolderPath;
     private string bookFilePath;
@@ -31,11 +34,41 @@ public class BookLoader : MonoBehaviour
     void Start()
     {
         /*bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, "dark castle");*/
-        bookFolderPath = Path.Combine("C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\ron\\dark castle\\");
-        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        //bookFolderPath = Path.Combine("C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\ron\\dark castle\\");
+        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
-
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
+
+        // Initialize the dictionary
+        nameToNumberMap = new Dictionary<string, int>
+        {
+            { "ADV01", 0 },
+            { "ADV02", 1 },
+            { "ADV03", 2 },
+            { "ADV04", 3 },
+            { "ADV05", 4 },
+            { "ADV06", 5 },
+            { "ADV07", 6 },
+            { "ADV08", 7 },
+            { "ADV09", 8 },
+            { "ADV10", 9 }
+        };
+
+        // Get the GameObject's name
+        objectName = gameObject.name;
+
+        // Try to extract the numeric part of the name
+        if (objectName.Length > 3 && int.TryParse(objectName.Substring(3), out int number))
+        {
+            pageNumBasedon_objectName = number-1;
+            Debug.Log("The number for " + objectName + " is: " + number);
+        }
+        else
+        {
+            Debug.LogError("Name " + objectName + " is not in the expected format.");
+        }
+
+
         LoadBookData();
     }
 
