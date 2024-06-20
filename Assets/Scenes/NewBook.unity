@@ -5228,6 +5228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoverFrontExtras
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 00bb0d13facb2df4399c7f3042cb3fab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 00bb0d13facb2df4399c7f3042cb3fab, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -9249,6 +9253,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 9c180b47285e6b54294b30b90e37ba2b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9c180b47285e6b54294b30b90e37ba2b, type: 3}
       propertyPath: m_RootOrder
       value: 6
