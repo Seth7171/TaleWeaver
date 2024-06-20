@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\ToggleFlashLight.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\Page.cs" />
+    <Compile Include="Assets\ScreenResolution.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\TouchPad.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\Unpack.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 01\Scripts\Demo01.cs" />
