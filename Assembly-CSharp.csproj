@@ -144,6 +144,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\EndlessBook\Demos\Demo 02\Shaders\Page_04.shader" />
     <None Include="Assets\EndlessBook\readme.txt" />
+    <None Include="Assets\VisualX_Studio\Sci-Fi_Loading_Screen_Effects_FREE\VisualX_Sci-Fi Loading Screen Effects_FREE.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
