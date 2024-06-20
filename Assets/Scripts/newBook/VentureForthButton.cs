@@ -87,7 +87,7 @@ public class VentureForthButton : MonoBehaviour
         // Call the OpenAI Interface
         if (OpenAIInterface.Instance != null)
         {
-            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, narrative, "1");
+            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, narrative, 1);
         }
         else
         {

@@ -7,6 +7,7 @@ using System.IO;
 using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System;
 
 [System.Serializable]
 public class APIResponse
@@ -87,9 +88,25 @@ public class OpenAIInterface : MonoBehaviour
     private string assistant_ID = null;
     private string apiBaseUrl = "https://api.openai.com/v1/threads";
     private string game_APIThread;
-    public string current_Page = "0";
+    public int current_Page = 0;
     public string current_Narrative;
     public string current_BookName;
+    private bool _isEnded;
+
+    public event System.Action<bool> OnIsEndedChanged;
+
+    public bool is_ended
+    {
+        get { return _isEnded; }
+        set
+        {
+            if (_isEnded != value)
+            {
+                _isEnded = value;
+                OnIsEndedChanged?.Invoke(_isEnded);
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -124,7 +141,7 @@ public class OpenAIInterface : MonoBehaviour
         }
     }
 
-    public void SendNarrativeToAPI(string bookName, string narrative, string pagenum)
+    public void SendNarrativeToAPI(string bookName, string narrative, int pagenum)
     {
         Debug.Log($"SendNarrativeToAPI called with bookName: {bookName}, narrative: {narrative}");
         this.current_Page = pagenum;
@@ -397,36 +414,33 @@ public class OpenAIInterface : MonoBehaviour
 
     private string ExtractImageDescription(string messageContent)
     {
-        string startTag = "**Image Generation:**";
-        string lowerCaseContent = messageContent.ToLower();
-        int startIndex = lowerCaseContent.IndexOf(startTag.ToLower());
+        string[] parts = messageContent.Split(new[] { "**" }, StringSplitOptions.None);
 
-        if (startIndex == -1)
+        if (parts.Length >= 6)
         {
-            // The start tag was not found, so return null or an empty string
-            Debug.LogWarning("Start tag '**Image Generation:**' not found in message content.");
+            string imageGeneration = parts[6].Trim();
+
+            // Optionally, you could split by a known section starter if you want to cut off at that point
+            string[] possibleEndTags = new[] { "Encounter Description:", "Choices:" };
+            foreach (var endTag in possibleEndTags)
+            {
+                int endIndex = imageGeneration.IndexOf(endTag, StringComparison.OrdinalIgnoreCase);
+                if (endIndex != -1)
+                {
+                    imageGeneration = imageGeneration.Substring(0, endIndex).Trim();
+                    break;
+                }
+            }
+
+            return imageGeneration;
+        }
+        else
+        {
+            Debug.LogWarning("Image generation section not found in message content.");
             return null;
         }
-
-        startIndex += startTag.Length;
-
-        // Get the substring from startIndex to the end of the content
-        string descriptionContent = messageContent.Substring(startIndex).Trim();
-
-        // Optionally, you could split by a known section starter if you want to cut off at that point
-        string[] possibleEndTags = new[] { "**Encounter Description:**", "**Choices:**" };
-        foreach (var endTag in possibleEndTags)
-        {
-            int endIndex = descriptionContent.IndexOf(endTag);
-            if (endIndex != -1)
-            {
-                descriptionContent = descriptionContent.Substring(0, endIndex).Trim();
-                break;
-            }
-        }
-
-        return descriptionContent;
     }
+
 
     private Page ParsePage(string narrative, string imageUrl)
     {
@@ -449,75 +463,35 @@ public class OpenAIInterface : MonoBehaviour
             string encounterAction = "";
             List<Option> choices = new List<Option>();
 
-            // Extract sections dynamically
-            bool inIntroduction = false, inDescription = false, inImageGeneration = false, inChoices = false;
-            bool encounterActionFound = false;
+            // Split the narrative into parts based on the asterisks (**)
+            string[] parts = narrative.Split(new[] { "**" }, StringSplitOptions.None);
 
-            foreach (var line in lines)
+            if (parts.Length >= 8)
             {
-                if (line.StartsWith("**Encounter Introduction:**"))
-                {
-                    inIntroduction = true;
-                    inDescription = false;
-                    inImageGeneration = false;
-                    inChoices = false;
-                    continue;
-                }
-                if (line.StartsWith("**Encounter Description:**"))
-                {
-                    inIntroduction = false;
-                    inDescription = true;
-                    inImageGeneration = false;
-                    inChoices = false;
-                    continue;
-                }
-                if (line.StartsWith("**Image Generation:**"))
-                {
-                    inIntroduction = false;
-                    inDescription = false;
-                    inImageGeneration = true;
-                    inChoices = false;
-                    continue;
-                }
-                if (line.StartsWith("**Choices:**"))
-                {
-                    inIntroduction = false;
-                    inDescription = false;
-                    inImageGeneration = false;
-                    inChoices = true;
-                    continue;
-                }
+                encounterIntroduction = parts[2].Trim();
+                encounterDescription = parts[4].Trim();
+                imageGeneration = parts[6].Trim();
+                encounterAction = parts[8].Trim();
 
-                // Accumulate section content
-                if (inIntroduction)
+                // Extract choices
+                string[] choiceLines = encounterAction.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                encounterAction = choiceLines[0].Trim();
+                foreach (var line in choiceLines)
                 {
-                    encounterIntroduction += " " + line.Trim();
-                }
-                else if (inDescription)
-                {
-                    encounterDescription += " " + line.Trim();
-                }
-                else if (inImageGeneration)
-                {
-                    imageGeneration += " " + line.Trim();
-                }
-                else if (inChoices)
-                {
-                    if (!encounterActionFound)
-                    {
-                        encounterAction = line.Trim();
-                        encounterActionFound = true;
-                    }
-                    else if (line.StartsWith("1.") || line.StartsWith("2.") || line.StartsWith("3."))
+                    if (line.StartsWith("1.") || line.StartsWith("2.") || line.StartsWith("3."))
                     {
                         choices.Add(new Option(line.Substring(2).Trim(), 145));
                     }
                 }
             }
+            else
+            {
+                throw new System.Exception("Narrative format is incorrect.");
+            }
 
             // Truncate sections to their word limits
-            encounterIntroduction = TruncateText(encounterIntroduction.Trim(), 145);
-            encounterDescription = TruncateText(encounterDescription.Trim(), 600);
+            encounterIntroduction = TruncateText(encounterIntroduction, 145);
+            encounterDescription = TruncateText(encounterDescription, 600);
 
             return new Page(encounterNum, encounterName, encounterIntroduction, imageGeneration, encounterDescription, encounterAction, choices, imageUrl);
         }
@@ -527,6 +501,7 @@ public class OpenAIInterface : MonoBehaviour
             return null;
         }
     }
+
 
     private string TruncateText(string text, int maxWords)
     {
@@ -557,11 +532,11 @@ public class OpenAIInterface : MonoBehaviour
         }
     }
 
-    public void SendMessageToExistingBook(string bookName, string narrative, string pagenum)
+    public void SendMessageToExistingBook(string bookName, string narrative)
     {
-        Debug.Log($"SendMessageToExistingBook called with bookName: {bookName}, narrative: {narrative}, page: {pagenum}");
-        this.current_Page = pagenum;
+        this.current_Page += 1;
         this.current_Narrative = narrative;
+        Debug.Log($"SendMessageToExistingBook called with bookName: {bookName}, narrative: {this.current_Narrative}, page: {this.current_Page}");
         StartCoroutine(SendMessageCoroutineForExistingBook(bookName, narrative));
     }
 
@@ -775,6 +750,8 @@ public class OpenAIInterface : MonoBehaviour
                     string json = JsonUtility.ToJson(bookData, true);
                     Debug.Log("Final JSON: " + json);
                     File.WriteAllText(bookFilePath, json);
+                    this.is_ended = true;
+                    this.is_ended = false;
                 }
             }
         }
