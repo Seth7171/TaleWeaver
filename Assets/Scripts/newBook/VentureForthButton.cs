@@ -33,6 +33,27 @@ public class VentureForthButton : MonoBehaviour
             return;
         }
 
+        if (string.IsNullOrEmpty(narrative))
+        {
+            feedbackText.text = "Narrative field cannot be empty.";
+            StartCoroutine(ClearFeedbackText());
+            return;
+        }
+
+        if (!InputValidator.IsValidInput(narrative))
+        {
+            feedbackText.text = "Allowed characters are A-Z 0-9 ! ? , .";
+            StartCoroutine(ClearFeedbackText());
+            return;
+        }
+
+        if (InappropriateWordsFilter.ContainsInappropriateWords(narrative))
+        {
+            feedbackText.text = "Narrative contains inappropriate content.";
+            StartCoroutine(ClearFeedbackText());
+            return;
+        }
+
         if (currentPlayer != null)
         {
             currentPlayer.BookNames.Add(bookName);
@@ -41,9 +62,10 @@ public class VentureForthButton : MonoBehaviour
             Book newBook = new Book(bookName, narrative);
             DataManager.SaveBookData(currentPlayer.PlayerName, newBook);
 
-            feedbackText.text = "Book saved successfully.";
+            //feedbackText.text = "Book saved successfully.";
+            Debug.Log("Book saved successfully.");
             CreateBookJson();
-            StartCoroutine(ClearFeedbackText());
+            //StartCoroutine(ClearFeedbackText());
         }
         else
         {
@@ -98,7 +120,7 @@ public class VentureForthButton : MonoBehaviour
 
     private IEnumerator ClearFeedbackText()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         feedbackText.text = "";
     }
 }
