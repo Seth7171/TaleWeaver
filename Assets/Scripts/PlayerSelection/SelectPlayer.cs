@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using static System.Net.Mime.MediaTypeNames;
 
 public class SelectPlayer : MonoBehaviour
 {
@@ -346,9 +347,9 @@ public class SelectPlayer : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if (currentPlayerIndex >= 0 && currentPlayerIndex < players.Count)
+        if (this.currentPlayerIndex >= 0 && this.currentPlayerIndex < players.Count)
         {
-            string selectedPlayer = players[currentPlayerIndex];
+            string selectedPlayer = playerNameText.text;
             Player player = DataManager.LoadPlayerData(selectedPlayer);
 
             if (player != null)
