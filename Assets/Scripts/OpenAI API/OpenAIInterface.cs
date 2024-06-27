@@ -8,6 +8,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using System;
+using System.Net.Http;
 
 [System.Serializable]
 public class APIResponse
@@ -81,6 +82,12 @@ public class ConfigData
     public string assistantID;
 }
 
+[System.Serializable]
+public class AssistantResponse
+{
+    public string id;
+}
+
 public class OpenAIInterface : MonoBehaviour
 {
     public static OpenAIInterface Instance { get; private set; }
@@ -107,7 +114,11 @@ public class OpenAIInterface : MonoBehaviour
             }
         }
     }
-
+    public string AssistantID
+    {
+        get { return assistant_ID; }
+        set { assistant_ID = value; }
+    }
     private void Awake()
     {
         if (Instance == null)
@@ -115,7 +126,6 @@ public class OpenAIInterface : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             Debug.Log("OpenAIInterface instance initialized.");
-            LoadConfig();
         }
         else
         {
@@ -123,22 +133,11 @@ public class OpenAIInterface : MonoBehaviour
         }
     }
 
-    private void LoadConfig()
+    public void LoadPlayerAPIKeys()
     {
-        string configPath = Path.Combine(Application.dataPath, "Scripts/OpenAI API/config.json");
-        Debug.Log(configPath);
-        if (File.Exists(configPath))
-        {
-            string json = File.ReadAllText(configPath);
-            ConfigData configData = JsonUtility.FromJson<ConfigData>(json);
-            user_APIKey = configData.openAIKey;
-            assistant_ID = configData.assistantID;
-            Debug.Log("Config loaded successfully.");
-        }
-        else
-        {
-            Debug.LogError("Config file not found.");
-        }
+        this.user_APIKey = PlayerSession.SelectedPlayerApiKey;
+        this.assistant_ID = PlayerSession.SelectedPlayerassistantID;
+
     }
 
     public void SendNarrativeToAPI(string bookName, string narrative, int pagenum)
@@ -756,4 +755,41 @@ public class OpenAIInterface : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator CreateAPI_Assistant(string apiKey, System.Action<bool, string> callback)
+    {
+        string configPath = Path.Combine(Application.dataPath, "Scripts/OpenAI API/assistant_create.json");
+        string jsonContent = File.ReadAllText(configPath);
+        var requestBody = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+        var request = new UnityWebRequest("https://api.openai.com/v1/assistants", "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonContent);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Authorization", $"Bearer {apiKey}");
+        request.SetRequestHeader("OpenAI-Beta", "assistants=v1");
+
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Error: " + request.error);
+            Debug.LogError("Response Code: " + request.responseCode);
+            Debug.LogError("Response Text: " + request.downloadHandler.text);
+            callback(false, apiKey);
+        }
+        else
+        {
+            Debug.Log("Response: " + request.downloadHandler.text);
+            AssistantResponse assistantResponse = JsonUtility.FromJson<AssistantResponse>(request.downloadHandler.text);
+            this.assistant_ID = assistantResponse.id;
+            Debug.Log(this.assistant_ID);
+            callback(true, apiKey);
+        }
+    }
+
+
+
+
 }

@@ -13,6 +13,7 @@ public class SelectPlayer : MonoBehaviour
     public TMP_InputField apiKeyInput;
     public TMP_InputField UpdatedapiKeyInput;
     public GameObject newPlayerMenu;
+    public GameObject PlayerMenu;
     public GameObject previousAdventuresWindow;
     public GameObject scrollViewContent;
     public GameObject bookButtonPrefab;
@@ -89,6 +90,16 @@ public class SelectPlayer : MonoBehaviour
             {
                 PlayerSession.SelectedPlayerName = player.PlayerName;
                 PlayerSession.SelectedPlayerApiKey = player.ApiKey;
+                PlayerSession.SelectedPlayerassistantID = player.assistantID;
+                // Call the OpenAI Interface
+                if (OpenAIInterface.Instance != null)
+                {
+                    OpenAIInterface.Instance.LoadPlayerAPIKeys();
+                }
+                else
+                {
+                    Debug.LogError("OpenAIInterface instance is not initialized.");
+                }
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else
@@ -100,6 +111,35 @@ public class SelectPlayer : MonoBehaviour
         {
             feedbackText.text = "Please select a player first.";
         }
+        StartCoroutine(ClearFeedbackText());
+    }
+
+    public void StartCreateAssistant(string apiKey, int flag)
+    {
+        if (flag == 0)
+        {
+            // Call the OpenAI Interface
+            if (OpenAIInterface.Instance != null)
+            {
+                StartCoroutine(OpenAIInterface.Instance.CreateAPI_Assistant(apiKey, CreatePlayer_Part2));
+            }
+            else
+            {
+                Debug.LogError("OpenAIInterface instance is not initialized.");
+            }
+        }
+        if (flag == 1)
+        {
+            // Call the OpenAI Interface
+            if (OpenAIInterface.Instance != null)
+            {
+                StartCoroutine(OpenAIInterface.Instance.CreateAPI_Assistant(apiKey, UpdateAPIkey_Part2));
+            }
+            else
+            {
+                Debug.LogError("OpenAIInterface instance is not initialized.");
+            }
+        }
     }
 
     public void CreatePlayer()
@@ -110,10 +150,13 @@ public class SelectPlayer : MonoBehaviour
         if (string.IsNullOrEmpty(playerName) || string.IsNullOrEmpty(apiKey))
         {
             feedbackText.text = "Name and API key cannot be empty.";
+            Debug.Log(playerName);
+            Debug.Log(apiKey);
+            StartCoroutine(ClearFeedbackText());
             return;
         }
 
-        Player newPlayer = new Player(playerName, apiKey);
+        Player newPlayer = new Player(playerName, apiKey, "");
         bool playerAdded = playerManager.AddPlayer(playerName);
 
         if (playerAdded)
@@ -122,6 +165,26 @@ public class SelectPlayer : MonoBehaviour
             DataManager.SavePlayerManager(playerManager);
             DataManager.SavePlayerData(newPlayer);
 
+            StartCreateAssistant(apiKey, 0);
+
+        }
+        else
+        {
+            feedbackText.text = "Player with this name already exists.";
+            StartCoroutine(ClearFeedbackText());
+        }
+    }
+
+
+    private void CreatePlayer_Part2(bool success, string apiKey)
+    {
+        string playerName = playerNameInput.text;
+        if (success)
+        {
+            Player player = DataManager.LoadPlayerData(playerName);
+            player.assistantID = OpenAIInterface.Instance.AssistantID;
+            DataManager.SavePlayerData(player);
+            Debug.Log("Assistant creation succeeded.");
             feedbackText.text = "Player created successfully.";
             players = playerManager.PlayerNames;
             currentPlayerIndex = players.Count - 1;
@@ -129,12 +192,33 @@ public class SelectPlayer : MonoBehaviour
             playerNameInput.text = "";
             apiKeyInput.text = "";
             newPlayerMenu.SetActive(false);
+            PlayerMenu.SetActive(true);
+            StartCoroutine(ClearFeedbackText());
         }
         else
         {
-            feedbackText.text = "Player with this name already exists.";
+
+            bool playerDeleted = playerManager.DeletePlayer(playerName);
+
+            if (playerDeleted)
+            {
+                DataManager.DeletePlayerFolder(playerName);
+                DataManager.SavePlayerManager(playerManager);
+
+                feedbackText.text = "Player deleted successfully.";
+                players = playerManager.PlayerNames;
+                currentPlayerIndex = players.Count > 0 ? 0 : -1;
+                DisplayCurrentPlayer();
+                StartCoroutine(ClearFeedbackText());
+            }
+            else
+            {
+                feedbackText.text = "Player not found.";
+            }
         }
     }
+
+
 
     public void UpdateAPIkey()
     {
@@ -153,21 +237,38 @@ public class SelectPlayer : MonoBehaviour
             Player player = DataManager.LoadPlayerData(playerName);
             if (player != null)
             {
-                player.ApiKey = newApiKey;
-                DataManager.SavePlayerData(player);
-                feedbackText.text = "API key updated successfully.";
+                StartCreateAssistant(newApiKey, 1);
             }
             else
             {
                 feedbackText.text = "Failed to load player data.";
             }
-            UpdatedapiKeyInput.text = "";
         }
         else
         {
             feedbackText.text = "No player selected.";
         }
         StartCoroutine(ClearFeedbackText());
+    }
+
+    private void UpdateAPIkey_Part2(bool success, string apiKey)
+    {
+        string playerName = players[currentPlayerIndex];
+        Debug.Log(playerName);
+        if (success)
+        {
+
+            Player player = DataManager.LoadPlayerData(playerName);
+            player.assistantID = OpenAIInterface.Instance.AssistantID;
+            player.ApiKey = apiKey;
+            DataManager.SavePlayerData(player);
+            feedbackText.text = "API key updated successfully.";
+            UpdatedapiKeyInput.text = "";
+        }
+        else
+        {
+            feedbackText.text = "API key was not updated!";
+        }
     }
 
     public void DeletePlayer()
@@ -186,15 +287,18 @@ public class SelectPlayer : MonoBehaviour
                 players = playerManager.PlayerNames;
                 currentPlayerIndex = players.Count > 0 ? 0 : -1;
                 DisplayCurrentPlayer();
+                StartCoroutine(ClearFeedbackText());
             }
             else
             {
                 feedbackText.text = "Player not found.";
+                StartCoroutine(ClearFeedbackText());
             }
         }
         else
         {
             feedbackText.text = "No player selected.";
+            StartCoroutine(ClearFeedbackText());
         }
     }
 
@@ -278,11 +382,13 @@ public class SelectPlayer : MonoBehaviour
             else
             {
                 feedbackText.text = "Failed to load player data.";
+                StartCoroutine(ClearFeedbackText());
             }
         }
         else
         {
             feedbackText.text = "Please select a player first.";
+            StartCoroutine(ClearFeedbackText());
         }
 
         previousAdventuresWindow.SetActive(true);
@@ -346,11 +452,13 @@ public class SelectPlayer : MonoBehaviour
             else
             {
                 feedbackText.text = "Book not found in player data.";
+                StartCoroutine(ClearFeedbackText());
             }
         }
         else
         {
             feedbackText.text = "No book selected to delete.";
+            StartCoroutine(ClearFeedbackText());
         }
 
         StartPrevAdventure.interactable = false;

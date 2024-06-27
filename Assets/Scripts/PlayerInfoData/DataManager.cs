@@ -31,7 +31,7 @@ public static class DataManager
             string json = File.ReadAllText(Path.Combine(playerFolderPath, "playerData.json"));
             return JsonUtility.FromJson<Player>(json);
         }
-        return new Player(playerName, "");
+        return new Player(playerName, "", "");
     }
 
     public static void SavePlayerData(Player player)
