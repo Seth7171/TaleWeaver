@@ -6,13 +6,15 @@ public class Player
 {
     public string PlayerName;
     public string ApiKey;
+    public string assistantID;
     public List<string> BookNames;
 
-    public Player(string playerName, string apiKey)
+    public Player(string playerName, string apiKey, string assistantID)
     {
-        PlayerName = playerName;
-        ApiKey = apiKey;
-        BookNames = new List<string>();
+        this.PlayerName = playerName;
+        this.ApiKey = apiKey;
+        this.assistantID = assistantID;
+        this.BookNames = new List<string>();
     }
 
     public void RemoveBook(string bookName)
