@@ -768,7 +768,7 @@ public class OpenAIInterface : MonoBehaviour
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("Authorization", $"Bearer {apiKey}");
-        request.SetRequestHeader("OpenAI-Beta", "assistants=v1");
+        request.SetRequestHeader("OpenAI-Beta", "assistants=v2");
 
         yield return request.SendWebRequest();
 
