@@ -606,7 +606,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &136903916
 RectTransform:
@@ -1654,7 +1654,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426849259}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ca6f9803ffa9b354f9b3d08df2cf6498, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 98fec3a168486b344b086d778ca391f1, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 961739752}
@@ -2071,6 +2071,7 @@ GameObject:
   - component: {fileID: 770247113}
   - component: {fileID: 770247115}
   - component: {fileID: 770247114}
+  - component: {fileID: 770247116}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -2135,6 +2136,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770247112}
   m_CullTransparentMesh: 1
+--- !u!114 &770247116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770247112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490deac2426316d4b8de0ffca41d1b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &848251694
 GameObject:
   m_ObjectHideFlags: 0
