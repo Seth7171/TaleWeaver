@@ -73,12 +73,12 @@
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\RotateCamera.cs" />
     <Compile Include="Assets\Scripts\BookInfo\BookLoader.cs" />
     <Compile Include="Assets\Scripts\HandBookController.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualButton.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\BookInfo\FirstPageLoader.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_02.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\RotateObject.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\FadeOutImage.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\PlayerSession.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
     <Compile Include="Assets\Scripts\PauseMenus\PauseMenu.cs" />
@@ -113,6 +113,7 @@
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map_Right.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\OpenAI API\OpenAIInterface.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
     <Compile Include="Assets\HandyHands\scripts\VisualizeJoint.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
