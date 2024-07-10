@@ -287,8 +287,16 @@ public class OpenAIInterface : MonoBehaviour
                                 Debug.Log("imageDescription Message Content: " + imageDescription);
                                 if (!string.IsNullOrEmpty(imageDescription))
                                 {
-                                    SendDescriptionToDalle(imageDescription, messageContent, bookName, isNewBook);
-                                    success = true;
+                                    if (current_Page == 11)
+                                    {
+                                        SaveConclusion(messageContent, bookName);
+                                        success = true;
+                                    }
+                                    else
+                                    {
+                                        SendDescriptionToDalle(imageDescription, messageContent, bookName, isNewBook);
+                                        success = true;
+                                    }
                                 }
                             }
                         }
@@ -310,6 +318,7 @@ public class OpenAIInterface : MonoBehaviour
             // Notify the player here
         }
     }
+
 
     private void SendDescriptionToDalle(string description, string pageText, string bookName, bool isNewBook)
     {
@@ -639,8 +648,16 @@ public class OpenAIInterface : MonoBehaviour
                                 Debug.Log("imageDescription Message Content: " + imageDescription);
                                 if (!string.IsNullOrEmpty(imageDescription))
                                 {
-                                    SendDescriptionToDalleForExistingBook(imageDescription, messageContent, bookName);
-                                    success = true;
+                                    if (current_Page == 11)
+                                    {
+                                        SaveConclusion(messageContent, bookName);
+                                        success = true;
+                                    }
+                                    else
+                                    {
+                                        SendDescriptionToDalleForExistingBook(imageDescription, messageContent, bookName);
+                                        success = true;
+                                    }
                                 }
                             }
                         }
@@ -789,6 +806,75 @@ public class OpenAIInterface : MonoBehaviour
         }
     }
 
+    private void SaveConclusion(string messageContent, string bookName)
+    {
+        string bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, bookName);
+        DataManager.CreateDirectoryIfNotExists(bookFolderPath);
+
+        string bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
+        Book bookData;
+        if (File.Exists(bookFilePath))
+        {
+            string bookJson = File.ReadAllText(bookFilePath);
+            bookData = JsonUtility.FromJson<Book>(bookJson);
+        }
+        else
+        {
+            Debug.LogError("Book file not found when attempting to add a new page.");
+            return;
+        }
+
+        // Parse the conclusion content
+        var parsedConclusion = ParseConclusion(messageContent);
+
+        // Add the conclusion page to the book
+        bookData.Pages.Add(parsedConclusion);
+        string updatedJson = JsonUtility.ToJson(bookData, true);
+        File.WriteAllText(bookFilePath, updatedJson);
+        Debug.Log("Conclusion added to book and saved to: " + bookFilePath);
+    }
+
+    private Page ParseConclusion(string messageContent)
+    {
+        // Split the conclusion content into lines
+        string[] lines = messageContent.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+        // Extract the encounter name and introduction
+        string encounterName = "";
+        string encounterIntroduction = "";
+        bool introductionStarted = false;
+
+        foreach (string line in lines)
+        {
+            if (line.StartsWith("### Conclusion:"))
+            {
+                encounterName = line.Replace("### Conclusion:", "").Trim();
+            }
+            else
+            {
+                if (!introductionStarted)
+                {
+                    introductionStarted = true;
+                    encounterIntroduction += line;
+                }
+                else
+                {
+                    encounterIntroduction += " " + line;
+                }
+            }
+        }
+
+        return new Page(
+            encounterNum: "Conclusion",
+            encounterName: encounterName,
+            encounterIntroduction: encounterIntroduction,
+            imageGeneration: "",
+            encounterDetails: messageContent,
+            encounterAction: "",
+            encounterOptions: new List<Option>(),
+            imageUrl: ""
+        );
+    }
 
 
 
