@@ -5,19 +5,17 @@ using UnityEngine.EventSystems;
 using echo17.EndlessBook;
 using System.Collections.Generic;
 
-public class ClickableTextUI : MonoBehaviour
+public class OptionsMechanics : MonoBehaviour
 {
     public UnityEvent onClick;
-    public EndlessBook book;
-    public List<GameObject> advObjects;
-    private int currentAdvIndex = 0;
 
     private Dictionary<GameObject, TextMeshProUGUI> textObjects;
 
     private Color originalColor;
+
     public Color hoverColor = new Color(0.5f, 0.0f, 0.0f); // Bordo color
 
-    void Start()
+    public void initialize()
     {
         // Initialize dictionary for text objects
         textObjects = new Dictionary<GameObject, TextMeshProUGUI>();
@@ -35,26 +33,7 @@ public class ClickableTextUI : MonoBehaviour
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerExit, (data) => OnPointerExit((PointerEventData)data, textMeshPro));
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerClick, (data) => OnPointerClick((PointerEventData)data, textMeshPro));
             }
-        }
-
-        // Disable all ADV objects initially
-        foreach (var adv in advObjects)
-        {
-            adv.SetActive(false);
-        }
-
-        // Enable the first ADV object
-        if (advObjects.Count > 0)
-        {
-            advObjects[0].SetActive(true);
-        }
-
-        OpenAIInterface.Instance.OnIsEndedChanged += OnIsEndedChanged;
-    }
-
-    private void OnDestroy()
-    {
-        OpenAIInterface.Instance.OnIsEndedChanged -= OnIsEndedChanged;
+        } 
     }
 
     private void AddEventTrigger(EventTrigger trigger, EventTriggerType eventType, UnityAction<BaseEventData> action)
@@ -94,22 +73,5 @@ public class ClickableTextUI : MonoBehaviour
         // Call SendMessageToExistingBook with the book name, narrative (using first character of the TextMeshPro)
         OpenAIInterface.Instance.SendMessageToExistingBook(bookName, narrative);
     }
-
-    private void OnIsEndedChanged(bool isEnded)
-    {
-        if (isEnded)
-        {
-            EnableNextAdv();
-            book.TurnToPage(book.CurrentLeftPageNumber + 2, EndlessBook.PageTurnTimeTypeEnum.TimePerPage, 1f);
-        }
-    }
-
-    private void EnableNextAdv()
-    {
-        if (currentAdvIndex < advObjects.Count - 1)
-        {
-            currentAdvIndex++;
-            advObjects[currentAdvIndex].SetActive(true);
-        }
-    }
+   
 }
