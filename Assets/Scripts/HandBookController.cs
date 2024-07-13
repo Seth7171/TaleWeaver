@@ -204,16 +204,24 @@ public class HandBookController : MonoBehaviour
 
     public void EnableControls()
     {
-        if (cameraController != null)
+        // if in book read mode skip (if the function called from pausemenu)
+        if (currentView != 2)
         {
-            //Debug.Log("Enabling Camera Controller");
-            cameraController.enabled = true;
-        }
+            if (cameraController != null)
+            {
+                //Debug.Log("Enabling Camera Controller");
+                cameraController.enabled = true;
+            }
 
-        if (characterController != null)
+            if (characterController != null)
+            {
+                //Debug.Log("Enabling Character Controller");
+                characterController.enabled = true;
+            }
+        }
+        else
         {
-            //Debug.Log("Enabling Character Controller");
-            characterController.enabled = true;
+            Cursor.visible = true;
         }
     }
 
