@@ -1,3 +1,4 @@
+using echo17.EndlessBook.Demo02;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject pauseSettingsMenuUI;
     public GameObject pauseMenuMainUI;
+    public GameObject TouchPad;
 
     void Start()
     {
@@ -42,6 +44,7 @@ public class PauseMenu : MonoBehaviour
 
     public virtual void Resume()
     {
+        TouchPad.SetActive(true);
         pauseMenuUI.SetActive(false);
         pauseSettingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -51,6 +54,7 @@ public class PauseMenu : MonoBehaviour
 
     public virtual void Pause()
     {
+        TouchPad.SetActive(false);
         pauseMenuUI.SetActive(true);
         pauseSettingsMenuUI.SetActive(false);
         Time.timeScale = 0f;
@@ -60,8 +64,8 @@ public class PauseMenu : MonoBehaviour
 
     public virtual void LoadSettingsMenu()
     {
-        pauseMenuMainUI.SetActive(false);
         pauseSettingsMenuUI.SetActive(true);
+        pauseMenuMainUI.SetActive(false);
         SettingsMenuOpen = true;
     }
 
