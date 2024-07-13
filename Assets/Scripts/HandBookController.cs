@@ -42,8 +42,8 @@ public class HandBookController : MonoBehaviour
     private Vector3 midBookScale = new Vector3(0.5016249f, 0.5016249f, 0.5016249f);
     private Vector3 readBookScale = new Vector3(0.7127827f, 0.7127827f, 0.7127827f);
 
-    private int currentView = 0; // 0 = hidden, 1 = mid, 2 = read
-    private int targetView = 0; // to track the desired view state
+    private int currentView = 1; // 0 = hidden, 1 = mid, 2 = read
+    private int targetView = 1; // to track the desired view state
 
     private Coroutine transitionCoroutine;
 
@@ -54,12 +54,15 @@ public class HandBookController : MonoBehaviour
     void Start()
     {
         //Debug.Log("Start: Setting Hidden Position");
-        SetHiddenPosition();
+        //SetHiddenPosition();
+        //TransitionToMid();
         is_readMode = false;
         is_flashLight_on = false;
 
         // Initially hide the encounter options
         HideEncounterOptions();
+
+        
     }
 
     void Update()
