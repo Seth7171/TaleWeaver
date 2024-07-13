@@ -12980,6 +12980,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 261663263}
   pauseSettingsMenuUI: {fileID: 1504433423}
   pauseMenuMainUI: {fileID: 1330537562}
+  TouchPad: {fileID: 0}
   handBookController: {fileID: 332787427}
   decisions_Canvas: {fileID: 2031744231}
 --- !u!1 &619375206
@@ -22352,6 +22353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1003132796}
+  - component: {fileID: 1003132797}
   m_Layer: 0
   m_Name: Page Views
   m_TagString: Untagged
@@ -22391,6 +22393,30 @@ Transform:
   - {fileID: 980428447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1003132797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003132795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1226ab67cd5c04ba53160b14d83301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  book: {fileID: 584264027}
+  advObjects:
+  - {fileID: 463001039}
+  - {fileID: 471983027}
+  - {fileID: 1182548629}
+  - {fileID: 2029622164}
+  - {fileID: 931732766}
+  - {fileID: 1687466109}
+  - {fileID: 293691868}
+  - {fileID: 1638576803}
+  - {fileID: 614755774}
+  - {fileID: 980428446}
 --- !u!1 &1003210044
 GameObject:
   m_ObjectHideFlags: 0
@@ -46425,7 +46451,6 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls: []
-  book: {fileID: 584264027}
   advObjects:
   - {fileID: 463001039}
   - {fileID: 471983027}

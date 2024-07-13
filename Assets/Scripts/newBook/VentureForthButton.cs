@@ -92,19 +92,19 @@ public class VentureForthButton : MonoBehaviour
             return;
         }
 
-/*        var bookData = new
-        {
-            page0 = new
-            {
-                book_name = bookName,
-                narrative = narrative
-            }
-        };
+        /*        var bookData = new
+                {
+                    page0 = new
+                    {
+                        book_name = bookName,
+                        narrative = narrative
+                    }
+                };
 
-        string json = JsonUtility.ToJson(bookData, true);
-        string bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, bookName);
-        string bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
-        File.WriteAllText(bookFilePath, json);*/
+                string json = JsonUtility.ToJson(bookData, true);
+                string bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, bookName);
+                string bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
+                File.WriteAllText(bookFilePath, json);*/
 
         // Call the OpenAI Interface
         if (OpenAIInterface.Instance != null)
@@ -115,6 +115,7 @@ public class VentureForthButton : MonoBehaviour
         {
             Debug.LogError("OpenAIInterface instance is not initialized.");
         }
+        //SceneManager.LoadScene("GameWorld");
     }
 
 
