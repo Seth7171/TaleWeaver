@@ -11946,6 +11946,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1843407530}
   pauseSettingsMenuUI: {fileID: 984329445}
   pauseMenuMainUI: {fileID: 1017559747}
+  TouchPad: {fileID: 2033642786}
 --- !u!114 &578034852
 MonoBehaviour:
   m_ObjectHideFlags: 0
