@@ -1,6 +1,8 @@
 ﻿
 using UnityEngine;
 using Utilities;
+using UnityEngine.UI;
+
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(DiceSides))]
@@ -24,8 +26,8 @@ public class DiceRoller : MonoBehaviour {
     [SerializeField] AudioClip rollClip;
     [SerializeField] AudioClip impactClip;
     [SerializeField] AudioClip finalResultClip;
-    [SerializeField] GameObject impactEffect;
-    [SerializeField] GameObject finalResultEffect;
+    //[SerializeField] GameObject impactEffect;
+    //[SerializeField] GameObject finalResultEffect;
 
     DiceSides diceSides;
     AudioSource audioSource;
@@ -36,6 +38,8 @@ public class DiceRoller : MonoBehaviour {
     Vector3 originPosition;
     Vector3 currentVelocity;
     bool finalize;
+
+     public Button rollButton;
 
     void Awake() {
         diceSides = GetComponent<DiceSides>();
@@ -48,20 +52,51 @@ public class DiceRoller : MonoBehaviour {
         rollTimer = new CountdownTimer(maxRollTime);
         rollTimer.OnTimerStart += PerformInitialRoll;
         rollTimer.OnTimerStop += () => finalize = true;
+
+        rb.useGravity = false;
     }
 
-    void OnMouseUp() {
+    void FixedUpdate()
+    {
+        // Make the cube fall towards the screen at each physics update
+        float speedTowardsScreen = 9.81f; // Set this speed as needed
+        rb.velocity = new Vector3(0, 0, -speedTowardsScreen); // Adjust direction and speed here
+    }
+
+/*    void OnMouseUp() {
         if (rollTimer.IsRunning) return;
         rollTimer.Start();
-    }
+    }*/
 
-    void Update() {
+/*    void Update()
+    {
         rollTimer.Tick(Time.deltaTime);
 
-        if (finalize) {
+        if (finalize)
+        {
             MoveDiceToCenter();
         }
+    }*/
+
+    public void RollDice()
+    {
+        Debug.Log("RollDice called.");
+        if (!rollTimer.IsRunning)
+        {
+            Debug.Log("Timer is not running, starting roll.");
+            rollTimer.Start();
+            if (rollButton != null)
+            {
+                //rollButton.interactable = false;
+                Debug.Log("Button should be disabled now.");
+            }
+        }
+        else
+        {
+            Debug.Log("Timer is already running.");
+        }
     }
+
 
     void OnCollisionEnter(Collision col) {
         if (rollTimer.IsRunning && rollTimer.Progress < 0.5f && rb.angularVelocity.magnitude < minAngularVelocity) {
@@ -69,8 +104,8 @@ public class DiceRoller : MonoBehaviour {
         }
         
         audioSource.PlayOneShot(impactClip);
-        var particles = InstantiateFX(impactEffect, col.contacts[0].point, 1f);
-        Destroy(particles, 1f);
+        //var particles = InstantiateFX(impactEffect, col.contacts[0].point, 1f);
+        //Destroy(particles, 1f);
     }
 
     void PerformInitialRoll() {
@@ -103,8 +138,8 @@ public class DiceRoller : MonoBehaviour {
         audioSource.Stop();
         audioSource.PlayOneShot(finalResultClip);
         
-        var particles = InstantiateFX(finalResultEffect, transform.position, 5f);
-        Destroy(particles, 3f);
+        //var particles = InstantiateFX(finalResultEffect, transform.position, 5f);
+        //Destroy(particles, 3f);
         
         int result = diceSides.GetMatch();
         Debug.Log($"Dice landed on {result}");
