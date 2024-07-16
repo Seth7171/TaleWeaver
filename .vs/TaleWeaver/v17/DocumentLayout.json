@@ -3,7 +3,31 @@
   "WorkspaceRootPath": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameplay\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\dice\\scripts\\diceroller\\diceroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\dice\\scripts\\diceroller\\diceroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\dice\\scripts\\extensions\\vector3extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\dice\\scripts\\extensions\\vector3extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\dice\\scripts\\timer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\dice\\scripts\\timer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A15FD00-31BA-68B1-B57D-1D7C2877C267}|Assembly-CSharp-Editor.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\dice\\scripts\\diceroller\\editor\\dicesideseditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A15FD00-31BA-68B1-B57D-1D7C2877C267}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\dice\\scripts\\diceroller\\editor\\dicesideseditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\dice\\scripts\\diceroller\\dicesides.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\dice\\scripts\\diceroller\\dicesides.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\healthbar\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthbar\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\gameplay\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,11 +35,7 @@
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\openai api\\openaiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameplay\\clickabletextui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\clickabletextui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -75,6 +95,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\newbook\\inappropriatewordsfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newbook\\inappropriatewordsfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\ClickableTextUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Gameplay\\ClickableTextUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\gameworld\\dice\\dicescore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\gameworld\\dice\\dicescore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\gameworld\\dice\\facedetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\gameworld\\dice\\facedetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameworld\\dice\\diceroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\gameworld\\dice\\diceroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -84,11 +120,120 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Vector3Extensions.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\Extensions\\Vector3Extensions.cs",
+              "RelativeDocumentMoniker": "Assets\\Dice\\Scripts\\Extensions\\Vector3Extensions.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\Extensions\\Vector3Extensions.cs",
+              "RelativeToolTip": "Assets\\Dice\\Scripts\\Extensions\\Vector3Extensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T17:36:01.732Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Timer.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\Timer.cs",
+              "RelativeDocumentMoniker": "Assets\\Dice\\Scripts\\Timer.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\Timer.cs",
+              "RelativeToolTip": "Assets\\Dice\\Scripts\\Timer.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T17:35:55.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DiceSidesEditor.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\Editor\\DiceSidesEditor.cs",
+              "RelativeDocumentMoniker": "Assets\\Dice\\Scripts\\DiceRoller\\Editor\\DiceSidesEditor.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\Editor\\DiceSidesEditor.cs",
+              "RelativeToolTip": "Assets\\Dice\\Scripts\\DiceRoller\\Editor\\DiceSidesEditor.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAuwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T17:35:49.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DiceSides.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceSides.cs",
+              "RelativeDocumentMoniker": "Assets\\Dice\\Scripts\\DiceRoller\\DiceSides.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceSides.cs",
+              "RelativeToolTip": "Assets\\Dice\\Scripts\\DiceRoller\\DiceSides.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T17:34:25.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DiceRoller.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
+              "RelativeDocumentMoniker": "Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
+              "RelativeToolTip": "Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAA9wBUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T17:27:45.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HealthBar.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T17:02:43.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "DiceScore.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\dice\\DiceScore.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\dice\\DiceScore.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\dice\\DiceScore.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameWorld\\dice\\DiceScore.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T17:01:23.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FaceDetector.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\dice\\FaceDetector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\dice\\FaceDetector.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\dice\\FaceDetector.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameWorld\\dice\\FaceDetector.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T16:58:26.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DiceRoll.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\dice\\DiceRoll.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\dice\\DiceRoll.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\dice\\DiceRoll.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameWorld\\dice\\DiceRoll.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACMAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T16:51:04.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "ClickableTextUI.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\ClickableTextUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\ClickableTextUI.cs",
@@ -96,25 +241,23 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\ClickableTextUI.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAgwDQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T16:11:38.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-13T16:11:38.096Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameManager.cs",
               "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T16:11:19.491Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-13T16:11:19.491Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "FirstPageLoader.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\FirstPageLoader.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\FirstPageLoader.cs",
@@ -126,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "playerData.json",
               "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\test\\playerData.json",
               "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\test\\playerData.json",
@@ -136,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "playerData.json",
               "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\ron\\playerData.json",
               "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\ron\\playerData.json",
@@ -146,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "PlayerSession.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerSelection\\PlayerSession.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerSelection\\PlayerSession.cs",
@@ -158,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "PlayerManager.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\PlayerManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\PlayerManager.cs",
@@ -170,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "PlayerData.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\PlayerData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\PlayerData.cs",
@@ -182,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "DataManager.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\DataManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\DataManager.cs",
@@ -194,7 +337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\Player.cs",
@@ -206,7 +349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "OpenAIInterface.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\OpenAIInterface.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\OpenAI API\\OpenAIInterface.cs",
@@ -214,12 +357,11 @@
               "RelativeToolTip": "Assets\\Scripts\\OpenAI API\\OpenAIInterface.cs",
               "ViewState": "AQIAAEEAAAAAAAAAAAAAwFwAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T14:36:37.935Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-27T14:36:37.935Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "BookLoader.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\BookLoader.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\BookLoader.cs",
@@ -227,12 +369,11 @@
               "RelativeToolTip": "Assets\\Scripts\\BookInfo\\BookLoader.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAQwFAAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T12:20:29.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-04T12:20:29.363Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "assistant_create.json",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\assistant_create.json",
               "RelativeDocumentMoniker": "Assets\\Scripts\\OpenAI API\\assistant_create.json",
@@ -244,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "SelectPlayer.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerSelection\\SelectPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerSelection\\SelectPlayer.cs",
@@ -256,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "config.json",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\config.json",
               "RelativeDocumentMoniker": "Assets\\Scripts\\OpenAI API\\config.json",
@@ -268,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "InputValidator.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\InputValidator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\newBook\\InputValidator.cs",
@@ -280,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "VentureForthButton.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\VentureForthButton.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\newBook\\VentureForthButton.cs",
@@ -292,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "PauseMenu.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PauseMenus\\PauseMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PauseMenus\\PauseMenu.cs",
@@ -304,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "InappropriateWordsFilter.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\InappropriateWordsFilter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\newBook\\InappropriateWordsFilter.cs",
