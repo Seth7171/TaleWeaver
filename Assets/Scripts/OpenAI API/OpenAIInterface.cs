@@ -137,7 +137,6 @@ public class OpenAIInterface : MonoBehaviour
     {
         this.user_APIKey = PlayerSession.SelectedPlayerApiKey;
         this.assistant_ID = PlayerSession.SelectedPlayerassistantID;
-
     }
 
     public void SendNarrativeToAPI(string bookName, string narrative, int pagenum)
@@ -429,7 +428,7 @@ public class OpenAIInterface : MonoBehaviour
             string imageGeneration = parts[6].Trim();
 
             // Optionally, you could split by a known section starter if you want to cut off at that point
-            string[] possibleEndTags = new[] { "Encounter Description:", "Choices:" };
+            string[] possibleEndTags = new[] { "Encounter Description:", "Mechanics:" };
             foreach (var endTag in possibleEndTags)
             {
                 int endIndex = imageGeneration.IndexOf(endTag, StringComparison.OrdinalIgnoreCase);
@@ -448,7 +447,6 @@ public class OpenAIInterface : MonoBehaviour
             return null;
         }
     }
-
 
     private Page ParsePage(string narrative, string imageUrl)
     {
@@ -509,7 +507,6 @@ public class OpenAIInterface : MonoBehaviour
             return null;
         }
     }
-
 
     private string TruncateText(string text, int maxWords)
     {
@@ -875,7 +872,4 @@ public class OpenAIInterface : MonoBehaviour
             imageUrl: ""
         );
     }
-
-
-
 }

@@ -2265,6 +2265,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1561555055}
   pauseSettingsMenuUI: {fileID: 97313095}
   pauseMenuMainUI: {fileID: 1439559502}
+  TouchPad: {fileID: 2033642786}
 --- !u!1 &490156017
 GameObject:
   m_ObjectHideFlags: 0
@@ -11015,7 +11016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2033642787
 MonoBehaviour:
   m_ObjectHideFlags: 0
