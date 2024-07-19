@@ -6,14 +6,14 @@ This is the capstone project: a game that integrates AI-driven storytelling and 
 
 
 <p align="center">
-    <img src="docs/images/MainMenu.png?raw=true" width="820">
+    <img src="Docs/images/MainMenu.png?raw=true" width="820">
 </p>
 
 <p align="center">
-    <img src="docs/images/NewBook.png?raw=true" width="820">
+    <img src="Docs/images/NewBook.png?raw=true" width="820">
 </p>
 
 <p align="center">
-    <img src="docs/images/Adv01.png?raw=true" width="410"> <img src="docs/images/Adv02.png?raw=true" width="410">
+    <img src="Docs/images/Adv01.png?raw=true" width="410"> <img src="Docs/images/Adv02.png?raw=true" width="410">
 </p>
 
