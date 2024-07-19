@@ -39,7 +39,12 @@ public class DiceRoller : MonoBehaviour {
     Vector3 currentVelocity;
     bool finalize;
 
-     public Button rollButton;
+    public Button rollButton;
+
+    Vector3 targetPosition;
+    bool isTransitioning = false;
+    Quaternion targetRotation;
+    bool isRotating = false;
 
     void Awake() {
         diceSides = GetComponent<DiceSides>();
@@ -63,20 +68,30 @@ public class DiceRoller : MonoBehaviour {
         rb.velocity = new Vector3(0, 0, -speedTowardsScreen); // Adjust direction and speed here
     }
 
-/*    void OnMouseUp() {
-        if (rollTimer.IsRunning) return;
-        rollTimer.Start();
-    }*/
+    /*    void OnMouseUp() {
+            if (rollTimer.IsRunning) return;
+            rollTimer.Start();
+        }*/
 
-/*    void Update()
+    void Update()
     {
-        rollTimer.Tick(Time.deltaTime);
+        if (rollTimer != null)
+        {
+            rollTimer.Tick(Time.deltaTime);
+        }
 
         if (finalize)
         {
             MoveDiceToCenter();
+            finalize = false;  // Reset finalize flag
         }
-    }*/
+
+        if (isTransitioning)
+        {
+            SmoothTransition();
+        }
+    }
+
 
     public void RollDice()
     {
@@ -112,7 +127,7 @@ public class DiceRoller : MonoBehaviour {
         ResetDiceState();
         resultText.text = "";
         
-        Vector3 targetPosition = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+        Vector3 targetPosition = new Vector3(0, 0, 1);
         rb.AddForce(targetPosition * rollForce, ForceMode.Impulse);
         rb.AddTorque(Random.insideUnitSphere * torqueAmount, ForceMode.Impulse);
         
@@ -121,26 +136,46 @@ public class DiceRoller : MonoBehaviour {
         audioSource.Play();
     }
 
-    void MoveDiceToCenter() {
-        transform.position = Vector3.SmoothDamp(transform.position, originPosition, ref currentVelocity, smoothTime, maxSpeed);
+    void MoveDiceToCenter()
+    {
+        targetPosition = originPosition;
+        AlignDiceToResult();  // Set target rotation
+        isTransitioning = true;
+    }
 
-        if (originPosition.InRangeOf(transform.position, 0.1f)) {
-            FinalizeRoll();
+    void AlignDiceToResult()
+    {
+        int result = diceSides.GetMatch();
+        if (diceSides.faceRotations.TryGetValue(result, out Quaternion rotation))
+        {
+            targetRotation = rotation;
         }
     }
 
-    void FinalizeRoll() {
+    void SmoothTransition()
+    {
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime, maxSpeed);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothTime * maxSpeed * 5);
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f && Quaternion.Angle(transform.rotation, targetRotation) < 0.1f)
+        {
+            isTransitioning = false;
+            FinalizeRoll();  // Ensure FinalizeRoll is called once the transition is complete
+        }
+    }
+    
+    void FinalizeRoll()
+    {
         rollTimer.Stop();
         finalize = false;
         ResetDiceState();
-        
+
         audioSource.loop = false;
         audioSource.Stop();
         audioSource.PlayOneShot(finalResultClip);
-        
+
         //var particles = InstantiateFX(finalResultEffect, transform.position, 5f);
         //Destroy(particles, 3f);
-        
+
         int result = diceSides.GetMatch();
         Debug.Log($"Dice landed on {result}");
         resultText.text = result.ToString();
