@@ -20,12 +20,12 @@ public class Book
 public class Option
 {
     public string option;
-    public int MaxWords;
+    public int outcome;
 
     public Option(string option, int maxWords)
     {
         this.option = option;
-        MaxWords = maxWords;
+        this.outcome = outcome;
     }
 }
 
