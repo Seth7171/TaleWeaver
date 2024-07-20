@@ -73,9 +73,9 @@ public class BookLoader : MonoBehaviour
     void Start()
     {
         // Initialize book paths
-/*        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        DataManager.CreateDirectoryIfNotExists(bookFolderPath);*/
-        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\";
+        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        DataManager.CreateDirectoryIfNotExists(bookFolderPath);
+        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\";
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
         // Initialize the dictionary
