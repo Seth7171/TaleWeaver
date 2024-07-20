@@ -3,16 +3,35 @@
   "WorkspaceRootPath": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\healthbar\\playeringame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthbar\\playeringame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\healthbar\\luckbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthbar\\luckbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\healthbar\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthbar\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameplay\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\playerManager.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameworld\\clickabletext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameworld\\clickabletext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\openai api\\openaiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\openai api\\openaiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\newbook\\ventureforthbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newbook\\ventureforthbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\bookinfo\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +41,108 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerInGame.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\PlayerInGame.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\HealthBar\\PlayerInGame.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\PlayerInGame.cs",
-              "RelativeToolTip": "Assets\\Scripts\\HealthBar\\PlayerInGame.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAgwCgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T15:53:11.504Z",
+              "DocumentIndex": 3,
+              "Title": "playerManager.json",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\playerManager.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\playerManager.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-20T12:28:03.911Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HealthBar.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\HealthBar.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\HealthBar\\HealthBar.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\HealthBar.cs",
-              "RelativeToolTip": "Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameManager.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameManager.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAowA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:26:10.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClickableText.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\ClickableText.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\ClickableText.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\ClickableText.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameWorld\\ClickableText.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T15:53:13.085Z",
+              "WhenOpened": "2024-07-20T12:21:25.552Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LuckBar.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\LuckBar.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\HealthBar\\LuckBar.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\LuckBar.cs",
-              "RelativeToolTip": "Assets\\Scripts\\HealthBar\\LuckBar.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAXAAAA",
+              "Title": "BookLoader.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\BookLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\BookLoader.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\BookLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\BookLoader.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAQwDcAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T15:51:57.641Z",
+              "WhenOpened": "2024-07-20T12:20:27.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameMechanicsManager.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "ViewState": "AQIAAMEAAAAAAAAAAAAQwNQAAACEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T11:59:10.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OpenAIInterface.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\OpenAIInterface.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\OpenAI API\\OpenAIInterface.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\OpenAIInterface.cs",
+              "RelativeToolTip": "Assets\\Scripts\\OpenAI API\\OpenAIInterface.cs",
+              "ViewState": "AQIAAKgCAAAAAAAAAAAAAMECAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T10:15:15.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\Book.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\Book.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\Book.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\Book.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T10:40:19.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VentureForthButton.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\VentureForthButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\newBook\\VentureForthButton.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\VentureForthButton.cs",
+              "RelativeToolTip": "Assets\\Scripts\\newBook\\VentureForthButton.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAwwH8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T10:39:31.202Z",
               "EditorCaption": ""
             }
           ]
