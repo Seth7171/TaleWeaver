@@ -16416,9 +16416,9 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 261663263}
   pauseSettingsMenuUI: {fileID: 1504433423}
   pauseMenuMainUI: {fileID: 1330537562}
-  TouchPad: {fileID: 0}
+  TouchPad: {fileID: 823867537}
   handBookController: {fileID: 332787427}
-  decisions_Canvas: {fileID: 0}
+  decisions_Canvas: {fileID: 918342664}
 --- !u!1 &619375206
 GameObject:
   m_ObjectHideFlags: 0
@@ -30636,10 +30636,10 @@ MonoBehaviour:
   smoothTime: 0.1
   maxSpeed: 15
   resultText: {fileID: 1276005057}
-  shakeClip: {fileID: 0}
+  shakeClip: {fileID: 8300000, guid: cc69f1e8307572749b4a692a09975728, type: 3}
   rollClip: {fileID: 0}
   impactClip: {fileID: 0}
-  finalResultClip: {fileID: 0}
+  finalResultClip: {fileID: 8300000, guid: 85f33ef4fcd74cb4b9270077a89e1fa2, type: 3}
   rollButton: {fileID: 183047104}
 --- !u!1 &1111636711
 GameObject:
