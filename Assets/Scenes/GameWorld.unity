@@ -7414,7 +7414,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 1833669874}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &294031001
 GameObject:
   m_ObjectHideFlags: 0
@@ -11187,7 +11202,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 1769688519}
+  encounterRoll2: {fileID: 1973409985}
+  encounterRoll3: {fileID: 119521532}
+  encounterRoll4: {fileID: 482692901}
+  encounterRoll5: {fileID: 837133245}
+  encounterRoll6: {fileID: 1923091041}
+  encounterCheck: {fileID: 1153959976}
+  encounterCombat: {fileID: 814612889}
+  encounterLuck1: {fileID: 1329067501}
+  encounterLuck2: {fileID: 1921447125}
   encounterImage: {fileID: 647801281}
+  optionsCanvas: {fileID: 787850769}
+  rollCanvas: {fileID: 647018649}
+  checkCanvas: {fileID: 318242627}
+  combatCanvas: {fileID: 17593549}
+  luckCanvas: {fileID: 1962809754}
 --- !u!1 &465200764
 GameObject:
   m_ObjectHideFlags: 0
@@ -11521,7 +11551,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 299570714}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &473538375
 GameObject:
   m_ObjectHideFlags: 0
@@ -16030,7 +16075,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 286446144}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &616492022
 GameObject:
   m_ObjectHideFlags: 0
@@ -23958,7 +24018,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 354, y: -210}
+  m_AnchoredPosition: {x: 354, y: -250}
   m_SizeDelta: {x: 720.45, y: 75.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &852500747
@@ -26249,7 +26309,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 1292392647}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &935805617
 GameObject:
   m_ObjectHideFlags: 0
@@ -27131,7 +27206,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 359779267}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &998450173
 GameObject:
   m_ObjectHideFlags: 0
@@ -32835,7 +32925,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 16208070}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &1182621417
 GameObject:
   m_ObjectHideFlags: 0
@@ -34798,7 +34903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 354, y: -315}
+  m_AnchoredPosition: {x: 354, y: -355}
   m_SizeDelta: {x: 720.45, y: 75.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1243274479
@@ -36539,7 +36644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 354, y: -105}
+  m_AnchoredPosition: {x: 354, y: -145}
   m_SizeDelta: {x: 720.45, y: 75.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1294244646
@@ -45802,7 +45907,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 969135560}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &1640528736
 GameObject:
   m_ObjectHideFlags: 0
@@ -46775,7 +46895,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 850643575}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &1689017143
 GameObject:
   m_ObjectHideFlags: 0
@@ -56498,7 +56633,22 @@ MonoBehaviour:
   encounterOptions1_copy: {fileID: 1294244647}
   encounterOptions2_copy: {fileID: 852500748}
   encounterOptions3_copy: {fileID: 1243274480}
+  encounterRoll1: {fileID: 0}
+  encounterRoll2: {fileID: 0}
+  encounterRoll3: {fileID: 0}
+  encounterRoll4: {fileID: 0}
+  encounterRoll5: {fileID: 0}
+  encounterRoll6: {fileID: 0}
+  encounterCheck: {fileID: 0}
+  encounterCombat: {fileID: 0}
+  encounterLuck1: {fileID: 0}
+  encounterLuck2: {fileID: 0}
   encounterImage: {fileID: 879767968}
+  optionsCanvas: {fileID: 0}
+  rollCanvas: {fileID: 0}
+  checkCanvas: {fileID: 0}
+  combatCanvas: {fileID: 0}
+  luckCanvas: {fileID: 0}
 --- !u!1 &2030095609
 GameObject:
   m_ObjectHideFlags: 0

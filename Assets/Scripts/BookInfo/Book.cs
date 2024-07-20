@@ -20,14 +20,17 @@ public class Book
 public class Option
 {
     public string option;
-    public int outcome;
+    public string outcome;
+    public bool isCorrectAnswer;
 
-    public Option(string option, int maxWords)
+    public Option(string option, string outcome, bool isCorrectAnswer = false)
     {
         this.option = option;
         this.outcome = outcome;
+        this.isCorrectAnswer = isCorrectAnswer;
     }
 }
+
 
 [Serializable]
 public class Page
@@ -53,3 +56,4 @@ public class Page
         ImageUrl = imageUrl;
     }
 }
+

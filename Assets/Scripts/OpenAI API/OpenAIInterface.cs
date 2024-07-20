@@ -88,6 +88,14 @@ public class AssistantResponse
     public string id;
 }
 
+[System.Serializable]
+public class RollOption
+{
+    public string description;
+    public string effect;
+}
+
+
 public class OpenAIInterface : MonoBehaviour
 {
     public static OpenAIInterface Instance { get; private set; }
@@ -453,11 +461,11 @@ public class OpenAIInterface : MonoBehaviour
         try
         {
             // Split the narrative text into lines
-            string[] lines = narrative.Split(new[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
+            string[] lines = narrative.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             // Extract Encounter Number and Name
             string encounterLine = lines.FirstOrDefault(line => line.StartsWith("###"));
-            if (encounterLine == null) throw new System.Exception("Encounter line not found");
+            if (encounterLine == null) throw new Exception("Encounter line not found");
             string[] encounterParts = encounterLine.Replace("###", "").Trim().Split(new[] { ':' }, 2);
             string encounterNum = encounterParts[0].Trim();
             string encounterName = encounterParts.Length > 1 ? encounterParts[1].Trim() : "";
@@ -479,20 +487,105 @@ public class OpenAIInterface : MonoBehaviour
                 imageGeneration = parts[6].Trim();
                 encounterAction = parts[8].Trim();
 
-                // Extract choices
+                // Extract choices or other mechanics
                 string[] choiceLines = encounterAction.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
                 encounterAction = choiceLines[0].Trim();
-                foreach (var line in choiceLines)
+
+                if (encounterAction.StartsWith("$$Roll$$"))
                 {
-                    if (line.StartsWith("1.") || line.StartsWith("2.") || line.StartsWith("3."))
+                    for (int i = 1; i <= 6; i++)
                     {
-                        choices.Add(new Option(line.Substring(2).Trim(), 145));
+                        var rollDescription = choiceLines.FirstOrDefault(line => line.StartsWith(i + "."));
+                        if (rollDescription != null)
+                        {
+                            string[] rollParts = rollDescription.Substring(2).Trim().Split(new[] { "$$" }, StringSplitOptions.None);
+                            choices.Add(new Option(rollParts[0].Trim(), rollParts.Length > 1 ? rollParts[1].Trim() : ""));
+                        }
+                    }
+                }
+                else if (encounterAction.StartsWith("&&Riddle&&"))
+                {
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        var riddleDescription = choiceLines.FirstOrDefault(line => line.StartsWith(i + "."));
+                        if (riddleDescription != null)
+                        {
+                            choices.Add(new Option(riddleDescription.Substring(2).Trim(), "Outcome"));
+                        }
+                    }
+                    // Correct answer
+                    var correctAnswerLine = choiceLines.FirstOrDefault(line => line.StartsWith("&&RiddleAns&&"));
+                    if (correctAnswerLine != null)
+                    {
+                        choices.Add(new Option(correctAnswerLine.Replace("&&RiddleAns&&", "").Trim(), "Correct", true));
+                    }
+                }
+                else if (encounterAction.StartsWith("%%Check%%"))
+                {
+                    string checkNumberLine = choiceLines.FirstOrDefault(line => line.StartsWith("%%"));
+                    if (checkNumberLine != null)
+                    {
+                        string[] checkParts = checkNumberLine.Split(new[] { "%%" }, StringSplitOptions.RemoveEmptyEntries);
+                        int checkNumber = int.Parse(checkParts[0].Trim());
+                        string checkDescription = checkParts.Length > 1 ? checkParts[1].Trim() : "";
+                        choices.Add(new Option($"Check: {checkDescription}", checkNumber.ToString()));
+                    }
+                }
+                else if (encounterAction.StartsWith("##Combat##"))
+                {
+                    string monsterName = "";
+                    int difficulty = 0;
+                    foreach (var line in choiceLines)
+                    {
+                        if (line.StartsWith("##Name##"))
+                        {
+                            monsterName = line.Replace("##Name##", "").Trim();
+                        }
+                        else if (line.StartsWith("##Diff##"))
+                        {
+                            difficulty = int.Parse(line.Replace("##Diff##", "").Trim());
+                        }
+                    }
+                    choices.Add(new Option($"Combat with {monsterName}", difficulty.ToString()));
+                }
+                else if (encounterAction.StartsWith("@@luck@@"))
+                {
+                    string scenario1 = "";
+                    string scenario2 = "";
+                    string scenario1Effect = "";
+                    string scenario2Effect = "";
+                    foreach (var line in choiceLines)
+                    {
+                        if (line.StartsWith("@@senario 1:@@"))
+                        {
+                            string[] miniparts = line.Replace("@@senario 1:@@", "").Trim().Split(new[] { "@@- ", "@@luck1Description@@" }, StringSplitOptions.None);
+                            scenario1Effect = miniparts[0].Trim();
+                            scenario1 = miniparts.Length > 1 ? miniparts[1].Trim() : "";
+                        }
+                        else if (line.StartsWith("@@senario 2:@@"))
+                        {
+                            string[] miniparts = line.Replace("@@senario 2:@@", "").Trim().Split(new[] { "@@- ", "@@luck2Description@@" }, StringSplitOptions.None);
+                            scenario2Effect = miniparts[0].Trim();
+                            scenario2 = miniparts.Length > 1 ? miniparts[1].Trim() : "";
+                        }
+                    }
+                    choices.Add(new Option($"Scenario 1: {scenario1}", scenario1Effect));
+                    choices.Add(new Option($"Scenario 2: {scenario2}", scenario2Effect));
+                }
+                else
+                {
+                    foreach (var line in choiceLines)
+                    {
+                        if (line.StartsWith("1.") || line.StartsWith("2.") || line.StartsWith("3."))
+                        {
+                            choices.Add(new Option(line.Substring(2).Trim(), "Outcome"));
+                        }
                     }
                 }
             }
             else
             {
-                throw new System.Exception("Narrative format is incorrect.");
+                throw new Exception("Narrative format is incorrect.");
             }
 
             // Truncate sections to their word limits
@@ -501,12 +594,15 @@ public class OpenAIInterface : MonoBehaviour
 
             return new Page(encounterNum, encounterName, encounterIntroduction, imageGeneration, encounterDescription, encounterAction, choices, imageUrl);
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
             Debug.LogError("Error parsing page: " + ex.Message);
             return null;
         }
     }
+
+
+
 
     private string TruncateText(string text, int maxWords)
     {
