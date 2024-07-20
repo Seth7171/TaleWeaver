@@ -40,7 +40,7 @@ public class Page
     public string EncounterIntroduction;
     public string ImageGeneration;
     public string EncounterDetails;
-    public string EncounterAction;
+    public string EncounterAction; // the mechanic 
     public List<Option> EncounterOptions;
     public string ImageUrl;
 
