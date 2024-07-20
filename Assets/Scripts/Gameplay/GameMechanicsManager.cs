@@ -44,8 +44,8 @@ public class GameMechanicsManager : MonoBehaviour
 
     public string GetRandomMechanic()
     {
-        //int chosenMechanic = random.Next(mechanics.Count);
-        int chosenMechanic = 5;
+        int chosenMechanic = random.Next(mechanics.Count);
+        //int chosenMechanic = 5;
         if (mechanics[chosenMechanic] == "luck")
         {
             int chosenSenrario1 = random.Next(pushSenario1.Count);
