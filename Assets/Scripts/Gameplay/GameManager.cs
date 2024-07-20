@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     public EndlessBook book;
     public List<GameObject> advObjects;
     private int currentAdvIndex = 0;
@@ -49,7 +50,6 @@ public class GameManager : MonoBehaviour
             {
                 optionsMechanics.initialize();
             }
-
         }
     }
 

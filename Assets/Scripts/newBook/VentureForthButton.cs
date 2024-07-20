@@ -107,13 +107,13 @@ public class VentureForthButton : MonoBehaviour
                 File.WriteAllText(bookFilePath, json);*/
 
         // Call the OpenAI Interface
-        if (OpenAIInterface.Instance != null)
+        if (GameMechanicsManager.Instance != null)
         {
-            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, narrative, 1);
+            GameMechanicsManager.Instance.StartAdventure(bookName, narrative);
         }
         else
         {
-            Debug.LogError("OpenAIInterface instance is not initialized.");
+            Debug.LogError("GameMechanicsManager instance is not initialized.");
         }
         //SceneManager.LoadScene("GameWorld");
     }

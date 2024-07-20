@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameMechanicsManager : MonoBehaviour
 {
     public static GameMechanicsManager Instance { get; private set; }
+    private OptionsMechanics optionsMechanics;
 
     private System.Random random = new System.Random();
 
@@ -26,9 +27,25 @@ public class GameMechanicsManager : MonoBehaviour
         }
     }
 
+    public void StartAdventure(string bookName, string narrative)
+    {
+        string mechnism = GetRandomMechanic();
+
+        if (OpenAIInterface.Instance != null)
+        {
+            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, narrative + ", mechanic is " + mechnism, 1);
+        }
+        else
+        {
+            Debug.LogError("OpenAIInterface instance is not initialized.");
+        }
+
+    }
+
     public string GetRandomMechanic()
     {
-        int chosenMechanic = random.Next(mechanics.Count);
+        //int chosenMechanic = random.Next(mechanics.Count);
+        int chosenMechanic = 5;
         if (mechanics[chosenMechanic] == "luck")
         {
             int chosenSenrario1 = random.Next(pushSenario1.Count);
@@ -104,10 +121,6 @@ public class GameMechanicsManager : MonoBehaviour
     }
 
 
-
-
-
-
     public Page ParsePage(string narrative, string imagePath)
     {
         try
@@ -126,7 +139,8 @@ public class GameMechanicsManager : MonoBehaviour
             string encounterIntroduction = "";
             string encounterDescription = "";
             string imageGeneration = "";
-            string encounterAction = "";
+            string encounterMechanic = "";
+            string encounterMechanicInfo = "";
             List<Option> choices = new List<Option>();
 
             // Split the narrative into parts based on the asterisks (**)
@@ -137,13 +151,13 @@ public class GameMechanicsManager : MonoBehaviour
                 encounterIntroduction = parts[2].Trim();
                 encounterDescription = parts[4].Trim();
                 imageGeneration = parts[6].Trim();
-                encounterAction = parts[8].Trim();
+                encounterMechanic = parts[8].Trim();
 
                 // Extract choices or other mechanics
-                string[] choiceLines = encounterAction.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                encounterAction = choiceLines[0].Trim();
+                string[] choiceLines = encounterMechanic.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                encounterMechanic = choiceLines[0].Trim();
 
-                if (encounterAction.StartsWith("$$Roll$$"))
+                if (encounterMechanic.StartsWith("$$Roll$$"))
                 {
                     for (int i = 1; i <= 6; i++)
                     {
@@ -155,8 +169,14 @@ public class GameMechanicsManager : MonoBehaviour
                         }
                     }
                 }
-                else if (encounterAction.StartsWith("&&Riddle&&"))
+                else if (encounterMechanic.StartsWith("&&Riddle&&"))
                 {
+                    int RiddleInfoIndex = Array.FindIndex(choiceLines, line => line.StartsWith("&&RiddleDescription&&"));
+                    if (RiddleInfoIndex != -1)
+                    {
+                        encounterMechanicInfo = choiceLines[RiddleInfoIndex + 1].Trim();
+                    }
+
                     for (int i = 1; i <= 3; i++)
                     {
                         var riddleDescription = choiceLines.FirstOrDefault(line => line.StartsWith(i + "."));
@@ -166,24 +186,27 @@ public class GameMechanicsManager : MonoBehaviour
                         }
                     }
                     // Correct answer
-                    var correctAnswerLine = choiceLines.FirstOrDefault(line => line.StartsWith("&&RiddleAns&&"));
-                    if (correctAnswerLine != null)
+                    int correctAnswerIndex = Array.FindIndex(choiceLines, line => line.StartsWith("&&RiddleAns&&"));
+                    if (correctAnswerIndex != -1)
                     {
-                        choices.Add(new Option(correctAnswerLine.Replace("&&RiddleAns&&", "").Trim(), "Correct", true));
+                        var correctAnswer = choiceLines[correctAnswerIndex + 1].Trim();
+                        string[] AnswerParts = correctAnswer.Split(new[] { '.' }, 2);
+                        int correctindx = int.Parse(AnswerParts[0]);
+                        choices[correctindx - 1].isCorrectAnswer = true;
                     }
                 }
-                else if (encounterAction.StartsWith("%%Check%%"))
+                else if (encounterMechanic.StartsWith("%%Check%%"))
                 {
-                    string checkNumberLine = choiceLines.FirstOrDefault(line => line.StartsWith("%%"));
-                    if (checkNumberLine != null)
+                    int RiddleInfoIndex = Array.FindIndex(choiceLines, line => line.StartsWith("%%CheckDescription%%"));
+                    if (RiddleInfoIndex != -1)
                     {
-                        string[] checkParts = checkNumberLine.Split(new[] { "%%" }, StringSplitOptions.RemoveEmptyEntries);
-                        int checkNumber = int.Parse(checkParts[0].Trim());
-                        string checkDescription = checkParts.Length > 1 ? checkParts[1].Trim() : "";
-                        choices.Add(new Option($"Check: {checkDescription}", checkNumber.ToString()));
+                        string checkDescription = choiceLines[RiddleInfoIndex + 1].Trim();
+                        string checkNumber = choiceLines[RiddleInfoIndex + 2].Trim();
+                        checkNumber = checkNumber.Replace("%", "");
+                        choices.Add(new Option(checkDescription, checkNumber));
                     }
                 }
-                else if (encounterAction.StartsWith("##Combat##"))
+                else if (encounterMechanic.StartsWith("##Combat##"))
                 {
                     string monsterName = "";
                     int difficulty = 0;
@@ -200,37 +223,66 @@ public class GameMechanicsManager : MonoBehaviour
                     }
                     choices.Add(new Option($"Combat with {monsterName}", difficulty.ToString()));
                 }
-                else if (encounterAction.StartsWith("@@luck@@"))
+                else if (encounterMechanic.StartsWith("@@luck@@"))
                 {
                     string scenario1 = "";
                     string scenario2 = "";
                     string scenario1Effect = "";
                     string scenario2Effect = "";
+                    int i = 0;
                     foreach (var line in choiceLines)
                     {
                         if (line.StartsWith("@@senario 1:@@"))
                         {
-                            string[] miniparts = line.Replace("@@senario 1:@@", "").Trim().Split(new[] { "@@- ", "@@luck1Description@@" }, StringSplitOptions.None);
-                            scenario1Effect = miniparts[0].Trim();
-                            scenario1 = miniparts.Length > 1 ? miniparts[1].Trim() : "";
+                            //string[] miniparts = line.Replace("@@senario 1:@@", "").Trim().Split(new[] { "@@", "@@luck1Description@@" }, StringSplitOptions.None);
+                            //scenario1Effect = miniparts[0].Trim();
+                            scenario1Effect = line.Replace("@@senario 1:@@", "").Trim();
+                            scenario1Effect = scenario1Effect.Replace("@@", "").Trim();
+                            //scenario1 = miniparts.Length > 1 ? miniparts[1].Trim() : "";
+                        }
+                        if (line.StartsWith("@@luck1Description@@"))
+                        {
+                            scenario1 = choiceLines[i + 1];
                         }
                         else if (line.StartsWith("@@senario 2:@@"))
                         {
-                            string[] miniparts = line.Replace("@@senario 2:@@", "").Trim().Split(new[] { "@@- ", "@@luck2Description@@" }, StringSplitOptions.None);
-                            scenario2Effect = miniparts[0].Trim();
-                            scenario2 = miniparts.Length > 1 ? miniparts[1].Trim() : "";
+                            //string[] miniparts = line.Replace("@@senario 2:@@", "").Trim().Split(new[] { "@@", "@@luck2Description@@" }, StringSplitOptions.None);
+                            //scenario2Effect = miniparts[0].Trim();
+                            scenario2Effect = line.Replace("@@senario 2:@@", "").Trim();
+                            scenario2Effect = scenario2Effect.Replace("@@", "").Trim();
+                            //scenario2 = miniparts.Length > 1 ? miniparts[1].Trim() : "";
                         }
+                        if (line.StartsWith("@@luck2Description@@"))
+                        {
+                            scenario2 = choiceLines[i + 1];
+                        }
+                        i++;
                     }
-                    choices.Add(new Option($"Scenario 1: {scenario1}", scenario1Effect));
-                    choices.Add(new Option($"Scenario 2: {scenario2}", scenario2Effect));
+                    choices.Add(new Option(scenario1, scenario1Effect));
+                    choices.Add(new Option(scenario2, scenario2Effect));
                 }
                 else
                 {
+                    bool firstOptionsLine = true;
+                    string[] opANDef;
+                    string option = "";
+                    string effect = "";
                     foreach (var line in choiceLines)
                     {
                         if (line.StartsWith("1.") || line.StartsWith("2.") || line.StartsWith("3."))
                         {
-                            choices.Add(new Option(line.Substring(2).Trim(), "Outcome"));
+                            opANDef = line.Split(new[] { "!!" }, StringSplitOptions.None);
+                            option = opANDef[0];
+                            effect = opANDef[1];
+                            choices.Add(new Option(option, effect));
+                        }
+                        else
+                        {
+                            if (firstOptionsLine && (!line.StartsWith("!!")))
+                            {
+                                firstOptionsLine = false;
+                                encounterMechanicInfo = line;
+                            }
                         }
                     }
                 }
@@ -244,7 +296,7 @@ public class GameMechanicsManager : MonoBehaviour
             encounterIntroduction = TruncateText(encounterIntroduction, 145);
             encounterDescription = TruncateText(encounterDescription, 600);
 
-            return new Page(encounterNum, encounterName, encounterIntroduction, imageGeneration, encounterDescription, encounterAction, choices, imagePath);
+            return new Page(encounterNum, encounterName, encounterIntroduction, imageGeneration, encounterDescription, encounterMechanic, choices, imagePath, encounterMechanicInfo);
         }
         catch (Exception ex)
         {

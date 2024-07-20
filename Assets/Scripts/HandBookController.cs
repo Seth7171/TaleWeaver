@@ -50,6 +50,9 @@ public class HandBookController : MonoBehaviour
     public TextMeshProUGUI encounterOptions1_copy;
     public TextMeshProUGUI encounterOptions2_copy;
     public TextMeshProUGUI encounterOptions3_copy;
+    public TextMeshProUGUI encounterRiddle1_copy;
+    public TextMeshProUGUI encounterRiddle2_copy;
+    public TextMeshProUGUI encounterRiddle3_copy;
 
     void Start()
     {
@@ -430,6 +433,10 @@ public class HandBookController : MonoBehaviour
         encounterOptions1_copy.gameObject.SetActive(false);
         encounterOptions2_copy.gameObject.SetActive(false);
         encounterOptions3_copy.gameObject.SetActive(false);
+
+        encounterRiddle1_copy.gameObject.SetActive(false);
+        encounterRiddle2_copy.gameObject.SetActive(false);
+        encounterRiddle3_copy.gameObject.SetActive(false);
     }
 
     IEnumerator ShowEncounterOptionsWithDelay()
@@ -446,5 +453,9 @@ public class HandBookController : MonoBehaviour
         encounterOptions1_copy.gameObject.SetActive(true);
         encounterOptions2_copy.gameObject.SetActive(true);
         encounterOptions3_copy.gameObject.SetActive(true);
+
+        encounterRiddle1_copy.gameObject.SetActive(true);
+        encounterRiddle2_copy.gameObject.SetActive(true);
+        encounterRiddle3_copy.gameObject.SetActive(true);
     }
 }

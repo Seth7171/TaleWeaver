@@ -132,7 +132,7 @@ public class DiceRoller : MonoBehaviour {
         rb.AddTorque(Random.insideUnitSphere * torqueAmount, ForceMode.Impulse);
         
         audioSource.clip = shakeClip;
-        audioSource.loop = true;
+        audioSource.loop = false;
         audioSource.Play();
     }
 

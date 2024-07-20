@@ -40,18 +40,20 @@ public class Page
     public string EncounterIntroduction;
     public string ImageGeneration;
     public string EncounterDetails;
-    public string EncounterAction; // the mechanic 
+    public string EncounterMechanic; // the mechanic 
+    public string EncounterMechanicInfo;
     public List<Option> EncounterOptions;
     public string ImageUrl;
 
-    public Page(string encounterNum, string encounterName, string encounterIntroduction, string imageGeneration, string encounterDetails, string encounterAction, List<Option> encounterOptions, string imageUrl)
+    public Page(string encounterNum, string encounterName, string encounterIntroduction, string imageGeneration, string encounterDetails, string encounterMechanic, List<Option> encounterOptions, string imageUrl, string encounterMechanicInfo = "")
     {
         EncounterNum = encounterNum;
         EncounterName = encounterName;
         EncounterIntroduction = encounterIntroduction;
         ImageGeneration = imageGeneration;
         EncounterDetails = encounterDetails;
-        EncounterAction = encounterAction;
+        EncounterMechanic = encounterMechanic;
+        EncounterMechanicInfo = encounterMechanicInfo;
         EncounterOptions = encounterOptions;
         ImageUrl = imageUrl;
     }
