@@ -219,7 +219,11 @@ public class SelectPlayer : MonoBehaviour
         }
     }
 
-
+    public void ClearPlayerTextOnBack()
+    {
+        playerNameInput.text = "";
+        apiKeyInput.text = "";
+    }
 
     public void UpdateAPIkey()
     {
@@ -468,7 +472,10 @@ public class SelectPlayer : MonoBehaviour
         //StartCoroutine(ClearFeedbackText());
     }
 
-
+    public void ClearFeedbackFromUnity()
+    {
+        StartCoroutine(ClearFeedbackText());
+    }
 
     private IEnumerator ClearFeedbackText()
     {

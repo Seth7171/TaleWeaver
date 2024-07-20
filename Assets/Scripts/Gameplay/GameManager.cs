@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             advObjects[0].SetActive(true);
         }
 
-        OpenAIInterface.Instance.OnIsEndedChanged += OnIsEndedChanged;
+        //OpenAIInterface.Instance.OnIsEndedChanged += OnIsEndedChanged;
 
         // Find the instances of all Mechanics in the scene
         optionsMechanics = FindObjectOfType<OptionsMechanics>();

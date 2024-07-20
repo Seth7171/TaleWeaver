@@ -71,7 +71,7 @@ public class OptionsMechanics : MonoBehaviour
         // Get the current book name from the OpenAIInterface instance
         string bookName = OpenAIInterface.Instance.current_BookName;
         // Call SendMessageToExistingBook with the book name, narrative (using first character of the TextMeshPro)
-        //OpenAIInterface.Instance.SendMessageToExistingBook(bookName, narrative);
+        OpenAIInterface.Instance.SendMessageToExistingBook(bookName, narrative);
     }
    
 }
