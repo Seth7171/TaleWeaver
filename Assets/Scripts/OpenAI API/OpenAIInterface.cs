@@ -809,7 +809,8 @@ public class OpenAIInterface : MonoBehaviour
             encounterIntroduction: encounterIntroduction,
             imageGeneration: "",
             encounterDetails: messageContent,
-            encounterAction: "",
+            encounterMechanic: "",
+            encounterMechanicInfo: "",
             encounterOptions: new List<Option>(),
             imageUrl: ""
         );
