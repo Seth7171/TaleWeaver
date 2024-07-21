@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class BookLoader : MonoBehaviour
 {
-    private OptionsMechanics optionsMechanics;
+    private CreateButtonsInBook optionsMechanics;
 
     public TextMeshProUGUI preEncounterDetails;
     public TextMeshProUGUI encounterNum;
@@ -54,6 +54,7 @@ public class BookLoader : MonoBehaviour
 
     public GameObject optionsUICanvas;
     public GameObject riddleUICanvas;
+    public GameObject combatUICanvas;
 
     public GameObject DiceRoller;
     public GameObject DiceRollerButton;
@@ -73,9 +74,9 @@ public class BookLoader : MonoBehaviour
     void Start()
     {
         // Initialize book paths
-        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Heaven\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
-        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\";
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
         // Initialize the dictionary
@@ -148,6 +149,11 @@ public class BookLoader : MonoBehaviour
             riddleCanvas.SetActive(true);
             riddleUICanvas.SetActive(true);
             DisplayRiddle(page.EncounterOptions, page.EncounterMechanicInfo);
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.buttonsInit();
+                GameManager.Instance.setMechanism("riddle");
+            }
         }
         else if (page.EncounterMechanic.StartsWith("!!options!!"))
         {
@@ -163,6 +169,7 @@ public class BookLoader : MonoBehaviour
         else if (page.EncounterMechanic.StartsWith("##Combat##"))
         {
             combatCanvas.SetActive(true);
+            combatUICanvas.SetActive(true);
             DisplayCombat(page.EncounterOptions);
         }
         else if (page.EncounterMechanic.StartsWith("@@luck@@"))

@@ -9,10 +9,23 @@ public class GameManager : MonoBehaviour
     public EndlessBook book;
     public List<GameObject> advObjects;
     private int currentAdvIndex = 0;
-    private OptionsMechanics optionsMechanics;
+    private CreateButtonsInBook optionsMechanics;
     private GameObject optionsMechanicsCanvas;
-    int mechanisemType = 1;
 
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("GameManager instance initialized.");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,14 +45,84 @@ public class GameManager : MonoBehaviour
         //OpenAIInterface.Instance.OnIsEndedChanged += OnIsEndedChanged;
 
         // Find the instances of all Mechanics in the scene
-        optionsMechanics = FindObjectOfType<OptionsMechanics>();
+        optionsMechanics = FindObjectOfType<CreateButtonsInBook>();
 
-        chooseMechanism();
+        //seteMechanism();
     }
 
-    private void chooseMechanism()
+    public void buttonsInit()
     {
-        if (mechanisemType == 1)
+        optionsMechanics = FindObjectOfType<CreateButtonsInBook>();
+    }
+
+    public void setMechanism(string mechnism)
+    {
+        if (mechnism.Contains("options"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize();
+            }
+        }
+
+        if (mechnism.Contains("combat"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize();
+            }
+        }
+
+        if (mechnism.Contains("luck"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize();
+            }
+        }
+
+        if (mechnism.Contains("riddle"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize();
+            }
+        }
+
+        if (mechnism.Contains("roll"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize();
+            }
+        }
+
+        if (mechnism.Contains("check"))
         {
             if (optionsMechanics == null)
             {
@@ -62,19 +145,20 @@ public class GameManager : MonoBehaviour
     {
         if (isEnded)
         {
-            EnableNextAdv();
+            string mechanic = GameMechanicsManager.Instance.currentMechnism;
+            EnableNextAdv(mechanic);
             // TO DO : finish the mini loading screen inside the book
             book.TurnToPage(book.CurrentLeftPageNumber + 2, EndlessBook.PageTurnTimeTypeEnum.TimePerPage, 1f);
         }
     }
 
-    private void EnableNextAdv()
+    private void EnableNextAdv(string mechanic)
     {
         if (currentAdvIndex < advObjects.Count - 1)
         {
             currentAdvIndex++;
             advObjects[currentAdvIndex].SetActive(true);
-            chooseMechanism();
+            setMechanism(mechanic);
         }
     }
 }

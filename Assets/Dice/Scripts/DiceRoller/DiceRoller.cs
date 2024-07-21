@@ -44,7 +44,7 @@ public class DiceRoller : MonoBehaviour {
     Vector3 targetPosition;
     bool isTransitioning = false;
     Quaternion targetRotation;
-    bool isRotating = false;
+    //bool isRotating = false;
 
     void Awake() {
         diceSides = GetComponent<DiceSides>();
@@ -118,7 +118,7 @@ public class DiceRoller : MonoBehaviour {
             finalize = true;
         }
         
-        audioSource.PlayOneShot(impactClip);
+        //audioSource.PlayOneShot(impactClip);
         //var particles = InstantiateFX(impactEffect, col.contacts[0].point, 1f);
         //Destroy(particles, 1f);
     }

@@ -68,7 +68,6 @@
     <Compile Include="Assets\EndlessBook\Demos\Demo 01\Scripts\Demo01.cs" />
     <Compile Include="Assets\Scripts\BookInfo\LastPageLoader.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Front.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\OptionsMechanics.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\RotateCamera.cs" />
     <Compile Include="Assets\Scripts\BookInfo\BookLoader.cs" />
@@ -89,6 +88,7 @@
     <Compile Include="Assets\Dice\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\Player.cs" />
     <Compile Include="Assets\Scripts\Music\DoNotDestroy.cs" />
+    <Compile Include="Assets\Scripts\GameWorld\CreateButtonsInBook.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView.cs" />
     <Compile Include="Assets\Scripts\EnsureWordWrapping.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageAnimationCompleted.cs" />

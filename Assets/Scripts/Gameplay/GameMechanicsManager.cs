@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameMechanicsManager : MonoBehaviour
 {
     public static GameMechanicsManager Instance { get; private set; }
-    private OptionsMechanics optionsMechanics;
+    public string currentMechnism;
+    private CreateButtonsInBook optionsMechanics;
 
     private System.Random random = new System.Random();
 
@@ -27,21 +28,6 @@ public class GameMechanicsManager : MonoBehaviour
         }
     }
 
-    public void StartAdventure(string bookName, string narrative)
-    {
-        string mechnism = GetRandomMechanic();
-
-        if (OpenAIInterface.Instance != null)
-        {
-            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, narrative + ", mechanic is " + mechnism, 1);
-        }
-        else
-        {
-            Debug.LogError("OpenAIInterface instance is not initialized.");
-        }
-
-    }
-
     public string GetRandomMechanic()
     {
         int chosenMechanic = random.Next(mechanics.Count);
@@ -56,8 +42,42 @@ public class GameMechanicsManager : MonoBehaviour
         return mechanics[chosenMechanic];
     }
 
+
+
+    public void StartAdventure(string bookName, string narrative)
+    {
+        string mechnism = GetRandomMechanic();
+        currentMechnism = mechnism;
+        GameManager.Instance.setMechanism(mechnism);
+
+        if (OpenAIInterface.Instance != null)
+        {
+            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, narrative + ", mechanic is " + mechnism, 1);
+        }
+        else
+        {
+            Debug.LogError("OpenAIInterface instance is not initialized.");
+        }
+
+    }
+
+    public void GetNextMechanicBasedOnChoice(string bookName, string choice)
+    {
+        string mechnism = GetRandomMechanic();
+        currentMechnism = mechnism;
+        if (OpenAIInterface.Instance != null)
+        {
+            OpenAIInterface.Instance.SendNarrativeToAPI(bookName, choice + ", mechanic is " + mechnism, 1);
+        }
+        else
+        {
+            Debug.LogError("OpenAIInterface instance is not initialized.");
+        }
+
+    }
+
     // NOT USED YET
-    public string HandlePlayerChoice(string choice, string narrative)
+    public void HandlePlayerChoice(string bookName, string choice)
     {
         // Here you can parse the choice and narrative to update player stats
         if (choice.Contains("lose life"))
@@ -66,19 +86,6 @@ public class GameMechanicsManager : MonoBehaviour
         }
         // Add more logic based on the narrative
 
-        return GetNextMechanicBasedOnChoice(choice);
-    }
-
-    private string GetNextMechanicBasedOnChoice(string choice)
-    {
-        // Logic to determine the next mechanic based on the player's choice
-        if (choice.Contains("nextIsCombat"))
-        {
-            return "combat";
-        }
-        // Add more conditions based on the narrative
-
-        return GetRandomMechanic(); // Default to a random mechanic
     }
 
 
