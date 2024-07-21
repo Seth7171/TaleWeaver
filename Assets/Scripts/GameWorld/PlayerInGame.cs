@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,13 +16,26 @@ public class PlayerInGame : MonoBehaviour
     public HealthBar healthBar;
     public LuckBar LuckBar;
     public GameObject DeathScreen;
+    public GameObject redScreen;
+    public TMP_Text gender;
 
     public HandBookController handBookController;
     public GameObject decisions_Canvas;
 
+    private AudioClip TakeDamageChosen;
+    private AudioClip DeathChosen;
+
+    [SerializeField] AudioClip TakeDamageMale;
+    [SerializeField] AudioClip DeathMale;
+    [SerializeField] AudioClip TakeDamageFemale;
+    [SerializeField] AudioClip DeathFemale;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        GetGender();
+        audioSource = GetComponent<AudioSource>();
         currentHealth = 10;
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
@@ -58,6 +73,18 @@ public class PlayerInGame : MonoBehaviour
         {
             PlayerDeath();
         }
+        else
+        {
+            StartCoroutine(ShowRedScreen());
+            audioSource.PlayOneShot(TakeDamageChosen);
+        }
+    }
+
+    IEnumerator ShowRedScreen()
+    {
+        redScreen.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        redScreen.SetActive(false);
     }
 
     void GainLuck(int luck)
@@ -75,6 +102,7 @@ public class PlayerInGame : MonoBehaviour
     void PlayerDeath()
     {
         Debug.Log("You Just Died ! RIP");
+        audioSource.PlayOneShot(DeathChosen);
         Time.timeScale = 0f;
         decisions_Canvas.SetActive(false);
         Cursor.visible = true;
@@ -87,6 +115,21 @@ public class PlayerInGame : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+
+    public void GetGender()
+    {
+        if(gender.text == "Male")
+        {
+            TakeDamageChosen = TakeDamageMale;
+            DeathChosen = DeathMale;
+        }
+        else
+        {
+            TakeDamageChosen = TakeDamageFemale;
+            DeathChosen = DeathFemale;
+        }
     }
 
 }
