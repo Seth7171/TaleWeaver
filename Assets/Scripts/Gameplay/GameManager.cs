@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         if (isEnded)
         {
             EnableNextAdv();
+            // TO DO : finish the mini loading screen inside the book
             book.TurnToPage(book.CurrentLeftPageNumber + 2, EndlessBook.PageTurnTimeTypeEnum.TimePerPage, 1f);
         }
     }

@@ -615,7 +615,7 @@ public class OpenAIInterface : MonoBehaviour
         if (!success)
         {
             Debug.LogError("Failed to get a valid response after multiple attempts. Please try again later.");
-            // Notify the player here
+            // TO DO : Notify the player here
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInGame : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerInGame : MonoBehaviour
 
     public HealthBar healthBar;
     public LuckBar LuckBar;
+    public GameObject DeathScreen;
+
+    public HandBookController handBookController;
+    public GameObject decisions_Canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +54,10 @@ public class PlayerInGame : MonoBehaviour
     {
         currentHealth -= life;
         healthBar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            PlayerDeath();
+        }
     }
 
     void GainLuck(int luck)
@@ -61,6 +70,23 @@ public class PlayerInGame : MonoBehaviour
     {
         currentLuck -= luck;
         LuckBar.SetLuck(currentLuck);
+    }
+
+    void PlayerDeath()
+    {
+        Debug.Log("You Just Died ! RIP");
+        Time.timeScale = 0f;
+        decisions_Canvas.SetActive(false);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
+        handBookController.DisableControls();
+        DeathScreen.SetActive(true);
+    }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
