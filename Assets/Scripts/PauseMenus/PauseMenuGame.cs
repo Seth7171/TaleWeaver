@@ -9,6 +9,7 @@ public class PauseMenuGame : PauseMenu
 
     public HandBookController handBookController;
     public GameObject decisions_Canvas;
+    public GameObject deathCanvas;
 
     void Update()
     {
@@ -42,15 +43,18 @@ public class PauseMenuGame : PauseMenu
 
     public override void Pause()
     {
-        decisions_Canvas.SetActive(false);
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
-        handBookController.DisableControls();
-        GameIsPaused = true;
-        pauseSettingsMenuUI.SetActive(false);
-        SettingsMenuOpen = false;
+        if (deathCanvas.activeSelf == false)
+        {
+            decisions_Canvas.SetActive(false);
+            pauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
+            handBookController.DisableControls();
+            GameIsPaused = true;
+            pauseSettingsMenuUI.SetActive(false);
+            SettingsMenuOpen = false;
+        }
     }
 }
 

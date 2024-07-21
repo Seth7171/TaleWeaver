@@ -56,6 +56,7 @@ public class GameMechanicsManager : MonoBehaviour
         return mechanics[chosenMechanic];
     }
 
+    // NOT USED YET
     public string HandlePlayerChoice(string choice, string narrative)
     {
         // Here you can parse the choice and narrative to update player stats
@@ -78,46 +79,6 @@ public class GameMechanicsManager : MonoBehaviour
         // Add more conditions based on the narrative
 
         return GetRandomMechanic(); // Default to a random mechanic
-    }
-
-    public void ParseAPIResponse(string response)
-    {
-        if (response.Contains("!!options!!"))
-        {
-            // Extract and handle options
-        }
-
-        else if (response.Contains("##Combat##"))
-        {
-            // Extract and handle combat details
-        }
-
-        else if (response.Contains("@@luck@@"))
-        {
-            // Extract and handle options
-        }
-
-        else if (response.Contains("&&Riddle&&"))
-        {
-            // Extract and handle options
-        }
-
-        else if (response.Contains("$$Roll$$"))
-        {
-            // Extract and handle options
-        }
-
-        else if (response.Contains("%%Check%%"))
-        {
-            // Extract and handle options
-        }
-
-
-        // Example: Reduce player health if the response contains "-1 life"
-        if (response.Contains("-1 life"))
-        {
-            //PlayerInGame.Instance.LoseLife(1);
-        }
     }
 
 
