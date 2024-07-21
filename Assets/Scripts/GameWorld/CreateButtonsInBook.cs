@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using echo17.EndlessBook;
 using System.Collections.Generic;
 
-public class OptionsMechanics : MonoBehaviour
+public class CreateButtonsInBook : MonoBehaviour
 {
     public UnityEvent onClick;
 
@@ -67,11 +67,11 @@ public class OptionsMechanics : MonoBehaviour
         }
 
         // Get the first character of the TextMeshPro text
-        string narrative = textMeshPro.text.Substring(0, 1);
+        string choice = textMeshPro.text;
         // Get the current book name from the OpenAIInterface instance
         string bookName = OpenAIInterface.Instance.current_BookName;
         // Call SendMessageToExistingBook with the book name, narrative (using first character of the TextMeshPro)
-        OpenAIInterface.Instance.SendMessageToExistingBook(bookName, narrative);
+        GameMechanicsManager.Instance.GetNextMechanicBasedOnChoice(bookName, choice);
     }
    
 }
