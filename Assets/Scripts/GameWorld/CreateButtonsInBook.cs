@@ -15,11 +15,12 @@ public class CreateButtonsInBook : MonoBehaviour
 
     public Color hoverColor = new Color(0.5f, 0.0f, 0.0f); // Bordo color
 
-    public void initialize()
+    public void initialize(List<Option> mechnismOptions)
     {
         // Initialize dictionary for text objects
         textObjects = new Dictionary<GameObject, TextMeshProUGUI>();
 
+        int optionIndx = 0;
         // Find all child TextMeshProUGUI components and add event listeners
         foreach (Transform child in transform)
         {
@@ -31,7 +32,7 @@ public class CreateButtonsInBook : MonoBehaviour
 
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerEnter, (data) => OnPointerEnter((PointerEventData)data, textMeshPro));
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerExit, (data) => OnPointerExit((PointerEventData)data, textMeshPro));
-                AddEventTrigger(eventTrigger, EventTriggerType.PointerClick, (data) => OnPointerClick((PointerEventData)data, textMeshPro));
+                AddEventTrigger(eventTrigger, EventTriggerType.PointerClick, (data) => OnPointerClick((PointerEventData)data, textMeshPro, mechnismOptions[optionIndx]));
             }
         } 
     }
@@ -59,19 +60,21 @@ public class CreateButtonsInBook : MonoBehaviour
         }
     }
 
-    private void OnPointerClick(PointerEventData eventData, TextMeshProUGUI textMeshPro)
+    private void OnPointerClick(PointerEventData eventData, TextMeshProUGUI textMeshPro, Option mechnismOption)
     {
         if (onClick != null)
         {
             onClick.Invoke();
         }
 
-        // Get the first character of the TextMeshPro text
+        // Get the option that will indicate the Mechanic of the choice
         string choice = textMeshPro.text;
         // Get the current book name from the OpenAIInterface instance
-        string bookName = OpenAIInterface.Instance.current_BookName;
+        //string bookName = OpenAIInterface.Instance.current_BookName;
+        string bookName = "Knight";
         // Call SendMessageToExistingBook with the book name, narrative (using first character of the TextMeshPro)
-        GameMechanicsManager.Instance.GetNextMechanicBasedOnChoice(bookName, choice);
+
+        GameMechanicsManager.Instance.HandlePlayerChoice(bookName, choice, mechnismOption);
     }
    
 }

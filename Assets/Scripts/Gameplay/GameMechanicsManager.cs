@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class GameMechanicsManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class GameMechanicsManager : MonoBehaviour
     private List<string> mechanics = new List<string> { "options", "combat", "luck", "riddle", "roll", "check" };
     private List<string> pushSenario1 = new List<string> { "+1 life", "-1 life", "+1 luck", "-1 luck", "+1 skillCheck", "-1 skillCheck", "nextIsCombat" };
     private List<string> pushSenario2 = new List<string> { "+2 life", "-2 life", "+3 life", "-3 life", "-1 skillCheck", "-1 luck", "-2 luck", "nextIsCombatAnd-1life" };
+
+    private bool _isSenario2 = false;
 
     private void Awake()
     {
@@ -48,7 +51,7 @@ public class GameMechanicsManager : MonoBehaviour
     {
         string mechnism = GetRandomMechanic();
         currentMechnism = mechnism;
-        GameManager.Instance.setMechanism(mechnism);
+        //GameManager.Instance.setMechanism(mechnism);
 
         if (OpenAIInterface.Instance != null)
         {
@@ -77,17 +80,93 @@ public class GameMechanicsManager : MonoBehaviour
     }
 
     // NOT USED YET
-    public void HandlePlayerChoice(string bookName, string choice)
+    public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption)
     {
-        // Here you can parse the choice and narrative to update player stats
-        if (choice.Contains("lose life"))
+        if (choice.Contains("Push my luck!"))
         {
-            //PlayerInGame.Instance.LoseLife(1); // Example of losing life
+            //need to reveal some how the scenario 2
+            BookLoader.Instance.RevealLuckSenario2(true);
+            _isSenario2 = true;
+            //return to not triger senario 1 outcome.
+            return;
         }
-        // Add more logic based on the narrative
+
+        if (_isSenario2)
+        {
+            mechnismOption = BookLoader.Instance.currentpage.EncounterOptions[1];
+        }
+
+        if (choice.Contains("Flee!"))
+        {
+            PlayerInGame.Instance.LoseLife(Math.Abs(3));
+            //disable just for debug should work good.
+            GetNextMechanicBasedOnChoice(bookName, "Flee! lose 3 life");
+            //return to not triger next if cases.
+            return;
+        }
+
+        //Handle life
+        if (mechnismOption.outcome.Contains("life"))
+        { 
+            if (mechnismOption.outcome.Contains("-") || mechnismOption.outcome.Contains("lose"))
+            {
+                int numberOfLife = GetNumberFromString(mechnismOption.outcome);
+                PlayerInGame.Instance.LoseLife(Math.Abs(numberOfLife));
+            }
+            if (mechnismOption.outcome.Contains("+") || mechnismOption.outcome.Contains("gain"))
+            {
+                int numberOfLife = GetNumberFromString(mechnismOption.outcome);
+                PlayerInGame.Instance.GainLife(numberOfLife);
+            }
+        }
+
+        //Handle luck
+        if (mechnismOption.outcome.Contains("luck"))
+        {
+            if (mechnismOption.outcome.Contains("-") || mechnismOption.outcome.Contains("lose"))
+            {
+                int numberOfLuck = GetNumberFromString(mechnismOption.outcome);
+                PlayerInGame.Instance.GainLuck(Math.Abs(numberOfLuck));
+            }
+            if (mechnismOption.outcome.Contains("+") || mechnismOption.outcome.Contains("gain"))
+            {
+                int numberOfLuck = GetNumberFromString(mechnismOption.outcome);
+                PlayerInGame.Instance.GainLife(numberOfLuck);
+            }
+        }
+
+        // Handle next call
+        if (choice.Contains("Accept results and move on"))
+        {
+            //disable just for debug should work good.
+            if(_isSenario2)
+            {
+                _isSenario2 = false;
+                GetNextMechanicBasedOnChoice(bookName, "scenario2");
+            }
+            else
+            {
+                GetNextMechanicBasedOnChoice(bookName, "scenario1");
+            }
+        }
 
     }
 
+    public int GetNumberFromString(string input)
+    {
+        // Define a regular expression to match numbers (both positive and negative)
+        Regex regex = new Regex(@"-?\d+");
+        Match match = regex.Match(input);
+
+        if (match.Success)
+        {
+            return int.Parse(match.Value);
+        }
+        else
+        {
+            throw new InvalidOperationException("No number found in the input string.");
+        }
+    }
 
     public Page ParsePage(string narrative, string imagePath)
     {

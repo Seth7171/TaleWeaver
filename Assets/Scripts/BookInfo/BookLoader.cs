@@ -4,7 +4,11 @@ using UnityEngine;
 using System.IO;
 using TMPro;
 using UnityEngine.UI;
-
+using System.Diagnostics.Tracing;
+using Unity.VisualScripting;
+using echo17.EndlessBook;
+using System.Xml;
+using System;
 
 public class BookLoader : MonoBehaviour
 {
@@ -43,6 +47,8 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI encounterLuck2;
     public TextMeshProUGUI encounterLuckReward1;
     public TextMeshProUGUI encounterLuckReward2;
+    public TextMeshProUGUI encounterLuckOR;
+    public TextMeshProUGUI encounterLuckPush;
     public Image encounterImage;
 
     public GameObject optionsCanvas;
@@ -58,6 +64,8 @@ public class BookLoader : MonoBehaviour
     public GameObject rollUICanvas;
     public GameObject checkUICanvas;
     public GameObject luckUICanvas;
+    public TextMeshProUGUI luckPushUI;
+
 
     public GameObject DiceRoller;
     public GameObject DiceRollerButton;
@@ -69,16 +77,32 @@ public class BookLoader : MonoBehaviour
     private string bookFolderPath;
     private string bookFilePath;
 
+    public static BookLoader Instance { get; private set; }
+    public Book currentbookData;
+    public Page currentpage;
+
     private const int PreEncounterDetailsMaxWords = 100;
     private const int EncounterDetailsMaxWords = 400;
     private const int EncounterMechnicInfoMaxWords = 50;
     private const int EncounterOptionMaxWords = 50;
 
+    public float fadeDuration = 1.0f;
+
     void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("BookLoader instance initialized.");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         // Initialize book paths
         //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Knight\\";
+        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Moshe\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -119,8 +143,8 @@ public class BookLoader : MonoBehaviour
         if (File.Exists(bookFilePath))
         {
             string jsonData = File.ReadAllText(bookFilePath);
-            Book bookData = JsonUtility.FromJson<Book>(jsonData);
-            DisplayPage(bookData.Pages[pageNumBasedon_objectName]);
+            currentbookData = JsonUtility.FromJson<Book>(jsonData);
+            DisplayPage(currentbookData.Pages[pageNumBasedon_objectName]);
         }
         else
         {
@@ -128,8 +152,27 @@ public class BookLoader : MonoBehaviour
         }
     }
 
+    void SaveChangedData(int optionIndx)
+    {
+
+        // Find the specific option and change isCorrectAnswer to true
+        var encounterOptions = currentbookData.Pages[pageNumBasedon_objectName].EncounterOptions[optionIndx];
+        if (encounterOptions != null)
+        {
+            encounterOptions.isCorrectAnswer = true;
+        }
+
+        // Serialize the updated JSON data
+        string updatedJson = JsonUtility.ToJson(currentbookData, true);
+        File.WriteAllText(bookFilePath, updatedJson);
+        Console.WriteLine("Updated JSON data with played choice");
+
+    }
+
     void DisplayPage(Page page)
     {
+        currentpage = page;
+
         // Set UI elements
         encounterNum.text = page.EncounterNum;
         encounterName.text = page.EncounterName;
@@ -150,7 +193,7 @@ public class BookLoader : MonoBehaviour
             {
                 rollUICanvas.SetActive(true);
                 GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("roll");
+                GameManager.Instance.setMechanism("roll", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("&&Riddle&&"))
@@ -161,7 +204,7 @@ public class BookLoader : MonoBehaviour
             {
                 riddleUICanvas.SetActive(true);
                 GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("riddle");
+                GameManager.Instance.setMechanism("riddle", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("!!options!!"))
@@ -172,7 +215,7 @@ public class BookLoader : MonoBehaviour
             {
                 optionsUICanvas.SetActive(true);
                 GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("options");
+                GameManager.Instance.setMechanism("options", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("%%Check%%"))
@@ -185,7 +228,7 @@ public class BookLoader : MonoBehaviour
                 DiceRoller.SetActive(true);
                 DiceRollerButton.SetActive(true);
                 GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("check");
+                GameManager.Instance.setMechanism("check", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("##Combat##"))
@@ -198,7 +241,7 @@ public class BookLoader : MonoBehaviour
                 DiceRoller.SetActive(true);
                 DiceRollerButton.SetActive(true);
                 GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("combat");
+                GameManager.Instance.setMechanism("combat", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("@@luck@@"))
@@ -209,7 +252,7 @@ public class BookLoader : MonoBehaviour
             {
                luckUICanvas.SetActive(true);
                 GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("luck");
+                GameManager.Instance.setMechanism("luck", page.EncounterOptions);
             }
         }
 
@@ -338,6 +381,59 @@ public class BookLoader : MonoBehaviour
         encounterLuckReward2.text = luckOptions[1].outcome;
         encounterLuckReward2.text = encounterLuckReward2.text.Replace("-", "Lose ").Trim();
         encounterLuckReward2.text = encounterLuckReward2.text.Replace("+", "Gain ").Trim();
+    }
+
+    public void RevealLuckSenario2(bool isEnded)
+    {
+        StartCoroutine(FadeText());
+        SaveChangedData(1);
+    }
+    IEnumerator FadeText()
+    {
+        luckPushUI.gameObject.SetActive(false);
+
+        // Fade out scenario1
+        yield return StartCoroutine(FadeOutText(encounterLuck1, encounterLuckReward1, encounterLuckOR, encounterLuckPush));
+
+        // Enable and fade in scenario2
+        encounterLuck2.gameObject.SetActive(true);
+        encounterLuckReward2.gameObject.SetActive(true);
+        yield return StartCoroutine(FadeInText(encounterLuck2, encounterLuckReward2));
+
+        // Disable scenario1 and push my luck
+        encounterLuck1.gameObject.SetActive(false);
+        encounterLuckReward1.gameObject.SetActive(false);
+
+    }
+
+    IEnumerator FadeOutText(TextMeshProUGUI text, TextMeshProUGUI text2, TextMeshProUGUI text3, TextMeshProUGUI text4)
+    {
+        Color originalColor = text.color;
+        for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
+        {
+            text.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
+            text2.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
+            text3.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
+            text4.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
+            yield return null;
+        }
+        text.color = Color.clear;
+        text2.color = Color.clear;
+        text3.color = Color.clear;
+        text4.color = Color.clear;
+    }
+
+    IEnumerator FadeInText(TextMeshProUGUI text, TextMeshProUGUI text2)
+    {
+        Color originalColor = text.color;
+        for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
+        {
+            text.color = Color.Lerp(Color.clear, Color.black, Mathf.Min(1, t / fadeDuration));
+            text2.color = Color.Lerp(Color.clear, Color.black, Mathf.Min(1, t / fadeDuration));
+            yield return null;
+        }
+        text.color = Color.black;
+        text2.color = Color.black;
     }
 
     IEnumerator LoadImage(string imagePath)
