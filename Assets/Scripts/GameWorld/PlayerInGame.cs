@@ -31,6 +31,21 @@ public class PlayerInGame : MonoBehaviour
     [SerializeField] AudioClip DeathFemale;
     AudioSource audioSource;
 
+    public static PlayerInGame Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,13 +74,13 @@ public class PlayerInGame : MonoBehaviour
         }
     }
 
-    void GainLife(int life)
+    public void GainLife(int life)
     {
         currentHealth += life;
         healthBar.SetHealth(currentHealth);
     }
 
-    void LoseLife(int life)
+    public void LoseLife(int life)
     {
         currentHealth -= life;
         healthBar.SetHealth(currentHealth);
@@ -87,13 +102,13 @@ public class PlayerInGame : MonoBehaviour
         redScreen.SetActive(false);
     }
 
-    void GainLuck(int luck)
+    public void GainLuck(int luck)
     {
         currentLuck += luck;
         LuckBar.SetLuck(currentLuck);
     }
 
-    void LoseLuck(int luck)
+    public void LoseLuck(int luck)
     {
         currentLuck -= luck;
         LuckBar.SetLuck(currentLuck);

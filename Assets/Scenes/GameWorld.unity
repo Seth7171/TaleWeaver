@@ -8114,6 +8114,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 1833669874}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -8127,8 +8129,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &294031001
 GameObject:
   m_ObjectHideFlags: 0
@@ -9153,6 +9171,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334012836}
   m_CullTransparentMesh: 1
+--- !u!1 &335239035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335239037}
+  - component: {fileID: 335239036}
+  m_Layer: 0
+  m_Name: GameMechanicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &335239036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335239035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1134e6217d84eb4fbaa144204bf1f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMechnism: 
+--- !u!4 &335239037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335239035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 586.7216, y: 2936.28, z: -13.256999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &336694105
 GameObject:
   m_ObjectHideFlags: 0
@@ -11947,6 +12010,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 1921447125}
   encounterLuckReward1: {fileID: 1578252439}
   encounterLuckReward2: {fileID: 56085374}
+  encounterLuckOR: {fileID: 1978105085}
+  encounterLuckPush: {fileID: 1699159025}
   encounterImage: {fileID: 647801281}
   optionsCanvas: {fileID: 787850769}
   riddleCanvas: {fileID: 1877036145}
@@ -11960,8 +12025,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 1523908897}
   checkUICanvas: {fileID: 2068049811}
   luckUICanvas: {fileID: 386466578}
+  luckPushUI: {fileID: 939734671}
   DiceRoller: {fileID: 1007946845}
   DiceRollerButton: {fileID: 1823869685}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &465200764
 GameObject:
   m_ObjectHideFlags: 0
@@ -12317,6 +12398,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 299570714}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -12330,8 +12413,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &473538375
 GameObject:
   m_ObjectHideFlags: 0
@@ -17046,6 +17145,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 286446144}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -17059,8 +17160,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &616492022
 GameObject:
   m_ObjectHideFlags: 0
@@ -27445,6 +27562,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 1292392647}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -27458,8 +27577,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &935805617
 GameObject:
   m_ObjectHideFlags: 0
@@ -28619,6 +28754,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 359779267}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -28632,8 +28769,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &998450173
 GameObject:
   m_ObjectHideFlags: 0
@@ -31930,12 +32083,15 @@ MonoBehaviour:
   minAngularVelocity: 0.1
   smoothTime: 0.1
   maxSpeed: 15
-  resultText: {fileID: 1276005057}
+  resultNum: {fileID: 1276005057}
   shakeClip: {fileID: 8300000, guid: cc69f1e8307572749b4a692a09975728, type: 3}
   rollClip: {fileID: 0}
   impactClip: {fileID: 0}
   finalResultClip: {fileID: 8300000, guid: 85f33ef4fcd74cb4b9270077a89e1fa2, type: 3}
   rollButton: {fileID: 183047104}
+  bossDiff: {fileID: 1980880015}
+  resultText: {fileID: 1010925320}
+  rollbutton: {fileID: 183047102}
 --- !u!1 &1111636711
 GameObject:
   m_ObjectHideFlags: 0
@@ -34722,6 +34878,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 16208070}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -34735,8 +34893,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &1182621417
 GameObject:
   m_ObjectHideFlags: 0
@@ -48839,6 +49013,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 969135560}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -48852,8 +49028,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &1640528736
 GameObject:
   m_ObjectHideFlags: 0
@@ -49791,6 +49983,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 850643575}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -49804,8 +49998,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &1689017143
 GameObject:
   m_ObjectHideFlags: 0
@@ -60333,6 +60543,8 @@ MonoBehaviour:
   encounterLuck2: {fileID: 0}
   encounterLuckReward1: {fileID: 0}
   encounterLuckReward2: {fileID: 0}
+  encounterLuckOR: {fileID: 0}
+  encounterLuckPush: {fileID: 0}
   encounterImage: {fileID: 879767968}
   optionsCanvas: {fileID: 0}
   riddleCanvas: {fileID: 0}
@@ -60346,8 +60558,24 @@ MonoBehaviour:
   rollUICanvas: {fileID: 0}
   checkUICanvas: {fileID: 0}
   luckUICanvas: {fileID: 0}
+  luckPushUI: {fileID: 0}
   DiceRoller: {fileID: 0}
   DiceRollerButton: {fileID: 0}
+  currentbookData:
+    Name: 
+    Description: 
+    Pages: []
+  currentpage:
+    EncounterNum: 
+    EncounterName: 
+    EncounterIntroduction: 
+    ImageGeneration: 
+    EncounterDetails: 
+    EncounterMechanic: 
+    EncounterMechanicInfo: 
+    EncounterOptions: []
+    ImageUrl: 
+  fadeDuration: 1
 --- !u!1 &2030095609
 GameObject:
   m_ObjectHideFlags: 0
@@ -63524,3 +63752,4 @@ SceneRoots:
   - {fileID: 1234981393}
   - {fileID: 1003132796}
   - {fileID: 480373765}
+  - {fileID: 335239037}

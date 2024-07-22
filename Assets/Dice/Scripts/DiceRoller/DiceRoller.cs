@@ -4,6 +4,7 @@ using Utilities;
 using UnityEngine.UI;
 
 using Random = UnityEngine.Random;
+using TMPro;
 
 [RequireComponent(typeof(DiceSides))]
 [RequireComponent(typeof(Rigidbody))]
@@ -19,7 +20,7 @@ public class DiceRoller : MonoBehaviour {
     [SerializeField] float maxSpeed = 15f;
     
 
-    [SerializeField] TMPro.TextMeshProUGUI resultText;
+    [SerializeField] TMPro.TextMeshProUGUI resultNum;
 
 
     [SerializeField] AudioClip shakeClip;
@@ -46,12 +47,17 @@ public class DiceRoller : MonoBehaviour {
     Quaternion targetRotation;
     //bool isRotating = false;
 
+    
+    public TextMeshProUGUI bossDiff;
+    public TextMeshProUGUI resultText;
+    public GameObject rollbutton;
+
     void Awake() {
         diceSides = GetComponent<DiceSides>();
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
 
-        resultText.text = "";
+        resultNum.text = "";
         originPosition = transform.position;
         
         rollTimer = new CountdownTimer(maxRollTime);
@@ -125,8 +131,9 @@ public class DiceRoller : MonoBehaviour {
 
     void PerformInitialRoll() {
         ResetDiceState();
+        resultNum.text = "";
         resultText.text = "";
-        
+
         Vector3 targetPosition = new Vector3(0, 0, 1);
         rb.AddForce(targetPosition * rollForce, ForceMode.Impulse);
         rb.AddTorque(Random.insideUnitSphere * torqueAmount, ForceMode.Impulse);
@@ -178,7 +185,22 @@ public class DiceRoller : MonoBehaviour {
 
         int result = diceSides.GetMatch();
         Debug.Log($"Dice landed on {result}");
-        resultText.text = result.ToString();
+        resultNum.text = result.ToString();
+
+        if (bossDiff != null)
+        {
+            if (result <= int.Parse(bossDiff.text))
+            {
+                resultText.text = "Failed...\n YOU lose 1 life";
+                PlayerInGame.Instance.LoseLife(1);
+            }
+            else
+            {
+                resultText.text = "Success!\n Enemy lose 1 life";
+                rollbutton.SetActive(false);
+            }
+        }
+        
     }
 
     void ResetDiceState() {
