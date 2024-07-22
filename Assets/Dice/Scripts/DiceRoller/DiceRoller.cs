@@ -51,7 +51,7 @@ public class DiceRoller : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
 
-        resultText.text = "Click to roll";
+        resultText.text = "";
         originPosition = transform.position;
         
         rollTimer = new CountdownTimer(maxRollTime);

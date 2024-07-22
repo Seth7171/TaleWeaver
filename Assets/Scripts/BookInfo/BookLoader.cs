@@ -55,6 +55,9 @@ public class BookLoader : MonoBehaviour
     public GameObject optionsUICanvas;
     public GameObject riddleUICanvas;
     public GameObject combatUICanvas;
+    public GameObject rollUICanvas;
+    public GameObject checkUICanvas;
+    public GameObject luckUICanvas;
 
     public GameObject DiceRoller;
     public GameObject DiceRollerButton;
@@ -75,7 +78,7 @@ public class BookLoader : MonoBehaviour
     {
         // Initialize book paths
         //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Heaven\\";
+        bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Knight\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -143,14 +146,20 @@ public class BookLoader : MonoBehaviour
         {
             rollCanvas.SetActive(true);
             DisplayRollOptions(page.EncounterOptions);
+            if (GameManager.Instance != null)
+            {
+                rollUICanvas.SetActive(true);
+                GameManager.Instance.buttonsInit();
+                GameManager.Instance.setMechanism("roll");
+            }
         }
         else if (page.EncounterMechanic.StartsWith("&&Riddle&&"))
         {
             riddleCanvas.SetActive(true);
-            riddleUICanvas.SetActive(true);
             DisplayRiddle(page.EncounterOptions, page.EncounterMechanicInfo);
             if (GameManager.Instance != null)
             {
+                riddleUICanvas.SetActive(true);
                 GameManager.Instance.buttonsInit();
                 GameManager.Instance.setMechanism("riddle");
             }
@@ -158,24 +167,50 @@ public class BookLoader : MonoBehaviour
         else if (page.EncounterMechanic.StartsWith("!!options!!"))
         {
             optionsCanvas.SetActive(true);
-            optionsUICanvas.SetActive(true);
             DisplayOptions(page.EncounterOptions, page.EncounterMechanicInfo);
+            if (GameManager.Instance != null)
+            {
+                optionsUICanvas.SetActive(true);
+                GameManager.Instance.buttonsInit();
+                GameManager.Instance.setMechanism("options");
+            }
         }
         else if (page.EncounterMechanic.StartsWith("%%Check%%"))
         {
             checkCanvas.SetActive(true);
             DisplayCheck(page.EncounterOptions);
+            if (GameManager.Instance != null)
+            {
+                checkUICanvas.SetActive(true);
+                DiceRoller.SetActive(true);
+                DiceRollerButton.SetActive(true);
+                GameManager.Instance.buttonsInit();
+                GameManager.Instance.setMechanism("check");
+            }
         }
         else if (page.EncounterMechanic.StartsWith("##Combat##"))
         {
             combatCanvas.SetActive(true);
-            combatUICanvas.SetActive(true);
             DisplayCombat(page.EncounterOptions);
+            if (GameManager.Instance != null)
+            {
+                combatUICanvas.SetActive(true);
+                DiceRoller.SetActive(true);
+                DiceRollerButton.SetActive(true);
+                GameManager.Instance.buttonsInit();
+                GameManager.Instance.setMechanism("combat");
+            }
         }
         else if (page.EncounterMechanic.StartsWith("@@luck@@"))
         {
             luckCanvas.SetActive(true);
             DisplayLuckOptions(page.EncounterOptions);
+            if (GameManager.Instance != null)
+            {
+               luckUICanvas.SetActive(true);
+                GameManager.Instance.buttonsInit();
+                GameManager.Instance.setMechanism("luck");
+            }
         }
 
         // Load image
@@ -218,14 +253,23 @@ public class BookLoader : MonoBehaviour
     void DisableAllCanvases()
     {
         optionsCanvas.SetActive(false);
-        optionsUICanvas.SetActive(false);
-        riddleUICanvas.SetActive(false);
+        riddleCanvas.SetActive(false);
         rollCanvas.SetActive(false);
         checkCanvas.SetActive(false);
         combatCanvas.SetActive(false);
         luckCanvas.SetActive(false);
-        DiceRoller.SetActive(false);
-        DiceRollerButton.SetActive(false); 
+        if (GameManager.Instance != null)
+        {
+            optionsUICanvas.SetActive(false);
+            riddleUICanvas.SetActive(false);
+            combatUICanvas.SetActive(false);
+            rollUICanvas.SetActive(false);
+            checkUICanvas.SetActive(false);
+            luckUICanvas.SetActive(false);
+
+            DiceRoller.SetActive(false);
+            DiceRollerButton.SetActive(false);
+        }
     }
 
     void DisplayOptions(List<Option> options, string encounterMechanicInfo)
@@ -271,8 +315,6 @@ public class BookLoader : MonoBehaviour
     void DisplayCheck(List<Option> checkOptions)
     {
         // Display check
-        DiceRoller.SetActive(true);
-        DiceRollerButton.SetActive(true);
         encounterCheck.text = checkOptions.Count > 0 ? TruncateText(checkOptions[0].option, EncounterOptionMaxWords) : "";
         string checknum = checkOptions.Count > 0 ? TruncateText(checkOptions[0].outcome, EncounterOptionMaxWords) : "";
         encounterCheckDiff.text = $"You need to roll the dice below #{checknum} to pass the Skill Check";
