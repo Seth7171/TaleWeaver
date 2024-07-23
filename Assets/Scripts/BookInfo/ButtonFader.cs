@@ -51,27 +51,34 @@ public class ButtonFader : MonoBehaviour
 
     IEnumerator FadeOutText(TextMeshProUGUI[] texts)
     {
-        Color originalColor = texts[0].color;
-        for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
+        if (texts.Length > 0)
         {
+            Color originalColor = texts[0].color;
+            for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
+            {
+                foreach (TextMeshProUGUI text in texts)
+                    text.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
+                yield return null;
+            }
             foreach (TextMeshProUGUI text in texts)
-                text.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
-            yield return null;
+                text.color = Color.clear;
         }
-        foreach (TextMeshProUGUI text in texts)
-            text.color = Color.clear;
+        
     }
 
     IEnumerator FadeInText(TextMeshProUGUI[] texts)
     {
-        Color originalColor = texts[0].color;
-        for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
+        if (texts.Length > 0)
         {
+            Color originalColor = texts[0].color;
+            for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
+            {
+                foreach (TextMeshProUGUI text in texts)
+                    text.color = Color.Lerp(Color.clear, Color.black, Mathf.Min(1, t / fadeDuration));
+                yield return null;
+            }
             foreach (TextMeshProUGUI text in texts)
-                text.color = Color.Lerp(Color.clear, Color.black, Mathf.Min(1, t / fadeDuration));
-            yield return null;
+                text.color = Color.black;
         }
-        foreach (TextMeshProUGUI text in texts)
-            text.color = Color.black;
     }
 }

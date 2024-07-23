@@ -44,6 +44,8 @@ public class GameMechanicsManager : MonoBehaviour
 
     public void setMechanism(string mechnism, List<Option> mechnismOptions = null)
     {
+        currentMechnism = mechnism; 
+
         if (mechnism.Contains("options"))
         {
             if (optionsMechanics == null)
@@ -67,7 +69,7 @@ public class GameMechanicsManager : MonoBehaviour
             else
             {
                 optionsMechanics.initialize(mechnismOptions);
-                DiceRoller.Instance.OnIsRollEnded += HandlePlayerCombatRoll;
+                DiceRoller.Instance.OnIsRollEnded += HandlePlayerRoll;
             }
         }
 
@@ -120,11 +122,12 @@ public class GameMechanicsManager : MonoBehaviour
             else
             {
                 optionsMechanics.initialize(mechnismOptions);
+                DiceRoller.Instance.OnIsRollEnded += HandlePlayerRoll;
             }
         }
     }
 
-    public string GetRandomMechanic()
+        public string GetRandomMechanic()
     {
         int chosenMechanic = random.Next(mechanics.Count);
         //int chosenMechanic = 5;
@@ -199,9 +202,25 @@ public class GameMechanicsManager : MonoBehaviour
 
         if (choice.Contains("Combat won!"))
         {
-            BookLoader.Instance.SaveChangedData(1);
+            BookLoader.Instance.SaveChangedData(0);
             //ADD LOADING!!!
             GetNextMechanicBasedOnChoice(bookName, "Combat Won");
+            return;
+        }
+
+        if (choice.Contains("Check Passed !"))
+        {
+            BookLoader.Instance.SaveChangedData(0);
+            //ADD LOADING!!!
+            GetNextMechanicBasedOnChoice(bookName, "Check Passed");
+            return;
+        }
+        if (choice.Contains("Check Failed..."))
+        {
+            BookLoader.Instance.SaveChangedData(0);
+            //ADD LOADING!!!
+            GetNextMechanicBasedOnChoice(bookName, "Check Failed");
+            return;
         }
 
         //Handle life
@@ -253,43 +272,74 @@ public class GameMechanicsManager : MonoBehaviour
 
     }
 
-    public void HandlePlayerCombatRoll(bool isRollEnded)
+    public void HandlePlayerRoll(bool isRollEnded)
     {
         if (isRollEnded)
         {
-            bool combatwon = false;
-            if (BookLoader.Instance.encounterCombatDiff != null)
+            if (currentMechnism.Contains("combat"))
             {
-                if (DiceRoller.Instance.result == 20)
+                bool combatwon = false;
+                if (BookLoader.Instance.encounterCombatDiff != null)
                 {
-                    PlayerInGame.Instance.GainLuck(1);
-                    DiceRoller.Instance.resultText.text = "Critical Success!\n Enemy lose 1 life";
-                    combatwon = true;
-                }
-                else if (DiceRoller.Instance.result == 1)
-                {
-                    PlayerInGame.Instance.LoseLife(2);
-                    DiceRoller.Instance.resultText.text = "Critical Failer!\n YOU lose DOUBLE life";
-                }
-                else if (DiceRoller.Instance.result < int.Parse(BookLoader.Instance.encounterCombatDiff.text))
-                {
-                    DiceRoller.Instance.resultText.text = "Failed...\n YOU lose 1 life";
-                    PlayerInGame.Instance.LoseLife(1);
-                }
-                else
-                {
-                    DiceRoller.Instance.resultText.text = "Success!\n Enemy lose 1 life";
-                    combatwon = true;
-                }
+                    if (DiceRoller.Instance.result == 20)
+                    {
+                        PlayerInGame.Instance.GainLuck(1);
+                        DiceRoller.Instance.resultText.text = "Critical Success!\n Enemy lose 1 life";
+                        combatwon = true;
+                    }
+                    else if (DiceRoller.Instance.result == 1)
+                    {
+                        PlayerInGame.Instance.LoseLife(2);
+                        DiceRoller.Instance.resultText.text = "Critical Failer!\n YOU lose DOUBLE life";
+                    }
+                    else if (DiceRoller.Instance.result < int.Parse(BookLoader.Instance.encounterCombatDiff.text))
+                    {
+                        DiceRoller.Instance.resultText.text = "Failed...\n YOU lose 1 life";
+                        PlayerInGame.Instance.LoseLife(1);
+                    }
+                    else
+                    {
+                        DiceRoller.Instance.resultText.text = "Success!\n Enemy lose 1 life";
+                        combatwon = true;
+                    }
 
-                if (combatwon)
-                {
-                    BookLoader.Instance.DiceRollerButton.SetActive(false);
-                    //add fades
-                    BookLoader.Instance.RevealWon();
-                    
+                    if (combatwon)
+                    {
+                        BookLoader.Instance.DiceRollerButton.SetActive(false);
+                        //add fades
+                        BookLoader.Instance.RevealWon();
+
+                    }
                 }
             }
+            if (currentMechnism.Contains("check"))
+            {
+                bool checkpassed = false;
+                if (BookLoader.Instance.encounterCheckDiff != null)
+                {
+                    if (DiceRoller.Instance.result == 1)
+                    {
+                        PlayerInGame.Instance.GainLuck(1);
+                        DiceRoller.Instance.resultText.text = "Critical Success!\n Check Passed!";
+                        checkpassed = true;
+                    }
+                    else if (DiceRoller.Instance.result > int.Parse(BookLoader.Instance.checknum))
+                    {
+                        DiceRoller.Instance.resultText.text = "Check Failed...\n YOU lose 1 life";
+                        PlayerInGame.Instance.LoseLife(1);
+                    }
+                    else
+                    {
+                        DiceRoller.Instance.resultText.text = "Check Passed!";
+                        checkpassed = true;
+                    }
+
+                    BookLoader.Instance.DiceRollerButton.SetActive(false);
+                    //add fades
+                    BookLoader.Instance.RevealWon(checkpassed);
+                }
+            }
+
         }
     }
     public int GetNumberFromString(string input)
