@@ -8146,7 +8146,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &294031001
 GameObject:
   m_ObjectHideFlags: 0
@@ -12042,7 +12041,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &465200764
 GameObject:
   m_ObjectHideFlags: 0
@@ -12430,7 +12428,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &473538375
 GameObject:
   m_ObjectHideFlags: 0
@@ -17177,7 +17174,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &616492022
 GameObject:
   m_ObjectHideFlags: 0
@@ -27594,7 +27590,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &935805617
 GameObject:
   m_ObjectHideFlags: 0
@@ -28786,7 +28781,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &998450173
 GameObject:
   m_ObjectHideFlags: 0
@@ -28971,6 +28965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1003132796}
   - component: {fileID: 1003132797}
+  - component: {fileID: 1003132798}
   m_Layer: 0
   m_Name: Page Views
   m_TagString: Untagged
@@ -29034,6 +29029,19 @@ MonoBehaviour:
   - {fileID: 1638576803}
   - {fileID: 614755774}
   - {fileID: 980428446}
+--- !u!114 &1003132798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003132795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9579ba5233c5f47a6e26eacd3382e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
 --- !u!1 &1003210044
 GameObject:
   m_ObjectHideFlags: 0
@@ -32089,6 +32097,7 @@ MonoBehaviour:
   impactClip: {fileID: 0}
   finalResultClip: {fileID: 8300000, guid: 85f33ef4fcd74cb4b9270077a89e1fa2, type: 3}
   rollButton: {fileID: 183047104}
+  result: 0
   bossDiff: {fileID: 1980880015}
   resultText: {fileID: 1010925320}
   rollbutton: {fileID: 183047102}
@@ -34910,7 +34919,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &1182621417
 GameObject:
   m_ObjectHideFlags: 0
@@ -49045,7 +49053,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &1640528736
 GameObject:
   m_ObjectHideFlags: 0
@@ -50015,7 +50022,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &1689017143
 GameObject:
   m_ObjectHideFlags: 0
@@ -60575,7 +60581,6 @@ MonoBehaviour:
     EncounterMechanicInfo: 
     EncounterOptions: []
     ImageUrl: 
-  fadeDuration: 1
 --- !u!1 &2030095609
 GameObject:
   m_ObjectHideFlags: 0

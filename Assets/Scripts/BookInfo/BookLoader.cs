@@ -86,8 +86,6 @@ public class BookLoader : MonoBehaviour
     private const int EncounterMechnicInfoMaxWords = 50;
     private const int EncounterOptionMaxWords = 50;
 
-    public float fadeDuration = 1.0f;
-
     void Start()
     {
         if (Instance == null)
@@ -102,7 +100,7 @@ public class BookLoader : MonoBehaviour
         }
         // Initialize book paths
         //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Moshe\\";
+        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Knight\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -189,70 +187,70 @@ public class BookLoader : MonoBehaviour
         {
             rollCanvas.SetActive(true);
             DisplayRollOptions(page.EncounterOptions);
-            if (GameManager.Instance != null)
+            if (GameMechanicsManager.Instance != null)
             {
                 rollUICanvas.SetActive(true);
-                GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("roll", page.EncounterOptions);
+                GameMechanicsManager.Instance.buttonsInit();
+                GameMechanicsManager.Instance.setMechanism("roll", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("&&Riddle&&"))
         {
             riddleCanvas.SetActive(true);
             DisplayRiddle(page.EncounterOptions, page.EncounterMechanicInfo);
-            if (GameManager.Instance != null)
+            if (GameMechanicsManager.Instance != null)
             {
                 riddleUICanvas.SetActive(true);
-                GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("riddle", page.EncounterOptions);
+                GameMechanicsManager.Instance.buttonsInit();
+                GameMechanicsManager.Instance.setMechanism("riddle", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("!!options!!"))
         {
             optionsCanvas.SetActive(true);
             DisplayOptions(page.EncounterOptions, page.EncounterMechanicInfo);
-            if (GameManager.Instance != null)
+            if (GameMechanicsManager.Instance != null)
             {
                 optionsUICanvas.SetActive(true);
-                GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("options", page.EncounterOptions);
+                GameMechanicsManager.Instance.buttonsInit();
+                GameMechanicsManager.Instance.setMechanism("options", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("%%Check%%"))
         {
             checkCanvas.SetActive(true);
             DisplayCheck(page.EncounterOptions);
-            if (GameManager.Instance != null)
+            if (GameMechanicsManager.Instance != null)
             {
                 checkUICanvas.SetActive(true);
                 DiceRoller.SetActive(true);
                 DiceRollerButton.SetActive(true);
-                GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("check", page.EncounterOptions);
+                GameMechanicsManager.Instance.buttonsInit();
+                GameMechanicsManager.Instance.setMechanism("check", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("##Combat##"))
         {
             combatCanvas.SetActive(true);
             DisplayCombat(page.EncounterOptions);
-            if (GameManager.Instance != null)
+            if (GameMechanicsManager.Instance != null)
             {
                 combatUICanvas.SetActive(true);
                 DiceRoller.SetActive(true);
                 DiceRollerButton.SetActive(true);
-                GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("combat", page.EncounterOptions);
+                GameMechanicsManager.Instance.buttonsInit();
+                GameMechanicsManager.Instance.setMechanism("combat", page.EncounterOptions);
             }
         }
         else if (page.EncounterMechanic.StartsWith("@@luck@@"))
         {
             luckCanvas.SetActive(true);
             DisplayLuckOptions(page.EncounterOptions);
-            if (GameManager.Instance != null)
+            if (GameMechanicsManager.Instance != null)
             {
                luckUICanvas.SetActive(true);
-                GameManager.Instance.buttonsInit();
-                GameManager.Instance.setMechanism("luck", page.EncounterOptions);
+                GameMechanicsManager.Instance.buttonsInit();
+                GameMechanicsManager.Instance.setMechanism("luck", page.EncounterOptions);
             }
         }
 
@@ -301,7 +299,7 @@ public class BookLoader : MonoBehaviour
         checkCanvas.SetActive(false);
         combatCanvas.SetActive(false);
         luckCanvas.SetActive(false);
-        if (GameManager.Instance != null)
+        if (PageFlipper.Instance != null)
         {
             optionsUICanvas.SetActive(false);
             riddleUICanvas.SetActive(false);
@@ -385,55 +383,13 @@ public class BookLoader : MonoBehaviour
 
     public void RevealLuckSenario2(bool isEnded)
     {
-        StartCoroutine(FadeText());
+        TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { luckPushUI };
+        TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { encounterLuck1, encounterLuckReward1, encounterLuckOR, encounterLuckPush };
+        TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { encounterLuck2, encounterLuckReward2 };
+        TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { encounterLuck2, encounterLuckReward2 };
+        TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { encounterLuck1, encounterLuckReward1 };
+        ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
         SaveChangedData(1);
-    }
-    IEnumerator FadeText()
-    {
-        luckPushUI.gameObject.SetActive(false);
-
-        // Fade out scenario1
-        yield return StartCoroutine(FadeOutText(encounterLuck1, encounterLuckReward1, encounterLuckOR, encounterLuckPush));
-
-        // Enable and fade in scenario2
-        encounterLuck2.gameObject.SetActive(true);
-        encounterLuckReward2.gameObject.SetActive(true);
-        yield return StartCoroutine(FadeInText(encounterLuck2, encounterLuckReward2));
-
-        // Disable scenario1 and push my luck
-        encounterLuck1.gameObject.SetActive(false);
-        encounterLuckReward1.gameObject.SetActive(false);
-
-    }
-
-    IEnumerator FadeOutText(TextMeshProUGUI text, TextMeshProUGUI text2, TextMeshProUGUI text3, TextMeshProUGUI text4)
-    {
-        Color originalColor = text.color;
-        for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
-        {
-            text.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
-            text2.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
-            text3.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
-            text4.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
-            yield return null;
-        }
-        text.color = Color.clear;
-        text2.color = Color.clear;
-        text3.color = Color.clear;
-        text4.color = Color.clear;
-    }
-
-    IEnumerator FadeInText(TextMeshProUGUI text, TextMeshProUGUI text2)
-    {
-        Color originalColor = text.color;
-        for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
-        {
-            text.color = Color.Lerp(Color.clear, Color.black, Mathf.Min(1, t / fadeDuration));
-            text2.color = Color.Lerp(Color.clear, Color.black, Mathf.Min(1, t / fadeDuration));
-            yield return null;
-        }
-        text.color = Color.black;
-        text2.color = Color.black;
     }
 
     IEnumerator LoadImage(string imagePath)

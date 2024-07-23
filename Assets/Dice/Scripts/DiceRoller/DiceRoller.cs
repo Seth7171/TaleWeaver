@@ -11,6 +11,7 @@ using TMPro;
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(AudioSource))]
 public class DiceRoller : MonoBehaviour {
+    public static DiceRoller Instance { get; private set; }
 
     [SerializeField] float rollForce = 50f;
     [SerializeField] float torqueAmount = 5f;
@@ -47,12 +48,41 @@ public class DiceRoller : MonoBehaviour {
     Quaternion targetRotation;
     //bool isRotating = false;
 
+    public int result;
     
     public TextMeshProUGUI bossDiff;
     public TextMeshProUGUI resultText;
     public GameObject rollbutton;
 
+    private bool _isRollEnded;
+
+    public event System.Action<bool> OnIsRollEnded;
+
+    public bool isRollEnded
+    {
+        get { return _isRollEnded; }
+        set
+        {
+            if (_isRollEnded != value)
+            {
+                _isRollEnded = value;
+                OnIsRollEnded?.Invoke(_isRollEnded);
+            }
+        }
+    }
+
     void Awake() {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
         diceSides = GetComponent<DiceSides>();
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
@@ -183,23 +213,12 @@ public class DiceRoller : MonoBehaviour {
         //var particles = InstantiateFX(finalResultEffect, transform.position, 5f);
         //Destroy(particles, 3f);
 
-        int result = diceSides.GetMatch();
+        result = diceSides.GetMatch();
         Debug.Log($"Dice landed on {result}");
         resultNum.text = result.ToString();
 
-        if (bossDiff != null)
-        {
-            if (result <= int.Parse(bossDiff.text))
-            {
-                resultText.text = "Failed...\n YOU lose 1 life";
-                PlayerInGame.Instance.LoseLife(1);
-            }
-            else
-            {
-                resultText.text = "Success!\n Enemy lose 1 life";
-                rollbutton.SetActive(false);
-            }
-        }
+        this.isRollEnded = true;
+        this.isRollEnded = false;
         
     }
 

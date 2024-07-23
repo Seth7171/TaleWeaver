@@ -30,6 +30,99 @@ public class GameMechanicsManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        // Find the instances of all Mechanics in the scene
+        optionsMechanics = FindObjectOfType<CreateButtonsInBook>();
+        //setMechanism();
+    }
+
+    public void buttonsInit()
+    {
+        optionsMechanics = FindObjectOfType<CreateButtonsInBook>();
+    }
+
+    public void setMechanism(string mechnism, List<Option> mechnismOptions = null)
+    {
+        if (mechnism.Contains("options"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize(mechnismOptions);
+            }
+        }
+
+        if (mechnism.Contains("combat"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize(mechnismOptions);
+                DiceRoller.Instance.OnIsRollEnded += HandlePlayerCombatRoll;
+            }
+        }
+
+        if (mechnism.Contains("luck"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize(mechnismOptions);
+            }
+        }
+
+        if (mechnism.Contains("riddle"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize(mechnismOptions);
+            }
+        }
+
+        if (mechnism.Contains("roll"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize(mechnismOptions);
+            }
+        }
+
+        if (mechnism.Contains("check"))
+        {
+            if (optionsMechanics == null)
+            {
+                Debug.LogError("OptionsMechanics not found in the scene");
+                return;
+            }
+            else
+            {
+                optionsMechanics.initialize(mechnismOptions);
+            }
+        }
+    }
 
     public string GetRandomMechanic()
     {
@@ -98,9 +191,9 @@ public class GameMechanicsManager : MonoBehaviour
 
         if (choice.Contains("Flee!"))
         {
-            PlayerInGame.Instance.LoseLife(Math.Abs(3));
+            PlayerInGame.Instance.LoseLife(3);
             //disable just for debug should work good.
-            GetNextMechanicBasedOnChoice(bookName, "Flee! lose 3 life");
+            //GetNextMechanicBasedOnChoice(bookName, "Fled Combat");
             //return to not triger next if cases.
             return;
         }
@@ -152,6 +245,43 @@ public class GameMechanicsManager : MonoBehaviour
 
     }
 
+    public void HandlePlayerCombatRoll(bool isRollEnded)
+    {
+        if (isRollEnded)
+        {
+            bool combatwon = false;
+            if (BookLoader.Instance.encounterCombatDiff != null)
+            {
+                if (DiceRoller.Instance.result == 20)
+                {
+                    PlayerInGame.Instance.GainLuck(1);
+                    DiceRoller.Instance.resultText.text = "Critical Success!\n Enemy lose 1 life";
+                    combatwon = true;
+                }
+                else if (DiceRoller.Instance.result == 1)
+                {
+                    PlayerInGame.Instance.LoseLife(2);
+                    DiceRoller.Instance.resultText.text = "Critical Failer!\n YOU lose DOUBLE life";
+                }
+                else if (DiceRoller.Instance.result <= int.Parse(BookLoader.Instance.encounterCombatDiff.text))
+                {
+                    DiceRoller.Instance.resultText.text = "Failed...\n YOU lose 1 life";
+                    PlayerInGame.Instance.LoseLife(1);
+                }
+                else
+                {
+                    DiceRoller.Instance.resultText.text = "Success!\n Enemy lose 1 life";
+                    combatwon = true;
+                }
+
+                if (combatwon)
+                {
+                    BookLoader.Instance.DiceRollerButton.SetActive(false);
+                    //add fades
+                }
+            }
+        }
+    }
     public int GetNumberFromString(string input)
     {
         // Define a regular expression to match numbers (both positive and negative)
