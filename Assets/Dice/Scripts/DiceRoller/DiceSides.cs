@@ -22,13 +22,14 @@ public class DiceSide {
 
 public class DiceSides : MonoBehaviour {
     [SerializeField] public DiceSide[] Sides;
-    public Dictionary<int, Quaternion> faceRotations;
+    public Dictionary<int, Quaternion> faceRotationsD20;
+    public Dictionary<int, Quaternion> faceRotationsD10;
 
     const float k_exactMatchValue = 0.995f;
 
     void Awake()
     {
-        faceRotations = new Dictionary<int, Quaternion>
+        faceRotationsD20 = new Dictionary<int, Quaternion>
         {
             { 1, Quaternion.Euler(-110.924f, 717.625f, -87.45801f) },    
             { 2, Quaternion.Euler(-185.586f, 485.458f, 408.966f) },     
@@ -50,6 +51,20 @@ public class DiceSides : MonoBehaviour {
             { 18, Quaternion.Euler(10.965f, 342.015f, -419.937f) },
             { 19, Quaternion.Euler(-367.282f, 594.405f, 50.184f) },
             { 20, Quaternion.Euler(69.089f, 1.342f, -448.563f) }
+        };
+
+        faceRotationsD10 = new Dictionary<int, Quaternion>
+        {
+            { 1, Quaternion.Euler(-398.153f, -22.111f, 193.111f) },
+            { 2, Quaternion.Euler(-397.912f, 337.528f, 13.857f) },
+            { 3, Quaternion.Euler(-336.498f, -240.593f, 506.623f) },
+            { 4, Quaternion.Euler(-336.927f, -240.602f, 326.356f) },
+            { 5, Quaternion.Euler(-382.249f, 61.304f, 144.805f) },
+            { 6, Quaternion.Euler(-381.336f, 421.187f, -34.682f) },
+            { 7, Quaternion.Euler(-322.12f, 562.62f, 193.948f) },
+            { 8, Quaternion.Euler(-322.661f, 923.694f, 15.547f) },
+            { 9, Quaternion.Euler(-178.923f, 1170, 40) },
+            { 10, Quaternion.Euler(-361.5f, 630, 40) },
         };
     }
 

@@ -50,7 +50,6 @@ public class DiceRoller : MonoBehaviour {
 
     public int result;
     
-    public TextMeshProUGUI bossDiff;
     public TextMeshProUGUI resultText;
     public GameObject rollbutton;
 
@@ -183,10 +182,21 @@ public class DiceRoller : MonoBehaviour {
     void AlignDiceToResult()
     {
         int result = diceSides.GetMatch();
-        if (diceSides.faceRotations.TryGetValue(result, out Quaternion rotation))
+        if (this.name.Contains("10"))
         {
-            targetRotation = rotation;
+            if (diceSides.faceRotationsD10.TryGetValue(result, out Quaternion rotation))
+            {
+                targetRotation = rotation;
+            }
         }
+        if (this.name.Contains("20"))
+        {
+            if (diceSides.faceRotationsD20.TryGetValue(result, out Quaternion rotation))
+            {
+                targetRotation = rotation;
+            }
+        }
+
     }
 
     void SmoothTransition()

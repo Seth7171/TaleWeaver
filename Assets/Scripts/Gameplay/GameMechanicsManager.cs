@@ -172,13 +172,12 @@ public class GameMechanicsManager : MonoBehaviour
 
     }
 
-    // NOT USED YET
     public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption)
     {
         if (choice.Contains("Push my luck!"))
         {
             //need to reveal some how the scenario 2
-            BookLoader.Instance.RevealLuckSenario2(true);
+            BookLoader.Instance.RevealLuckSenario2();
             _isSenario2 = true;
             //return to not triger senario 1 outcome.
             return;
@@ -192,10 +191,17 @@ public class GameMechanicsManager : MonoBehaviour
         if (choice.Contains("Flee!"))
         {
             PlayerInGame.Instance.LoseLife(3);
-            //disable just for debug should work good.
-            //GetNextMechanicBasedOnChoice(bookName, "Fled Combat");
+            //ADD LOADING!!!
+            GetNextMechanicBasedOnChoice(bookName, "Fled Combat");
             //return to not triger next if cases.
             return;
+        }
+
+        if (choice.Contains("Combat won!"))
+        {
+            BookLoader.Instance.SaveChangedData(1);
+            //ADD LOADING!!!
+            GetNextMechanicBasedOnChoice(bookName, "Combat Won");
         }
 
         //Handle life
@@ -235,10 +241,12 @@ public class GameMechanicsManager : MonoBehaviour
             if(_isSenario2)
             {
                 _isSenario2 = false;
+                //ADD LOADING!!!
                 GetNextMechanicBasedOnChoice(bookName, "scenario2");
             }
             else
             {
+                //ADD LOADING!!!
                 GetNextMechanicBasedOnChoice(bookName, "scenario1");
             }
         }
@@ -263,7 +271,7 @@ public class GameMechanicsManager : MonoBehaviour
                     PlayerInGame.Instance.LoseLife(2);
                     DiceRoller.Instance.resultText.text = "Critical Failer!\n YOU lose DOUBLE life";
                 }
-                else if (DiceRoller.Instance.result <= int.Parse(BookLoader.Instance.encounterCombatDiff.text))
+                else if (DiceRoller.Instance.result < int.Parse(BookLoader.Instance.encounterCombatDiff.text))
                 {
                     DiceRoller.Instance.resultText.text = "Failed...\n YOU lose 1 life";
                     PlayerInGame.Instance.LoseLife(1);
@@ -278,6 +286,8 @@ public class GameMechanicsManager : MonoBehaviour
                 {
                     BookLoader.Instance.DiceRollerButton.SetActive(false);
                     //add fades
+                    BookLoader.Instance.RevealWon();
+                    
                 }
             }
         }

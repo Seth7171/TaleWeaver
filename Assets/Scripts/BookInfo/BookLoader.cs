@@ -43,6 +43,8 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI encounterCheckDiff;
     public TextMeshProUGUI encounterCombat;
     public TextMeshProUGUI encounterCombatDiff;
+    public TextMeshProUGUI encounterCombatFlee;
+    public TextMeshProUGUI encounterCombatWon;
     public TextMeshProUGUI encounterLuck1;
     public TextMeshProUGUI encounterLuck2;
     public TextMeshProUGUI encounterLuckReward1;
@@ -61,6 +63,8 @@ public class BookLoader : MonoBehaviour
     public GameObject optionsUICanvas;
     public GameObject riddleUICanvas;
     public GameObject combatUICanvas;
+    public TextMeshProUGUI combatFleeUI;
+    public TextMeshProUGUI combatWonUI;
     public GameObject rollUICanvas;
     public GameObject checkUICanvas;
     public GameObject luckUICanvas;
@@ -100,7 +104,7 @@ public class BookLoader : MonoBehaviour
         }
         // Initialize book paths
         //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Knight\\";
+        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -150,7 +154,7 @@ public class BookLoader : MonoBehaviour
         }
     }
 
-    void SaveChangedData(int optionIndx)
+    public void SaveChangedData(int optionIndx)
     {
 
         // Find the specific option and change isCorrectAnswer to true
@@ -381,7 +385,7 @@ public class BookLoader : MonoBehaviour
         encounterLuckReward2.text = encounterLuckReward2.text.Replace("+", "Gain ").Trim();
     }
 
-    public void RevealLuckSenario2(bool isEnded)
+    public void RevealLuckSenario2()
     {
         TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { luckPushUI };
         TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { encounterLuck1, encounterLuckReward1, encounterLuckOR, encounterLuckPush };
@@ -390,6 +394,30 @@ public class BookLoader : MonoBehaviour
         TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { encounterLuck1, encounterLuckReward1 };
         ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
         SaveChangedData(1);
+    }
+
+    public void RevealWon()
+    {
+        if (encounterMechanic.Contains("Combat"))
+        {
+            TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { combatFleeUI };
+            TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { encounterCombatFlee };
+            TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { combatWonUI, encounterCombatWon };
+            TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { encounterCombatWon };
+            TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { encounterCombatFlee };
+            ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
+        }
+        if (encounterMechanic.Contains("Check"))
+        {
+            TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { combatFleeUI };
+            TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { encounterCombatFlee };
+            TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { combatWonUI };
+            TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { encounterCombatWon };
+            TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { encounterCombatFlee };
+            ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
+        }
+
+        //SaveChangedData(1);
     }
 
     IEnumerator LoadImage(string imagePath)
