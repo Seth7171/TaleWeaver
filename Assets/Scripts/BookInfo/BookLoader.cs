@@ -41,6 +41,9 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI encounterRoll6;
     public TextMeshProUGUI encounterCheck;
     public TextMeshProUGUI encounterCheckDiff;
+    public string checknum;
+    public TextMeshProUGUI encounterCheckPass;
+    public TextMeshProUGUI encounterCheckFailed;
     public TextMeshProUGUI encounterCombat;
     public TextMeshProUGUI encounterCombatDiff;
     public TextMeshProUGUI encounterCombatFlee;
@@ -67,12 +70,18 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI combatWonUI;
     public GameObject rollUICanvas;
     public GameObject checkUICanvas;
+    public TextMeshProUGUI checkPassedUI;
+    public TextMeshProUGUI checkFailedUI;
     public GameObject luckUICanvas;
     public TextMeshProUGUI luckPushUI;
 
 
     public GameObject DiceRoller;
+    public GameObject Dice20;
+    public GameObject Dice10;
     public GameObject DiceRollerButton;
+    public GameObject Dice20Button;
+    public GameObject Dice10Button;
 
     private Dictionary<string, int> nameToNumberMap;
     private string objectName;
@@ -104,7 +113,7 @@ public class BookLoader : MonoBehaviour
         }
         // Initialize book paths
         //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\";
+        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Moshe\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -228,7 +237,9 @@ public class BookLoader : MonoBehaviour
             {
                 checkUICanvas.SetActive(true);
                 DiceRoller.SetActive(true);
+                Dice10.SetActive(true);
                 DiceRollerButton.SetActive(true);
+                Dice10Button.SetActive(true);
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("check", page.EncounterOptions);
             }
@@ -241,7 +252,9 @@ public class BookLoader : MonoBehaviour
             {
                 combatUICanvas.SetActive(true);
                 DiceRoller.SetActive(true);
+                Dice20.SetActive(true);
                 DiceRollerButton.SetActive(true);
+                Dice20Button.SetActive(true);
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("combat", page.EncounterOptions);
             }
@@ -312,7 +325,12 @@ public class BookLoader : MonoBehaviour
             checkUICanvas.SetActive(false);
             luckUICanvas.SetActive(false);
 
+            Dice20.SetActive(false);
+            Dice10.SetActive(false);
             DiceRoller.SetActive(false);
+
+            Dice20Button.SetActive(false);
+            Dice10Button.SetActive(false);
             DiceRollerButton.SetActive(false);
         }
     }
@@ -361,7 +379,7 @@ public class BookLoader : MonoBehaviour
     {
         // Display check
         encounterCheck.text = checkOptions.Count > 0 ? TruncateText(checkOptions[0].option, EncounterOptionMaxWords) : "";
-        string checknum = checkOptions.Count > 0 ? TruncateText(checkOptions[0].outcome, EncounterOptionMaxWords) : "";
+        checknum = checkOptions.Count > 0 ? TruncateText(checkOptions[0].outcome, EncounterOptionMaxWords) : "";
         encounterCheckDiff.text = $"You need to roll the dice below #{checknum} to pass the Skill Check";
     }
 
@@ -396,7 +414,7 @@ public class BookLoader : MonoBehaviour
         SaveChangedData(1);
     }
 
-    public void RevealWon()
+    public void RevealWon(bool isPassed = true)
     {
         if (encounterMechanic.Contains("Combat"))
         {
@@ -409,11 +427,16 @@ public class BookLoader : MonoBehaviour
         }
         if (encounterMechanic.Contains("Check"))
         {
-            TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { combatFleeUI };
-            TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { encounterCombatFlee };
-            TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { combatWonUI };
-            TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { encounterCombatWon };
-            TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { encounterCombatFlee };
+            TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { };
+            TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { };
+            TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { checkPassedUI, encounterCheckPass };
+            TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { encounterCheckPass };
+            if (!isPassed)
+            {
+                UICanvasEnable = new TextMeshProUGUI[] { checkFailedUI, encounterCheckFailed };
+                textToReveal = new TextMeshProUGUI[] { encounterCheckFailed };
+            }
+            TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { };
             ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
         }
 
