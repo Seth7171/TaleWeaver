@@ -112,8 +112,8 @@ public class BookLoader : MonoBehaviour
             Destroy(gameObject);
         }
         // Initialize book paths
-        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Moshe\\";
+        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        //bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\For Gondor\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 

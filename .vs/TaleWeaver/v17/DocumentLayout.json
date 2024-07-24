@@ -3,7 +3,41 @@
   "WorkspaceRootPath": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Erbor\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Rivendale\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Barrow Downs\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Rohan\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\For Gondor\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\assistant_create.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\OpenAI API\\assistant_create.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\playerData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\assistant_create - Copy (2).json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\OpenAI API\\assistant_create - Copy (2).json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\OpenAI API\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -14,10 +48,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Heaven\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\gameplay\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\dice\\scripts\\diceroller\\diceroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -32,11 +62,11 @@
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameworld\\createbuttonsinbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Camp Site\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Camp Site\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Gameplay\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +80,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 18,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameManager.cs",
@@ -65,38 +95,123 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "bookData.json",
-              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Car Race\\bookData.json",
-              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Car Race\\bookData.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAVAAAA",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Erbor\\bookData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Erbor\\bookData.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-22T14:13:28.827Z",
+              "WhenOpened": "2024-07-24T14:10:02.741Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "bookData.json",
-              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\bookData.json",
-              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\bookData.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Rohan\\bookData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Rohan\\bookData.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-22T14:13:20.637Z",
+              "WhenOpened": "2024-07-24T13:43:07.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "bookData.json",
-              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Heaven\\bookData.json",
-              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Heaven\\bookData.json",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Barrow Downs\\bookData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Barrow Downs\\bookData.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-24T13:32:17.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "playerData.json",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\playerData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\playerData.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-22T14:04:57.668Z",
+              "WhenOpened": "2024-07-24T13:28:30.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "assistant_create.json",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\assistant_create.json",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\OpenAI API\\assistant_create.json",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\assistant_create.json",
+              "RelativeToolTip": "Assets\\Scripts\\OpenAI API\\assistant_create.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABvPwAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-24T13:24:30.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "assistant_create - Copy (2).json",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\assistant_create - Copy (2).json",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\OpenAI API\\assistant_create - Copy (2).json",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\assistant_create - Copy (2).json",
+              "RelativeToolTip": "Assets\\Scripts\\OpenAI API\\assistant_create - Copy (2).json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-24T13:22:42.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "config.json",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\config.json",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\OpenAI API\\config.json",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\OpenAI API\\config.json",
+              "RelativeToolTip": "Assets\\Scripts\\OpenAI API\\config.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-24T13:22:33.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "bookData.json",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\For Gondor\\bookData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\For Gondor\\bookData.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-24T13:16:08.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameMechanicsManager.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAmwJUAAAANAQAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T11:59:10.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bookData.json",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Rivendale\\bookData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Rivendale\\bookData.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-24T13:45:05.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "DiceRoller.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
               "RelativeDocumentMoniker": "Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
@@ -108,7 +223,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
+              "Title": "bookData.json",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Heaven\\bookData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Heaven\\bookData.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-22T14:04:57.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "bookData.json",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\bookData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Shrek\\bookData.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-22T14:13:20.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "bookData.json",
               "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Camp Site\\bookData.json",
               "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Camp Site\\bookData.json",
@@ -118,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "DataManager.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\DataManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\DataManager.cs",
@@ -130,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "CreateButtonsInBook.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\CreateButtonsInBook.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\CreateButtonsInBook.cs",
@@ -142,28 +277,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GameMechanicsManager.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
-              "ViewState": "AQIAAPUAAAAAAAAAAAAuwA0AAABKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T11:59:10.854Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "BookLoader.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\BookLoader.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\BookLoader.cs",
               "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\BookLoader.cs",
               "RelativeToolTip": "Assets\\Scripts\\BookInfo\\BookLoader.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAQwFAAAABoAAAA",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAgwGwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-20T12:20:27.254Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "bookData.json",
+              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Car Race\\bookData.json",
+              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Car Race\\bookData.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-22T14:13:28.827Z"
             }
           ]
         }
