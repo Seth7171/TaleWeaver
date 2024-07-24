@@ -136,7 +136,7 @@ public class GameMechanicsManager : MonoBehaviour
             int chosenSenrario1 = random.Next(pushSenario1.Count);
             int chosenSenrario2 = random.Next(pushSenario2.Count);
 
-            return (mechanics[chosenMechanic] + "(Senario1," + pushSenario1[chosenSenrario1] + "), (Senario2, " + pushSenario2[chosenSenrario2] + ")");
+            return (mechanics[chosenMechanic] + " (Senario1," + pushSenario1[chosenSenrario1] + "), (Senario2, " + pushSenario2[chosenSenrario2] + ")");
         }
         return mechanics[chosenMechanic];
     }
@@ -145,7 +145,9 @@ public class GameMechanicsManager : MonoBehaviour
 
     public void StartAdventure(string bookName, string narrative)
     {
-        string mechnism = GetRandomMechanic();
+        //string mechnism = GetRandomMechanic();
+        //string mechnism = "luck (Senario1,nextIsCombat) (Senario2,+3 life)"; // to set a hardcoded mechanic !
+        string mechnism = "riddle. do not use the following riddle : I speak without a mouth and hear without ears. I have no body, but I can still come alive. What am I? with the answer echo because we used it already, also dont use answers with shadow and could in it";
         currentMechnism = mechnism;
         //GameManager.Instance.setMechanism(mechnism);
 
@@ -469,11 +471,11 @@ public class GameMechanicsManager : MonoBehaviour
                     int i = 0;
                     foreach (var line in choiceLines)
                     {
-                        if (line.StartsWith("@@senario 1:@@"))
+                        if (line.StartsWith("@@scenario 1:@@"))
                         {
                             //string[] miniparts = line.Replace("@@senario 1:@@", "").Trim().Split(new[] { "@@", "@@luck1Description@@" }, StringSplitOptions.None);
                             //scenario1Effect = miniparts[0].Trim();
-                            scenario1Effect = line.Replace("@@senario 1:@@", "").Trim();
+                            scenario1Effect = line.Replace("@@scenario 1:@@", "").Trim();
                             scenario1Effect = scenario1Effect.Replace("@@", "").Trim();
                             //scenario1 = miniparts.Length > 1 ? miniparts[1].Trim() : "";
                         }
@@ -481,11 +483,11 @@ public class GameMechanicsManager : MonoBehaviour
                         {
                             scenario1 = choiceLines[i + 1];
                         }
-                        else if (line.StartsWith("@@senario 2:@@"))
+                        else if (line.StartsWith("@@scenario 2:@@"))
                         {
                             //string[] miniparts = line.Replace("@@senario 2:@@", "").Trim().Split(new[] { "@@", "@@luck2Description@@" }, StringSplitOptions.None);
                             //scenario2Effect = miniparts[0].Trim();
-                            scenario2Effect = line.Replace("@@senario 2:@@", "").Trim();
+                            scenario2Effect = line.Replace("@@scenario 2:@@", "").Trim();
                             scenario2Effect = scenario2Effect.Replace("@@", "").Trim();
                             //scenario2 = miniparts.Length > 1 ? miniparts[1].Trim() : "";
                         }
