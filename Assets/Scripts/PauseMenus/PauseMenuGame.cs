@@ -37,6 +37,7 @@ public class PauseMenuGame : PauseMenu
         Time.timeScale = 1f;
         Cursor.visible = false;
         handBookController.EnableControls();
+        handBookController.is_scroll_lock = false;
         GameIsPaused = false;
         SettingsMenuOpen = false;
     }
@@ -51,6 +52,7 @@ public class PauseMenuGame : PauseMenu
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
             handBookController.DisableControls();
+            handBookController.is_scroll_lock = true;
             GameIsPaused = true;
             pauseSettingsMenuUI.SetActive(false);
             SettingsMenuOpen = false;
