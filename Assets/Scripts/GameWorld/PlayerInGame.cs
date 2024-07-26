@@ -16,6 +16,8 @@ public class PlayerInGame : MonoBehaviour
     public HealthBar healthBar;
     public LuckBar LuckBar;
     public GameObject DeathScreen;
+    public TextMeshProUGUI DeathBackToMainMenu;
+    public TextMeshProUGUI DeathLoading;
     public GameObject redScreen;
     public TMP_Text gender;
 
@@ -124,12 +126,26 @@ public class PlayerInGame : MonoBehaviour
         Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
         handBookController.DisableControls();
         DeathScreen.SetActive(true);
+
+        //need to move from here to when the API finished the conclution page!
+        SaveDeathConclusionFinished();
+    }
+
+    void SaveDeathConclusionFinished()
+    {
+        TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { };
+        TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { DeathLoading };
+        TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { DeathBackToMainMenu };
+        TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { DeathBackToMainMenu };
+        TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { DeathLoading };
+        ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
     }
 
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        Destroy(gameObject);
     }
 
 
