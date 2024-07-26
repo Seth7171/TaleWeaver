@@ -428,9 +428,14 @@ public class HandBookController : MonoBehaviour
 
     void HideEncounterOptions()
     {
-        BookLoader.Instance.currentUI.SetActive(false);
-        if (BookLoader.Instance.DiceRollerButton != null)
-            BookLoader.Instance.DiceRollerButton.SetActive(false);
+        if (BookLoader.Instance != null)
+        {
+            if (BookLoader.Instance.currentUI != null)
+                BookLoader.Instance.currentUI.SetActive(false);
+
+            if (BookLoader.Instance.DiceRollerButton != null)
+                BookLoader.Instance.DiceRollerButton.SetActive(false);
+        }
     }
 
     IEnumerator ShowEncounterOptionsWithDelay()
@@ -444,8 +449,13 @@ public class HandBookController : MonoBehaviour
 
     void ShowEncounterOptions()
     {
-        BookLoader.Instance.currentUI.SetActive(true);
-        if (BookLoader.Instance.DiceRollerButton != null)
-            BookLoader.Instance.DiceRollerButton.SetActive(true);
+        if (BookLoader.Instance != null)
+        {
+            if (BookLoader.Instance.currentUI != null)
+                BookLoader.Instance.currentUI.SetActive(true);
+
+            if (BookLoader.Instance.DiceRollerButton != null)
+                BookLoader.Instance.DiceRollerButton.SetActive(true);
+        }
     }
 }
