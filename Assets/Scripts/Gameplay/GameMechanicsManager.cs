@@ -18,7 +18,7 @@ public class GameMechanicsManager : MonoBehaviour
     private List<string> pushSenario1 = new List<string> { "+1 life", "-1 life", "+1 luck", "-1 luck", "+1 skillCheck", "-1 skillCheck", "nextIsCombat" };
     private List<string> pushSenario2 = new List<string> { "+2 life", "-2 life", "+3 life", "-3 life", "-1 skillCheck", "-1 luck", "-2 luck", "nextIsCombatAnd-1life" };
     private List<(int,int)> combatdifficulties = new List<(int, int)> {
-        (2, 10),    // 1-4 - COMBAT DIFFICULTY - 2-10
+        (5, 10),    // 1-4 - COMBAT DIFFICULTY - 2-10 ( extra layer propability )
         (8, 16),    // 5-9 - COMBAT DIFFICULTY - 8-16
         (14, 19)   // 10 - COMBAT DIFFICULTY - 14-19
     };
@@ -143,7 +143,7 @@ public class GameMechanicsManager : MonoBehaviour
         else
             chosenMechanic = random.Next(mechanics.Count);
 
-        chosenMechanic = 1;
+        //chosenMechanic = 1;
 
         if (mechanics[chosenMechanic] == "luck")
         {
@@ -163,7 +163,11 @@ public class GameMechanicsManager : MonoBehaviour
             int diffnum;
             if (currPage >= 1 && currPage <= 4)
             {
-                diffnum = UnityEngine.Random.Range(combatdifficulties[0].Item1, combatdifficulties[0].Item2 + 1); // 1-4 - COMBAT DIFFICULTY - 2-10
+                diffnum = UnityEngine.Random.Range(combatdifficulties[0].Item1, combatdifficulties[0].Item2 + 1); // 1-4 - COMBAT DIFFICULTY - 2-10 ( extra layer propability )
+                if (diffnum == 5)
+                {
+                    diffnum = UnityEngine.Random.Range(2, 6);
+                }
             }
             else if (currPage >= 5 && currPage <= 9)
             {
