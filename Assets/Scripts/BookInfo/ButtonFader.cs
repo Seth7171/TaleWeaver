@@ -54,7 +54,10 @@ public class ButtonFader : MonoBehaviour
         if (texts.Length > 0)
         {
             Color originalColor = texts[0].color;
-            for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
+            float time = Time.deltaTime;
+            if (time == 0)
+                time = 0.017f;
+            for (float t = 0.01f; t < fadeDuration; t += time)
             {
                 foreach (TextMeshProUGUI text in texts)
                     text.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
@@ -71,14 +74,17 @@ public class ButtonFader : MonoBehaviour
         if (texts.Length > 0)
         {
             Color originalColor = texts[0].color;
-            for (float t = 0.01f; t < fadeDuration; t += Time.deltaTime)
+            float time = Time.deltaTime;
+            if (time == 0)
+                time = 0.017f;
+            for (float t = 0.01f; t < fadeDuration; t += time)
             {
                 foreach (TextMeshProUGUI text in texts)
-                    text.color = Color.Lerp(Color.clear, Color.black, Mathf.Min(1, t / fadeDuration));
+                    text.color = Color.Lerp(Color.clear, originalColor, Mathf.Min(1, t / fadeDuration));
                 yield return null;
             }
             foreach (TextMeshProUGUI text in texts)
-                text.color = Color.black;
+                text.color = originalColor;
         }
     }
 }
