@@ -60,6 +60,8 @@ public class PlayerInGame : MonoBehaviour
         currentLuck = 2;
         LuckBar.SetMaxLuck(maxLuck);
         LuckBar.SetLuck(currentLuck);
+
+        OpenAIInterface.Instance.OnConclusionSave += SaveDeathConclusionFinished;
     }
 
     // Update is called once per frame
@@ -74,6 +76,12 @@ public class PlayerInGame : MonoBehaviour
         {
             // end the adventure
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (OpenAIInterface.Instance != null)
+            OpenAIInterface.Instance.OnConclusionSave -= SaveDeathConclusionFinished;
     }
 
     public void GainLife(int life)
@@ -125,20 +133,28 @@ public class PlayerInGame : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
         handBookController.DisableControls();
+        handBookController.is_scroll_lock = true;
         DeathScreen.SetActive(true);
 
         //need to move from here to when the API finished the conclution page!
-        SaveDeathConclusionFinished();
+        OpenAIInterface.Instance.SendNarrativeToAPI(PlayerSession.SelectedBookName, "player has died", 11);
+        //SaveDeathConclusionFinished();
     }
 
-    void SaveDeathConclusionFinished()
+
+
+    public void SaveDeathConclusionFinished(bool isConcSaved)
     {
-        TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { };
-        TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { DeathLoading };
-        TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { DeathBackToMainMenu };
-        TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { DeathBackToMainMenu };
-        TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { DeathLoading };
-        ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
+        if(isConcSaved && currentHealth <=0)
+        {
+            TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { };
+            TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { DeathLoading };
+            TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { DeathBackToMainMenu };
+            TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { DeathBackToMainMenu };
+            TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { DeathLoading };
+            ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
+        }
+
     }
 
     public void LoadMainMenu()

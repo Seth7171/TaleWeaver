@@ -108,8 +108,10 @@ public class OpenAIInterface : MonoBehaviour
     public string current_Narrative;
     public string current_BookName;
     private bool _isEnded;
+    private bool _isConclusionSaved;
 
     public event System.Action<bool> OnIsEndedChanged;
+    public event System.Action<bool> OnConclusionSave;
 
     public bool is_ended
     {
@@ -123,6 +125,20 @@ public class OpenAIInterface : MonoBehaviour
             }
         }
     }
+
+    public bool is_ConclusionSaved
+    {
+        get { return _isConclusionSaved; }
+        set
+        {
+            if (_isConclusionSaved != value)
+            {
+                _isConclusionSaved = value;
+                OnConclusionSave?.Invoke(_isConclusionSaved);
+            }
+        }
+    }
+
     public string AssistantID
     {
         get { return assistant_ID; }
@@ -291,20 +307,17 @@ public class OpenAIInterface : MonoBehaviour
                             {
                                 var messageContent = contentData.text.value;
                                 Debug.Log("Received Message Content: " + messageContent);
-                                string imageDescription = ExtractImageDescription(messageContent);
+                                bool isConc = false;
+                                if (current_Page == 11)
+                                {
+                                    isConc = true;
+                                }
+                                string imageDescription = Parser.Instance.ExtractImageDescription(messageContent, isConc);
                                 Debug.Log("imageDescription Message Content: " + imageDescription);
                                 if (!string.IsNullOrEmpty(imageDescription))
                                 {
-                                    if (current_Page == 11)
-                                    {
-                                        SaveConclusion(messageContent, bookName);
-                                        success = true;
-                                    }
-                                    else
-                                    {
-                                        SendDescriptionToDalle(imageDescription, messageContent, bookName, isNewBook);
-                                        success = true;
-                                    }
+                                    SendDescriptionToDalle(imageDescription, messageContent, bookName, isNewBook, isConc);
+                                    success = true;
                                 }
                             }
                         }
@@ -328,7 +341,7 @@ public class OpenAIInterface : MonoBehaviour
     }
 
 
-    private void SendDescriptionToDalle(string description, string pageText, string bookName, bool isNewBook)
+    private void SendDescriptionToDalle(string description, string pageText, string bookName, bool isNewBook, bool isConc)
     {
         Debug.Log($"Sending description to DALL-E: {description}");
         if (string.IsNullOrEmpty(description))
@@ -337,10 +350,10 @@ public class OpenAIInterface : MonoBehaviour
             return;
         }
 
-        StartCoroutine(SendDescriptionToDalleCoroutine(description, pageText, bookName, isNewBook));
+        StartCoroutine(SendDescriptionToDalleCoroutine(description, pageText, bookName, isNewBook, isConc));
     }
 
-    private IEnumerator SendDescriptionToDalleCoroutine(string description, string pageText, string bookName, bool isNewBook)
+    private IEnumerator SendDescriptionToDalleCoroutine(string description, string pageText, string bookName, bool isNewBook, bool isConc)
     {
         string url = "https://api.openai.com/v1/images/generations";
         var imageRequest = new ImageGenerationRequest
@@ -365,12 +378,12 @@ public class OpenAIInterface : MonoBehaviour
             {
                 var response = JsonUtility.FromJson<ImageResponse>(request.downloadHandler.text);
                 string imageUrl = response.data[0].url;
-                StartCoroutine(DownloadImageCoroutine(imageUrl, pageText, bookName, isNewBook));
+                StartCoroutine(DownloadImageCoroutine(imageUrl, pageText, bookName, isNewBook, isConc));
             }
         });
     }
 
-    private IEnumerator DownloadImageCoroutine(string url, string pageText, string bookName, bool isNewBook)
+    private IEnumerator DownloadImageCoroutine(string url, string pageText, string bookName, bool isNewBook, bool isConc)
     {
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
         {
@@ -413,7 +426,11 @@ public class OpenAIInterface : MonoBehaviour
                 }
 
                 // Parse the narrative into the structured format
-                var page = GameMechanicsManager.Instance.ParsePage(pageText, imagePath);
+                var page = new Page();
+                if (isConc)
+                    page = Parser.Instance.ParseConclusion(pageText, imagePath);
+                else
+                    page = Parser.Instance.ParsePage(pageText, imagePath);
 
                 if (page != null)
                 {
@@ -421,44 +438,22 @@ public class OpenAIInterface : MonoBehaviour
                     string json = JsonUtility.ToJson(bookData, true);
                     Debug.Log("Final JSON: " + json);
                     File.WriteAllText(bookFilePath, json);
-                    PlayerSession.SelectedBookName = bookName;
-                    SceneManager.LoadScene("GameWorld");
+                    if (isConc)
+                    {
+                        this.is_ConclusionSaved = true;
+                        this.is_ConclusionSaved = false;
+                    }
+                    else
+                    {
+                        this.is_ended = true;
+                        this.is_ended = false;
+                        PlayerSession.SelectedBookName = bookName;
+                        SceneManager.LoadScene("GameWorld");
+                    }
                 }
             }
         }
     }
-
-    private string ExtractImageDescription(string messageContent)
-    {
-        string[] parts = messageContent.Split(new[] { "**" }, StringSplitOptions.None);
-
-        if (parts.Length >= 6)
-        {
-            string imageGeneration = parts[6].Trim();
-
-            // Optionally, you could split by a known section starter if you want to cut off at that point
-            string[] possibleEndTags = new[] { "Encounter Description:", "Mechanics:" };
-            foreach (var endTag in possibleEndTags)
-            {
-                int endIndex = imageGeneration.IndexOf(endTag, StringComparison.OrdinalIgnoreCase);
-                if (endIndex != -1)
-                {
-                    imageGeneration = imageGeneration.Substring(0, endIndex).Trim();
-                    break;
-                }
-            }
-
-            return imageGeneration;
-        }
-        else
-        {
-            Debug.LogWarning("Image generation section not found in message content.");
-            return null;
-        }
-    }
-
-
-
 
     private IEnumerator SendWebRequestCoroutine(string url, string method, string json, System.Action<UnityWebRequest> callback)
     {
@@ -583,20 +578,17 @@ public class OpenAIInterface : MonoBehaviour
                             {
                                 var messageContent = contentData.text.value;
                                 Debug.Log("Received Message Content: " + messageContent);
-                                string imageDescription = ExtractImageDescription(messageContent);
+                                bool isconc = false;
+                                if (current_Page == 11)
+                                {
+                                    isconc = true;
+                                }
+                                string imageDescription = Parser.Instance.ExtractImageDescription(messageContent, isconc);
                                 Debug.Log("imageDescription Message Content: " + imageDescription);
                                 if (!string.IsNullOrEmpty(imageDescription))
                                 {
-                                    if (current_Page == 11)
-                                    {
-                                        SaveConclusion(messageContent, bookName);
+                                        SendDescriptionToDalleForExistingBook(imageDescription, messageContent, bookName, isconc);
                                         success = true;
-                                    }
-                                    else
-                                    {
-                                        SendDescriptionToDalleForExistingBook(imageDescription, messageContent, bookName);
-                                        success = true;
-                                    }
                                 }
                             }
                         }
@@ -619,7 +611,7 @@ public class OpenAIInterface : MonoBehaviour
         }
     }
 
-    private void SendDescriptionToDalleForExistingBook(string description, string pageText, string bookName)
+    private void SendDescriptionToDalleForExistingBook(string description, string pageText, string bookName, bool isConc)
     {
         Debug.Log($"Sending description to DALL-E: {description}");
         if (string.IsNullOrEmpty(description))
@@ -628,10 +620,10 @@ public class OpenAIInterface : MonoBehaviour
             return;
         }
 
-        StartCoroutine(SendDescriptionToDalleCoroutineForExistingBook(description, pageText, bookName));
+        StartCoroutine(SendDescriptionToDalleCoroutineForExistingBook(description, pageText, bookName, isConc));
     }
 
-    private IEnumerator SendDescriptionToDalleCoroutineForExistingBook(string description, string pageText, string bookName)
+    private IEnumerator SendDescriptionToDalleCoroutineForExistingBook(string description, string pageText, string bookName, bool isConc)
     {
         string url = "https://api.openai.com/v1/images/generations";
         var imageRequest = new ImageGenerationRequest
@@ -656,12 +648,12 @@ public class OpenAIInterface : MonoBehaviour
             {
                 var response = JsonUtility.FromJson<ImageResponse>(request.downloadHandler.text);
                 string imageUrl = response.data[0].url;
-                StartCoroutine(DownloadImageCoroutineForExistingBook(imageUrl, pageText, bookName));
+                StartCoroutine(DownloadImageCoroutineForExistingBook(imageUrl, pageText, bookName, isConc));
             }
         });
     }
 
-    private IEnumerator DownloadImageCoroutineForExistingBook(string url, string pageText, string bookName)
+    private IEnumerator DownloadImageCoroutineForExistingBook(string url, string pageText, string bookName, bool isConc)
     {
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
         {
@@ -697,7 +689,11 @@ public class OpenAIInterface : MonoBehaviour
                 }
 
                 // Parse the narrative into the structured format
-                var page = GameMechanicsManager.Instance.ParsePage(pageText, imagePath);
+                var page = new Page();
+                if (isConc)
+                    page = Parser.Instance.ParseConclusion(pageText, imagePath);
+                else
+                    page = Parser.Instance.ParsePage(pageText, imagePath);
 
                 if (page != null)
                 {
@@ -705,8 +701,16 @@ public class OpenAIInterface : MonoBehaviour
                     string json = JsonUtility.ToJson(bookData, true);
                     Debug.Log("Final JSON: " + json);
                     File.WriteAllText(bookFilePath, json);
-                    this.is_ended = true;
-                    this.is_ended = false;
+                    if (isConc)
+                    {
+                        this.is_ConclusionSaved = true;
+                        this.is_ConclusionSaved = false;
+                    }
+                    else
+                    {
+                        this.is_ended = true;
+                        this.is_ended = false;
+                    }
                 }
             }
         }
@@ -743,76 +747,5 @@ public class OpenAIInterface : MonoBehaviour
             Debug.Log(this.assistant_ID);
             callback(true, apiKey);
         }
-    }
-
-    private void SaveConclusion(string messageContent, string bookName)
-    {
-        string bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, bookName);
-        DataManager.CreateDirectoryIfNotExists(bookFolderPath);
-
-        string bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
-        Book bookData;
-        if (File.Exists(bookFilePath))
-        {
-            string bookJson = File.ReadAllText(bookFilePath);
-            bookData = JsonUtility.FromJson<Book>(bookJson);
-        }
-        else
-        {
-            Debug.LogError("Book file not found when attempting to add a new page.");
-            return;
-        }
-
-        // Parse the conclusion content
-        var parsedConclusion = ParseConclusion(messageContent);
-
-        // Add the conclusion page to the book
-        bookData.Pages.Add(parsedConclusion);
-        string updatedJson = JsonUtility.ToJson(bookData, true);
-        File.WriteAllText(bookFilePath, updatedJson);
-        Debug.Log("Conclusion added to book and saved to: " + bookFilePath);
-    }
-
-    private Page ParseConclusion(string messageContent)
-    {
-        // Split the conclusion content into lines
-        string[] lines = messageContent.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-        // Extract the encounter name and introduction
-        string encounterName = "";
-        string encounterIntroduction = "";
-        bool introductionStarted = false;
-
-        foreach (string line in lines)
-        {
-            if (line.StartsWith("### Conclusion:"))
-            {
-                encounterName = line.Replace("### Conclusion:", "").Trim();
-            }
-            else
-            {
-                if (!introductionStarted)
-                {
-                    introductionStarted = true;
-                    encounterIntroduction += line;
-                }
-                else
-                {
-                    encounterIntroduction += " " + line;
-                }
-            }
-        }
-
-        return new Page(
-            encounterNum: "Conclusion",
-            encounterName: encounterName,
-            encounterIntroduction: encounterIntroduction,
-            imageGeneration: "",
-            encounterDetails: messageContent,
-            encounterMechanic: "",
-            encounterMechanicInfo: "",
-            encounterOptions: new List<Option>(),
-            imageUrl: ""
-        );
     }
 }

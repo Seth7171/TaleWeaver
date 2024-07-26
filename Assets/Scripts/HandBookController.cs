@@ -11,6 +11,8 @@ public class HandBookController : MonoBehaviour
     public Transform book;
     public Boolean is_readMode;
     public Boolean is_flashLight_on;
+    public Boolean is_scroll_lock = false;
+
     public Light flashLight; // Add a reference to the light
 
     public MonoBehaviour cameraController; // Add your camera controller script here
@@ -47,13 +49,6 @@ public class HandBookController : MonoBehaviour
 
     private Coroutine transitionCoroutine;
 
-    public TextMeshProUGUI encounterOptions1_copy;
-    public TextMeshProUGUI encounterOptions2_copy;
-    public TextMeshProUGUI encounterOptions3_copy;
-    public TextMeshProUGUI encounterRiddle1_copy;
-    public TextMeshProUGUI encounterRiddle2_copy;
-    public TextMeshProUGUI encounterRiddle3_copy;
-
     void Start()
     {
         //Debug.Log("Start: Setting Hidden Position");
@@ -70,28 +65,31 @@ public class HandBookController : MonoBehaviour
 
     void Update()
     {
-        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        if (!is_scroll_lock)
+        {
+            float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scrollInput > 0f)
-        {
-            if (targetView == 0)
+            if (scrollInput > 0f)
             {
-                targetView = 1;
+                if (targetView == 0)
+                {
+                    targetView = 1;
+                }
+                else if (targetView == 1)
+                {
+                    targetView = 2;
+                }
             }
-            else if (targetView == 1)
+            else if (scrollInput < 0f)
             {
-                targetView = 2;
-            }
-        }
-        else if (scrollInput < 0f)
-        {
-            if (targetView == 2)
-            {
-                targetView = 1;
-            }
-            else if (targetView == 1)
-            {
-                targetView = 0;
+                if (targetView == 2)
+                {
+                    targetView = 1;
+                }
+                else if (targetView == 1)
+                {
+                    targetView = 0;
+                }
             }
         }
 
@@ -430,13 +428,9 @@ public class HandBookController : MonoBehaviour
 
     void HideEncounterOptions()
     {
-        encounterOptions1_copy.gameObject.SetActive(false);
-        encounterOptions2_copy.gameObject.SetActive(false);
-        encounterOptions3_copy.gameObject.SetActive(false);
-
-        encounterRiddle1_copy.gameObject.SetActive(false);
-        encounterRiddle2_copy.gameObject.SetActive(false);
-        encounterRiddle3_copy.gameObject.SetActive(false);
+        BookLoader.Instance.currentUI.SetActive(false);
+        if (BookLoader.Instance.DiceRollerButton != null)
+            BookLoader.Instance.DiceRollerButton.SetActive(false);
     }
 
     IEnumerator ShowEncounterOptionsWithDelay()
@@ -450,12 +444,8 @@ public class HandBookController : MonoBehaviour
 
     void ShowEncounterOptions()
     {
-        encounterOptions1_copy.gameObject.SetActive(true);
-        encounterOptions2_copy.gameObject.SetActive(true);
-        encounterOptions3_copy.gameObject.SetActive(true);
-
-        encounterRiddle1_copy.gameObject.SetActive(true);
-        encounterRiddle2_copy.gameObject.SetActive(true);
-        encounterRiddle3_copy.gameObject.SetActive(true);
+        BookLoader.Instance.currentUI.SetActive(true);
+        if (BookLoader.Instance.DiceRollerButton != null)
+            BookLoader.Instance.DiceRollerButton.SetActive(true);
     }
 }

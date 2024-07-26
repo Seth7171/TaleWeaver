@@ -45,6 +45,10 @@ public class Page
     public List<Option> EncounterOptions;
     public string ImageUrl;
 
+    public Page()
+    {
+    }
+
     public Page(string encounterNum, string encounterName, string encounterIntroduction, string imageGeneration, string encounterDetails, string encounterMechanic, List<Option> encounterOptions, string imageUrl, string encounterMechanicInfo = "")
     {
         EncounterNum = encounterNum;

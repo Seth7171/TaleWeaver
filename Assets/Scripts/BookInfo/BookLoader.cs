@@ -75,6 +75,8 @@ public class BookLoader : MonoBehaviour
     public GameObject luckUICanvas;
     public TextMeshProUGUI luckPushUI;
 
+    public GameObject currentUI;
+
 
     public GameObject DiceRoller;
     public GameObject Dice20;
@@ -203,6 +205,7 @@ public class BookLoader : MonoBehaviour
             if (GameMechanicsManager.Instance != null)
             {
                 rollUICanvas.SetActive(true);
+                currentUI = rollUICanvas;
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("roll", page.EncounterOptions);
             }
@@ -214,6 +217,7 @@ public class BookLoader : MonoBehaviour
             if (GameMechanicsManager.Instance != null)
             {
                 riddleUICanvas.SetActive(true);
+                currentUI = riddleUICanvas;
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("riddle", page.EncounterOptions);
             }
@@ -225,6 +229,7 @@ public class BookLoader : MonoBehaviour
             if (GameMechanicsManager.Instance != null)
             {
                 optionsUICanvas.SetActive(true);
+                currentUI = optionsUICanvas;
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("options", page.EncounterOptions);
             }
@@ -236,6 +241,7 @@ public class BookLoader : MonoBehaviour
             if (GameMechanicsManager.Instance != null)
             {
                 checkUICanvas.SetActive(true);
+                currentUI = checkUICanvas;
                 DiceRoller.SetActive(true);
                 Dice10.SetActive(true);
                 DiceRollerButton.SetActive(true);
@@ -251,6 +257,7 @@ public class BookLoader : MonoBehaviour
             if (GameMechanicsManager.Instance != null)
             {
                 combatUICanvas.SetActive(true);
+                currentUI = combatUICanvas;
                 DiceRoller.SetActive(true);
                 Dice20.SetActive(true);
                 DiceRollerButton.SetActive(true);
@@ -266,6 +273,7 @@ public class BookLoader : MonoBehaviour
             if (GameMechanicsManager.Instance != null)
             {
                luckUICanvas.SetActive(true);
+                currentUI = luckUICanvas;
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("luck", page.EncounterOptions);
             }
