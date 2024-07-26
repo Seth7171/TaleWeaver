@@ -70,8 +70,8 @@ public class CreateButtonsInBook : MonoBehaviour
         // Get the option that will indicate the Mechanic of the choice
         string choice = textMeshPro.text;
         // Get the current book name from the OpenAIInterface instance
-        //string bookName = OpenAIInterface.Instance.current_BookName;
-        string bookName = "Knight";
+        string bookName = OpenAIInterface.Instance.current_BookName;
+        //string bookName = "Knight";
         // Call SendMessageToExistingBook with the book name, narrative (using first character of the TextMeshPro)
 
         GameMechanicsManager.Instance.HandlePlayerChoice(bookName, choice, mechnismOption);
