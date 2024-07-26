@@ -61,7 +61,14 @@ public class PlayerInGame : MonoBehaviour
         LuckBar.SetMaxLuck(maxLuck);
         LuckBar.SetLuck(currentLuck);
 
-        OpenAIInterface.Instance.OnConclusionSave += SaveDeathConclusionFinished;
+        if (OpenAIInterface.Instance != null)
+        {
+            OpenAIInterface.Instance.OnConclusionSave += SaveDeathConclusionFinished;
+        }
+        else
+        {
+            Debug.Log("OpenAIInterface is not initialize");
+        }
     }
 
     // Update is called once per frame

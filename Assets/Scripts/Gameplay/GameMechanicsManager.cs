@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class GameMechanicsManager : MonoBehaviour
 {
@@ -15,6 +17,11 @@ public class GameMechanicsManager : MonoBehaviour
     private List<string> mechanics = new List<string> { "options", "combat", "luck", "riddle", "roll", "check" };
     private List<string> pushSenario1 = new List<string> { "+1 life", "-1 life", "+1 luck", "-1 luck", "+1 skillCheck", "-1 skillCheck", "nextIsCombat" };
     private List<string> pushSenario2 = new List<string> { "+2 life", "-2 life", "+3 life", "-3 life", "-1 skillCheck", "-1 luck", "-2 luck", "nextIsCombatAnd-1life" };
+    private List<(int,int)> combatdifficulties = new List<(int, int)> {
+        (2, 10),    // 1-4 - COMBAT DIFFICULTY - 2-10
+        (8, 16),    // 5-9 - COMBAT DIFFICULTY - 8-16
+        (14, 19)   // 10 - COMBAT DIFFICULTY - 14-19
+    };
 
     private bool _isSenario2 = false;
 
@@ -127,10 +134,17 @@ public class GameMechanicsManager : MonoBehaviour
         }
     }
 
-        public string GetRandomMechanic()
+    public string GetRandomMechanic(int currPage, bool isForceCombat = false)
     {
-        int chosenMechanic = random.Next(mechanics.Count);
-        //int chosenMechanic = 5;
+        int chosenMechanic;
+
+        if (isForceCombat)
+            chosenMechanic = 2;
+        else
+            chosenMechanic = random.Next(mechanics.Count);
+
+        chosenMechanic = 1;
+
         if (mechanics[chosenMechanic] == "luck")
         {
             int chosenSenrario1 = random.Next(pushSenario1.Count);
@@ -144,6 +158,25 @@ public class GameMechanicsManager : MonoBehaviour
             return (mechanics[chosenMechanic] + ". do not use the following riddle : I speak without a mouth and hear without ears. I have no body, but I can still come alive. What am I? with the answer echo because we used it already, also dont use answers with shadow and could in it");
         }
 
+        if (mechanics[chosenMechanic] == "combat")
+        {
+            int diffnum;
+            if (currPage >= 1 && currPage <= 4)
+            {
+                diffnum = UnityEngine.Random.Range(combatdifficulties[0].Item1, combatdifficulties[0].Item2 + 1); // 1-4 - COMBAT DIFFICULTY - 2-10
+            }
+            else if (currPage >= 5 && currPage <= 9)
+            {
+                diffnum = UnityEngine.Random.Range(combatdifficulties[1].Item1, combatdifficulties[1].Item2 + 1); // 5-9 - COMBAT DIFFICULTY - 8-16
+            }
+            else
+            {
+                diffnum = UnityEngine.Random.Range(combatdifficulties[2].Item1, combatdifficulties[2].Item2 + 1); // 10 - COMBAT DIFFICULTY - 14-19
+            }
+
+            return (mechanics[chosenMechanic] + $", difficulty {diffnum}.");
+        }
+
         return mechanics[chosenMechanic];
     }
 
@@ -151,7 +184,7 @@ public class GameMechanicsManager : MonoBehaviour
 
     public void StartAdventure(string bookName, string narrative)
     {
-        string mechnism = GetRandomMechanic();
+        string mechnism = GetRandomMechanic(1);
         currentMechnism = mechnism;
 
         if (OpenAIInterface.Instance != null)
@@ -171,10 +204,20 @@ public class GameMechanicsManager : MonoBehaviour
         {
             return;
         }
-        string mechnism = GetRandomMechanic();
-        currentMechnism = mechnism;
+        string mechnism;
         if (OpenAIInterface.Instance != null)
         {
+            int currPage = OpenAIInterface.Instance.current_Page;
+            if (currPage == 9)
+            {
+                bool forceCombat = true;
+                mechnism = GetRandomMechanic(currPage, forceCombat);
+            }
+            else
+                mechnism = GetRandomMechanic(currPage);
+
+            currentMechnism = mechnism;
+        
             OpenAIInterface.Instance.SendMessageToExistingBook(bookName, choice + ", mechanic is " + mechnism);
         }
         else

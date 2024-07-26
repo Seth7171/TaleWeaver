@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Music\DoNotDestroy.cs" />
     <Compile Include="Assets\Scripts\GameWorld\CreateButtonsInBook.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView.cs" />
+    <Compile Include="Assets\Scripts\BookInfo\Parser.cs" />
     <Compile Include="Assets\Scripts\EnsureWordWrapping.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageAnimationCompleted.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\ClearFeedbackFromUnity.cs" />
