@@ -85,6 +85,7 @@ public class BookLoader : MonoBehaviour
     public GameObject Dice20Button;
     public GameObject Dice10Button;
 
+
     private Dictionary<string, int> nameToNumberMap;
     private string objectName;
     private int pageNumBasedon_objectName;
@@ -115,7 +116,7 @@ public class BookLoader : MonoBehaviour
         }
         // Initialize book paths
         bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Boomer\\";
+        //bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Elon\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -189,6 +190,14 @@ public class BookLoader : MonoBehaviour
         // Set UI elements
         encounterNum.text = page.EncounterNum;
         encounterName.text = page.EncounterName;
+
+        string location = LocationExtractor.Instance.ExtractLocation(page.ImageGeneration); // FOR NOW HERE, SHOULD NOT BE HERE
+        Debug.Log("Extracted Location: " + location);                                             // FOR NOW HERE, SHOULD NOT BE HERE
+        string location2 = LocationExtractor.Instance.ExtractLocation(page.EncounterIntroduction); // FOR NOW HERE, SHOULD NOT BE HERE
+        Debug.Log("Extracted Location2: " + location2);                                             // FOR NOW HERE, SHOULD NOT BE HERE
+        string location3 = LocationExtractor.Instance.ExtractLocation(page.EncounterDetails); // FOR NOW HERE, SHOULD NOT BE HERE
+        Debug.Log("Extracted Location3: " + location3);                                             // FOR NOW HERE, SHOULD NOT BE HERE
+
         preEncounterDetails.text = TruncateText(page.EncounterIntroduction, PreEncounterDetailsMaxWords);
         encounterDetails.text = TruncateText(page.EncounterDetails, EncounterDetailsMaxWords);
         encounterMechanic = page.EncounterMechanic;
