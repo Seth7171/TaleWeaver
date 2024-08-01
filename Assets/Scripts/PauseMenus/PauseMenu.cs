@@ -9,10 +9,12 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public static bool SettingsMenuOpen = false;
+    public static bool WarningMenuOpen = false;
 
     public GameObject pauseMenuUI;
     public GameObject pauseSettingsMenuUI;
     public GameObject pauseMenuMainUI;
+    public GameObject pauseWarningMenuUI;
     public GameObject TouchPad;
 
     void Start()
@@ -30,6 +32,10 @@ public class PauseMenu : MonoBehaviour
             if (SettingsMenuOpen)
             {
                 CloseSettingsMenu();
+            }
+            else if (WarningMenuOpen)
+            {
+                CloseWarningMenu();
             }
             else if (GameIsPaused)
             {
@@ -50,6 +56,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         SettingsMenuOpen = false;
+        WarningMenuOpen = false;
     }
 
     public virtual void Pause()
@@ -60,6 +67,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
         SettingsMenuOpen = false;
+        WarningMenuOpen = false;
     }
 
     public virtual void LoadSettingsMenu()
@@ -76,11 +84,26 @@ public class PauseMenu : MonoBehaviour
         SettingsMenuOpen = false;
     }
 
+    public virtual void LoadWarningMenu()
+    {
+        pauseWarningMenuUI.SetActive(true);
+        pauseMenuMainUI.SetActive(false);
+        WarningMenuOpen = true;
+    }
+
+    public virtual void CloseWarningMenu()
+    {
+        pauseWarningMenuUI.SetActive(false);
+        pauseMenuMainUI.SetActive(true);
+        WarningMenuOpen = false;
+    }
+
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
         GameIsPaused = false;
         SettingsMenuOpen = false;
+        WarningMenuOpen = false;
         SceneManager.LoadScene("MainMenu");
     }
 
