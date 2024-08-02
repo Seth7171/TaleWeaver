@@ -17,6 +17,7 @@ public class GameMechanicsManager : MonoBehaviour
     private List<string> mechanics = new List<string> { "options", "combat", "luck", "riddle", "roll", "check" };
     private List<string> pushSenario1 = new List<string> { "+1 life", "-1 life", "+1 luck", "-1 luck", "+1 skillCheck", "-1 skillCheck", "nextIsCombat" };
     private List<string> pushSenario2 = new List<string> { "+2 life", "-2 life", "+3 life", "-3 life", "-1 skillCheck", "-1 luck", "-2 luck", "nextIsCombatAnd-1life" };
+    public List<string> rollResults = new List<string> { "-2 life", "-1 life", "Nothing", "+1 luck", "+1 life", "+1 item" };
     private List<(int,int)> combatdifficulties = new List<(int, int)> {
         (5, 10),    // 1-4 - COMBAT DIFFICULTY - 2-10 ( extra layer propability )
         (8, 16),    // 5-9 - COMBAT DIFFICULTY - 8-16
@@ -24,6 +25,8 @@ public class GameMechanicsManager : MonoBehaviour
     };
 
     private bool _isSenario2 = false;
+
+    private int curRoll = 0;
 
     private void Awake()
     {
@@ -116,6 +119,7 @@ public class GameMechanicsManager : MonoBehaviour
             else
             {
                 optionsMechanics.initialize(mechnismOptions);
+                DiceRoller.Instance.OnIsRollEnded += HandlePlayerRoll;
             }
         }
 
@@ -278,6 +282,14 @@ public class GameMechanicsManager : MonoBehaviour
             return;
         }
 
+        if (curRoll != 0)
+        {
+            int roll = curRoll;
+            curRoll = 0;
+            HandlePlayerChoice(bookName, choice, BookLoader.Instance.currentpage.EncounterOptions[roll-1]);
+            return;
+        }
+
         //Handle life
         if (mechnismOption.outcome.Contains("life"))
         { 
@@ -299,12 +311,12 @@ public class GameMechanicsManager : MonoBehaviour
             if (mechnismOption.outcome.Contains("-") || mechnismOption.outcome.Contains("lose"))
             {
                 int numberOfLuck = GetNumberFromString(mechnismOption.outcome);
-                PlayerInGame.Instance.GainLuck(Math.Abs(numberOfLuck));
+                PlayerInGame.Instance.LoseLuck(Math.Abs(numberOfLuck));
             }
             if (mechnismOption.outcome.Contains("+") || mechnismOption.outcome.Contains("gain"))
             {
                 int numberOfLuck = GetNumberFromString(mechnismOption.outcome);
-                PlayerInGame.Instance.GainLife(numberOfLuck);
+                PlayerInGame.Instance.GainLuck(numberOfLuck);
             }
         }
 
@@ -324,6 +336,8 @@ public class GameMechanicsManager : MonoBehaviour
                 GetNextMechanicBasedOnChoice(bookName, "scenario1");
             }
         }
+
+        //LOADING!!!!
 
     }
 
@@ -361,6 +375,7 @@ public class GameMechanicsManager : MonoBehaviour
                     if (combatwon)
                     {
                         BookLoader.Instance.DiceRollerButton.SetActive(false);
+                        BookLoader.Instance.isActionMade = true;
                         //add fades
                         BookLoader.Instance.RevealWon();
 
@@ -390,9 +405,19 @@ public class GameMechanicsManager : MonoBehaviour
                     }
 
                     BookLoader.Instance.DiceRollerButton.SetActive(false);
+                    BookLoader.Instance.isActionMade = true;
                     //add fades
                     BookLoader.Instance.RevealWon(checkpassed);
                 }
+            }
+
+            if (currentMechnism.Contains("roll"))
+            {
+                BookLoader.Instance.DiceRollerButton.SetActive(false);
+                BookLoader.Instance.isActionMade = true;
+                //add fades
+                BookLoader.Instance.RevealRoll(DiceRoller.Instance.result);
+                curRoll = DiceRoller.Instance.result;
             }
 
         }

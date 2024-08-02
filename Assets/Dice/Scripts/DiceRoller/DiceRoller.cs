@@ -262,7 +262,7 @@ public class DiceRoller : MonoBehaviour {
 
         this.isRollEnded = true;
         this.isRollEnded = false;
-        
+
     }
 
     void ResetDiceState() {

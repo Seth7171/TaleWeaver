@@ -431,11 +431,16 @@ public class HandBookController : MonoBehaviour
     {
         if (BookLoader.Instance != null)
         {
-            if (BookLoader.Instance.currentUI != null)
-                BookLoader.Instance.currentUI.SetActive(false);
-
-            if (BookLoader.Instance.DiceRollerButton != null)
-                BookLoader.Instance.DiceRollerButton.SetActive(false);
+            if (!BookLoader.Instance.isLoading)
+            {
+                if (BookLoader.Instance.currentUI != null)
+                    BookLoader.Instance.currentUI.SetActive(false);
+            }
+            if (!BookLoader.Instance.isActionMade)
+            {
+                if (BookLoader.Instance.DiceRollerButton != null)
+                    BookLoader.Instance.DiceRollerButton.SetActive(false);
+            }
         }
     }
 
@@ -452,11 +457,17 @@ public class HandBookController : MonoBehaviour
     {
         if (BookLoader.Instance != null)
         {
-            if (BookLoader.Instance.currentUI != null)
-                BookLoader.Instance.currentUI.SetActive(true);
+            if (!BookLoader.Instance.isLoading)
+            { 
+                if (BookLoader.Instance.currentUI != null)
+                    BookLoader.Instance.currentUI.SetActive(true);
+            }
 
-            if (BookLoader.Instance.DiceRollerButton != null)
+            if (!BookLoader.Instance.isActionMade)
+            {
+                if (BookLoader.Instance.DiceRollerButton != null)
                 BookLoader.Instance.DiceRollerButton.SetActive(true);
+            } 
         }
     }
 }
