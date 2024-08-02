@@ -8,6 +8,7 @@ namespace RakeNamespace
 {
     public class Rake
     {
+        #nullable enable
         private readonly int _minCharLength;
         private readonly int _maxWordsLength;
         private readonly double _minKeywordFrequency;

@@ -24,6 +24,8 @@ public class DiceSides : MonoBehaviour {
     [SerializeField] public DiceSide[] Sides;
     public Dictionary<int, Quaternion> faceRotationsD20;
     public Dictionary<int, Quaternion> faceRotationsD10;
+    public Dictionary<int, Quaternion> faceRotationsD6;
+    public Dictionary<int, Vector3> facePositionsD6;
 
     const float k_exactMatchValue = 0.995f;
 
@@ -65,6 +67,26 @@ public class DiceSides : MonoBehaviour {
             { 8, Quaternion.Euler(-322.661f, 923.694f, 15.547f) },
             { 9, Quaternion.Euler(-178.923f, 1170, 40) },
             { 10, Quaternion.Euler(-361.5f, 630, 40) },
+        };
+
+        faceRotationsD6 = new Dictionary<int, Quaternion>
+        {
+            { 1, Quaternion.Euler(0, -180, 0) },
+            { 2, Quaternion.Euler(-90, 90, -90) },
+            { 3, Quaternion.Euler(0, -90, 0) },
+            { 4, Quaternion.Euler(0, -270, 0) },
+            { 5, Quaternion.Euler(0, -270, 90) },
+            { 6, Quaternion.Euler(0, 0, 0) },
+        };
+        
+        facePositionsD6 = new Dictionary<int, Vector3>
+        {
+            { 1, new Vector3(0, 13, 0) },
+            { 2, new Vector3(0, 10.5f, 0) },
+            { 3, new Vector3(0, 8.2f, 0) },
+            { 4, new Vector3(0, 6, 0) },
+            { 5, new Vector3(0, 3.7f, 0) },
+            { 6, new Vector3(0, 1.2f, 0) },
         };
     }
 

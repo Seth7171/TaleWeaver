@@ -57,6 +57,7 @@ public class HandBookController : MonoBehaviour
         is_readMode = false;
         is_flashLight_on = false;
 
+
         // Initially hide the encounter options
         HideEncounterOptions();
 
