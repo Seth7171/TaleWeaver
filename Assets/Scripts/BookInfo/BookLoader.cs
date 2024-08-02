@@ -125,11 +125,11 @@ public class BookLoader : MonoBehaviour
             Destroy(gameObject);
         }
 
-        CanvasFader.Instance.FadeInCanvas(loadingCanvas);
+        CanvasFader.Instance.InitializeCanvas(loadingCanvas);
 
         // Initialize book paths
-        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Moshe\\Mars\\";
+        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Moshe\\Warhammer\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -186,9 +186,9 @@ public class BookLoader : MonoBehaviour
         var encounterOptions = currentbookData.Pages[pageNumBasedon_objectName].EncounterOptions[optionIndx];
         if (encounterOptions != null)
         {
-            encounterOptions.isCorrectAnswer = true;
+            encounterOptions.selectedAnswer = true;
         }
-
+        
         // Serialize the updated JSON data
         string updatedJson = JsonUtility.ToJson(currentbookData, true);
         File.WriteAllText(bookFilePath, updatedJson);

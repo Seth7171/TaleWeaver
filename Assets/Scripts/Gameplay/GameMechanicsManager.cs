@@ -240,6 +240,17 @@ public class GameMechanicsManager : MonoBehaviour
 
     public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption)
     {
+        if (mechnismOption.outcome.Contains("Wrong") || mechnismOption.outcome.Contains("Correct"))
+        {
+            if (mechnismOption.outcome.Contains("Wrong"))
+            {
+                PlayerInGame.Instance.LoseLife(1);
+            }
+            BookLoader.Instance.SaveChangedData((int)(Char.GetNumericValue(choice[0])));
+            GetNextMechanicBasedOnChoice(bookName, choice);
+            return;
+        }
+
         if (choice.Contains("Push my luck!"))
         {
             //need to reveal some how the scenario 2

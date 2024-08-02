@@ -21,13 +21,13 @@ public class Option
 {
     public string option;
     public string outcome;
-    public bool isCorrectAnswer;
+    public bool selectedAnswer;
 
-    public Option(string option, string outcome, bool isCorrectAnswer = false)
+    public Option(string option, string outcome, bool selectedAnswer = false)
     {
         this.option = option;
         this.outcome = outcome;
-        this.isCorrectAnswer = isCorrectAnswer;
+        this.selectedAnswer = selectedAnswer;
     }
 }
 
