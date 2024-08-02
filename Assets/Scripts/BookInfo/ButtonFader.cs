@@ -87,4 +87,29 @@ public class ButtonFader : MonoBehaviour
                 text.color = originalColor;
         }
     }
+
+    public void FaderBordo(TextMeshProUGUI[] texts)
+    {
+        StartCoroutine(FadeToBordo(texts));
+    }
+
+    IEnumerator FadeToBordo(TextMeshProUGUI[] texts)
+    {
+        if (texts.Length > 0)
+        {
+            Color originalColor = texts[0].color;
+            Color BordoColor = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+            float time = Time.deltaTime;
+            if (time == 0)
+                time = 0.017f;
+            for (float t = 0.01f; t < fadeDuration; t += time)
+            {
+                foreach (TextMeshProUGUI text in texts)
+                    text.color = Color.Lerp(originalColor, BordoColor, Mathf.Min(1, t / fadeDuration));
+                yield return null;
+            }
+            foreach (TextMeshProUGUI text in texts)
+                text.color = BordoColor;
+        }
+    }
 }

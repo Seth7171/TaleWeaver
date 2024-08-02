@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 using echo17.EndlessBook;
 using System.Xml;
 using System;
+using UnityEngine.InputSystem.LowLevel;
 
 public class BookLoader : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI encounterRoll4;
     public TextMeshProUGUI encounterRoll5;
     public TextMeshProUGUI encounterRoll6;
+    public TextMeshProUGUI encounterRollClick;
+    public TextMeshProUGUI encounterRollContinue;
     public TextMeshProUGUI encounterCheck;
     public TextMeshProUGUI encounterCheckDiff;
     public string checknum;
@@ -69,6 +72,7 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI combatFleeUI;
     public TextMeshProUGUI combatWonUI;
     public GameObject rollUICanvas;
+    public TextMeshProUGUI rollContinueUI;
     public GameObject checkUICanvas;
     public TextMeshProUGUI checkPassedUI;
     public TextMeshProUGUI checkFailedUI;
@@ -79,11 +83,14 @@ public class BookLoader : MonoBehaviour
 
 
     public GameObject DiceRoller;
+    public GameObject DiceRollerPage;
     public GameObject Dice20;
     public GameObject Dice10;
+    public GameObject Dice6;
     public GameObject DiceRollerButton;
     public GameObject Dice20Button;
     public GameObject Dice10Button;
+    public GameObject Dice6Button;
 
 
     private Dictionary<string, int> nameToNumberMap;
@@ -102,6 +109,9 @@ public class BookLoader : MonoBehaviour
     private const int EncounterMechnicInfoMaxWords = 50;
     private const int EncounterOptionMaxWords = 50;
 
+    public bool isLoading = false;
+    public bool isActionMade = false;
+
     void Start()
     {
         if (Instance == null)
@@ -115,8 +125,8 @@ public class BookLoader : MonoBehaviour
             Destroy(gameObject);
         }
         // Initialize book paths
-        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        //bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Elon\\";
+        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Moshe\\Mars\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -215,6 +225,10 @@ public class BookLoader : MonoBehaviour
             {
                 rollUICanvas.SetActive(true);
                 currentUI = rollUICanvas;
+                DiceRollerPage.SetActive(true);
+                Dice6.SetActive(true);
+                DiceRollerButton.SetActive(true);
+                Dice6Button.SetActive(true);
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("roll", page.EncounterOptions);
             }
@@ -346,9 +360,14 @@ public class BookLoader : MonoBehaviour
             Dice10.SetActive(false);
             DiceRoller.SetActive(false);
 
+            Dice6.SetActive(false);
+            DiceRollerPage.SetActive(false);
+
             Dice20Button.SetActive(false);
             Dice10Button.SetActive(false);
+            Dice6Button.SetActive(false);
             DiceRollerButton.SetActive(false);
+
         }
     }
 
@@ -458,6 +477,46 @@ public class BookLoader : MonoBehaviour
         }
 
         //SaveChangedData(1);
+    }
+
+    public void RevealRoll(int rollnum)
+    {
+        TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { };
+        TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { encounterRollClick };
+        TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { rollContinueUI, encounterRollContinue };
+        TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { encounterRollContinue };
+        TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { encounterRollClick };
+        ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
+
+        TextMeshProUGUI[] textToBordo;
+        switch (rollnum)
+        {
+            case 1:
+                textToBordo = new TextMeshProUGUI[] { encounterRoll1 };
+                break;
+            case 2:
+                textToBordo = new TextMeshProUGUI[] { encounterRoll2 };
+                break;
+            case 3:
+                textToBordo = new TextMeshProUGUI[] { encounterRoll3 };
+                break;
+            case 4:
+                textToBordo = new TextMeshProUGUI[] { encounterRoll4 };
+                break;
+            case 5:
+                textToBordo = new TextMeshProUGUI[] { encounterRoll5 };
+                break;
+            case 6:
+                textToBordo = new TextMeshProUGUI[] { encounterRoll6 };
+                break;
+            default:
+                textToBordo = new TextMeshProUGUI[] { };
+                break;
+        }
+
+        ButtonFader.Instance.FaderBordo(textToBordo);
+
+        SaveChangedData(rollnum-1);
     }
 
     IEnumerator LoadImage(string imagePath)

@@ -65,7 +65,7 @@ public class Parser : MonoBehaviour
                         if (rollDescription != null)
                         {
                             string[] rollParts = rollDescription.Substring(2).Trim().Split(new[] { "$$" }, StringSplitOptions.None);
-                            choices.Add(new Option(rollParts[0].Trim(), rollParts.Length > 1 ? rollParts[1].Trim() : ""));
+                            choices.Add(new Option(rollParts[0].Trim(), GameMechanicsManager.Instance.rollResults[i]));
                         }
                     }
                 }
