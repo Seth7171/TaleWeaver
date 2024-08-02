@@ -7,6 +7,7 @@ namespace RakeNamespace
 {
     internal static class StopListHelper
     {
+        #nullable enable
         public static HashSet<string> ParseFromPath(string? stopWordsPath)
         {
             var stopWords = new HashSet<string>(StringComparer.Ordinal);

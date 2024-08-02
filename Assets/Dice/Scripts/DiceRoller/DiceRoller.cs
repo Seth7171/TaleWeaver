@@ -45,6 +45,7 @@ public class DiceRoller : MonoBehaviour {
 
     Vector3 targetPosition;
     bool isTransitioning = false;
+    bool isTransitioningd6 = false;
     Quaternion targetRotation;
     //bool isRotating = false;
 
@@ -125,6 +126,11 @@ public class DiceRoller : MonoBehaviour {
         {
             SmoothTransition();
         }
+
+        if (isTransitioningd6)
+        {
+            SmoothTransitiond6();
+        }
     }
 
 
@@ -182,6 +188,13 @@ public class DiceRoller : MonoBehaviour {
     void AlignDiceToResult()
     {
         int result = diceSides.GetMatch();
+        if (this.name.Contains("6"))
+        {
+            if (diceSides.faceRotationsD6.TryGetValue(result, out Quaternion rotation))
+            {
+                targetRotation = rotation;
+            }
+        }
         if (this.name.Contains("10"))
         {
             if (diceSides.faceRotationsD10.TryGetValue(result, out Quaternion rotation))
@@ -209,7 +222,17 @@ public class DiceRoller : MonoBehaviour {
             FinalizeRoll();  // Ensure FinalizeRoll is called once the transition is complete
         }
     }
-    
+
+    void SmoothTransitiond6()
+    {
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime, maxSpeed);
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothTime * maxSpeed * 5);
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        {
+            isTransitioning = false;
+        }
+    }
+
     void FinalizeRoll()
     {
         rollTimer.Stop();
@@ -226,6 +249,16 @@ public class DiceRoller : MonoBehaviour {
         result = diceSides.GetMatch();
         Debug.Log($"Dice landed on {result}");
         resultNum.text = result.ToString();
+
+        if (this.name.Contains("6"))
+        {
+            if (diceSides.facePositionsD6.TryGetValue(result, out Vector3 position))
+            {
+                targetPosition = originPosition + position;
+                isTransitioningd6 = true;
+            }
+        }
+
 
         this.isRollEnded = true;
         this.isRollEnded = false;
