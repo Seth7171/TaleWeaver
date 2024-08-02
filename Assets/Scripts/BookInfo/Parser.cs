@@ -65,7 +65,7 @@ public class Parser : MonoBehaviour
                         if (rollDescription != null)
                         {
                             string[] rollParts = rollDescription.Substring(2).Trim().Split(new[] { "$$" }, StringSplitOptions.None);
-                            choices.Add(new Option(rollParts[0].Trim(), GameMechanicsManager.Instance.rollResults[i]));
+                            choices.Add(new Option(rollParts[0].Trim(), GameMechanicsManager.Instance.rollResults[i-1]));
                         }
                     }
                 }
@@ -82,7 +82,7 @@ public class Parser : MonoBehaviour
                         var riddleDescription = choiceLines.FirstOrDefault(line => line.StartsWith(i + "."));
                         if (riddleDescription != null)
                         {
-                            choices.Add(new Option(riddleDescription.Substring(2).Trim(), "Outcome"));
+                            choices.Add(new Option(riddleDescription.Substring(2).Trim(), "Wrong"));
                         }
                     }
                     // Correct answer
@@ -92,7 +92,7 @@ public class Parser : MonoBehaviour
                         var correctAnswer = choiceLines[correctAnswerIndex + 1].Trim();
                         string[] AnswerParts = correctAnswer.Split(new[] { '.' }, 2);
                         int correctindx = int.Parse(AnswerParts[0]);
-                        choices[correctindx - 1].isCorrectAnswer = true;
+                        choices[correctindx - 1].outcome = "Correct";
                     }
                 }
                 else if (encounterMechanic.StartsWith("%%Check%%"))

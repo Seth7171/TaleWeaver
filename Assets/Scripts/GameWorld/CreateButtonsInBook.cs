@@ -29,10 +29,11 @@ public class CreateButtonsInBook : MonoBehaviour
             {
                 textObjects.Add(child.gameObject, textMeshPro);
                 var eventTrigger = child.gameObject.AddComponent<EventTrigger>();
-
+                int currOptionIndx = mechnismOptions.Count < optionIndx ? 0 : optionIndx;
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerEnter, (data) => OnPointerEnter((PointerEventData)data, textMeshPro));
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerExit, (data) => OnPointerExit((PointerEventData)data, textMeshPro));
-                AddEventTrigger(eventTrigger, EventTriggerType.PointerClick, (data) => OnPointerClick((PointerEventData)data, textMeshPro, mechnismOptions[optionIndx]));
+                AddEventTrigger(eventTrigger, EventTriggerType.PointerClick, (data) => OnPointerClick((PointerEventData)data, textMeshPro, mechnismOptions[currOptionIndx]));
+                optionIndx++;
             }
         } 
     }
@@ -70,8 +71,7 @@ public class CreateButtonsInBook : MonoBehaviour
         // Get the option that will indicate the Mechanic of the choice
         string choice = textMeshPro.text;
         // Get the current book name from the OpenAIInterface instance
-        //string bookName = OpenAIInterface.Instance.current_BookName;
-        string bookName = "Mars";
+        string bookName = BookLoader.Instance.currentbookData.Name;
         // Call SendMessageToExistingBook with the book name, narrative (using first character of the TextMeshPro)
 
         GameMechanicsManager.Instance.HandlePlayerChoice(bookName, choice, mechnismOption);

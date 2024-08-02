@@ -21,11 +21,6 @@ public class CanvasFader : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        // Optional: Initialize or set up if needed
-    }
-
     public void InitializeCanvas(GameObject canvasObject)
     {
         if (canvasObject == null)
