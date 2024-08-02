@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Dice\Scripts\Extensions\Vector3Extensions.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\Page.cs" />
+    <Compile Include="Assets\Loading screen package\Scripts\Loading screen types\LoadingScreenManager.cs" />
     <Compile Include="Assets\Scripts\BookInfo\PageFlipper.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\TouchPad.cs" />
     <Compile Include="Assets\Scripts\newBook\InappropriateWordsFilter.cs" />
@@ -126,12 +127,14 @@
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map_Right.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\OpenAI API\OpenAIInterface.cs" />
+    <Compile Include="Assets\Scripts\BookInfo\CanvasFader.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\Rake.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
     <Compile Include="Assets\HandyHands\scripts\VisualizeJoint.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\StringSplitter.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
+    <Compile Include="Assets\Loading screen package\Scripts\Loading screen types\DemoSceneManager.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\DataManager.cs" />
     <Compile Include="Assets\StarterAssets\FirstPersonController\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\Scripts\Music\VolumeControlUI.cs" />
