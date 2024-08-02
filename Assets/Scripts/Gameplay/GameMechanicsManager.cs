@@ -208,11 +208,15 @@ public class GameMechanicsManager : MonoBehaviour
 
     public void GetNextMechanicBasedOnChoice(string bookName, string choice)
     {
+
         if (PlayerInGame.Instance.currentHealth <= 0)
         {
             return;
         }
-        string mechnism;
+
+        BookLoader.Instance.halfLoadingPage();
+
+        /*string mechnism;
         if (OpenAIInterface.Instance != null)
         {
             int currPage = OpenAIInterface.Instance.current_Page;
@@ -231,7 +235,7 @@ public class GameMechanicsManager : MonoBehaviour
         else
         {
             Debug.LogError("OpenAIInterface instance is not initialized.");
-        }
+        }*/
     }
 
     public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption)
@@ -287,6 +291,7 @@ public class GameMechanicsManager : MonoBehaviour
             int roll = curRoll;
             curRoll = 0;
             HandlePlayerChoice(bookName, choice, BookLoader.Instance.currentpage.EncounterOptions[roll-1]);
+            GetNextMechanicBasedOnChoice(bookName, roll.ToString());
             return;
         }
 

@@ -80,7 +80,7 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI luckPushUI;
 
     public GameObject currentUI;
-
+    public GameObject loadingCanvas;
 
     public GameObject DiceRoller;
     public GameObject DiceRollerPage;
@@ -124,6 +124,9 @@ public class BookLoader : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        CanvasFader.Instance.FadeInCanvas(loadingCanvas);
+
         // Initialize book paths
         //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
         bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Moshe\\Mars\\";
@@ -564,5 +567,10 @@ public class BookLoader : MonoBehaviour
             return string.Join(" ", words, 0, maxWords) + "...";
         }
         return text;
+    }
+
+    public void halfLoadingPage()
+    {
+        CanvasFader.Instance.FadeInCanvas(loadingCanvas);
     }
 }
