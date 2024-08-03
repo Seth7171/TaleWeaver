@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
@@ -214,6 +215,8 @@ public class GameMechanicsManager : MonoBehaviour
             return;
         }
 
+        BookLoader.Instance.DisableAllCanvases(false);
+        BookLoader.Instance.isLoading = true;
         BookLoader.Instance.halfLoadingPage();
 
         /*string mechnism;
@@ -238,18 +241,8 @@ public class GameMechanicsManager : MonoBehaviour
         }*/
     }
 
-    public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption)
+    public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption, bool callEndCall = true)
     {
-        if (mechnismOption.outcome.Contains("Wrong") || mechnismOption.outcome.Contains("Correct"))
-        {
-            if (mechnismOption.outcome.Contains("Wrong"))
-            {
-                PlayerInGame.Instance.LoseLife(1);
-            }
-            BookLoader.Instance.SaveChangedData((int)(Char.GetNumericValue(choice[0])));
-            GetNextMechanicBasedOnChoice(bookName, choice);
-            return;
-        }
 
         if (choice.Contains("Push my luck!"))
         {
@@ -301,8 +294,8 @@ public class GameMechanicsManager : MonoBehaviour
         {
             int roll = curRoll;
             curRoll = 0;
-            HandlePlayerChoice(bookName, choice, BookLoader.Instance.currentpage.EncounterOptions[roll-1]);
-            GetNextMechanicBasedOnChoice(bookName, roll.ToString());
+            HandlePlayerChoice(bookName, roll.ToString(), BookLoader.Instance.currentpage.EncounterOptions[roll-1]);
+            //GetNextMechanicBasedOnChoice(bookName, roll.ToString());
             return;
         }
 
@@ -351,7 +344,17 @@ public class GameMechanicsManager : MonoBehaviour
                 //ADD LOADING!!!
                 GetNextMechanicBasedOnChoice(bookName, "scenario1");
             }
+            return;
         }
+
+        if (mechnismOption.outcome.Contains("Wrong"))
+        {
+            PlayerInGame.Instance.LoseLife(1);
+        }
+
+        BookLoader.Instance.SaveChangedData((int)(Char.GetNumericValue(choice[0])) - 1);
+        GetNextMechanicBasedOnChoice(bookName, choice);
+
 
         //LOADING!!!!
 

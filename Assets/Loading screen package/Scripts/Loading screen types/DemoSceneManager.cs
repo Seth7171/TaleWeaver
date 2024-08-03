@@ -12,7 +12,7 @@ public class DemoSceneManager : MonoBehaviour
         _loadingManager.RevealLoadingScreen();
     }
 
-    /*private void Update()
+    private void Update()
     {
         if (_canCheckForInput)
         {
@@ -32,5 +32,5 @@ public class DemoSceneManager : MonoBehaviour
     public void OnLoadingScreenHided()
     {
         _canCheckForInput = true;
-    }*/
+    }
 }

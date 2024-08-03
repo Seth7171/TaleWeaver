@@ -29,7 +29,7 @@ public class CreateButtonsInBook : MonoBehaviour
             {
                 textObjects.Add(child.gameObject, textMeshPro);
                 var eventTrigger = child.gameObject.AddComponent<EventTrigger>();
-                int currOptionIndx = mechnismOptions.Count < optionIndx ? 0 : optionIndx;
+                int currOptionIndx = mechnismOptions.Count <= optionIndx ? 0 : optionIndx;
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerEnter, (data) => OnPointerEnter((PointerEventData)data, textMeshPro));
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerExit, (data) => OnPointerExit((PointerEventData)data, textMeshPro));
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerClick, (data) => OnPointerClick((PointerEventData)data, textMeshPro, mechnismOptions[currOptionIndx]));
