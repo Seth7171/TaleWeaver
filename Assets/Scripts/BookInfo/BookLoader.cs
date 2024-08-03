@@ -129,7 +129,7 @@ public class BookLoader : MonoBehaviour
 
         // Initialize book paths
         bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
-        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Moshe\\Warhammer\\";
+        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Moshe\\Garden\\";
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -342,35 +342,67 @@ public class BookLoader : MonoBehaviour
         encounterLuckReward2.text = "";
     }
 
-    void DisableAllCanvases()
+    public void DisableAllCanvases(bool isInit = true)
     {
-        optionsCanvas.SetActive(false);
-        riddleCanvas.SetActive(false);
-        rollCanvas.SetActive(false);
-        checkCanvas.SetActive(false);
-        combatCanvas.SetActive(false);
-        luckCanvas.SetActive(false);
+        if (isInit)
+        {
+            // Hide main canvases
+            HideGameObject(optionsCanvas, "optionsCanvas");
+            HideGameObject(riddleCanvas, "riddleCanvas");
+            HideGameObject(rollCanvas, "rollCanvas");
+            HideGameObject(checkCanvas, "checkCanvas");
+            HideGameObject(combatCanvas, "combatCanvas");
+            HideGameObject(luckCanvas, "luckCanvas");
+        }
+        
+
         if (PageFlipper.Instance != null)
         {
-            optionsUICanvas.SetActive(false);
-            riddleUICanvas.SetActive(false);
-            combatUICanvas.SetActive(false);
-            rollUICanvas.SetActive(false);
-            checkUICanvas.SetActive(false);
-            luckUICanvas.SetActive(false);
+            Debug.Log("PageFlipper.Instance is available");
 
-            Dice20.SetActive(false);
-            Dice10.SetActive(false);
-            DiceRoller.SetActive(false);
+            // Hide UI-specific canvases and dice elements
+            HideGameObject(optionsUICanvas, "optionsUICanvas");
+            HideGameObject(riddleUICanvas, "riddleUICanvas");
+            HideGameObject(combatUICanvas, "combatUICanvas");
+            HideGameObject(rollUICanvas, "rollUICanvas");
+            HideGameObject(checkUICanvas, "checkUICanvas");
+            HideGameObject(luckUICanvas, "luckUICanvas");
 
-            Dice6.SetActive(false);
-            DiceRollerPage.SetActive(false);
+            if (isInit)
+            {
+                // Hide dice
+                HideGameObject(Dice20, "Dice20");
+                HideGameObject(Dice10, "Dice10");
+                HideGameObject(DiceRoller, "DiceRoller");
 
-            Dice20Button.SetActive(false);
-            Dice10Button.SetActive(false);
-            Dice6Button.SetActive(false);
-            DiceRollerButton.SetActive(false);
+                HideGameObject(Dice6, "Dice6");
+                HideGameObject(DiceRollerPage, "DiceRollerPage");
 
+                // Hide dice buttons
+                HideGameObject(Dice20Button, "Dice20Button");
+                HideGameObject(Dice10Button, "Dice10Button");
+                HideGameObject(Dice6Button, "Dice6Button");
+                HideGameObject(DiceRollerButton, "DiceRollerButton");
+            }
+            
+        }
+        else
+        {
+            Debug.LogWarning("PageFlipper.Instance is null.");
+        }
+    }
+
+
+    private void HideGameObject(GameObject obj, string name)
+    {
+        if (obj != null)
+        {
+            Debug.Log($"{name} is set to inactive.");
+            obj.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning($"{name} is not assigned.");
         }
     }
 
