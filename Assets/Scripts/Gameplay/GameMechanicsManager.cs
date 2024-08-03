@@ -29,6 +29,17 @@ public class GameMechanicsManager : MonoBehaviour
 
     private int curRoll = 0;
 
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            // This means this instance was the singleton and is now being destroyed
+            Debug.Log("GameMechanicsManager instance is being destroyed.");
+            Instance = null;
+        }
+    }
+
     private void Awake()
     {
         if (Instance == null)

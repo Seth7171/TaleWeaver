@@ -6,6 +6,17 @@ public class CanvasFader : MonoBehaviour
 
     public float fadeDuration = 2.0f; // Duration of the fade-in effect
 
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            // This means this instance was the singleton and is now being destroyed
+            Debug.Log("CanvasFader instance is being destroyed.");
+            Instance = null;
+        }
+    }
+
     private void Awake()
     {
         // Singleton pattern to ensure a single instance

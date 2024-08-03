@@ -35,12 +35,24 @@ public class PlayerInGame : MonoBehaviour
 
     public static PlayerInGame Instance { get; private set; }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            if (OpenAIInterface.Instance != null)
+                OpenAIInterface.Instance.OnConclusionSave -= SaveDeathConclusionFinished;
+            // This means this instance was the singleton and is now being destroyed
+            Debug.Log("PlayerInGame instance is being destroyed.");
+            Instance = null;
+        }
+    }
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -78,17 +90,6 @@ public class PlayerInGame : MonoBehaviour
         {
             LoseLife(1);
         }
-
-        if (currentHealth == 0)
-        {
-            // end the adventure
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (OpenAIInterface.Instance != null)
-            OpenAIInterface.Instance.OnConclusionSave -= SaveDeathConclusionFinished;
     }
 
     public void GainLife(int life)

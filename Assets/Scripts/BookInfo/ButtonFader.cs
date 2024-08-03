@@ -7,13 +7,25 @@ public class ButtonFader : MonoBehaviour
 {
     public static ButtonFader Instance { get; private set; }
     public float fadeDuration = 1.0f;
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            // This means this instance was the singleton and is now being destroyed
+            Debug.Log("Singleton instance is being destroyed.");
+            Instance = null;
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             Debug.Log("ButtonFader instance initialized.");
         }
         else

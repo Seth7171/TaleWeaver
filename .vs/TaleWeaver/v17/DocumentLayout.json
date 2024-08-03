@@ -3,68 +3,152 @@
   "WorkspaceRootPath": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\dice\\scripts\\diceroller\\diceroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\dice\\scripts\\diceroller\\diceroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\pageflipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\pageflipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\handbookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\buttonfader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\buttonfader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameworld\\playeringame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameworld\\playeringame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\playerselection\\playersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerselection\\playersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\playerinfodata\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerinfodata\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\playerinfodata\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerinfodata\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\playerinfodata\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerinfodata\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\screenresolution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\screenresolution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\offset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\offset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\handbookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\handbookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\dice\\scripts\\diceroller\\dicesides.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\dice\\scripts\\diceroller\\dicesides.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\ensurewordwrapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ensurewordwrapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\playerselection\\selectplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerselection\\selectplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Library\\PackageCache\\com.unity.render-pipelines.universal@14.0.9\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal@14.0.9\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\playerselection\\clearfeedbackfromunity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerselection\\clearfeedbackfromunity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\environments\\rake\\rake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\rake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\playerinfodata\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerinfodata\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\environments\\rake\\stoplisthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\stoplisthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\pausemenus\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pausemenus\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\pausemenus\\pausemenugame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\pausemenus\\pausemenugame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pausemenus\\pausemenugame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\environments\\rake\\locationextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\locationextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\pausemenus\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pausemenus\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\environments\\rake\\knownlocations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\knownlocations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\newbook\\ventureforthbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newbook\\ventureforthbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Bilbo\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\newbook\\inputvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newbook\\inputvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Elon\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\newbook\\inappropriatewordsfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newbook\\inappropriatewordsfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Durins Bane\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\music\\donotdestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\music\\donotdestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\mainmenu\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\mainmenu\\fadeoutimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu\\fadeoutimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\healthbar\\luckbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthbar\\luckbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\healthbar\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\healthbar\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameworld\\toggleflashlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameworld\\toggleflashlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameworld\\createbuttonsinbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameworld\\createbuttonsinbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameworld\\clickabletext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameworld\\clickabletext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\canvasfader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\canvasfader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\gamemechanicsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Amon Sul\\bookData.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\environments\\rake\\stringsplitter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\stringsplitter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\assets\\scripts\\environments\\rake\\stringsplitter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\stringsplitter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\environments\\rake\\stoplisthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\stoplisthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\environments\\rake\\locationextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\locationextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\environments\\rake\\knownlocations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\knownlocations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\environments\\rake\\rake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\environments\\rake\\rake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\parser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\parser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\lastpageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\lastpageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|d:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\taleweaver\\assets\\scripts\\bookinfo\\firstpageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89A7FBA-2CCA-6372-0154-26540E3A1E46}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bookinfo\\firstpageloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,207 +158,488 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DiceSides.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceSides.cs",
-              "RelativeDocumentMoniker": "Assets\\Dice\\Scripts\\DiceRoller\\DiceSides.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceSides.cs",
-              "RelativeToolTip": "Assets\\Dice\\Scripts\\DiceRoller\\DiceSides.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAAAFEAAAA2AAAA",
+              "DocumentIndex": 7,
+              "Title": "ScreenResolution.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\ScreenResolution.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScreenResolution.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\ScreenResolution.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScreenResolution.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T08:51:16.603Z",
+              "WhenOpened": "2024-08-03T10:41:20.424Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DiceRoller.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
-              "RelativeDocumentMoniker": "Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
-              "RelativeToolTip": "Assets\\Dice\\Scripts\\DiceRoller\\DiceRoller.cs",
-              "ViewState": "AQIAANUAAAAAAAAAAAAiwOUAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T13:19:31.562Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Lit.shader",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Library\\PackageCache\\com.unity.render-pipelines.universal@14.0.9\\Shaders\\Lit.shader",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@14.0.9\\Shaders\\Lit.shader",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Library\\PackageCache\\com.unity.render-pipelines.universal@14.0.9\\Shaders\\Lit.shader",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@14.0.9\\Shaders\\Lit.shader",
+              "DocumentIndex": 8,
+              "Title": "offset.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\offset.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\offset.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\offset.cs",
+              "RelativeToolTip": "Assets\\Scripts\\offset.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-08-01T13:17:09.99Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:41:17.504Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "HandBookController.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HandBookController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HandBookController.cs",
               "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HandBookController.cs",
               "RelativeToolTip": "Assets\\Scripts\\HandBookController.cs",
-              "ViewState": "AQIAAN4AAAAAAAAAAAAmwOgAAAAPAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T09:43:50.645Z",
+              "WhenOpened": "2024-08-03T10:41:09.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EnsureWordWrapping.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\EnsureWordWrapping.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnsureWordWrapping.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\EnsureWordWrapping.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnsureWordWrapping.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:41:05.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SelectPlayer.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerSelection\\SelectPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerSelection\\SelectPlayer.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerSelection\\SelectPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerSelection\\SelectPlayer.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:40:58.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerSession.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerSelection\\PlayerSession.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerSelection\\PlayerSession.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerSelection\\PlayerSession.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerSelection\\PlayerSession.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:40:52.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\PlayerManager.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\PlayerManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerInfoData\\PlayerManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:40:44.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerData.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\PlayerData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\PlayerData.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\PlayerData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerInfoData\\PlayerData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:40:41.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\Player.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\Player.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerInfoData\\Player.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:40:37.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerInGame.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\PlayerInGame.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\PlayerInGame.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\PlayerInGame.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameWorld\\PlayerInGame.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAQwDQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:38:30.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PageFlipper.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\PageFlipper.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\PageFlipper.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\PageFlipper.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\PageFlipper.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwB0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:35:59.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ButtonFader.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\ButtonFader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\ButtonFader.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\ButtonFader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\ButtonFader.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:35:15.934Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "bookData.json",
-              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Elon\\bookData.json",
-              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Elon\\bookData.json",
+              "Title": "ClearFeedbackFromUnity.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerSelection\\ClearFeedbackFromUnity.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerSelection\\ClearFeedbackFromUnity.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerSelection\\ClearFeedbackFromUnity.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerSelection\\ClearFeedbackFromUnity.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-27T14:01:33.468Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:40:50.012Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "bookData.json",
-              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Durins Bane\\bookData.json",
-              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Durins Bane\\bookData.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-27T14:00:13.569Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "bookData.json",
-              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Bilbo\\bookData.json",
-              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Bilbo\\bookData.json",
+              "Title": "DataManager.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\DataManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInfoData\\DataManager.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PlayerInfoData\\DataManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerInfoData\\DataManager.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-27T13:52:35.614Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "bookData.json",
-              "DocumentMoniker": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Amon Sul\\bookData.json",
-              "ToolTip": "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Amon Sul\\bookData.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-27T13:23:43.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BookLoader.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\BookLoader.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\BookLoader.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\BookLoader.cs",
-              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\BookLoader.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAhwHUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T13:18:46.361Z",
+              "WhenOpened": "2024-08-03T10:40:34.3Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "GameMechanicsManager.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T13:18:04.812Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "KnownLocations.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\KnownLocations.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\KnownLocations.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\KnownLocations.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\KnownLocations.cs",
-              "ViewState": "AQIAAFgAAAAAAAAAAAAiwF4AAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T11:18:06.108Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "StopListHelper.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\StopListHelper.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\StopListHelper.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\StopListHelper.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\StopListHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T11:07:26.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Rake.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\Rake.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\Rake.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\Rake.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\Rake.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T11:08:04.917Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "PauseMenuGame.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PauseMenus\\PauseMenuGame.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PauseMenus\\PauseMenuGame.cs",
               "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PauseMenus\\PauseMenuGame.cs",
               "RelativeToolTip": "Assets\\Scripts\\PauseMenus\\PauseMenuGame.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAmAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T09:17:21.559Z"
+              "WhenOpened": "2024-08-03T10:40:25.148Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "PauseMenu.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PauseMenus\\PauseMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PauseMenus\\PauseMenu.cs",
               "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\PauseMenus\\PauseMenu.cs",
               "RelativeToolTip": "Assets\\Scripts\\PauseMenus\\PauseMenu.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAowCYAAAANAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAmwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T09:18:32.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LocationExtractor.cs",
-              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\LocationExtractor.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\LocationExtractor.cs",
-              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\LocationExtractor.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\LocationExtractor.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAgwDAAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T11:12:31.235Z"
+              "WhenOpened": "2024-08-03T10:40:16.822Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
+              "Title": "VentureForthButton.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\VentureForthButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\newBook\\VentureForthButton.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\VentureForthButton.cs",
+              "RelativeToolTip": "Assets\\Scripts\\newBook\\VentureForthButton.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:40:06.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "InputValidator.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\InputValidator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\newBook\\InputValidator.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\InputValidator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\newBook\\InputValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:40:03.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "InappropriateWordsFilter.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\InappropriateWordsFilter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\newBook\\InappropriateWordsFilter.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\newBook\\InappropriateWordsFilter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\newBook\\InappropriateWordsFilter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:39:58.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DoNotDestroy.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Music\\DoNotDestroy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Music\\DoNotDestroy.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Music\\DoNotDestroy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Music\\DoNotDestroy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:39:50.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\MainMenu\\MainMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu\\MainMenu.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\MainMenu\\MainMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainMenu\\MainMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:39:31.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "FadeOutImage.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\MainMenu\\FadeOutImage.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu\\FadeOutImage.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\MainMenu\\FadeOutImage.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainMenu\\FadeOutImage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:39:15.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "LuckBar.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\LuckBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HealthBar\\LuckBar.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\LuckBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HealthBar\\LuckBar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:39:04.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "HealthBar.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HealthBar\\HealthBar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:38:59.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ToggleFlashLight.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\ToggleFlashLight.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\ToggleFlashLight.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\ToggleFlashLight.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameWorld\\ToggleFlashLight.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:38:49.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CreateButtonsInBook.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\CreateButtonsInBook.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\CreateButtonsInBook.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\CreateButtonsInBook.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameWorld\\CreateButtonsInBook.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:38:23.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ClickableText.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\ClickableText.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameWorld\\ClickableText.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\GameWorld\\ClickableText.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameWorld\\ClickableText.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:37:16.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "GameMechanicsManager.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameMechanicsManager.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAADwvyUAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:37:04.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
               "Title": "StringSplitter.cs",
               "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\StringSplitter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\StringSplitter.cs",
               "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\StringSplitter.cs",
               "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\StringSplitter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T11:07:49.801Z"
+              "WhenOpened": "2024-08-03T10:36:57.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "StopListHelper.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\StopListHelper.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\StopListHelper.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\StopListHelper.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\StopListHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:36:53.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "LocationExtractor.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\LocationExtractor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\LocationExtractor.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\LocationExtractor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\LocationExtractor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:36:44.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "KnownLocations.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\KnownLocations.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\KnownLocations.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\KnownLocations.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\KnownLocations.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:36:40.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Rake.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\Rake.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Environments\\RAKE\\Rake.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\Environments\\RAKE\\Rake.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Environments\\RAKE\\Rake.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:36:36.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Parser.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\Parser.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\Parser.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\Parser.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\Parser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:36:06.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "LastPageLoader.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\LastPageLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\LastPageLoader.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\LastPageLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\LastPageLoader.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:35:52.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "FirstPageLoader.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\FirstPageLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\FirstPageLoader.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\FirstPageLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\FirstPageLoader.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:35:44.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CanvasFader.cs",
+              "DocumentMoniker": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\CanvasFader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BookInfo\\CanvasFader.cs",
+              "ToolTip": "D:\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E1\u05DE\u05E1\u05D8\u05E8 8\\\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E1\u05D5\u05E3 \u05D1\\TaleWeaver\\Assets\\Scripts\\BookInfo\\CanvasFader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BookInfo\\CanvasFader.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T10:35:35.782Z",
+              "EditorCaption": ""
             }
           ]
         }
