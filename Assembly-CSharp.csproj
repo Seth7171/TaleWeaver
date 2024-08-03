@@ -83,7 +83,6 @@
     <Compile Include="Assets\Scripts\MainMenu\FadeOutImage.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\PlayerSession.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
-    <Compile Include="Assets\Scripts\HealthBar\LuckBar.cs" />
     <Compile Include="Assets\Scripts\PauseMenus\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\GameWorld\ClickableText.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\LocationExtractor.cs" />
@@ -99,6 +98,7 @@
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageAnimationCompleted.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\ClearFeedbackFromUnity.cs" />
     <Compile Include="Assets\HandyHands\scripts\showcasecam.cs" />
+    <Compile Include="Assets\Scripts\PlayerStats\LuckBar.cs" />
     <Compile Include="Assets\Scripts\BookInfo\Book.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\Demo02.cs" />
     <Compile Include="Assets\Scripts\GameWorld\PlayerInGame.cs" />
@@ -107,6 +107,7 @@
     <Compile Include="Assets\EndlessBook\Demos\Demo 03 - Manual Page Turn\Scripts\Demo03.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map_Left.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
+    <Compile Include="Assets\Scripts\PlayerStats\HealthBar.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageData.cs" />
     <Compile Include="Assets\Scripts\PauseMenus\PauseMenuGame.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameMechanicsManager.cs" />
@@ -114,7 +115,6 @@
     <Compile Include="Assets\Scripts\offset.cs" />
     <Compile Include="Assets\Scripts\newBook\VentureForthButton.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map.cs" />
-    <Compile Include="Assets\Scripts\HealthBar\HealthBar.cs" />
     <Compile Include="Assets\Scripts\ScreenResolution.cs" />
     <Compile Include="Assets\Scripts\GameWorld\ToggleFlashLight.cs" />
     <Compile Include="Assets\Scripts\Music\VolumeManager.cs" />
@@ -139,6 +139,7 @@
     <Compile Include="Assets\StarterAssets\FirstPersonController\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\Scripts\Music\VolumeControlUI.cs" />
     <Compile Include="Assets\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
+    <Compile Include="Assets\Scripts\PlayerStats\ModifierNum.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\Candle.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\ThirdPersonController.cs" />
   </ItemGroup>

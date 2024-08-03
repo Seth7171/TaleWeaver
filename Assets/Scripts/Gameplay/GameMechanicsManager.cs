@@ -155,11 +155,11 @@ public class GameMechanicsManager : MonoBehaviour
         int chosenMechanic;
 
         if (isForceCombat)
-            chosenMechanic = 2;
+            chosenMechanic = 1;
         else
             chosenMechanic = random.Next(mechanics.Count);
 
-        //chosenMechanic = 1;
+        //chosenMechanic = 5;
 
         if (mechanics[chosenMechanic] == "luck")
         {
@@ -340,6 +340,21 @@ public class GameMechanicsManager : MonoBehaviour
             }
         }
 
+        //Handle Check modifier
+        if (mechnismOption.outcome.Contains("skillCheck"))
+        {
+            if (mechnismOption.outcome.Contains("-") || mechnismOption.outcome.Contains("lose"))
+            {
+                int numberOfSkillCheckModifier = GetNumberFromString(mechnismOption.outcome);
+                PlayerInGame.Instance.LoseSkillModifier(Math.Abs(numberOfSkillCheckModifier));
+            }
+            if (mechnismOption.outcome.Contains("+") || mechnismOption.outcome.Contains("gain"))
+            {
+                int numberOfSkillCheckModifier = GetNumberFromString(mechnismOption.outcome);
+                PlayerInGame.Instance.GainSkillModifier(numberOfSkillCheckModifier);
+            }
+        }
+
         // Handle next call
         if (choice.Contains("Accept results and move on"))
         {
@@ -417,13 +432,13 @@ public class GameMechanicsManager : MonoBehaviour
                 bool checkpassed = false;
                 if (BookLoader.Instance.encounterCheckDiff != null)
                 {
-                    if (DiceRoller.Instance.result == 1)
+                    if ((DiceRoller.Instance.result + PlayerInGame.Instance.currentSkillModifier) <= 1)
                     {
                         PlayerInGame.Instance.GainLuck(1);
                         DiceRoller.Instance.resultText.text = "Critical Success!\n Check Passed!";
                         checkpassed = true;
                     }
-                    else if (DiceRoller.Instance.result > int.Parse(BookLoader.Instance.checknum))
+                    else if ((DiceRoller.Instance.result + PlayerInGame.Instance.currentSkillModifier) > int.Parse(BookLoader.Instance.checknum))
                     {
                         DiceRoller.Instance.resultText.text = "Check Failed...\n YOU lose 1 life";
                         PlayerInGame.Instance.LoseLife(1);
