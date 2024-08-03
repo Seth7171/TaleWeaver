@@ -12,9 +12,11 @@ public class PlayerInGame : MonoBehaviour
     public int currentHealth;
     public int maxLuck = 5;
     public int currentLuck;
+    public int currentSkillModifier;
 
     public HealthBar healthBar;
     public LuckBar LuckBar;
+    public ModifierNum modifierNum;
     public GameObject DeathScreen;
     public TextMeshProUGUI DeathBackToMainMenu;
     public TextMeshProUGUI DeathLoading;
@@ -73,6 +75,9 @@ public class PlayerInGame : MonoBehaviour
         LuckBar.SetMaxLuck(maxLuck);
         LuckBar.SetLuck(currentLuck);
 
+        currentSkillModifier = 0;
+        modifierNum.SetCheckModifier(currentSkillModifier);
+
         if (OpenAIInterface.Instance != null)
         {
             OpenAIInterface.Instance.OnConclusionSave += SaveDeathConclusionFinished;
@@ -89,6 +94,18 @@ public class PlayerInGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             LoseLife(1);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GainLife(1);
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            LoseSkillModifier(1);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GainSkillModifier(1);
         }
     }
 
@@ -130,6 +147,18 @@ public class PlayerInGame : MonoBehaviour
     {
         currentLuck -= luck;
         LuckBar.SetLuck(currentLuck);
+    }
+
+    public void GainSkillModifier(int modifier)
+    {
+        currentSkillModifier += modifier;
+        modifierNum.SetCheckModifier(currentSkillModifier);
+    }
+
+    public void LoseSkillModifier(int modifier)
+    {
+        currentSkillModifier -= modifier;
+        modifierNum.SetCheckModifier(currentSkillModifier);
     }
 
     void PlayerDeath()
