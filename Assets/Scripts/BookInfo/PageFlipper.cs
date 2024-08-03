@@ -55,7 +55,7 @@ public class PageFlipper : MonoBehaviour
             advObjects[0].SetActive(true);
         }
 
-        //OpenAIInterface.Instance.OnIsEndedChanged += OnIsEndedChanged;
+        OpenAIInterface.Instance.OnIsEndedChanged += OnIsEndedChanged;
     }
 
     private void OnIsEndedChanged(bool isEnded)

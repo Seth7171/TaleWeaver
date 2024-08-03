@@ -230,7 +230,7 @@ public class GameMechanicsManager : MonoBehaviour
         BookLoader.Instance.isLoading = true;
         BookLoader.Instance.halfLoadingPage();
 
-        /*string mechnism;
+        string mechnism;
         if (OpenAIInterface.Instance != null)
         {
             int currPage = OpenAIInterface.Instance.current_Page;
@@ -249,7 +249,7 @@ public class GameMechanicsManager : MonoBehaviour
         else
         {
             Debug.LogError("OpenAIInterface instance is not initialized.");
-        }*/
+        }
     }
 
     public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption, bool callEndCall = true)
