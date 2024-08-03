@@ -112,27 +112,11 @@ public class BookLoader : MonoBehaviour
     public bool isLoading = false;
     public bool isActionMade = false;
 
-    private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            // This means this instance was the singleton and is now being destroyed
-            Debug.Log("Singleton instance is being destroyed.");
-            Instance = null;
-        }
-    }
+
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            Debug.Log("BookLoader instance initialized.");
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        // NO MORE SINGELTON STATIC INSTANCE WILL BE CHANGED BETWEEN 1 TO 10 PAGES!
+        Instance = this;
 
         CanvasFader.Instance.InitializeCanvas(loadingCanvas);
 
