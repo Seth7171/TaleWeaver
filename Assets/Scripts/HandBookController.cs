@@ -49,6 +49,10 @@ public class HandBookController : MonoBehaviour
 
     private Coroutine transitionCoroutine;
 
+    public Transform[] bookmarks; // Assume bookmarks are stored here
+    private Coroutine bookmarkCoroutine;
+    private bool buttonOnBookmarksClicked = false;
+
     void Start()
     {
         //Debug.Log("Start: Setting Hidden Position");
@@ -469,5 +473,105 @@ public class HandBookController : MonoBehaviour
                 BookLoader.Instance.DiceRollerButton.SetActive(true);
             } 
         }
+    }
+
+    // Method to handle bookmark click
+    public void OnBookmarkClicked(Transform bookmark)
+    {
+        // If a bookmark animation is already playing, stop it
+/*        if (bookmarkCoroutine != null)
+        {
+            StopCoroutine(bookmarkCoroutine);
+        }*/
+        if (bookmark.localPosition == new Vector3(0.011f, 0.1971f, -0.033f))
+        {
+            bookmarkCoroutine = StartCoroutine(MoveBookmarkIn(bookmark));
+        }
+        else
+        {
+            // Start the animation coroutine for the clicked bookmark
+            bookmarkCoroutine = StartCoroutine(MoveBookmarkOut(bookmark));
+        }
+    }
+
+
+    // Coroutine to move the bookmark out
+    private IEnumerator MoveBookmarkOut(Transform bookmark)
+    {
+        Vector3 startPosition = bookmark.localPosition;
+        Vector3 outPosition = new Vector3(0.011f, 0.1971f, -0.033f); // Adjust Z-axis for outward movement
+        Quaternion startRotation = bookmark.localRotation;
+        Quaternion outRotation = Quaternion.Euler(0, 0, 0); // Rotate bookmark outward (example)
+
+        float duration = 0.5f; // Duration of each animation step
+        float elapsed = 0f;
+
+        // Move out animation
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            bookmark.localPosition = Vector3.Lerp(startPosition, outPosition, t);
+            bookmark.localRotation = Quaternion.Lerp(startRotation, outRotation, t);
+
+            yield return null;
+        }
+
+        // Ensure the final position is set correctly
+        bookmark.localPosition = outPosition;
+        bookmark.localRotation = outRotation;
+    }
+
+    // Coroutine to move the bookmark in
+    private IEnumerator MoveBookmarkIn(Transform bookmark)
+    {
+        Vector3 outPosition = bookmark.localPosition;
+        Vector3 inPosition = new Vector3(0.247f, 0.025f, 0.13f); // Bring closer to the screen
+        if (bookmark.name.Contains("2"))
+        {
+            inPosition = new Vector3(0.247f, 0.025f, 0.04f);
+        }
+        if (bookmark.name.Contains("3"))
+        {
+            inPosition = new Vector3(0.247f, 0.025f, -0.05f);
+        }
+        if (bookmark.name.Contains("4"))
+        {
+            inPosition = new Vector3(0.247f, 0.025f, -0.14f);
+        }
+        Quaternion outRotation = bookmark.localRotation;
+        Quaternion inRotation = Quaternion.Euler(0, 0, 0); // Adjust rotation when coming in
+
+        if (buttonOnBookmarksClicked)
+        {
+            inPosition = new Vector3(0f, 0f, 0f); // Bring closer to the screen
+            buttonOnBookmarksClicked = false;
+        }
+
+        float duration = 0.5f; // Duration of each animation step
+        float elapsed = 0f;
+
+        // Move in animation
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            bookmark.localPosition = Vector3.Lerp(outPosition, inPosition, t);
+            bookmark.localRotation = Quaternion.Lerp(outRotation, inRotation, t);
+
+            yield return null;
+        }
+
+        // Ensure the final position is set correctly
+        bookmark.localPosition = inPosition;
+        bookmark.localRotation = inRotation;
+    }
+
+    public void ButtonOnBookmarksClicked(Transform bookmark)
+    {
+        buttonOnBookmarksClicked = true;
+        StartCoroutine(MoveBookmarkIn(bookmark));
     }
 }
