@@ -13,13 +13,25 @@ public class PageFlipper : MonoBehaviour
     private int currentAdvIndex = 0;
 
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            if (OpenAIInterface.Instance != null)
+                OpenAIInterface.Instance.OnIsEndedChanged -= OnIsEndedChanged;
+            // This means this instance was the singleton and is now being destroyed
+            Debug.Log("PageFlipper instance is being destroyed.");
+            Instance = null;
+        }
+    }
+
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             Debug.Log("GameManager instance initialized.");
         }
         else
@@ -44,12 +56,6 @@ public class PageFlipper : MonoBehaviour
         }
 
         //OpenAIInterface.Instance.OnIsEndedChanged += OnIsEndedChanged;
-    }
-
-    private void OnDestroy()
-    {
-        if (OpenAIInterface.Instance != null)
-            OpenAIInterface.Instance.OnIsEndedChanged -= OnIsEndedChanged;
     }
 
     private void OnIsEndedChanged(bool isEnded)
