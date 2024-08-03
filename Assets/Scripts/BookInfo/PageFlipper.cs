@@ -75,7 +75,7 @@ public class PageFlipper : MonoBehaviour
         {
             currentAdvIndex++;
             advObjects[currentAdvIndex].SetActive(true);
-            GameMechanicsManager.Instance.setMechanism(mechanic);
+            //GameMechanicsManager.Instance.setMechanism(mechanic);
         }
     }
 }
