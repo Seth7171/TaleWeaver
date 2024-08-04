@@ -431,12 +431,12 @@ public class BookLoader : MonoBehaviour
     void DisplayRollOptions(List<Option> rollOptions)
     {
         // Display roll options with outcomes
-        encounterRoll1.text = rollOptions.Count > 0 ? TruncateText("1). " + rollOptions[0].option + " - " + rollOptions[0].outcome, EncounterOptionMaxWords) : "";
-        encounterRoll2.text = rollOptions.Count > 1 ? TruncateText("2). " + rollOptions[1].option + " - " + rollOptions[1].outcome, EncounterOptionMaxWords) : "";
-        encounterRoll3.text = rollOptions.Count > 2 ? TruncateText("3). " + rollOptions[2].option + " - " + rollOptions[2].outcome, EncounterOptionMaxWords) : "";
-        encounterRoll4.text = rollOptions.Count > 3 ? TruncateText("4). " + rollOptions[3].option + " - " + rollOptions[3].outcome, EncounterOptionMaxWords) : "";
-        encounterRoll5.text = rollOptions.Count > 4 ? TruncateText("5). " + rollOptions[4].option + " - " + rollOptions[4].outcome, EncounterOptionMaxWords) : "";
-        encounterRoll6.text = rollOptions.Count > 5 ? TruncateText("6). " + rollOptions[5].option + " - " + rollOptions[5].outcome, EncounterOptionMaxWords) : "";
+        encounterRoll1.text = rollOptions.Count > 0 ? TruncateText("1). " + rollOptions[0].option, EncounterOptionMaxWords) : "";
+        encounterRoll2.text = rollOptions.Count > 1 ? TruncateText("2). " + rollOptions[1].option, EncounterOptionMaxWords) : "";
+        encounterRoll3.text = rollOptions.Count > 2 ? TruncateText("3). " + rollOptions[2].option, EncounterOptionMaxWords) : "";
+        encounterRoll4.text = rollOptions.Count > 3 ? TruncateText("4). " + rollOptions[3].option, EncounterOptionMaxWords) : "";
+        encounterRoll5.text = rollOptions.Count > 4 ? TruncateText("5). " + rollOptions[4].option, EncounterOptionMaxWords) : "";
+        encounterRoll6.text = rollOptions.Count > 5 ? TruncateText("6). " + rollOptions[5].option, EncounterOptionMaxWords) : "";
     }
 
     void DisplayCheck(List<Option> checkOptions)
