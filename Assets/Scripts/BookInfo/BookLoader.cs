@@ -120,9 +120,14 @@ public class BookLoader : MonoBehaviour
 
         CanvasFader.Instance.InitializeCanvas(loadingCanvas);
 
-        // Initialize book paths
-        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Happy Birthday\\";
         //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Moshe\\Garden\\";
+        // REMEBER TO COMMENT THE LINE " bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName); "
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        // Initialize book paths
+        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 

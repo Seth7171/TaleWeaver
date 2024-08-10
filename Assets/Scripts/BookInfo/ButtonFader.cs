@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonFader : MonoBehaviour
 {
@@ -99,6 +100,66 @@ public class ButtonFader : MonoBehaviour
                 text.color = originalColor;
         }
     }
+
+    public void FadeButtons(Button[] buttonsToFade, bool toReveal)
+    {
+        if (toReveal)
+        {
+            // Fade in buttonsToFade
+            StartCoroutine(FadeInButtons(buttonsToFade));
+
+        }
+
+        else
+        {
+            // Fade out buttonsToFade
+            StartCoroutine(FadeOutButtons(buttonsToFade));
+        }
+    }
+
+    IEnumerator FadeOutButtons(Button[] buttons)
+    {
+        if (buttons.Length > 0)
+        {
+            Color originalColor = buttons[0].image.color;
+            float time = Time.deltaTime;
+            if (time == 0)
+                time = 0.017f;
+            for (float t = 0.01f; t < fadeDuration; t += time)
+            {
+                foreach (Button button in buttons)
+                    button.image.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
+                yield return null;
+            }
+            foreach (Button button in buttons)
+            {
+                button.image.color = Color.clear;
+                button.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator FadeInButtons(Button[] buttons)
+    {
+        if (buttons.Length > 0)
+        {
+            foreach (Button button in buttons)
+                button.gameObject.SetActive(true);
+            Color originalColor = buttons[0].image.color;
+            float time = Time.deltaTime;
+            if (time == 0)
+                time = 0.017f;
+            for (float t = 0.01f; t < fadeDuration; t += time)
+            {
+                foreach (Button button in buttons)
+                    button.image.color = Color.Lerp(Color.clear, originalColor, Mathf.Min(1, t / fadeDuration));
+                yield return null;
+            }
+            foreach (Button button in buttons)
+                button.image.color = originalColor;
+        }
+    }
+
 
     public void FaderBordo(TextMeshProUGUI[] texts)
     {

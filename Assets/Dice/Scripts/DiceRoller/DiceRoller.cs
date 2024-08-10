@@ -42,6 +42,10 @@ public class DiceRoller : MonoBehaviour {
     bool finalize;
 
     public Button rollButton;
+    public Button ReRollButton;
+    public Button AcceptRollButton;
+    public Button UIReRollButton;
+    public Button UIAcceptRollButton;
 
     Vector3 targetPosition;
     bool isTransitioning = false;
@@ -259,11 +263,53 @@ public class DiceRoller : MonoBehaviour {
             }
         }
 
-
-        this.isRollEnded = true;
-        this.isRollEnded = false;
+        rollButton.gameObject.SetActive(false);
+        ShowRollButtons();
 
     }
+
+    void ShowRollButtons()
+    {
+        if (PlayerInGame.Instance.currentLuck <= 0)
+        {
+            Button[] buttonsToFade = new Button[] { AcceptRollButton, UIAcceptRollButton };
+            ButtonFader.Instance.FadeButtons(buttonsToFade, true);
+            UIAcceptRollButton.onClick.AddListener(AcceptRoll);
+        }
+        else
+        {
+            Button[] buttonsToFade = new Button[] { ReRollButton, AcceptRollButton, UIReRollButton, UIAcceptRollButton };
+            ButtonFader.Instance.FadeButtons(buttonsToFade, true);
+            UIReRollButton.onClick.AddListener(ReRoll);
+            UIAcceptRollButton.onClick.AddListener(AcceptRoll);
+        }
+
+    }
+
+    public void ReRoll()
+    {
+        UIReRollButton.onClick.RemoveListener(ReRoll);
+        UIAcceptRollButton.onClick.RemoveListener(AcceptRoll);
+        PlayerInGame.Instance.LoseLuck(1);
+        HideRollButtons();
+        RollDice();
+    }
+
+    public void AcceptRoll()
+    {
+        UIReRollButton.onClick.RemoveListener(ReRoll);
+        UIAcceptRollButton.onClick.RemoveListener(AcceptRoll);
+        HideRollButtons();
+        this.isRollEnded = true;
+        this.isRollEnded = false;
+    }
+
+    void HideRollButtons()
+    {
+        Button[] buttonsToFade = new Button[] { ReRollButton, AcceptRollButton, UIReRollButton, UIAcceptRollButton };
+        ButtonFader.Instance.FadeButtons(buttonsToFade, false);
+    }
+
 
     void ResetDiceState() {
         rb.velocity = Vector3.zero;

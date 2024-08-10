@@ -56,7 +56,6 @@ public class GameMechanicsManager : MonoBehaviour
     {
         // Find the instances of all Mechanics in the scene
         optionsMechanics = FindObjectOfType<CreateButtonsInBook>();
-        //setMechanism();
     }
 
     public void buttonsInit()
@@ -159,7 +158,10 @@ public class GameMechanicsManager : MonoBehaviour
         else
             chosenMechanic = random.Next(mechanics.Count);
 
-        //chosenMechanic = 5;
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //chosenMechanic = 1;
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
         if (mechanics[chosenMechanic] == "luck")
         {
