@@ -159,7 +159,7 @@ public class GameMechanicsManager : MonoBehaviour
             chosenMechanic = random.Next(mechanics.Count);
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //chosenMechanic = 1;
+        chosenMechanic = 5;
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -440,7 +440,7 @@ public class GameMechanicsManager : MonoBehaviour
                         DiceRoller.Instance.resultText.text = "Critical Success!\n Check Passed!";
                         checkpassed = true;
                     }
-                    else if ((DiceRoller.Instance.result + PlayerInGame.Instance.currentSkillModifier) > int.Parse(BookLoader.Instance.checknum))
+                    else if ((DiceRoller.Instance.result + PlayerInGame.Instance.currentSkillModifier) > int.Parse(BookLoader.Instance.checkDiffNum))
                     {
                         DiceRoller.Instance.resultText.text = "Check Failed...\n YOU lose 1 life";
                         PlayerInGame.Instance.LoseLife(1);

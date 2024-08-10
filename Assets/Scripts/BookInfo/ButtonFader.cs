@@ -145,7 +145,7 @@ public class ButtonFader : MonoBehaviour
         {
             foreach (Button button in buttons)
                 button.gameObject.SetActive(true);
-            Color originalColor = buttons[0].image.color;
+            Color originalColor = Color.white;
             float time = Time.deltaTime;
             if (time == 0)
                 time = 0.017f;

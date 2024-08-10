@@ -44,13 +44,14 @@ public class BookLoader : MonoBehaviour
     public TextMeshProUGUI encounterRollContinue;
     public TextMeshProUGUI encounterCheck;
     public TextMeshProUGUI encounterCheckDiff;
-    public string checknum;
+    public string checkDiffNum;
     public TextMeshProUGUI encounterCheckPass;
     public TextMeshProUGUI encounterCheckFailed;
     public TextMeshProUGUI encounterCombat;
     public TextMeshProUGUI encounterCombatDiff;
     public TextMeshProUGUI encounterCombatFlee;
     public TextMeshProUGUI encounterCombatWon;
+    public string combatDiffNum;
     public TextMeshProUGUI encounterLuck1;
     public TextMeshProUGUI encounterLuck2;
     public TextMeshProUGUI encounterLuckReward1;
@@ -121,13 +122,13 @@ public class BookLoader : MonoBehaviour
         CanvasFader.Instance.InitializeCanvas(loadingCanvas);
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Happy Birthday\\";
-        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Moshe\\Garden\\";
+        //bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Happy Birthday\\";
+        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Dr Pepper\\";
         // REMEBER TO COMMENT THE LINE " bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName); "
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         // Initialize book paths
-        //bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
+        bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName);
         DataManager.CreateDirectoryIfNotExists(bookFolderPath);
         bookFilePath = Path.Combine(bookFolderPath, "bookData.json");
 
@@ -332,8 +333,10 @@ public class BookLoader : MonoBehaviour
         encounterRoll6.text = "";
         encounterCheck.text = "";
         encounterCheckDiff.text = "";
+        checkDiffNum = "";
         encounterCombat.text = "";
         encounterCombatDiff.text = "";
+        combatDiffNum = "";
         encounterLuck1.text = "";
         encounterLuck2.text = "";
         encounterLuckReward1.text = "";
@@ -361,8 +364,18 @@ public class BookLoader : MonoBehaviour
             // Hide UI-specific canvases and dice elements
             HideGameObject(optionsUICanvas, "optionsUICanvas");
             HideGameObject(riddleUICanvas, "riddleUICanvas");
+            if (combatUICanvas != null)
+            {
+                combatWonUI.gameObject.SetActive(false);
+                combatFleeUI.gameObject.SetActive(true);
+            }
             HideGameObject(combatUICanvas, "combatUICanvas");
             HideGameObject(rollUICanvas, "rollUICanvas");
+            if (checkUICanvas != null)
+            {
+                checkFailedUI.gameObject.SetActive(false);
+                checkPassedUI.gameObject.SetActive(false);
+            }
             HideGameObject(checkUICanvas, "checkUICanvas");
             HideGameObject(luckUICanvas, "luckUICanvas");
 
@@ -448,8 +461,8 @@ public class BookLoader : MonoBehaviour
     {
         // Display check
         encounterCheck.text = checkOptions.Count > 0 ? TruncateText(checkOptions[0].option, EncounterOptionMaxWords) : "";
-        checknum = checkOptions.Count > 0 ? TruncateText(checkOptions[0].outcome, EncounterOptionMaxWords) : "";
-        encounterCheckDiff.text = $"You need to roll the dice below #{checknum} to pass the Skill Check";
+        checkDiffNum = checkOptions.Count > 0 ? TruncateText(checkOptions[0].outcome, EncounterOptionMaxWords) : "";
+        encounterCheckDiff.text = $"You need to roll the dice below #{checkDiffNum} to pass the Skill Check";
     }
 
     void DisplayCombat(List<Option> combatOptions)
@@ -457,6 +470,7 @@ public class BookLoader : MonoBehaviour
         // Display combat details
         encounterCombat.text = combatOptions.Count > 0 ? TruncateText(combatOptions[0].option, EncounterOptionMaxWords) : "";
         encounterCombatDiff.text = combatOptions.Count > 0 ? TruncateText(combatOptions[0].outcome, EncounterOptionMaxWords) : "";
+        combatDiffNum = encounterCombatDiff.text;
     }
 
     void DisplayLuckOptions(List<Option> luckOptions)

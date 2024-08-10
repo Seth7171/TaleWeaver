@@ -260,11 +260,26 @@ public class DiceRoller : MonoBehaviour {
             {
                 targetPosition = originPosition + position;
                 isTransitioningd6 = true;
+                this.isRollEnded = true;
+                this.isRollEnded = false;
             }
         }
 
-        rollButton.gameObject.SetActive(false);
-        ShowRollButtons();
+        else
+        {
+            if (BookLoader.Instance.checkDiffNum != "" && result > int.Parse(BookLoader.Instance.checkDiffNum) || BookLoader.Instance.combatDiffNum != "" && result < int.Parse(BookLoader.Instance.combatDiffNum))
+            {
+                rollButton.gameObject.SetActive(false);
+                ShowRollButtons();
+            }
+            else
+            {
+                this.isRollEnded = true;
+                this.isRollEnded = false;
+            }
+
+        }
+
 
     }
 
@@ -302,12 +317,14 @@ public class DiceRoller : MonoBehaviour {
         HideRollButtons();
         this.isRollEnded = true;
         this.isRollEnded = false;
+
     }
 
     void HideRollButtons()
     {
         Button[] buttonsToFade = new Button[] { ReRollButton, AcceptRollButton, UIReRollButton, UIAcceptRollButton };
         ButtonFader.Instance.FadeButtons(buttonsToFade, false);
+        rollButton.gameObject.SetActive(true);
     }
 
 
