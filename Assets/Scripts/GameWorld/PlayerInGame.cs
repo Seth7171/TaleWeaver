@@ -14,9 +14,6 @@ public class PlayerInGame : MonoBehaviour
     public int currentLuck;
     public int currentSkillModifier;
 
-    public HealthBar healthBar;
-    public LuckBar LuckBar;
-    public ModifierNum modifierNum;
     public GameObject DeathScreen;
     public TextMeshProUGUI DeathBackToMainMenu;
     public TextMeshProUGUI DeathLoading;
@@ -55,6 +52,9 @@ public class PlayerInGame : MonoBehaviour
         {
             Instance = this;
             //DontDestroyOnLoad(gameObject);
+            currentHealth = 10;
+            currentLuck = 2;
+            currentSkillModifier = 0;
         }
         else
         {
@@ -67,16 +67,6 @@ public class PlayerInGame : MonoBehaviour
     {
         GetGender();
         audioSource = GetComponent<AudioSource>();
-        currentHealth = 10;
-        healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetHealth(currentHealth);
-
-        currentLuck = 2;
-        LuckBar.SetMaxLuck(maxLuck);
-        LuckBar.SetLuck(currentLuck);
-
-        currentSkillModifier = 0;
-        modifierNum.SetCheckModifier(currentSkillModifier);
 
         if (OpenAIInterface.Instance != null)
         {
@@ -112,13 +102,13 @@ public class PlayerInGame : MonoBehaviour
     public void GainLife(int life)
     {
         currentHealth += life;
-        healthBar.SetHealth(currentHealth);
+        HealthBar.Instance.SetHealth(currentHealth);
     }
 
     public void LoseLife(int life)
     {
         currentHealth -= life;
-        healthBar.SetHealth(currentHealth);
+        HealthBar.Instance.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
             PlayerDeath();
@@ -140,25 +130,25 @@ public class PlayerInGame : MonoBehaviour
     public void GainLuck(int luck)
     {
         currentLuck += luck;
-        LuckBar.SetLuck(currentLuck);
+        LuckBar.Instance.SetLuck(currentLuck);
     }
 
     public void LoseLuck(int luck)
     {
         currentLuck -= luck;
-        LuckBar.SetLuck(currentLuck);
+        LuckBar.Instance.SetLuck(currentLuck);
     }
 
     public void GainSkillModifier(int modifier)
     {
         currentSkillModifier += modifier;
-        modifierNum.SetCheckModifier(currentSkillModifier);
+        ModifierNum.Instance.SetCheckModifier(currentSkillModifier);
     }
 
     public void LoseSkillModifier(int modifier)
     {
         currentSkillModifier -= modifier;
-        modifierNum.SetCheckModifier(currentSkillModifier);
+        ModifierNum.Instance.SetCheckModifier(currentSkillModifier);
     }
 
     void PlayerDeath()
