@@ -159,7 +159,7 @@ public class GameMechanicsManager : MonoBehaviour
             chosenMechanic = random.Next(mechanics.Count);
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        chosenMechanic = 5;
+        //chosenMechanic = 5;
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 

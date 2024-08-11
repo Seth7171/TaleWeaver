@@ -165,7 +165,7 @@ public class PlayerInGame : MonoBehaviour
     {
         Debug.Log("You Just Died ! RIP");
         audioSource.PlayOneShot(DeathChosen);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         decisions_Canvas.SetActive(false);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
@@ -174,7 +174,7 @@ public class PlayerInGame : MonoBehaviour
         DeathScreen.SetActive(true);
 
         //need to move from here to when the API finished the conclution page!
-        OpenAIInterface.Instance.SendNarrativeToAPI(PlayerSession.SelectedBookName, "player has died", 11);
+        OpenAIInterface.Instance.SendMessageToExistingBook(PlayerSession.SelectedBookName, "player has died", 11);
         //SaveDeathConclusionFinished();
     }
 

@@ -474,9 +474,12 @@ public class OpenAIInterface : MonoBehaviour
         }
     }
 
-    public void SendMessageToExistingBook(string bookName, string narrative)
+    public void SendMessageToExistingBook(string bookName, string narrative, int pagenum = -1)
     {
-        this.current_Page += 1;
+        if (pagenum == -1)
+            this.current_Page += 1;
+        else
+            this.current_Page = pagenum;
         this.current_Narrative = narrative;
         Debug.Log($"SendMessageToExistingBook called with bookName: {bookName}, narrative: {this.current_Narrative}, page: {this.current_Page}");
         StartCoroutine(SendMessageCoroutineForExistingBook(bookName, narrative));

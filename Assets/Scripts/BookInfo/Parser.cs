@@ -272,6 +272,8 @@ public class Parser : MonoBehaviour
 
     public string ExtractImageDescription(string messageContent, bool isconc)
     {
+        if (string.IsNullOrEmpty(messageContent))
+            return null;
 
         if (isconc)
         {
