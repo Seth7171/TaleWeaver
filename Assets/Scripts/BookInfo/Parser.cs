@@ -246,6 +246,8 @@ public class Parser : MonoBehaviour
             }
         }
 
+        encounterIntroduction = encounterIntroduction.Replace("^^conclusion^^", "").Trim();
+
         return new Page(
             encounterNum: "Conclusion",
             encounterName: encounterName,
@@ -322,4 +324,12 @@ public class Parser : MonoBehaviour
             }
         }
     }
+
+    private string ParseRunId(string errorResponse)
+    {
+        // Assuming the runId is within the message, we extract it using a simple parsing logic
+        var match = System.Text.RegularExpressions.Regex.Match(errorResponse, @"run_(\w+)");
+        return match.Success ? match.Value : null;
+    }
+
 }

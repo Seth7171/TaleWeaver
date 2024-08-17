@@ -123,7 +123,7 @@ public class BookLoader : MonoBehaviour
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Happy Birthday\\";
-        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\WaR\\";
+        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Valheim\\";
         // REMEBER TO COMMENT THE LINE " bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName); "
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -290,6 +290,12 @@ public class BookLoader : MonoBehaviour
                 Dice20Button.SetActive(true);
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("combat", page.EncounterOptions);
+                if (OpenAIInterface.Instance.current_Page == 10)
+                {
+                    encounterCombatFlee.gameObject.SetActive(false);
+                    combatFleeUI.gameObject.SetActive(false);
+                }
+                
             }
         }
         else if (page.EncounterMechanic.StartsWith("@@luck@@"))

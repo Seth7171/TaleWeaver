@@ -81,7 +81,7 @@ public class PlayerInGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+/*        if (Input.GetKeyDown(KeyCode.Space))
         {
             LoseLife(1);
         }
@@ -96,12 +96,14 @@ public class PlayerInGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             GainSkillModifier(1);
-        }
+        }*/
     }
 
     public void GainLife(int life)
     {
         currentHealth += life;
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
         HealthBar.Instance.SetHealth(currentHealth);
     }
 
@@ -130,12 +132,16 @@ public class PlayerInGame : MonoBehaviour
     public void GainLuck(int luck)
     {
         currentLuck += luck;
+        if (currentLuck > maxLuck)
+            currentLuck = maxLuck;
         LuckBar.Instance.SetLuck(currentLuck);
     }
 
     public void LoseLuck(int luck)
     {
         currentLuck -= luck;
+        if (currentLuck < 0)
+            currentLuck = 0;
         LuckBar.Instance.SetLuck(currentLuck);
     }
 

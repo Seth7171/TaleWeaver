@@ -28,7 +28,16 @@ public class CreateButtonsInBook : MonoBehaviour
             if (textMeshPro != null)
             {
                 textObjects.Add(child.gameObject, textMeshPro);
-                var eventTrigger = child.gameObject.AddComponent<EventTrigger>();
+                var eventTrigger = child.gameObject.GetComponent<EventTrigger>();
+                if (eventTrigger != null)
+                {
+                    eventTrigger.triggers.Clear();
+                }
+                else
+                {
+                    // Add a new EventTrigger component if none exists
+                    eventTrigger = child.gameObject.AddComponent<EventTrigger>();
+                }
                 int currOptionIndx = mechnismOptions.Count <= optionIndx ? 0 : optionIndx;
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerEnter, (data) => OnPointerEnter((PointerEventData)data, textMeshPro));
                 AddEventTrigger(eventTrigger, EventTriggerType.PointerExit, (data) => OnPointerExit((PointerEventData)data, textMeshPro));

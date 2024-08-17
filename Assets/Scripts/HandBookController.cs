@@ -69,6 +69,12 @@ public class HandBookController : MonoBehaviour
         
     }
 
+    private void Awake()
+    {
+        // Initially hide the encounter options
+        HideEncounterOptions();
+    }
+
     void Update()
     {
         if (!is_scroll_lock)
@@ -94,7 +100,7 @@ public class HandBookController : MonoBehaviour
                 }
                 else if (targetView == 1)
                 {
-                    targetView = 0;
+                    targetView = 1; //WE DISABLED THE BOOK HIDE!!! WHY? CUZ!
                 }
             }
         }

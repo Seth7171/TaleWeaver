@@ -15,17 +15,18 @@ public class GameMechanicsManager : MonoBehaviour
 
     private System.Random random = new System.Random();
 
-    private List<string> mechanics = new List<string> { "options", "combat", "luck", "riddle", "roll", "check" };
+    private List<string> mechanics = new List<string> { "options", "options", "combat", "combat", "luck", "roll", "check" };
     private List<string> pushSenario1 = new List<string> { "+1 life", "-1 life", "+1 luck", "-1 luck", "+1 skillCheck", "-1 skillCheck", "nextIsCombat" };
     private List<string> pushSenario2 = new List<string> { "+2 life", "-2 life", "+3 life", "-3 life", "-1 skillCheck", "-1 luck", "-2 luck", "nextIsCombatAnd-1life" };
     public List<string> rollResults = new List<string> { "-2 life", "-1 life", "Nothing", "+1 luck", "+1 life", "+1 item" };
     private List<(int,int)> combatdifficulties = new List<(int, int)> {
-        (5, 10),    // 1-4 - COMBAT DIFFICULTY - 2-10 ( extra layer propability )
-        (8, 16),    // 5-9 - COMBAT DIFFICULTY - 8-16
+        (5, 15),    // 1-4 - COMBAT DIFFICULTY - 2-15 ( extra layer propability )
+        (8, 17),    // 5-9 - COMBAT DIFFICULTY - 8-17
         (14, 19)   // 10 - COMBAT DIFFICULTY - 14-19
     };
 
     private bool _isSenario2 = false;
+    private bool riddleAppeared = false;
 
     private int curRoll = 0;
 
@@ -154,9 +155,14 @@ public class GameMechanicsManager : MonoBehaviour
         int chosenMechanic;
 
         if (isForceCombat)
-            chosenMechanic = 1;
+            chosenMechanic = 2;
         else
             chosenMechanic = random.Next(mechanics.Count);
+
+        if (riddleAppeared)
+        {
+
+        }
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //chosenMechanic = 2;
@@ -173,7 +179,8 @@ public class GameMechanicsManager : MonoBehaviour
 
         if (mechanics[chosenMechanic] == "riddle")
         {
-            return (mechanics[chosenMechanic] + ". do not use the following riddle : I speak without a mouth and hear without ears. I have no body, but I can still come alive. What am I? with the answer echo because we used it already, also dont use answers with shadow and could in it");
+            mechanics.Remove("riddle");
+            return ("riddle" + ". do not use the following riddle : I speak without a mouth and hear without ears. I have no body, but I can still come alive. What am I? with the answer echo because we used it already, also dont use answers with shadow and could in it");
         }
 
         if (mechanics[chosenMechanic] == "combat")
@@ -181,15 +188,15 @@ public class GameMechanicsManager : MonoBehaviour
             int diffnum;
             if (currPage >= 1 && currPage <= 4)
             {
-                diffnum = UnityEngine.Random.Range(combatdifficulties[0].Item1, combatdifficulties[0].Item2 + 1); // 1-4 - COMBAT DIFFICULTY - 2-10 ( extra layer propability )
+                diffnum = UnityEngine.Random.Range(combatdifficulties[0].Item1, combatdifficulties[0].Item2 + 1); // 1-4 - COMBAT DIFFICULTY - 2-15 ( extra layer propability )
                 if (diffnum == 5)
                 {
                     diffnum = UnityEngine.Random.Range(2, 6);
                 }
             }
-            else if (currPage >= 5 && currPage <= 9)
+            else if (currPage >= 5 && currPage <= 8)
             {
-                diffnum = UnityEngine.Random.Range(combatdifficulties[1].Item1, combatdifficulties[1].Item2 + 1); // 5-9 - COMBAT DIFFICULTY - 8-16
+                diffnum = UnityEngine.Random.Range(combatdifficulties[1].Item1, combatdifficulties[1].Item2 + 1); // 5-9 - COMBAT DIFFICULTY - 8-17
             }
             else
             {
@@ -206,6 +213,7 @@ public class GameMechanicsManager : MonoBehaviour
 
     public void StartAdventure(string bookName, string narrative)
     {
+        mechanics.Add("riddle");
         string mechnism = GetRandomMechanic(1);
         currentMechnism = mechnism;
 
@@ -240,6 +248,11 @@ public class GameMechanicsManager : MonoBehaviour
             {
                 bool forceCombat = true;
                 mechnism = GetRandomMechanic(currPage, forceCombat);
+            }
+            else if (currPage == 10)
+            {
+                OpenAIInterface.Instance.SendMessageToExistingBook(bookName, "combat won, generate conclusion");
+                return;
             }
             else
                 mechnism = GetRandomMechanic(currPage);
