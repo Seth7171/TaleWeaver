@@ -86,7 +86,7 @@ public class ButtonFader : MonoBehaviour
     {
         if (texts.Length > 0)
         {
-            Color originalColor = texts[0].color;
+            Color originalColor = Color.black;
             float time = Time.deltaTime;
             if (time == 0)
                 time = 0.017f;

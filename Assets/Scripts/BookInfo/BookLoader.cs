@@ -300,6 +300,7 @@ public class BookLoader : MonoBehaviour
             {
                luckUICanvas.SetActive(true);
                 currentUI = luckUICanvas;
+                luckPushUI.gameObject.SetActive(true);
                 GameMechanicsManager.Instance.buttonsInit();
                 GameMechanicsManager.Instance.setMechanism("luck", page.EncounterOptions);
             }
