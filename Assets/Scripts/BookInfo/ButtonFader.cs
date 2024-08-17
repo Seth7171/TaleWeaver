@@ -128,13 +128,17 @@ public class ButtonFader : MonoBehaviour
             for (float t = 0.01f; t < fadeDuration; t += time)
             {
                 foreach (Button button in buttons)
-                    button.image.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
+                    if (button != null)
+                        button.image.color = Color.Lerp(originalColor, Color.clear, Mathf.Min(1, t / fadeDuration));
                 yield return null;
             }
             foreach (Button button in buttons)
             {
-                button.image.color = Color.clear;
-                button.gameObject.SetActive(false);
+                if (button != null)
+                {
+                    button.image.color = Color.clear;
+                    button.gameObject.SetActive(false);
+                }  
             }
         }
     }
@@ -144,7 +148,8 @@ public class ButtonFader : MonoBehaviour
         if (buttons.Length > 0)
         {
             foreach (Button button in buttons)
-                button.gameObject.SetActive(true);
+                if (button != null)
+                    button.gameObject.SetActive(true);
             Color originalColor = Color.white;
             float time = Time.deltaTime;
             if (time == 0)
@@ -152,11 +157,13 @@ public class ButtonFader : MonoBehaviour
             for (float t = 0.01f; t < fadeDuration; t += time)
             {
                 foreach (Button button in buttons)
-                    button.image.color = Color.Lerp(Color.clear, originalColor, Mathf.Min(1, t / fadeDuration));
+                    if (button != null)
+                        button.image.color = Color.Lerp(Color.clear, originalColor, Mathf.Min(1, t / fadeDuration));
                 yield return null;
             }
             foreach (Button button in buttons)
-                button.image.color = originalColor;
+                if (button != null)
+                    button.image.color = originalColor;
         }
     }
 

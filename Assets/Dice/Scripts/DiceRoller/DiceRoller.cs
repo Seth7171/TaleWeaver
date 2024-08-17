@@ -233,7 +233,10 @@ public class DiceRoller : MonoBehaviour {
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothTime * maxSpeed * 5);
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
-            isTransitioning = false;
+            transform.position = targetPosition;  // Force exact position
+            rb.isKinematic = false; // Re-enable physics
+            isTransitioningd6 = false;
+            Debug.Log("Transition completed successfully.");
         }
     }
 
@@ -260,6 +263,12 @@ public class DiceRoller : MonoBehaviour {
             {
                 targetPosition = originPosition + position;
                 isTransitioningd6 = true;
+                if (PlayerInGame.Instance.currentLuck > 0)
+                {
+                    rollButton.gameObject.SetActive(false);
+                    ShowRollButtons(true);
+
+                }
                 this.isRollEnded = true;
                 this.isRollEnded = false;
             }
@@ -283,9 +292,9 @@ public class DiceRoller : MonoBehaviour {
 
     }
 
-    void ShowRollButtons()
+    void ShowRollButtons(bool isDice6 = false)
     {
-        if (PlayerInGame.Instance.currentLuck <= 0)
+        if (PlayerInGame.Instance.currentLuck <= 0 && !isDice6)
         {
             Button[] buttonsToFade = new Button[] { AcceptRollButton, UIAcceptRollButton };
             ButtonFader.Instance.FadeButtons(buttonsToFade, true);
@@ -293,20 +302,29 @@ public class DiceRoller : MonoBehaviour {
         }
         else
         {
-            Button[] buttonsToFade = new Button[] { ReRollButton, AcceptRollButton, UIReRollButton, UIAcceptRollButton };
+            Button[] buttonsToFade = new Button[] { ReRollButton, UIReRollButton };
+            if (!isDice6)
+                buttonsToFade = new Button[] { ReRollButton, AcceptRollButton, UIReRollButton, UIAcceptRollButton };
             ButtonFader.Instance.FadeButtons(buttonsToFade, true);
             UIReRollButton.onClick.AddListener(ReRoll);
-            UIAcceptRollButton.onClick.AddListener(AcceptRoll);
+            if (!isDice6)
+                UIAcceptRollButton.onClick.AddListener(AcceptRoll);
         }
 
     }
 
     public void ReRoll()
     {
+        if (this.name.Contains("6"))
+        {
+            BookLoader.Instance.Reroll6Clicked();
+        }
         UIReRollButton.onClick.RemoveListener(ReRoll);
-        UIAcceptRollButton.onClick.RemoveListener(AcceptRoll);
+        if (UIAcceptRollButton != null)
+            UIAcceptRollButton.onClick.RemoveListener(AcceptRoll);
         PlayerInGame.Instance.LoseLuck(1);
         HideRollButtons();
+        rollTimer.Stop();
         RollDice();
     }
 

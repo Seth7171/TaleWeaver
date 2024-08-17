@@ -159,7 +159,7 @@ public class GameMechanicsManager : MonoBehaviour
             chosenMechanic = random.Next(mechanics.Count);
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //chosenMechanic = 5;
+        //chosenMechanic = 4;
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -460,7 +460,7 @@ public class GameMechanicsManager : MonoBehaviour
 
             if (currentMechnism.Contains("roll"))
             {
-                BookLoader.Instance.DiceRollerButton.SetActive(false);
+                BookLoader.Instance.Dice6Button.SetActive(false);
                 BookLoader.Instance.isActionMade = true;
                 //add fades
                 BookLoader.Instance.RevealRoll(DiceRoller.Instance.result);

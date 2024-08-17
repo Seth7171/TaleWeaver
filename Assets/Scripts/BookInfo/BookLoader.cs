@@ -123,7 +123,7 @@ public class BookLoader : MonoBehaviour
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Happy Birthday\\";
-        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Dr Pepper\\";
+        //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\WaR\\";
         // REMEBER TO COMMENT THE LINE " bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName); "
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -227,6 +227,7 @@ public class BookLoader : MonoBehaviour
             {
                 rollUICanvas.SetActive(true);
                 currentUI = rollUICanvas;
+                rollContinueUI.gameObject.SetActive(false);
                 DiceRollerPage.SetActive(true);
                 Dice6.SetActive(true);
                 DiceRollerButton.SetActive(true);
@@ -524,6 +525,19 @@ public class BookLoader : MonoBehaviour
         }
 
         //SaveChangedData(1);
+    }
+
+    public void Reroll6Clicked()
+    {
+        encounterRoll1.color = Color.black;
+        encounterRoll2.color = Color.black;
+        encounterRoll3.color = Color.black;
+        encounterRoll4.color = Color.black;
+        encounterRoll5.color = Color.black;
+        encounterRoll6.color = Color.black;
+        rollContinueUI.gameObject.SetActive(false);
+        encounterRollContinue.gameObject.SetActive(false);
+
     }
 
     public void RevealRoll(int rollnum)

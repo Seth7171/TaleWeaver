@@ -71,22 +71,22 @@ public class DiceSides : MonoBehaviour {
 
         faceRotationsD6 = new Dictionary<int, Quaternion>
         {
-            { 1, Quaternion.Euler(0, -180, 0) },
+            { 1, Quaternion.Euler(0.00001f, -180, 0.00001f) },
             { 2, Quaternion.Euler(-90, 90, -90) },
-            { 3, Quaternion.Euler(0, -90, 0) },
-            { 4, Quaternion.Euler(0, -270, 0) },
-            { 5, Quaternion.Euler(0, -270, 90) },
-            { 6, Quaternion.Euler(0, 0, 0) },
+            { 3, Quaternion.Euler(0.00002f, -90, 0.00002f) },
+            { 4, Quaternion.Euler(0.00003f, -270, 0.00003f) },
+            { 5, Quaternion.Euler(0.00004f, -270, 90) },
+            { 6, Quaternion.Euler(0.00005f, 0.00001f, 0.00004f) },
         };
         
         facePositionsD6 = new Dictionary<int, Vector3>
         {
-            { 1, new Vector3(0, 13, 0) },
-            { 2, new Vector3(0, 10.5f, 0) },
-            { 3, new Vector3(0, 8.2f, 0) },
-            { 4, new Vector3(0, 6, 0) },
-            { 5, new Vector3(0, 3.7f, 0) },
-            { 6, new Vector3(0, 1.2f, 0) },
+            { 1, new Vector3(0.00001f, 13, 0.00001f) },
+            { 2, new Vector3(0.00002f, 10.5f, 0.00002f) },
+            { 3, new Vector3(0.00003f, 8.2f, 0.00003f) },
+            { 4, new Vector3(0.00004f, 6, 0.00004f) },
+            { 5, new Vector3(0.00005f, 3.7f, 0.00005f) },
+            { 6, new Vector3(0.00006f, 1.2f, 0.00006f) },
         };
     }
 
