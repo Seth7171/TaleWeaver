@@ -604,13 +604,13 @@ public class BookLoader : MonoBehaviour
             {
                 encounterCheckPass.gameObject.SetActive(true);
                 encounterCheckPass.text = "Check Passed!";
+                if (Int32.Parse(checkOptions[0].outcome) <= checkOptions[0].diceResult)
+                {
+                    encounterCheckPass.text = "Check Failed!";
+                }
             }
-            else
-            {
-                encounterCheckFailed.gameObject.SetActive(true);
-                encounterCheckFailed.text = "Check Failed!";
-            }
-            if (DiceRotPos.faceRotationsD10.TryGetValue(checkOptions[0].diceResult, out Quaternion rotation))
+
+        if (DiceRotPos.faceRotationsD10.TryGetValue(checkOptions[0].diceResult, out Quaternion rotation))
             {
                 Dice10.transform.rotation = rotation;
             }

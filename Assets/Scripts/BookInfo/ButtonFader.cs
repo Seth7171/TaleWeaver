@@ -87,6 +87,10 @@ public class ButtonFader : MonoBehaviour
         if (texts.Length > 0)
         {
             Color originalColor = Color.black;
+            if (texts[0].text.Contains("Back to main menu"))
+            {
+                originalColor = Color.white;
+            }
             float time = Time.deltaTime;
             if (time == 0)
                 time = 0.017f;

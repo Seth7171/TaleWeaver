@@ -27,6 +27,7 @@ public class GameMechanicsManager : MonoBehaviour
 
     private bool _isSenario2 = false;
     private bool riddleAppeared = false;
+    private bool _isNextIsCombat = false;
 
     private int curRoll = 0;
 
@@ -244,7 +245,12 @@ public class GameMechanicsManager : MonoBehaviour
         if (OpenAIInterface.Instance != null)
         {
             int currPage = OpenAIInterface.Instance.current_Page;
-            if (currPage == 9)
+            if (_isNextIsCombat)
+            {
+                mechnism = GetRandomMechanic(currPage, _isNextIsCombat);
+                _isNextIsCombat = false;
+            }
+            else if (currPage == 9)
             {
                 bool forceCombat = true;
                 mechnism = GetRandomMechanic(currPage, forceCombat);
@@ -269,6 +275,10 @@ public class GameMechanicsManager : MonoBehaviour
 
     public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption, bool callEndCall = true)
     {
+        if (choice.Contains("nextIsCombat"))
+        {
+            _isNextIsCombat = true;
+        }
 
         if (choice.Contains("Push my luck!"))
         {

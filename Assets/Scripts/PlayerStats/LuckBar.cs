@@ -14,7 +14,10 @@ public class LuckBar : MonoBehaviour
     {
         // NO MORE SINGELTON STATIC INSTANCE WILL BE CHANGED BETWEEN 1 TO 10 PAGES!
         Instance = this;
-        SetLuck(PlayerInGame.Instance.currentLuck);
+        if (PlayerInGame.Instance != null)
+        {
+            SetLuck(PlayerInGame.Instance.currentLuck);
+        }
     }
 
     public void SetLuck(int luck)

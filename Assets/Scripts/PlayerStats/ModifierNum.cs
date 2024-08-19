@@ -14,7 +14,10 @@ public class ModifierNum : MonoBehaviour
     {
         // NO MORE SINGELTON STATIC INSTANCE WILL BE CHANGED BETWEEN 1 TO 10 PAGES!
         Instance = this;
-        SetCheckModifier(PlayerInGame.Instance.currentSkillModifier);
+        if (PlayerInGame.Instance != null)
+        {
+            SetCheckModifier(PlayerInGame.Instance.currentSkillModifier);
+        }
     }
 
     public void SetCheckModifier(int modifier)
