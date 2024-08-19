@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine.InputSystem.Controls;
 
 [Serializable]
 public class Book
@@ -46,12 +47,13 @@ public class Page
     public string EncounterMechanicInfo;
     public List<Option> EncounterOptions;
     public string ImageUrl;
+    public List<int> EncounterStats;
 
     public Page()
     {
     }
 
-    public Page(string encounterNum, string encounterName, string encounterIntroduction, string imageGeneration, string encounterDetails, string encounterMechanic, List<Option> encounterOptions, string imageUrl, string encounterMechanicInfo = "")
+    public Page(string encounterNum, string encounterName, string encounterIntroduction, string imageGeneration, string encounterDetails, string encounterMechanic, List<Option> encounterOptions, string imageUrl, List<int> encounterStats, string encounterMechanicInfo = "")
     {
         EncounterNum = encounterNum;
         EncounterName = encounterName;
@@ -62,6 +64,7 @@ public class Page
         EncounterMechanicInfo = encounterMechanicInfo;
         EncounterOptions = encounterOptions;
         ImageUrl = imageUrl;
+        EncounterStats = encounterStats;
     }
 }
 

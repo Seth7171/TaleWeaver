@@ -205,8 +205,12 @@ public class Parser : MonoBehaviour
             // Truncate sections to their word limits
             encounterIntroduction = TruncateText(encounterIntroduction, 145);
             encounterDescription = TruncateText(encounterDescription, 600);
-
-            return new Page(encounterNum, encounterName, encounterIntroduction, imageGeneration, encounterDescription, encounterMechanic, choices, imagePath, encounterMechanicInfo);
+            List<int> encounterStats = new List<int> { 10, 2, 0 };
+            if (PlayerInGame.Instance != null)
+            {
+                encounterStats = new List<int> { PlayerInGame.Instance.currentHealth, PlayerInGame.Instance.currentLuck, PlayerInGame.Instance.currentSkillModifier };
+            }
+            return new Page(encounterNum, encounterName, encounterIntroduction, imageGeneration, encounterDescription, encounterMechanic, choices, imagePath, encounterStats, encounterMechanicInfo);
         }
         catch (Exception ex)
         {
@@ -257,7 +261,8 @@ public class Parser : MonoBehaviour
             encounterMechanic: "",
             encounterMechanicInfo: "",
             encounterOptions: new List<Option>(),
-            imageUrl: imagePath
+            imageUrl: imagePath,
+            encounterStats: new List<int> { 0, 0, 0 }
         );
     }
 

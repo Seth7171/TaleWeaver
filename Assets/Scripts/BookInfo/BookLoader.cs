@@ -342,6 +342,17 @@ public class BookLoader : MonoBehaviour
 
         // Load image
         StartCoroutine(LoadImage(page.ImageUrl));
+
+        //update health/luck/modifier on ViewPrevAdv
+        if (sceneName == "ViewPrevAdv")
+        {
+            //PlayerInGame.Instance.currentHealth = page.EncounterStats[0];
+            GetComponentInChildren<HealthBar>().SetHealth(page.EncounterStats[0]);
+            //PlayerInGame.Instance.currentLuck = page.EncounterStats[1];
+            GetComponentInChildren<LuckBar>().SetLuck(page.EncounterStats[1]);
+            //PlayerInGame.Instance.currentSkillModifier = page.EncounterStats[2];
+            GetComponentInChildren<ModifierNum>().SetCheckModifier(page.EncounterStats[2]);
+        }
     }
 
     void ResetUIElements()
@@ -519,11 +530,22 @@ public class BookLoader : MonoBehaviour
     void DisplayRollOptions(List<Option> rollOptions)
     {
         // Display roll options with outcomes
+        encounterRoll1.color = Color.black;
         encounterRoll1.text = rollOptions.Count > 0 ? TruncateText("1). " + rollOptions[0].option, EncounterOptionMaxWords) : "";
+        
+        encounterRoll2.color = Color.black;
         encounterRoll2.text = rollOptions.Count > 1 ? TruncateText("2). " + rollOptions[1].option, EncounterOptionMaxWords) : "";
+        
+        encounterRoll3.color = Color.black;
         encounterRoll3.text = rollOptions.Count > 2 ? TruncateText("3). " + rollOptions[2].option, EncounterOptionMaxWords) : "";
+        
+        encounterRoll4.color = Color.black;
         encounterRoll4.text = rollOptions.Count > 3 ? TruncateText("4). " + rollOptions[3].option, EncounterOptionMaxWords) : "";
+        
+        encounterRoll5.color = Color.black;
         encounterRoll5.text = rollOptions.Count > 4 ? TruncateText("5). " + rollOptions[4].option, EncounterOptionMaxWords) : "";
+        
+        encounterRoll6.color = Color.black;
         encounterRoll6.text = rollOptions.Count > 5 ? TruncateText("6). " + rollOptions[5].option, EncounterOptionMaxWords) : "";
 
         if (sceneName == "ViewPrevAdv")
@@ -741,8 +763,6 @@ public class BookLoader : MonoBehaviour
         }
 
         ButtonFader.Instance.FaderBordo(textToBordo);
-
-        SaveChangedData(rollnum-1);
     }
 
     IEnumerator LoadImage(string imagePath)
