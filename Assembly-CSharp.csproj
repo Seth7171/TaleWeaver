@@ -134,6 +134,7 @@
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
     <Compile Include="Assets\Scripts\BookInfo\BookmarkClickHandler.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\StringSplitter.cs" />
+    <Compile Include="Assets\Dice\Scripts\DiceRoller\DiceEuler.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
     <Compile Include="Assets\Loading screen package\Scripts\Loading screen types\DemoSceneManager.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\DataManager.cs" />

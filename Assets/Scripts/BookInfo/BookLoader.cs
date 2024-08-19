@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 using TMPro;
 using UnityEngine.UI;
@@ -92,7 +93,7 @@ public class BookLoader : MonoBehaviour
     public GameObject Dice20Button;
     public GameObject Dice10Button;
     public GameObject Dice6Button;
-
+    private DiceEuler DiceRotPos;
 
     private Dictionary<string, int> nameToNumberMap;
     private string objectName;
@@ -100,6 +101,7 @@ public class BookLoader : MonoBehaviour
 
     private string bookFolderPath;
     private string bookFilePath;
+    private string sceneName;
 
     public static BookLoader Instance { get; private set; }
     public Book currentbookData;
@@ -116,13 +118,15 @@ public class BookLoader : MonoBehaviour
 
     void Start()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
         // NO MORE SINGELTON STATIC INSTANCE WILL BE CHANGED BETWEEN 1 TO 10 PAGES!
         Instance = this;
 
         CanvasFader.Instance.InitializeCanvas(loadingCanvas);
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Happy Birthday\\";
+        //bookFolderPath = "C:\\Users\\ronsh\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\Sam\\Dungeon\\";
         //bookFolderPath = "C:\\Users\\NitMa\\AppData\\LocalLow\\DefaultCompany\\TaleWeaver\\moshe\\Valheim\\";
         // REMEBER TO COMMENT THE LINE " bookFolderPath = Path.Combine(Application.persistentDataPath, PlayerSession.SelectedPlayerName, PlayerSession.SelectedBookName); "
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS LINE WHEN WE TO REPLAY A SPACIFIC  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -161,6 +165,8 @@ public class BookLoader : MonoBehaviour
             Debug.LogError("Name " + objectName + " is not in the expected format.");
         }
 
+        DiceRotPos = new DiceEuler();
+
         LoadBookData();
     }
 
@@ -178,7 +184,7 @@ public class BookLoader : MonoBehaviour
         }
     }
 
-    public void SaveChangedData(int optionIndx)
+    public void SaveChangedData(int optionIndx, int diceResult = 0)
     {
 
         // Find the specific option and change isCorrectAnswer to true
@@ -186,6 +192,7 @@ public class BookLoader : MonoBehaviour
         if (encounterOptions != null)
         {
             encounterOptions.selectedAnswer = true;
+            encounterOptions.diceResult = diceResult;
         }
         
         // Serialize the updated JSON data
@@ -215,7 +222,10 @@ public class BookLoader : MonoBehaviour
         encounterMechanic = page.EncounterMechanic;
 
         // Reset and disable all canvases
-        ResetUIElements();
+        if (sceneName == "GameWorld")
+        {
+            ResetUIElements();
+        }
         DisableAllCanvases();
 
         // Handle different mechanics
@@ -225,22 +235,28 @@ public class BookLoader : MonoBehaviour
             DisplayRollOptions(page.EncounterOptions);
             if (GameMechanicsManager.Instance != null)
             {
-                rollUICanvas.SetActive(true);
-                currentUI = rollUICanvas;
-                rollContinueUI.gameObject.SetActive(false);
+                if (sceneName == "GameWorld")
+                {
+                    rollUICanvas.SetActive(true);
+                    currentUI = rollUICanvas;
+                    rollContinueUI.gameObject.SetActive(false);
+                }
                 DiceRollerPage.SetActive(true);
                 Dice6.SetActive(true);
-                DiceRollerButton.SetActive(true);
-                Dice6Button.SetActive(true);
-                GameMechanicsManager.Instance.buttonsInit();
-                GameMechanicsManager.Instance.setMechanism("roll", page.EncounterOptions);
+                if (sceneName == "GameWorld")
+                {
+                    DiceRollerButton.SetActive(true);
+                    Dice6Button.SetActive(true);
+                    GameMechanicsManager.Instance.buttonsInit();
+                    GameMechanicsManager.Instance.setMechanism("roll", page.EncounterOptions);
+                }
             }
         }
         else if (page.EncounterMechanic.StartsWith("&&Riddle&&"))
         {
             riddleCanvas.SetActive(true);
             DisplayRiddle(page.EncounterOptions, page.EncounterMechanicInfo);
-            if (GameMechanicsManager.Instance != null)
+            if (GameMechanicsManager.Instance != null && sceneName == "GameWorld")
             {
                 riddleUICanvas.SetActive(true);
                 currentUI = riddleUICanvas;
@@ -252,7 +268,7 @@ public class BookLoader : MonoBehaviour
         {
             optionsCanvas.SetActive(true);
             DisplayOptions(page.EncounterOptions, page.EncounterMechanicInfo);
-            if (GameMechanicsManager.Instance != null)
+            if (GameMechanicsManager.Instance != null && sceneName == "GameWorld")
             {
                 optionsUICanvas.SetActive(true);
                 currentUI = optionsUICanvas;
@@ -266,14 +282,21 @@ public class BookLoader : MonoBehaviour
             DisplayCheck(page.EncounterOptions);
             if (GameMechanicsManager.Instance != null)
             {
-                checkUICanvas.SetActive(true);
-                currentUI = checkUICanvas;
+                if (sceneName == "GameWorld")
+                {
+                    checkUICanvas.SetActive(true);
+                    currentUI = checkUICanvas;
+                }
                 DiceRoller.SetActive(true);
                 Dice10.SetActive(true);
-                DiceRollerButton.SetActive(true);
-                Dice10Button.SetActive(true);
-                GameMechanicsManager.Instance.buttonsInit();
-                GameMechanicsManager.Instance.setMechanism("check", page.EncounterOptions);
+                if (sceneName == "GameWorld")
+                {
+                    DiceRollerButton.SetActive(true);
+                    Dice10Button.SetActive(true);
+                    GameMechanicsManager.Instance.buttonsInit();
+                    GameMechanicsManager.Instance.setMechanism("check", page.EncounterOptions);
+                }
+
             }
         }
         else if (page.EncounterMechanic.StartsWith("##Combat##"))
@@ -282,27 +305,32 @@ public class BookLoader : MonoBehaviour
             DisplayCombat(page.EncounterOptions);
             if (GameMechanicsManager.Instance != null)
             {
-                combatUICanvas.SetActive(true);
-                currentUI = combatUICanvas;
+                if (sceneName == "GameWorld")
+                {
+                    combatUICanvas.SetActive(true);
+                    currentUI = combatUICanvas;
+                }
                 DiceRoller.SetActive(true);
                 Dice20.SetActive(true);
-                DiceRollerButton.SetActive(true);
-                Dice20Button.SetActive(true);
-                GameMechanicsManager.Instance.buttonsInit();
-                GameMechanicsManager.Instance.setMechanism("combat", page.EncounterOptions);
-                if (OpenAIInterface.Instance.current_Page == 10)
+                if (sceneName == "GameWorld")
                 {
-                    encounterCombatFlee.gameObject.SetActive(false);
-                    combatFleeUI.gameObject.SetActive(false);
+                    DiceRollerButton.SetActive(true);
+                    Dice20Button.SetActive(true);
+                    GameMechanicsManager.Instance.buttonsInit();
+                    GameMechanicsManager.Instance.setMechanism("combat", page.EncounterOptions);
+                    if (OpenAIInterface.Instance.current_Page == 10)
+                    {
+                        encounterCombatFlee.gameObject.SetActive(false);
+                        combatFleeUI.gameObject.SetActive(false);
+                    }
                 }
-                
             }
         }
         else if (page.EncounterMechanic.StartsWith("@@luck@@"))
         {
             luckCanvas.SetActive(true);
             DisplayLuckOptions(page.EncounterOptions);
-            if (GameMechanicsManager.Instance != null)
+            if (GameMechanicsManager.Instance != null && sceneName == "GameWorld")
             {
                luckUICanvas.SetActive(true);
                 currentUI = luckUICanvas;
@@ -433,10 +461,27 @@ public class BookLoader : MonoBehaviour
         encounterOptions1.text = options.Count > 0 ? TruncateText(options[0].option, EncounterOptionMaxWords) : "";
         encounterOptions2.text = options.Count > 1 ? TruncateText(options[1].option, EncounterOptionMaxWords) : "";
         encounterOptions3.text = options.Count > 2 ? TruncateText(options[2].option, EncounterOptionMaxWords) : "";
-
-        encounterOptions1_copy.text = encounterOptions1.text;
-        encounterOptions2_copy.text = encounterOptions2.text;
-        encounterOptions3_copy.text = encounterOptions3.text;
+        if (sceneName == "ViewPrevAdv")
+        {
+            if (options[0].selectedAnswer)
+            {
+                encounterOptions1.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+            }
+            if (options[1].selectedAnswer)
+            {
+                encounterOptions2.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+            }
+            if (options[2].selectedAnswer)
+            {
+                encounterOptions3.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+            }
+        }
+        if (sceneName == "GameWorld")
+        {
+            encounterOptions1_copy.text = encounterOptions1.text;
+            encounterOptions2_copy.text = encounterOptions2.text;
+            encounterOptions3_copy.text = encounterOptions3.text;
+        }
 
     }
 
@@ -448,10 +493,27 @@ public class BookLoader : MonoBehaviour
         encounterRiddle1.text = options.Count > 0 ? TruncateText("1). " + options[0].option, EncounterOptionMaxWords) : "";
         encounterRiddle2.text = options.Count > 1 ? TruncateText("2). " + options[1].option, EncounterOptionMaxWords) : "";
         encounterRiddle3.text = options.Count > 2 ? TruncateText("3). " + options[2].option, EncounterOptionMaxWords) : "";
-
-        encounterRiddle1_copy.text = encounterRiddle1.text;
-        encounterRiddle2_copy.text = encounterRiddle2.text;
-        encounterRiddle3_copy.text = encounterRiddle3.text;
+        if (sceneName == "ViewPrevAdv")
+        {
+            if (options[0].selectedAnswer)
+            {
+                encounterRiddle1.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+            }
+            if (options[1].selectedAnswer)
+            {
+                encounterRiddle2.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+            }
+            if (options[2].selectedAnswer)
+            {
+                encounterRiddle3.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+            }
+        }
+        if (sceneName == "GameWorld")
+        {
+            encounterRiddle1_copy.text = encounterRiddle1.text;
+            encounterRiddle2_copy.text = encounterRiddle2.text;
+            encounterRiddle3_copy.text = encounterRiddle3.text;
+        }
     }
 
     void DisplayRollOptions(List<Option> rollOptions)
@@ -463,6 +525,49 @@ public class BookLoader : MonoBehaviour
         encounterRoll4.text = rollOptions.Count > 3 ? TruncateText("4). " + rollOptions[3].option, EncounterOptionMaxWords) : "";
         encounterRoll5.text = rollOptions.Count > 4 ? TruncateText("5). " + rollOptions[4].option, EncounterOptionMaxWords) : "";
         encounterRoll6.text = rollOptions.Count > 5 ? TruncateText("6). " + rollOptions[5].option, EncounterOptionMaxWords) : "";
+
+        if (sceneName == "ViewPrevAdv")
+        {
+            int curRoll = 0;
+            if (rollOptions[0].selectedAnswer)
+            {
+                encounterRoll1.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+                curRoll = 1;
+            }
+            if (rollOptions[1].selectedAnswer)
+            {
+                encounterRoll2.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+                curRoll = 2;
+            }
+            if (rollOptions[2].selectedAnswer)
+            {
+                encounterRoll3.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+                curRoll = 3;
+            }
+            if (rollOptions[3].selectedAnswer)
+            {
+                encounterRoll4.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+                curRoll = 4;
+            }
+            if (rollOptions[4].selectedAnswer)
+            {
+                encounterRoll5.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+                curRoll = 5;
+            }
+            if (rollOptions[5].selectedAnswer)
+            {
+                encounterRoll6.color = new Color(0.5f, 0.0f, 0.0f); // Bordo color
+                curRoll = 6;
+            }
+            if (DiceRotPos.faceRotationsD6.TryGetValue(curRoll, out Quaternion rotation))
+            {
+                Dice6.transform.rotation = rotation;
+            }
+            if (DiceRotPos.facePositionsD6.TryGetValue(curRoll, out Vector3 position))
+            {
+                Dice6.transform.position += position;
+            }
+        }
     }
 
     void DisplayCheck(List<Option> checkOptions)
@@ -471,6 +576,23 @@ public class BookLoader : MonoBehaviour
         encounterCheck.text = checkOptions.Count > 0 ? TruncateText(checkOptions[0].option, EncounterOptionMaxWords) : "";
         checkDiffNum = checkOptions.Count > 0 ? TruncateText(checkOptions[0].outcome, EncounterOptionMaxWords) : "";
         encounterCheckDiff.text = $"You need to roll the dice below #{checkDiffNum} to pass the Skill Check";
+        if (sceneName == "ViewPrevAdv")
+        {
+            if (checkOptions[0].selectedAnswer)
+            {
+                encounterCheckPass.gameObject.SetActive(true);
+                encounterCheckPass.text = "Check Passed!";
+            }
+            else
+            {
+                encounterCheckFailed.gameObject.SetActive(true);
+                encounterCheckFailed.text = "Check Failed!";
+            }
+            if (DiceRotPos.faceRotationsD10.TryGetValue(checkOptions[0].diceResult, out Quaternion rotation))
+            {
+                Dice10.transform.rotation = rotation;
+            }
+        }
     }
 
     void DisplayCombat(List<Option> combatOptions)
@@ -479,6 +601,28 @@ public class BookLoader : MonoBehaviour
         encounterCombat.text = combatOptions.Count > 0 ? TruncateText(combatOptions[0].option, EncounterOptionMaxWords) : "";
         encounterCombatDiff.text = combatOptions.Count > 0 ? TruncateText(combatOptions[0].outcome, EncounterOptionMaxWords) : "";
         combatDiffNum = encounterCombatDiff.text;
+        if (sceneName == "ViewPrevAdv")
+        {
+            if (combatOptions[0].selectedAnswer)
+            {
+
+                encounterCombatWon.gameObject.SetActive(true);
+                encounterCombatWon.text = "Combat Won!";
+                if (combatOptions[0].diceResult == -1)
+                {
+                    encounterCombatWon.text = "You Fled the Battle!";
+                }
+            }
+            else
+            {
+                encounterCombatWon.gameObject.SetActive(true);
+                encounterCombatWon.text = "You Died!";
+            }
+            if (DiceRotPos.faceRotationsD20.TryGetValue(combatOptions[0].diceResult, out Quaternion rotation))
+            {
+                Dice20.transform.rotation = rotation;
+            }
+        }
     }
 
     void DisplayLuckOptions(List<Option> luckOptions)
@@ -492,6 +636,21 @@ public class BookLoader : MonoBehaviour
         encounterLuckReward2.text = luckOptions[1].outcome;
         encounterLuckReward2.text = encounterLuckReward2.text.Replace("-", "Lose ").Trim();
         encounterLuckReward2.text = encounterLuckReward2.text.Replace("+", "Gain ").Trim();
+        if (sceneName == "ViewPrevAdv")
+        {
+            if (luckOptions[0].selectedAnswer)
+            {
+                encounterLuckPush.text = "You Accepted the Result.";
+            }
+            else
+            {
+                encounterLuck1.gameObject.SetActive(false);
+                encounterLuckReward1.gameObject.SetActive(false);
+                encounterLuck2.gameObject.SetActive(true);
+                encounterLuckReward2.gameObject.SetActive(true);
+                encounterLuckPush.text = "You Pushed your Luck.";
+            }
+        }
     }
 
     public void RevealLuckSenario2()
@@ -531,7 +690,6 @@ public class BookLoader : MonoBehaviour
             ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
         }
 
-        //SaveChangedData(1);
     }
 
     public void Reroll6Clicked()

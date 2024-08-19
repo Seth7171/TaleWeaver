@@ -25,6 +25,7 @@ public class PlayerInGame : MonoBehaviour
 
     private AudioClip TakeDamageChosen;
     private AudioClip DeathChosen;
+    private string sceneName;
 
     [SerializeField] AudioClip TakeDamageMale;
     [SerializeField] AudioClip DeathMale;
@@ -65,8 +66,13 @@ public class PlayerInGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetGender();
-        audioSource = GetComponent<AudioSource>();
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+        if (sceneName == "GameWorld")
+        {
+            GetGender();
+            audioSource = GetComponent<AudioSource>();
+        }
 
         if (OpenAIInterface.Instance != null)
         {

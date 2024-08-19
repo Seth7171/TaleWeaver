@@ -165,7 +165,7 @@ public class GameMechanicsManager : MonoBehaviour
         }
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //chosenMechanic = 2;
+        chosenMechanic = 5;
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -286,6 +286,7 @@ public class GameMechanicsManager : MonoBehaviour
 
         if (choice.Contains("Flee!"))
         {
+            BookLoader.Instance.SaveChangedData(0, -1);
             PlayerInGame.Instance.LoseLife(3);
             //ADD LOADING!!!
             GetNextMechanicBasedOnChoice(bookName, "Fled Combat");
@@ -295,7 +296,7 @@ public class GameMechanicsManager : MonoBehaviour
 
         if (choice.Contains("Combat won!"))
         {
-            BookLoader.Instance.SaveChangedData(0);
+            BookLoader.Instance.SaveChangedData(0, DiceRoller.Instance.result);
             //ADD LOADING!!!
             GetNextMechanicBasedOnChoice(bookName, "Combat Won");
             return;
@@ -303,14 +304,14 @@ public class GameMechanicsManager : MonoBehaviour
 
         if (choice.Contains("Check Passed !"))
         {
-            BookLoader.Instance.SaveChangedData(0);
+            BookLoader.Instance.SaveChangedData(0, DiceRoller.Instance.result);
             //ADD LOADING!!!
             GetNextMechanicBasedOnChoice(bookName, "Check Passed");
             return;
         }
         if (choice.Contains("Check Failed..."))
         {
-            BookLoader.Instance.SaveChangedData(0);
+            BookLoader.Instance.SaveChangedData(0, DiceRoller.Instance.result);
             //ADD LOADING!!!
             GetNextMechanicBasedOnChoice(bookName, "Check Failed");
             return;

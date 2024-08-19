@@ -22,12 +22,14 @@ public class Option
     public string option;
     public string outcome;
     public bool selectedAnswer;
+    public int diceResult;
 
-    public Option(string option, string outcome, bool selectedAnswer = false)
+    public Option(string option, string outcome, bool selectedAnswer = false, int diceResult = 0)
     {
         this.option = option;
         this.outcome = outcome;
         this.selectedAnswer = selectedAnswer;
+        this.diceResult = diceResult;
     }
 }
 
