@@ -236,6 +236,10 @@ public class Parser : MonoBehaviour
             {
                 encounterName = line.Replace("### Conclusion:", "").Trim();
             }
+            else if (line.StartsWith("^^conclusion image description^^"))
+            {
+                break;
+            }
             else
             {
                 if (!introductionStarted)
@@ -257,7 +261,7 @@ public class Parser : MonoBehaviour
             encounterName: encounterName,
             encounterIntroduction: encounterIntroduction,
             imageGeneration: "",
-            encounterDetails: messageContent,
+            encounterDetails: "",
             encounterMechanic: "",
             encounterMechanicInfo: "",
             encounterOptions: new List<Option>(),

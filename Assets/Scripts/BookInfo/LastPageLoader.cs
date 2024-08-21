@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LastPageLoader : MonoBehaviour
 {
-    public TextMeshProUGUI encounterName;
+    public TextMeshProUGUI encounterDetailsDefault;
     public TextMeshProUGUI encounterDetails;
+    public Image encounterImage;
 
     private string bookFolderPath;
     private string bookFilePath;
@@ -40,7 +42,45 @@ public class LastPageLoader : MonoBehaviour
     void DisplayPage(Page page)
     {
         // Set UI elements
-        encounterName.text = page.EncounterName;
-        encounterDetails.text = page.EncounterDetails;
+        encounterDetailsDefault.text = "";
+
+        encounterDetails.gameObject.SetActive(true);
+        encounterDetails.text = page.EncounterIntroduction;
+
+        encounterImage.gameObject.SetActive(true);
+        StartCoroutine(LoadImage(page.ImageUrl));
+    }
+
+    IEnumerator LoadImage(string imagePath)
+    {
+        if (string.IsNullOrEmpty(imagePath))
+        {
+            Debug.LogError("Image path is null or empty.");
+            yield break;
+        }
+
+        Debug.Log("Loading image from path: " + imagePath);
+
+        if (File.Exists(imagePath))
+        {
+            byte[] byteArray = File.ReadAllBytes(imagePath);
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(byteArray);
+
+            if (encounterImage != null)
+            {
+                encounterImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+            }
+            else
+            {
+                Debug.LogError("Encounter image UI component is not assigned.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Image file not found at path: " + imagePath);
+        }
+
+        yield return null;
     }
 }
