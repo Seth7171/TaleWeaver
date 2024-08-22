@@ -166,7 +166,7 @@ public class GameMechanicsManager : MonoBehaviour
         }
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //chosenMechanic = 5;
+        //chosenMechanic = 4;
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMOVE THIS LINE WHEN WE WANT RANDOM MECHANICS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -389,12 +389,11 @@ public class GameMechanicsManager : MonoBehaviour
             if(_isSenario2)
             {
                 _isSenario2 = false;
-                //ADD LOADING!!!
                 GetNextMechanicBasedOnChoice(bookName, "scenario2");
             }
             else
             {
-                //ADD LOADING!!!
+                BookLoader.Instance.SaveChangedData(0);
                 GetNextMechanicBasedOnChoice(bookName, "scenario1");
             }
             return;
@@ -407,9 +406,6 @@ public class GameMechanicsManager : MonoBehaviour
 
         BookLoader.Instance.SaveChangedData((int)(Char.GetNumericValue(choice[0])) - 1);
         GetNextMechanicBasedOnChoice(bookName, choice);
-
-
-        //LOADING!!!!
 
     }
 

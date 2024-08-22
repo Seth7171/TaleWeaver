@@ -46,7 +46,10 @@ public class PlayerInGame : MonoBehaviour
         if (Instance == this)
         {
             if (OpenAIInterface.Instance != null)
+            {
                 OpenAIInterface.Instance.OnConclusionSave -= SaveDeathConclusionFinished;
+                OpenAIInterface.Instance.OnConclusionSave -= SaveVictoryConclusionFinished;
+            }
             // This means this instance was the singleton and is now being destroyed
             Debug.Log("PlayerInGame instance is being destroyed.");
             Instance = null;
@@ -83,6 +86,7 @@ public class PlayerInGame : MonoBehaviour
         if (OpenAIInterface.Instance != null)
         {
             OpenAIInterface.Instance.OnConclusionSave += SaveDeathConclusionFinished;
+            OpenAIInterface.Instance.OnConclusionSave += SaveVictoryConclusionFinished;
         }
         else
         {
@@ -93,7 +97,7 @@ public class PlayerInGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*        if (Input.GetKeyDown(KeyCode.Space))
+ /*       if (Input.GetKeyDown(KeyCode.Space))
         {
             LoseLife(1);
         }
@@ -214,6 +218,20 @@ public class PlayerInGame : MonoBehaviour
 
         //need to move from here to when the API finished the conclution page!
         OpenAIInterface.Instance.SendMessageToExistingBook(PlayerSession.SelectedBookName, "combat won, generate conclusion");
+    }
+
+    public void SaveVictoryConclusionFinished(bool isConcSaved)
+    {
+        if (isConcSaved && currentHealth > 0)
+        {
+            TextMeshProUGUI[] UICanvasDisable = new TextMeshProUGUI[] { };
+            TextMeshProUGUI[] textToFade = new TextMeshProUGUI[] { VictoryLoading };
+            TextMeshProUGUI[] UICanvasEnable = new TextMeshProUGUI[] { VictoryBackToMainMenu };
+            TextMeshProUGUI[] textToReveal = new TextMeshProUGUI[] { VictoryBackToMainMenu };
+            TextMeshProUGUI[] textToDisable = new TextMeshProUGUI[] { VictoryLoading };
+            ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
+        }
+
     }
 
     public void LoadMainMenu()

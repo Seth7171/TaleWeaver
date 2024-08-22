@@ -192,7 +192,7 @@
 
             if (finalCombatCollider == null)
             {
-                Debug.LogError("ToggleFinalCombat is null. Please assign it in the Inspector.");
+                //Debug.LogError("ToggleFinalCombat is null. Please assign it in the Inspector.");
                 return;
             }
 

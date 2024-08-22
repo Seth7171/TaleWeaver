@@ -192,8 +192,11 @@ public class BookLoader : MonoBehaviour
                     if (currentbookData.Pages[pageNumBasedon_objectName].EncounterNum.Contains("Conclusion"))
                         return;
                 DisplayPage(currentbookData.Pages[pageNumBasedon_objectName]);
-                if (pageNumBasedon_objectName != 10)
-                    demo02.lastPageLoadedNum = Math.Max(demo02.lastPageLoadedNum, pageNumBasedon_objectName + 1);
+                if (sceneName == "ViewPrevAdv")
+                {
+                    if (pageNumBasedon_objectName != 10)
+                        demo02.lastPageLoadedNum = Math.Max(demo02.lastPageLoadedNum, pageNumBasedon_objectName + 1);
+                }
             }
             catch (ArgumentOutOfRangeException ex)
             {
