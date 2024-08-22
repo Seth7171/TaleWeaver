@@ -677,12 +677,60 @@ public class BookLoader : MonoBehaviour
         // Display luck options
         encounterLuck1.text = luckOptions[0].option;
         encounterLuckReward1.text = luckOptions[0].outcome;
-        encounterLuckReward1.text = encounterLuckReward1.text.Replace("-", "Lose ").Trim();
-        encounterLuckReward1.text = encounterLuckReward1.text.Replace("+", "Gain ").Trim();
+        if (encounterLuckReward1.text.Contains("-"))
+        {
+            if (encounterLuckReward1.text.Contains("skillCheck"))
+            {
+                encounterLuckReward1.color = new Color(0.0f, 0.5f, 0.0f);
+            }
+            else
+            {
+                encounterLuckReward1.text = encounterLuckReward1.text.Replace("-", "Lose ").Trim();
+                encounterLuckReward1.text = encounterLuckReward1.text.Replace("+", "Gain ").Trim();
+                encounterLuckReward1.color = Color.red;
+            }
+        }
+        if (encounterLuckReward1.text.Contains("+"))
+        {
+            if (encounterLuckReward1.text.Contains("skillCheck"))
+            {
+                encounterLuckReward1.color = Color.red;
+            }
+            else
+            {
+                encounterLuckReward1.text = encounterLuckReward1.text.Replace("-", "Lose ").Trim();
+                encounterLuckReward1.text = encounterLuckReward1.text.Replace("+", "Gain ").Trim();
+                encounterLuckReward1.color = new Color(0.0f, 0.5f, 0.0f);
+            }
+        }
         encounterLuck2.text = luckOptions[1].option;
         encounterLuckReward2.text = luckOptions[1].outcome;
-        encounterLuckReward2.text = encounterLuckReward2.text.Replace("-", "Lose ").Trim();
-        encounterLuckReward2.text = encounterLuckReward2.text.Replace("+", "Gain ").Trim();
+        if (encounterLuckReward2.text.Contains("-"))
+        {
+            if (encounterLuckReward2.text.Contains("skillCheck"))
+            {
+                encounterLuckReward2.color = new Color(0.0f, 0.5f, 0.0f);
+            }
+            else
+            {
+                encounterLuckReward2.text = encounterLuckReward2.text.Replace("-", "Lose ").Trim();
+                encounterLuckReward2.text = encounterLuckReward2.text.Replace("+", "Gain ").Trim();
+                encounterLuckReward2.color = Color.red;
+            }
+        }
+        if (encounterLuckReward2.text.Contains("+"))
+        {
+            if (encounterLuckReward2.text.Contains("skillCheck"))
+            {
+                encounterLuckReward2.color = Color.red;
+            }
+            else
+            {
+                encounterLuckReward2.text = encounterLuckReward2.text.Replace("-", "Lose ").Trim();
+                encounterLuckReward2.text = encounterLuckReward2.text.Replace("+", "Gain ").Trim();
+                encounterLuckReward2.color = new Color(0.0f, 0.5f, 0.0f);
+            }
+        }
         if (sceneName == "ViewPrevAdv")
         {
             if (luckOptions[0].selectedAnswer)

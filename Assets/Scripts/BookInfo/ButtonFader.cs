@@ -97,11 +97,21 @@ public class ButtonFader : MonoBehaviour
             for (float t = 0.01f; t < fadeDuration; t += time)
             {
                 foreach (TextMeshProUGUI text in texts)
-                    text.color = Color.Lerp(Color.clear, originalColor, Mathf.Min(1, t / fadeDuration));
+                    if (text.text.Contains("Lose") || text.text.Contains("+"))
+                        text.color = Color.Lerp(Color.clear, Color.red, Mathf.Min(1, t / fadeDuration));
+                    else if (text.text.Contains("Gain") || text.text.Contains("-"))
+                        text.color = Color.Lerp(Color.clear, new Color(0.0f, 0.5f, 0.0f), Mathf.Min(1, t / fadeDuration));
+                    else
+                        text.color = Color.Lerp(Color.clear, originalColor, Mathf.Min(1, t / fadeDuration));
                 yield return null;
             }
             foreach (TextMeshProUGUI text in texts)
-                text.color = originalColor;
+                if (text.text.Contains("Lose") || text.text.Contains("+"))
+                    text.color = Color.red;
+                else if (text.text.Contains("Gain") || text.text.Contains("-"))
+                    text.color = new Color(0.0f, 0.5f, 0.0f);
+                else
+                    text.color = originalColor;
         }
     }
 

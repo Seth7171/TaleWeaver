@@ -16,8 +16,8 @@ public class GameMechanicsManager : MonoBehaviour
     private System.Random random = new System.Random();
 
     private List<string> mechanics = new List<string> { "options", "options", "combat", "combat", "luck", "roll", "check" };
-    private List<string> pushSenario1 = new List<string> { "+1 life", "-1 life", "+1 luck", "-1 luck", "+1 skillCheck", "-1 skillCheck", "nextIsCombat" };
-    private List<string> pushSenario2 = new List<string> { "+2 life", "-2 life", "+3 life", "-3 life", "-1 skillCheck", "-1 luck", "-2 luck", "nextIsCombatAnd-1life" };
+    private List<string> pushSenario1 = new List<string> { "+1 life", "-1 life", "+1 luck", "-1 luck", "+1 skillCheck", "-1 skillCheck", "next Is Combat" };
+    private List<string> pushSenario2 = new List<string> { "+2 life", "-2 life", "+3 life", "-3 life", "-1 skillCheck", "-1 luck", "-2 luck", "next Is Combat And -1 life" };
     public List<string> rollResults = new List<string> { "-2 life", "-1 life", "Nothing", "+1 luck", "+1 life", "+1 item" };
     private List<(int,int)> combatdifficulties = new List<(int, int)> {
         (5, 15),    // 1-4 - COMBAT DIFFICULTY - 2-15 ( extra layer propability )
@@ -276,7 +276,7 @@ public class GameMechanicsManager : MonoBehaviour
 
     public void HandlePlayerChoice(string bookName, string choice, Option mechnismOption, bool callEndCall = true)
     {
-        if (choice.Contains("nextIsCombat"))
+        if (choice.Contains("next Is Combat"))
         {
             _isNextIsCombat = true;
         }
