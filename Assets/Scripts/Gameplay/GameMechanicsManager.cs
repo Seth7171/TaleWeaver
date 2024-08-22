@@ -15,7 +15,7 @@ public class GameMechanicsManager : MonoBehaviour
 
     private System.Random random = new System.Random();
 
-    private List<string> mechanics = new List<string> { "options", "options", "combat", "combat", "luck", "roll", "check" };
+    private List<string> mechanics = new List<string> { "options", "options", "combat", "combat", "luck", "roll", "check", "riddle" };
     private List<string> pushSenario1 = new List<string> { "+1 life", "-1 life", "+1 luck", "-1 luck", "+1 skillCheck", "-1 skillCheck", "next Is Combat" };
     private List<string> pushSenario2 = new List<string> { "+2 life", "-2 life", "+3 life", "-3 life", "-1 skillCheck", "-1 luck", "-2 luck", "next Is Combat And -1 life" };
     public List<string> rollResults = new List<string> { "-2 life", "-1 life", "Nothing", "+1 luck", "+1 life", "+1 item" };
@@ -181,7 +181,7 @@ public class GameMechanicsManager : MonoBehaviour
         if (mechanics[chosenMechanic] == "riddle")
         {
             mechanics.Remove("riddle");
-            return ("riddle" + ". do not use the following riddle : I speak without a mouth and hear without ears. I have no body, but I can still come alive. What am I? with the answer echo because we used it already, also dont use answers with shadow and could in it");
+            return ("riddle" + " make sure the riddle is based on the encounter!");
         }
 
         if (mechanics[chosenMechanic] == "combat")

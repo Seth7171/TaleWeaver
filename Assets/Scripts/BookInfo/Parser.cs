@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class Parser : MonoBehaviour
 {
@@ -207,6 +209,17 @@ public class Parser : MonoBehaviour
             encounterIntroduction = TruncateText(encounterIntroduction, 145);
             encounterDescription = TruncateText(encounterDescription, 600);
             List<int> encounterStats = new List<int> { 10, 2, 0 };
+
+            //remove () if there are any
+            // Regular expression to match parentheses and their content
+            string pattern = @"\([^\)]*\)";
+            // Replace the matched patterns with an empty string
+            encounterNum = Regex.Replace(encounterNum, pattern, "").Trim();
+            encounterName = Regex.Replace(encounterName, pattern, "").Trim();
+            encounterIntroduction = Regex.Replace(encounterIntroduction, pattern, "").Trim();
+            encounterDescription = Regex.Replace(encounterDescription, pattern, "").Trim();
+            encounterMechanicInfo = Regex.Replace(encounterMechanicInfo, pattern, "").Trim();
+
             if (PlayerInGame.Instance != null)
             {
                 encounterStats = new List<int> { PlayerInGame.Instance.currentHealth, PlayerInGame.Instance.currentLuck, PlayerInGame.Instance.currentSkillModifier };
@@ -258,6 +271,13 @@ public class Parser : MonoBehaviour
 
         encounterIntroduction = encounterIntroduction.Replace("^^conclusion^^", "").Trim();
 
+        //remove () if there are any
+        // Regular expression to match parentheses and their content
+        string pattern = @"\([^\)]*\)";
+        // Replace the matched patterns with an empty string
+        encounterName = Regex.Replace(encounterName, pattern, "").Trim();
+        encounterIntroduction = Regex.Replace(encounterIntroduction, pattern, "").Trim();
+
         return new Page(
             encounterNum: "Conclusion",
             encounterName: encounterName,
@@ -268,7 +288,7 @@ public class Parser : MonoBehaviour
             encounterMechanicInfo: "",
             encounterOptions: new List<Option>(),
             imageUrl: imagePath,
-            encounterStats: new List<int> { 0, 0, 0 }
+            encounterStats: new List<int> { PlayerInGame.Instance.currentHealth, PlayerInGame.Instance.currentLuck, PlayerInGame.Instance.currentSkillModifier }
         );
     }
 

@@ -12,6 +12,8 @@ public class LastPageLoader : MonoBehaviour
     public TextMeshProUGUI encounterDetailsDefault;
     public TextMeshProUGUI encounterDetails;
     public Image encounterImage;
+    public GameObject healthbar;
+    public GameObject luckbar;
 
     private string bookFolderPath;
     private string bookFilePath;
@@ -52,6 +54,14 @@ public class LastPageLoader : MonoBehaviour
 
         encounterImage.gameObject.SetActive(true);
         StartCoroutine(LoadImage(page.ImageUrl));
+
+        healthbar.SetActive(true);
+        healthbar.GetComponentInChildren<HealthBar>().SetHealth(page.EncounterStats[0]);
+
+        luckbar.SetActive(true);
+        luckbar.GetComponentInChildren<LuckBar>().SetLuck(page.EncounterStats[1]);
+
+
     }
 
     IEnumerator LoadImage(string imagePath)
