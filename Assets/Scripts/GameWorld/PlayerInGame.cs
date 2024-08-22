@@ -18,6 +18,11 @@ public class PlayerInGame : MonoBehaviour
     public TextMeshProUGUI DeathBackToMainMenu;
     public TextMeshProUGUI DeathLoading;
     public GameObject redScreen;
+
+    public GameObject VictoryScreen;
+    public TextMeshProUGUI VictoryBackToMainMenu;
+    public TextMeshProUGUI VictoryLoading;
+
     public TMP_Text gender;
 
     public HandBookController handBookController;
@@ -25,6 +30,7 @@ public class PlayerInGame : MonoBehaviour
 
     private AudioClip TakeDamageChosen;
     private AudioClip DeathChosen;
+    public AudioClip VictorySound;
     private string sceneName;
 
     [SerializeField] AudioClip TakeDamageMale;
@@ -167,7 +173,6 @@ public class PlayerInGame : MonoBehaviour
     {
         Debug.Log("You Just Died ! RIP");
         audioSource.PlayOneShot(DeathChosen);
-        //Time.timeScale = 0f;
         decisions_Canvas.SetActive(false);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
@@ -194,6 +199,21 @@ public class PlayerInGame : MonoBehaviour
             ButtonFader.Instance.Fader(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable);
         }
 
+    }
+
+    public void PlayerVictory()
+    {
+        Debug.Log("You WON !");
+        audioSource.PlayOneShot(VictorySound);
+        decisions_Canvas.SetActive(false);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; // Free the mouse cursor
+        handBookController.DisableControls();
+        handBookController.is_scroll_lock = true;
+        VictoryScreen.SetActive(true);
+
+        //need to move from here to when the API finished the conclution page!
+        OpenAIInterface.Instance.SendMessageToExistingBook(PlayerSession.SelectedBookName, "combat won, generate conclusion");
     }
 
     public void LoadMainMenu()

@@ -257,7 +257,8 @@ public class GameMechanicsManager : MonoBehaviour
             }
             else if (currPage == 10)
             {
-                OpenAIInterface.Instance.SendMessageToExistingBook(bookName, "combat won, generate conclusion");
+                PlayerInGame.Instance.PlayerVictory();
+                //OpenAIInterface.Instance.SendMessageToExistingBook(bookName, "combat won, generate conclusion");  We are doing this line in PlayerInGame now
                 return;
             }
             else
