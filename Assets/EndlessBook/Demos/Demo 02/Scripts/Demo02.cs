@@ -121,6 +121,7 @@
             touchPad.touchDownDetected = TouchPadTouchDownDetected;
             touchPad.touchUpDetected = TouchPadTouchUpDetected;
             touchPad.tableOfContentsDetected = TableOfContentsDetected;
+            touchPad.finalCombatDetected = finalCombatDetected;
             touchPad.dragDetected = TouchPadDragDetected;
 
             // set the book closed
@@ -209,6 +210,10 @@
 
             // only use the table of contents "button" if not on the first group of pages
             touchPad.ToggleTableOfContents(on && book.CurrentLeftPageNumber > 1);
+
+            // only use the FinalCombat "button" if not on the last group of pages
+            touchPad.ToggleFinalCombat(on && book.CurrentLeftPageNumber < (2 * (lastPageLoadedNum - 1) + 1));
+            
         }
 
         /// <summary>
@@ -334,9 +339,9 @@
             TurnToPage(tableOfContentsPageNumber);
         }
 
-        protected virtual void lastPageDetected()
+        protected virtual void finalCombatDetected()
         {
-            TurnToPage(lastPageLoadedNum);
+            TurnToPage(2 * (lastPageLoadedNum - 1) + 1);
         }
 
         protected virtual void epilogeDetected()

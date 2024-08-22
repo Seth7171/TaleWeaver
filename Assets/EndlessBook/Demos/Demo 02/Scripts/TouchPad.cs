@@ -3,6 +3,7 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using UnityEditor;
     using UnityEngine;
 
     /// <summary>
@@ -18,6 +19,7 @@
         protected const string PageLeftColliderName = "Page Left";
         protected const string PageRightColliderName = "Page Right";
         protected const string TableOfContentsColliderName = "TableOfContents Button";
+        protected const string FinalCombatColliderName = "FinalCombat Button";
 
         /// <summary>
         /// The minimum amount the mouse needs to move to be considered a drag event
@@ -72,6 +74,7 @@
         /// The upper left "button" used to go back to the table of contents
         /// </summary>
         public Collider tableOfContentsCollider;
+        public Collider finalCombatCollider;
 
         /// <summary>
         /// The mask of the touchpad colliders
@@ -97,6 +100,7 @@
         /// Handler for when the table of contents "button" is clicked
         /// </summary>
         public Action tableOfContentsDetected;
+        public Action finalCombatDetected;
 
         void Awake()
         {
@@ -182,6 +186,20 @@
             tableOfContentsCollider.gameObject.SetActive(on);
         }
 
+        public virtual void ToggleFinalCombat(bool on)
+        {
+            Debug.Log($"finalCombatCollider called with state {on}");
+
+            if (finalCombatCollider == null)
+            {
+                Debug.LogError("ToggleFinalCombat is null. Please assign it in the Inspector.");
+                return;
+            }
+
+            // activate or deactivate the collider
+            finalCombatCollider.gameObject.SetActive(on);
+        }
+
         /// <summary>
         /// Determine if a touch down occurred
         /// </summary>
@@ -192,9 +210,10 @@
             Vector2 hitPositionNormalized;
             PageEnum page;
             bool tableOfContents;
+            bool finalCombat;
 
             // get the hit point if we can
-            if (GetHitPoint(position, out hitPosition, out hitPositionNormalized, out page, out tableOfContents))
+            if (GetHitPoint(position, out hitPosition, out hitPositionNormalized, out page, out tableOfContents, out finalCombat))
             {
                 // touched down and stopped dragging
                 touchDown = true;
@@ -204,6 +223,10 @@
                 {
                     // table of contents "button" clicked
                     tableOfContentsDetected();
+                }
+                if (finalCombat)
+                {
+                    finalCombatDetected();
                 }
                 else
                 {
@@ -233,9 +256,10 @@
             Vector2 hitPositionNormalized;
             PageEnum page;
             bool tableOfContents;
+            bool finalCombat;
 
             // get the hit point if we can
-            if (GetHitPoint(position, out hitPosition, out hitPositionNormalized, out page, out tableOfContents))
+            if (GetHitPoint(position, out hitPosition, out hitPositionNormalized, out page, out tableOfContents, out finalCombat))
             {
                 // get the offset from the last drag position
                 var offset = hitPosition - lastDragPosition;
@@ -265,9 +289,10 @@
             Vector2 hitPositionNormalized;
             PageEnum page;
             bool tableOfContents;
+            bool finalCombat;
 
             // get the hit point if we can
-            if (GetHitPoint(position, out hitPosition, out hitPositionNormalized, out page, out tableOfContents))
+            if (GetHitPoint(position, out hitPosition, out hitPositionNormalized, out page, out tableOfContents, out finalCombat))
             {
                 // no longer touching.
                 touchDown = false;
@@ -286,12 +311,13 @@
         /// <param name="page">Which page was hit</param>
         /// <param name="tableOfContents">Whether the table of contents "button" was hit</param>
         /// <returns></returns>
-        protected virtual bool GetHitPoint(Vector3 mousePosition, out Vector2 hitPosition, out Vector2 hitPositionNormalized, out PageEnum page, out bool tableOfContents)
+        protected virtual bool GetHitPoint(Vector3 mousePosition, out Vector2 hitPosition, out Vector2 hitPositionNormalized, out PageEnum page, out bool tableOfContents, out bool finalCombat)
         {
             hitPosition = Vector2.zero;
             hitPositionNormalized = Vector2.zero;
             page = PageEnum.Left;
             tableOfContents = false;
+            finalCombat = false;
 
             // get a ray from the screen to the page colliders
             Ray ray = mainCamera.ScreenPointToRay(mousePosition);
@@ -307,6 +333,8 @@
 
                 // determine if the table of contents "button" was hit
                 tableOfContents = hit.collider.gameObject.name == TableOfContentsColliderName;
+
+                finalCombat = hit.collider.gameObject.name == FinalCombatColliderName;
 
                 // get the page index to use for the page rects
                 var pageIndex = (int)page;
