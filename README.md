@@ -17,3 +17,15 @@ This is the capstone project: a game that integrates AI-driven storytelling and 
     <img src="Docs/images/Adv01.png?raw=true" width="410"> <img src="Docs/images/Adv02.png?raw=true" width="410">
 </p>
 
+<p align="center">
+    <img src="Docs/images/Adv01_Atlantis.png?raw=true" width="820">
+</p>
+
+<p align="center">
+    <img src="Docs/images/Adv2_Kalimnjaro.png?raw=true" width="410"> <img src="Docs/images/Adv6_Kalimnjaro.png?raw=true" width="410">
+</p>
+
+<p align="center">
+    <img src="Docs/images/Adv11_Kalimnjaro_Epilogue.png?raw=true" width="820">
+</p>
+
