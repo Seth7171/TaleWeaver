@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System;
 using System.Net.Http;
+using UnityEditor.PackageManager.Requests;
 
 [System.Serializable]
 public class APIResponse
@@ -99,7 +100,7 @@ public class RollOption
 public class OpenAIInterface : MonoBehaviour
 {
     public static OpenAIInterface Instance { get; private set; }
-    
+
     private string user_APIKey = null;
     private string assistant_ID = null;
     private string apiBaseUrl = "https://api.openai.com/v1/threads";
@@ -195,6 +196,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -230,6 +232,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -261,6 +264,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -290,6 +294,7 @@ public class OpenAIInterface : MonoBehaviour
                     Debug.LogError(request.error);
                     Debug.LogError("Response Code: " + request.responseCode);
                     Debug.LogError("Response Text: " + request.downloadHandler.text);
+                    ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
                 }
                 else
                 {
@@ -337,6 +342,7 @@ public class OpenAIInterface : MonoBehaviour
         {
             Debug.LogError("Failed to get a valid response after multiple attempts. Please try again later.");
             // Notify the player here
+            ErrorHandler.Instance.ErrorAccured("Failed to get a valid response after multiple attempts. Please try again later.", "", "");
         }
     }
 
@@ -347,6 +353,7 @@ public class OpenAIInterface : MonoBehaviour
         if (string.IsNullOrEmpty(description))
         {
             Debug.LogError("Description is empty. Cannot send to DALL-E.");
+            ErrorHandler.Instance.ErrorAccured("Description is empty. Cannot send to DALL-E.", "", "");
             return;
         }
 
@@ -373,6 +380,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -394,6 +402,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -421,6 +430,7 @@ public class OpenAIInterface : MonoBehaviour
                     else
                     {
                         Debug.LogError("Book file not found when attempting to add a new page.");
+                        ErrorHandler.Instance.ErrorAccured("Book file not found when attempting to add a new page.", "", "");
                         yield break;
                     }
                 }
@@ -504,6 +514,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -535,6 +546,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -564,6 +576,7 @@ public class OpenAIInterface : MonoBehaviour
                     Debug.LogError(request.error);
                     Debug.LogError("Response Code: " + request.responseCode);
                     Debug.LogError("Response Text: " + request.downloadHandler.text);
+                    ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
                 }
                 else
                 {
@@ -610,6 +623,7 @@ public class OpenAIInterface : MonoBehaviour
         if (!success)
         {
             Debug.LogError("Failed to get a valid response after multiple attempts. Please try again later.");
+            ErrorHandler.Instance.ErrorAccured("Failed to get a valid response after multiple attempts. Please try again later.", "", "");
             // TO DO : Notify the player here
         }
     }
@@ -620,6 +634,7 @@ public class OpenAIInterface : MonoBehaviour
         if (string.IsNullOrEmpty(description))
         {
             Debug.LogError("Description is empty. Cannot send to DALL-E.");
+            ErrorHandler.Instance.ErrorAccured("Description is empty. Cannot send to DALL-E.", "", "");
             return;
         }
 
@@ -646,6 +661,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -667,6 +683,7 @@ public class OpenAIInterface : MonoBehaviour
                 Debug.LogError(request.error);
                 Debug.LogError("Response Code: " + request.responseCode);
                 Debug.LogError("Response Text: " + request.downloadHandler.text);
+                ErrorHandler.Instance.ErrorAccured(request.error, "Response Code: " + request.responseCode, "Response Text: " + request.downloadHandler.text);
             }
             else
             {
@@ -688,6 +705,7 @@ public class OpenAIInterface : MonoBehaviour
                 else
                 {
                     Debug.LogError("Book file not found when attempting to add a new page.");
+                    ErrorHandler.Instance.ErrorAccured("Book file not found when attempting to add a new page.", "", "");
                     yield break;
                 }
 
@@ -751,4 +769,5 @@ public class OpenAIInterface : MonoBehaviour
             callback(true, apiKey);
         }
     }
+
 }
