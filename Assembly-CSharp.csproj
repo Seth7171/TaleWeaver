@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\PlayerStats\HealthBar.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageData.cs" />
     <Compile Include="Assets\Scripts\PauseMenus\PauseMenuGame.cs" />
+    <Compile Include="Assets\Scripts\ErrorsHandler\ErrorHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameMechanicsManager.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\PlayerData.cs" />
     <Compile Include="Assets\Scripts\offset.cs" />

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class Parser : MonoBehaviour
@@ -215,6 +216,7 @@ public class Parser : MonoBehaviour
         catch (Exception ex)
         {
             Debug.LogError("Error parsing page: " + ex.Message);
+            ErrorHandler.Instance.ErrorAccured("Error parsing page: " + ex.Message);
             return null;
         }
 
@@ -332,13 +334,6 @@ public class Parser : MonoBehaviour
                 return null;
             }
         }
-    }
-
-    private string ParseRunId(string errorResponse)
-    {
-        // Assuming the runId is within the message, we extract it using a simple parsing logic
-        var match = System.Text.RegularExpressions.Regex.Match(errorResponse, @"run_(\w+)");
-        return match.Success ? match.Value : null;
     }
 
 }
