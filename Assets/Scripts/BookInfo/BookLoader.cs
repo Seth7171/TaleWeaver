@@ -11,6 +11,7 @@ using echo17.EndlessBook;
 using System.Xml;
 using System;
 using UnityEngine.InputSystem.LowLevel;
+using echo17.EndlessBook.Demo02;
 
 public class BookLoader : MonoBehaviour
 {
@@ -106,6 +107,7 @@ public class BookLoader : MonoBehaviour
     public static BookLoader Instance { get; private set; }
     public Book currentbookData;
     public Page currentpage;
+    public Demo02 demo02;
 
     private const int PreEncounterDetailsMaxWords = 100;
     private const int EncounterDetailsMaxWords = 400;
@@ -167,6 +169,14 @@ public class BookLoader : MonoBehaviour
 
         DiceRotPos = new DiceEuler();
 
+        if (sceneName == "ViewPrevAdv")
+        {
+            GameObject obj = GameObject.Find("Demo");
+            if (obj != null)
+                demo02 = obj.GetComponent<Demo02>();
+        }
+            
+
         LoadBookData();
     }
 
@@ -176,7 +186,19 @@ public class BookLoader : MonoBehaviour
         {
             string jsonData = File.ReadAllText(bookFilePath);
             currentbookData = JsonUtility.FromJson<Book>(jsonData);
-            DisplayPage(currentbookData.Pages[pageNumBasedon_objectName]);
+            try
+            {
+                if (currentbookData.Pages.Count - 1 == pageNumBasedon_objectName)
+                    if (currentbookData.Pages[pageNumBasedon_objectName].EncounterNum.Contains("Conclusion"))
+                        return;
+                DisplayPage(currentbookData.Pages[pageNumBasedon_objectName]);
+                if (pageNumBasedon_objectName != 10)
+                    demo02.lastPageLoadedNum = Math.Max(demo02.lastPageLoadedNum, pageNumBasedon_objectName + 1);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Debug.Log(demo02.lastPageLoadedNum);
+            }
         }
         else
         {

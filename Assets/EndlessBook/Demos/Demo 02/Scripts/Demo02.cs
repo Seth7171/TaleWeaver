@@ -74,6 +74,8 @@
         /// What page is the table of contents on?
         /// </summary>
         public int tableOfContentsPageNumber;
+        public int currentPageNum;
+        public int lastPageLoadedNum;
 
         /// <summary>
         /// The sound to make when the book opens
@@ -137,6 +139,12 @@
         /// <param name="pageNumber">Current page number</param>
         protected virtual void OnBookStateChanged(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int pageNumber)
         {
+            if (toState == EndlessBook.StateEnum.OpenMiddle)
+            {
+                currentPageNum = (pageNumber - 1) / 2 + 1;
+                Debug.Log(currentPageNum);
+            }
+
             switch (toState)
             {
                 case EndlessBook.StateEnum.ClosedFront:
@@ -192,6 +200,7 @@
         /// <param name="on">Whether the touchpad is on</param>
         protected virtual void ToggleTouchPad(bool on)
         {
+
             // left page should only be available if the book is not in the ClosedFront state
             touchPad.Toggle(TouchPad.PageEnum.Left, on && book.CurrentState != EndlessBook.StateEnum.ClosedFront);
 
@@ -323,6 +332,16 @@
         protected virtual void TableOfContentsDetected()
         {
             TurnToPage(tableOfContentsPageNumber);
+        }
+
+        protected virtual void lastPageDetected()
+        {
+            TurnToPage(lastPageLoadedNum);
+        }
+
+        protected virtual void epilogeDetected()
+        {
+            TurnToPage(20);
         }
 
         /// <summary>
@@ -532,8 +551,11 @@
                     }
                     else
                     {
-                        // not on the last page, so just turn forward a page
-                        book.TurnForward(singlePageTurnTime, onCompleted: OnBookStateChanged, onPageTurnStart: OnPageTurnStart, onPageTurnEnd: OnPageTurnEnd);
+                        if (currentPageNum >= lastPageLoadedNum)
+                            OpenBack();
+                        else
+                            // not on the last page, so just turn forward a page
+                            book.TurnForward(singlePageTurnTime, onCompleted: OnBookStateChanged, onPageTurnStart: OnPageTurnStart, onPageTurnEnd: OnPageTurnEnd);
                     }
 
                     break;

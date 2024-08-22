@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +33,8 @@ public class LastPageLoader : MonoBehaviour
         {
             string jsonData = File.ReadAllText(bookFilePath);
             Book bookData = JsonUtility.FromJson<Book>(jsonData);
-            DisplayPage(bookData.Pages[10]);
+            if (bookData.Pages[bookData.Pages.Count - 1].EncounterNum.Contains("Conclusion"))
+                DisplayPage(bookData.Pages[bookData.Pages.Count - 1]);
         }
         else
         {
