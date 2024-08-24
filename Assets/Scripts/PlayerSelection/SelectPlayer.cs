@@ -39,6 +39,7 @@ public class SelectPlayer : MonoBehaviour
         DeletePrevAdventure.interactable = false;
         playerManager = DataManager.LoadPlayerManager();
         players = playerManager.PlayerNames;
+        
 
         if (players.Count > 0)
         {
@@ -407,7 +408,7 @@ public class SelectPlayer : MonoBehaviour
         // Reset the color of the previously selected button's text
         if (selectedBookButtonText != null)
         {
-            selectedBookButtonText.color = new Color(192 / 255f, 0f, 137 / 255f); // Default text color
+            selectedBookButtonText.color = new Color(225 / 255f, 209 / 255f, 134 / 255f); // Default text color
         }
 
         // Set the color of the newly selected button's text
