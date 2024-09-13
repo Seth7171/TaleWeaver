@@ -10,6 +10,10 @@ This is the capstone project: a game that integrates AI-driven storytelling and 
 </p>
 
 <p align="center">
+    <img src="Docs/images/Warg.png?raw=true" width="820">
+</p>
+
+<p align="center">
     <img src="Docs/images/NewBook.png?raw=true" width="820">
 </p>
 
