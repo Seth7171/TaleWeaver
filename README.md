@@ -4,7 +4,7 @@
 
 This is the capstone project: a game that integrates AI-driven storytelling and text recognition with dynamic visual environments, creating a more immersive and engaging narrative experience. The game mechanics are developed by our team, while the story is generated with the user's desired adventure in mind.
 
-[Download the Game Here](https://mega.nz/file/nhxHQSAa#u66amkKYDC8UZBpgQsqH-C7k9_NyuxAXQEitEWi2fNo) 
+[Download the Game Here](https://mega.nz/file/a8oznBKZ#8JeWT2gsInaVLUHNqRmG2RphnHKg5BPt9LL4lmq9DFs) 
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/WI16G_MOMRQ/0.jpg)](https://www.youtube.com/watch?v=WI16G_MOMRQ)
 
