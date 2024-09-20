@@ -2,3 +2,8 @@ Library/PackageCache/com.unity.burst@1.8.11/.Runtime/libburst-llvm-15.dylib filt
 Library/ArtifactDB filter=lfs diff=lfs merge=lfs -text
 Build/TaleWeaver_Data/sharedassets4.assets.resS filter=lfs diff=lfs merge=lfs -text
 *.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/SwampMap.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/DesertMap.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/ForestMap11.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/ForestMap1.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/HellMap.unity filter=lfs diff=lfs merge=lfs -text
