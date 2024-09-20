@@ -1,23 +1,32 @@
+// Filename: HandBookController.cs
+// Author: Nitsan Maman & Ron Shahar
+// Description: This class manages the interactions and animations for the handbook in the game, including reading mode and flashlight control.
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
+/// <summary>
+/// Manages the interactions and animations for the handbook in the game.
+/// </summary>
 public class HandBookController : MonoBehaviour
 {
-    public Transform leftHand;
-    public Transform rightHand;
-    public Transform book;
-    public Boolean is_readMode;
-    public Boolean is_flashLight_on;
-    public Boolean is_scroll_lock = false;
+    public Transform leftHand; // Reference to the left hand's transform
+    public Transform rightHand; // Reference to the right hand's transform
+    public Transform book; // Reference to the book's transform
+    public bool is_readMode; // Indicates if the book is in read mode
+    public bool is_flashLight_on; // Indicates if the flashlight is on
+    public bool is_scroll_lock = false; // Prevents scrolling when true
 
-    public Light flashLight; // Add a reference to the light
+    public Light flashLight; // reference to the light
 
-    public MonoBehaviour cameraController; // Add your camera controller script here
-    public MonoBehaviour characterController; // Add your character controller script here
+    public MonoBehaviour cameraController; // camera controller script 
+    public MonoBehaviour characterController; //  character controller
 
+    // Various positions and rotations for hands and the book
     private Vector3 hiddenPositionRightHand = new Vector3(0.2318f, 0.0434f, -1.0674f); // Hidden near the body
     private Vector3 hiddenPositionLeftHand = new Vector3(-0.2f, -0.45f, -1.2f); // Hidden near the body
     private Vector3 hiddenPositionBook = new Vector3(0.33f, -0.2f, 0.9f); // Hidden near the body
@@ -54,6 +63,9 @@ public class HandBookController : MonoBehaviour
     private bool buttonOnBookmarksClicked = false;
     private bool _isBookMarkShown = false;
 
+    /// <summary>
+    /// Initializes the HandBookController.
+    /// </summary>
     void Start()
     {
         //Debug.Log("Start: Setting Hidden Position");
@@ -66,7 +78,7 @@ public class HandBookController : MonoBehaviour
         // Initially hide the encounter options
         HideEncounterOptions();
 
-        
+
     }
 
     private void Awake()
@@ -75,8 +87,12 @@ public class HandBookController : MonoBehaviour
         HideEncounterOptions();
     }
 
+    /// <summary>
+    /// Updates the state of the handbook based on user input.
+    /// </summary>
     void Update()
     {
+        // Handle scrolling input
         if (!is_scroll_lock)
         {
             float scrollInput = Input.GetAxis("Mouse ScrollWheel");
@@ -106,12 +122,12 @@ public class HandBookController : MonoBehaviour
         }
 
         //Debug.Log($"Update: Target View - {targetView}");
-
+        // Start the transition coroutine if it's not running
         if (transitionCoroutine == null)
         {
             transitionCoroutine = StartCoroutine(TransitionToView(targetView));
         }
-
+        // Toggle flashlight on/off
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("f pressed");
@@ -132,7 +148,11 @@ public class HandBookController : MonoBehaviour
         }
     }
 
-    IEnumerator TransitionToView(int view)
+    /// <summary>
+    /// Transitions to the specified view state.
+    /// </summary>
+    /// <param name="view">The target view state (0 = hidden, 1 = mid, 2 = read).</param>
+    public IEnumerator TransitionToView(int view)
     {
         while (currentView != view)
         {
@@ -147,18 +167,23 @@ public class HandBookController : MonoBehaviour
 
             switch (currentView)
             {
+                //hidden case
                 case 0:
                     Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
                     HideEncounterOptions();
                     EnableControls();
                     yield return StartCoroutine(TransitionToHidden());
                     break;
+                //mid case
                 case 1:
                     Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
                     HideEncounterOptions();
                     EnableControls();
                     yield return StartCoroutine(TransitionToMid());
                     break;
+                //read case
                 case 2:
                     yield return StartCoroutine(TransitionToRead());
                     Cursor.visible = true;
@@ -172,6 +197,9 @@ public class HandBookController : MonoBehaviour
         transitionCoroutine = null;
     }
 
+    /// <summary>
+    /// Sets the hands and book to the hidden position.
+    /// </summary>
     void SetHiddenPosition()
     {
         is_readMode = false;
@@ -203,6 +231,9 @@ public class HandBookController : MonoBehaviour
         EnableControls();
     }
 
+    /// <summary>
+    /// Disables player controls during interactions.
+    /// </summary>
     public void DisableControls()
     {
         if (cameraController != null)
@@ -218,6 +249,9 @@ public class HandBookController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Enables player controls after interactions.
+    /// </summary>
     public void EnableControls()
     {
         // if in book read mode skip (if the function called from pausemenu)
@@ -238,13 +272,18 @@ public class HandBookController : MonoBehaviour
         else
         {
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
+    /// <summary>
+    /// Transitions to the hidden position of the hands and the book.
+    /// </summary>
+    /// <returns>A coroutine that smoothly animates the transition.</returns>
     IEnumerator TransitionToHidden()
     {
         //Debug.Log("Transition to Hidden");
-        HideEncounterOptions();
+        HideEncounterOptions(); // Hide any active encounter options
         Transform rightInnerHand = rightHand.Find("hand_right");
         Transform rightLowerArm = rightHand.Find("upperarm_r/lowerarm1_r");
         Transform leftInnerHand = leftHand.Find("hand_left");
@@ -252,19 +291,20 @@ public class HandBookController : MonoBehaviour
 
         if (rightInnerHand != null)
         {
-            rightInnerHand.gameObject.SetActive(true);
+            rightInnerHand.gameObject.SetActive(true); // Activate right hand
         }
 
         if (leftInnerHand != null)
         {
-            leftInnerHand.gameObject.SetActive(true);
+            leftInnerHand.gameObject.SetActive(true); // Activate left hand
         }
 
         if (book != null)
         {
-            book.gameObject.SetActive(true);
+            book.gameObject.SetActive(true); // Activate book
         }
 
+        // Store initial positions and rotations
         Vector3 startRightHandPosition = rightHand.localPosition;
         Quaternion startRightHandRotation = rightInnerHand.localRotation;
         Vector3 startRightLowerArmRotation = rightLowerArm.localRotation.eulerAngles;
@@ -278,6 +318,7 @@ public class HandBookController : MonoBehaviour
         float duration = 0.4f; // Transition duration
         float elapsed = 0f;
 
+        // Smoothly animate to the hidden position
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -292,17 +333,22 @@ public class HandBookController : MonoBehaviour
             book.localPosition = Vector3.Lerp(startBookPosition, hiddenPositionBook, t);
             //book.localRotation = Quaternion.Lerp(startBookRotation, hiddenRotation, t);
             book.localScale = Vector3.Lerp(startBookScale, hiddenScaleBook, t);
-
-            yield return null;
+             
+            yield return null; // Wait for the next frame
         }
 
-        SetHiddenPosition();
+        SetHiddenPosition(); // Finalize the hidden position
     }
 
+    /// <summary>
+    /// Transitions to the mid position of the hands and the book.
+    /// </summary>
+    /// <returns>A coroutine that smoothly animates the transition.</returns>
     IEnumerator TransitionToMid()
     {
-        is_readMode = false;
-        HideEncounterOptions();
+        is_readMode = false; // Ensure not in read mode
+        HideEncounterOptions(); // Hide any active encounter options
+
         //Debug.Log("Transition to Mid");
         Transform rightInnerHand = rightHand.Find("hand_right");
         Transform rightLowerArm = rightHand.Find("upperarm_r/lowerarm1_r");
@@ -311,19 +357,20 @@ public class HandBookController : MonoBehaviour
 
         if (rightInnerHand != null)
         {
-            rightInnerHand.gameObject.SetActive(true);
+            rightInnerHand.gameObject.SetActive(true); // Activate right hand
         }
 
         if (leftInnerHand != null)
         {
-            leftInnerHand.gameObject.SetActive(true);
+            leftInnerHand.gameObject.SetActive(true); // Activate left hand
         }
 
         if (book != null)
         {
-            book.gameObject.SetActive(true);
+            book.gameObject.SetActive(true); // Activate book
         }
 
+        // Store initial positions and rotations
         Vector3 startRightHandPosition = rightHand.localPosition;
         Quaternion startRightHandRotation = rightInnerHand.localRotation;
         Vector3 startRightLowerArmRotation = rightLowerArm.localRotation.eulerAngles;
@@ -337,6 +384,7 @@ public class HandBookController : MonoBehaviour
         float duration = 0.4f; // Transition duration
         float elapsed = 0f;
 
+        // Smoothly animate to the mid position
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -355,6 +403,7 @@ public class HandBookController : MonoBehaviour
             yield return null;
         }
 
+        // Set final positions
         rightHand.localPosition = midRightHandPosition;
         rightInnerHand.localRotation = midRightHandRotation;
         rightLowerArm.localRotation = midRightLowerArmRotation;
@@ -366,12 +415,16 @@ public class HandBookController : MonoBehaviour
         book.localRotation = midBookRotation;
         book.localScale = midBookScale;
 
-        EnableControls();
+        EnableControls(); // Enable controls after transition
     }
 
+    /// <summary>
+    /// Transitions to the read position of the hands and the book.
+    /// </summary>
+    /// <returns>A coroutine that smoothly animates the transition.</returns>
     IEnumerator TransitionToRead()
     {
-        is_readMode = true;
+        is_readMode = true; // Set read mode to true
 
         //Debug.Log("Transition to Read");
         Transform rightInnerHand = rightHand.Find("hand_right");
@@ -381,19 +434,20 @@ public class HandBookController : MonoBehaviour
 
         if (rightInnerHand != null)
         {
-            rightInnerHand.gameObject.SetActive(true);
+            rightInnerHand.gameObject.SetActive(true); // Activate right hand
         }
 
         if (leftInnerHand != null)
         {
-            leftInnerHand.gameObject.SetActive(true);
+            leftInnerHand.gameObject.SetActive(true); // Activate left hand
         }
 
         if (book != null)
         {
-            book.gameObject.SetActive(true);
+            book.gameObject.SetActive(true); // Activate book
         }
 
+        // Store initial positions and rotations
         Vector3 startRightHandPosition = rightHand.localPosition;
         Quaternion startRightHandRotation = rightInnerHand.localRotation;
         Vector3 startRightLowerArmRotation = rightLowerArm.localRotation.eulerAngles;
@@ -407,6 +461,7 @@ public class HandBookController : MonoBehaviour
         float duration = 0.4f; // Transition duration
         float elapsed = 0f;
 
+        // Smoothly animate to the read position
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -422,9 +477,10 @@ public class HandBookController : MonoBehaviour
             book.localRotation = Quaternion.Lerp(startBookRotation, readBookRotation, t);
             book.localScale = Vector3.Lerp(startBookScale, readBookScale, t);
 
-            yield return null;
+            yield return null; // Wait for the next frame
         }
 
+        // Set final positions
         rightHand.localPosition = readRightHandPosition;
         rightInnerHand.localRotation = readRightHandRotation;
         rightLowerArm.localRotation = readRightLowerArmRotation;
@@ -435,61 +491,74 @@ public class HandBookController : MonoBehaviour
         book.localRotation = readBookRotation;
         book.localScale = readBookScale;
 
-        DisableControls();
+        DisableControls(); // Disable controls during reading
     }
 
-    void HideEncounterOptions()
+    /// <summary>
+    /// Hides encounter options from the UI.
+    /// </summary>
+    public void HideEncounterOptions()
     {
         if (BookLoader.Instance != null)
         {
             if (!BookLoader.Instance.isLoading)
             {
                 if (BookLoader.Instance.currentUI != null)
-                    BookLoader.Instance.currentUI.SetActive(false);
+                    BookLoader.Instance.currentUI.SetActive(false); // Hide current UI
             }
             if (!BookLoader.Instance.isActionMade)
             {
                 if (BookLoader.Instance.DiceRollerButton != null)
-                    BookLoader.Instance.DiceRollerButton.SetActive(false);
+                    BookLoader.Instance.DiceRollerButton.SetActive(false); // Hide dice roller button
             }
         }
     }
 
+    /// <summary>
+    /// Shows encounter options after a delay.
+    /// </summary>
+    /// <returns>A coroutine that waits before showing the options.</returns>
     IEnumerator ShowEncounterOptionsWithDelay()
     {
         yield return new WaitForSeconds(0.5f); // Delay before showing the encounter options
         if (is_readMode == true)
         {
-            ShowEncounterOptions();
+            ShowEncounterOptions(); // Show options if in read mode
         }
     }
 
+    /// <summary>
+    /// Displays encounter options in the UI.
+    /// </summary>
     void ShowEncounterOptions()
     {
         if (BookLoader.Instance != null)
         {
             if (!BookLoader.Instance.isLoading)
-            { 
+            {
                 if (BookLoader.Instance.currentUI != null)
-                    BookLoader.Instance.currentUI.SetActive(true);
+                    BookLoader.Instance.currentUI.SetActive(true); // Show current UI
             }
 
             if (!BookLoader.Instance.isActionMade)
             {
                 if (BookLoader.Instance.DiceRollerButton != null)
-                BookLoader.Instance.DiceRollerButton.SetActive(true);
-            } 
+                    BookLoader.Instance.DiceRollerButton.SetActive(true); // Show dice roller button
+            }
         }
     }
 
-    // Method to handle bookmark click
+    /// <summary>
+    /// Handles bookmark click events.
+    /// </summary>
+    /// <param name="bookmark">The bookmark that was clicked.</param>
     public void OnBookmarkClicked(Transform bookmark)
     {
         // If a bookmark animation is already playing, stop it
-/*        if (bookmarkCoroutine != null)
-        {
-            StopCoroutine(bookmarkCoroutine);
-        }*/
+        /*        if (bookmarkCoroutine != null)
+                {
+                    StopCoroutine(bookmarkCoroutine);
+                }*/
         if (bookmark.localPosition == new Vector3(0.011f, 0.1971f, -0.033f))
         {
             bookmarkCoroutine = StartCoroutine(MoveBookmarkIn(bookmark));
@@ -502,7 +571,11 @@ public class HandBookController : MonoBehaviour
     }
 
 
-    // Coroutine to move the bookmark out
+    /// <summary>
+    /// Moves the bookmark out of view.
+    /// </summary>
+    /// <param name="bookmark">The bookmark to move.</param>
+    /// <returns>A coroutine that animates the movement.</returns>
     private IEnumerator MoveBookmarkOut(Transform bookmark)
     {
         Vector3 startPosition = bookmark.localPosition;
@@ -551,7 +624,11 @@ public class HandBookController : MonoBehaviour
     }
 
 
-    // Coroutine to move the bookmark in
+    /// <summary>
+    /// Moves the bookmark into view.
+    /// </summary>
+    /// <param name="bookmark">The bookmark to move.</param>
+    /// <returns>A coroutine that animates the movement.</returns>
     private IEnumerator MoveBookmarkIn(Transform bookmark)
     {
         _isBookMarkShown = true;
@@ -618,13 +695,16 @@ public class HandBookController : MonoBehaviour
         bookmark.localRotation = inRotation;
     }
 
-
+    /// <summary>
+    /// Handles bookmark button clicks.
+    /// </summary>
+    /// <param name="bookmark">The clicked bookmark.</param>
     public void ButtonOnBookmarksClicked(Transform bookmark)
     {
-        if (!_isBookMarkShown)
+        if (!_isBookMarkShown) // If the bookmark is not shown
         {
-            buttonOnBookmarksClicked = true;
-            StartCoroutine(MoveBookmarkIn(bookmark));
+            buttonOnBookmarksClicked = true; // Set the flag
+            StartCoroutine(MoveBookmarkIn(bookmark)); // Move the bookmark in
         }
     }
 }
