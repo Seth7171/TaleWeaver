@@ -44,12 +44,15 @@ public class LocationExtractor
         foreach (var keyword in keywords.Keys)
         {
             string lowerKeyword = keyword.ToLowerInvariant();
-            if (KnownLocations.Locations.Contains(lowerKeyword))
-            {
-                return lowerKeyword;
-            }
+            // Split the keyword into individual words
+            string[] words = lowerKeyword.Split(' ');
+            foreach (string word in words)
+                if (KnownLocations.Locations.ContainsKey(word))
+                {
+                    return KnownLocations.Locations.GetValueOrDefault(word);
+                }
         }
 
-        return "Location not found";
+        return "None";
     }
 }

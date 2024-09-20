@@ -1,3 +1,8 @@
+// Filename: Parser.cs
+// Author: Nitsan Maman & Ron Shahar
+// Description: The Parser class is responsible for extracting encounter information from narrative text and formatting it into 
+// a Page object for interactive storytelling. This class handles various mechanics like rolls, riddles, checks, combat, and luck scenarios.
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,10 +10,24 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Windows;
+using TaleWeaver.Gameplay;
 
+/// <summary>
+/// Parses narrative text into structured game objects such as Page, Options, and encounters, handling different mechanics like roll checks, riddles, combat, and luck.
+/// </summary>
 public class Parser : MonoBehaviour
 {
     public static Parser Instance { get; private set; }
+
+    // Define custom strings for each position in roll outcomes
+    Dictionary<int, string> rollOutcomes = new Dictionary<int, string>
+        {
+            {0, "(-2 life)"},
+            {1, "(-1 life)"},
+            {2, "(Nothing)"},
+            {3, "(+1 luck)"},
+            {4, "(+1 life)"}
+        };
 
     private void OnDestroy()
     {
@@ -33,6 +52,12 @@ public class Parser : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Parses the narrative text and image path to create a Page object, which represents an encounter with mechanics and options.
+    /// </summary>
+    /// <param name="narrative">The narrative text describing the encounter.</param>
+    /// <param name="imagePath">The path to the image related to the encounter.</param>
+    /// <returns>A Page object with extracted encounter details, options, and mechanics.</returns>
     public Page ParsePage(string narrative, string imagePath)
     {
         try
@@ -77,7 +102,7 @@ public class Parser : MonoBehaviour
                         if (rollDescription != null)
                         {
                             string[] rollParts = rollDescription.Substring(2).Trim().Split(new[] { "$$" }, StringSplitOptions.None);
-                            choices.Add(new Option(rollParts[0].Trim(), GameMechanicsManager.Instance.rollResults[i-1]));
+                            choices.Add(new Option(rollParts[0].Trim(), GameMechanicsManager.Instance.rollResults[i - 1]));
                         }
                     }
                 }
@@ -218,6 +243,29 @@ public class Parser : MonoBehaviour
             encounterIntroduction = Regex.Replace(encounterIntroduction, pattern, "").Trim();
             encounterDescription = Regex.Replace(encounterDescription, pattern, "").Trim();
             encounterMechanicInfo = Regex.Replace(encounterMechanicInfo, pattern, "").Trim();
+            // Applying regex replace on each Option object's Text property
+            for (int i = 0; i < choices.Count; i++)
+            {
+                if (encounterMechanic.StartsWith("$$Roll$$"))
+                {
+                    if (i == 5)
+                        choices[i].option = RemoveSecondParenthesis(choices[i].option);
+                    else
+                        // Apply the replacement with the custom string
+                        choices[i].option = Regex.Replace(choices[i].option, pattern, rollOutcomes[i]).Trim();
+                }
+                else
+                {
+                    choices[i].option = Regex.Replace(choices[i].option, pattern, "").Trim();
+                }
+
+                Console.WriteLine(choices[i].option);
+            }
+            /*            foreach (var choice in choices)
+                        {
+                            choice.option = RemoveSecondParenthesis(choice.option);
+                            Console.WriteLine(choice.option);
+                        }*/
 
             if (PlayerInGame.Instance != null)
             {
@@ -234,6 +282,29 @@ public class Parser : MonoBehaviour
 
     }
 
+    private static string RemoveSecondParenthesis(string text)
+    {
+        // Find all matches of text in parentheses
+        MatchCollection matches = Regex.Matches(text, @"\([^()]*\)");
+
+        // Check if there are at least two parentheses
+        if (matches.Count >= 2)
+        {
+            // Remove only the second match
+            string toRemove = matches[1].Value;
+            int index = text.IndexOf(toRemove);
+            text = text.Remove(index, toRemove.Length);
+        }
+
+        return text;
+    }
+
+    /// <summary>
+    /// Parses the narrative text for the Conclusion page of the game, creating a Page object representing the conclusion.
+    /// </summary>
+    /// <param name="messageContent">The content of the conclusion message.</param>
+    /// <param name="imagePath">The image path for the conclusion.</param>
+    /// <returns>A Page object with the conclusion details.</returns>
     public Page ParseConclusion(string messageContent, string imagePath)
     {
         // Split the conclusion content into lines
@@ -302,6 +373,12 @@ public class Parser : MonoBehaviour
         return text;
     }
 
+    /// <summary>
+    /// Extracts the image description section from the provided message content.
+    /// </summary>
+    /// <param name="messageContent">The content of the message.</param>
+    /// <param name="isconc">Indicates if this is for a conclusion encounter.</param>
+    /// <returns>The extracted image description text.</returns>
     public string ExtractImageDescription(string messageContent, bool isconc)
     {
         if (string.IsNullOrEmpty(messageContent))

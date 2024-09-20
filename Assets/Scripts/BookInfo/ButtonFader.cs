@@ -1,10 +1,20 @@
+// Filename: ButtonFader.cs
+// Author: Nitsan Maman & Ron Shahar
+// Description: This class handles fading in and out of UI elements like TextMeshPro text fields and buttons,
+// providing smooth visual transitions for game interfaces.
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Manages fading transitions for UI elements like TextMeshPro text fields and buttons.
+/// Handles both fade in and fade out effects as well as color transitions (e.g., to Bordo color).
+/// </summary>
 public class ButtonFader : MonoBehaviour
 {
     public static ButtonFader Instance { get; private set; }
@@ -21,13 +31,15 @@ public class ButtonFader : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Initializes the ButtonFader singleton instance and prevents its destruction across scene loads.
+    /// </summary>
     void Start()
     {
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
             Debug.Log("ButtonFader instance initialized.");
         }
         else
@@ -36,6 +48,35 @@ public class ButtonFader : MonoBehaviour
         }
     }
 
+
+    void OnEnable()
+    {
+        // Subscribe to the sceneLoaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        // Unsubscribe from the sceneLoaded event to prevent memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MainMenu")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    /// <summary>
+    /// Initiates the fade transition for the specified TextMeshPro UI elements, fading out one set and revealing another.
+    /// </summary>
+    /// <param name="UICanvasDisable">Array of UI elements to be hidden.</param>
+    /// <param name="textToFade">Array of text elements to be faded out.</param>
+    /// <param name="UICanvasEnable">Array of UI elements to be shown.</param>
+    /// <param name="textToReveal">Array of text elements to be revealed.</param>
+    /// <param name="textToDisable">Array of text elements to be hidden.</param>
     public void Fader(TextMeshProUGUI[] UICanvasDisable, TextMeshProUGUI[] textToFade, TextMeshProUGUI[] UICanvasEnable, TextMeshProUGUI[] textToReveal, TextMeshProUGUI[] textToDisable)
     {
         StartCoroutine(FadeText(UICanvasDisable, textToFade, UICanvasEnable, textToReveal, textToDisable));
@@ -80,7 +121,7 @@ public class ButtonFader : MonoBehaviour
             foreach (TextMeshProUGUI text in texts)
                 text.color = Color.clear;
         }
-        
+
     }
 
     IEnumerator FadeInText(TextMeshProUGUI[] texts)
@@ -122,6 +163,11 @@ public class ButtonFader : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fades in or out the specified buttons based on the 'toReveal' parameter.
+    /// </summary>
+    /// <param name="buttonsToFade">Array of buttons to be faded in or out.</param>
+    /// <param name="toReveal">Indicates whether to fade in (true) or fade out (false).</param>
     public void FadeButtons(Button[] buttonsToFade, bool toReveal)
     {
         if (toReveal)
@@ -159,7 +205,7 @@ public class ButtonFader : MonoBehaviour
                 {
                     button.image.color = Color.clear;
                     button.gameObject.SetActive(false);
-                }  
+                }
             }
         }
     }
@@ -188,7 +234,10 @@ public class ButtonFader : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Initiates the fade transition to the Bordo color for the specified TextMeshPro elements.
+    /// </summary>
+    /// <param name="texts">Array of TextMeshPro elements to be faded to Bordo color.</param>
     public void FaderBordo(TextMeshProUGUI[] texts)
     {
         StartCoroutine(FadeToBordo(texts));

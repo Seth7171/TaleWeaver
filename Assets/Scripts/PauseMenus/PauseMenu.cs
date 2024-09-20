@@ -1,3 +1,7 @@
+// Filename: PauseMenu.cs
+// Author: Nitsan Maman & Ron Shahar
+// Description: Manages the pause menu functionality, including opening and closing menus, and handling game pause states.
+
 using echo17.EndlessBook.Demo02;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,15 +11,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    public static bool SettingsMenuOpen = false;
-    public static bool WarningMenuOpen = false;
+    public static bool GameIsPaused = false; // Indicates if the game is currently paused
+    public static bool SettingsMenuOpen = false; // Indicates if the settings menu is open
+    public static bool WarningMenuOpen = false; // Indicates if the warning menu is open
 
-    public GameObject pauseMenuUI;
-    public GameObject pauseSettingsMenuUI;
-    public GameObject pauseMenuMainUI;
-    public GameObject pauseWarningMenuUI;
-    public GameObject TouchPad;
+    public GameObject pauseMenuUI; // The main pause menu UI
+    public GameObject pauseSettingsMenuUI; // The settings menu UI
+    public GameObject pauseMenuMainUI; // The main UI within the pause menu
+    public GameObject pauseWarningMenuUI; // The warning menu UI
+    public GameObject TouchPad; // TouchPad UI element
 
     void Start()
     {
@@ -48,6 +52,9 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Resumes the game, hiding the pause menu and resetting time scale.
+    /// </summary>
     public virtual void Resume()
     {
         TouchPad.SetActive(true);
@@ -59,6 +66,9 @@ public class PauseMenu : MonoBehaviour
         WarningMenuOpen = false;
     }
 
+    /// <summary>
+    /// Pauses the game, displaying the pause menu and stopping time.
+    /// </summary>
     public virtual void Pause()
     {
         TouchPad.SetActive(false);
@@ -70,6 +80,9 @@ public class PauseMenu : MonoBehaviour
         WarningMenuOpen = false;
     }
 
+    /// <summary>
+    /// Loads the settings menu.
+    /// </summary>
     public virtual void LoadSettingsMenu()
     {
         pauseSettingsMenuUI.SetActive(true);
@@ -77,6 +90,9 @@ public class PauseMenu : MonoBehaviour
         SettingsMenuOpen = true;
     }
 
+    /// <summary>
+    /// Closes the settings menu.
+    /// </summary>
     public virtual void CloseSettingsMenu()
     {
         pauseSettingsMenuUI.SetActive(false);
@@ -84,6 +100,9 @@ public class PauseMenu : MonoBehaviour
         SettingsMenuOpen = false;
     }
 
+    /// <summary>
+    /// Loads the warning menu.
+    /// </summary>
     public virtual void LoadWarningMenu()
     {
         pauseWarningMenuUI.SetActive(true);
@@ -91,6 +110,9 @@ public class PauseMenu : MonoBehaviour
         WarningMenuOpen = true;
     }
 
+    /// <summary>
+    /// Closes the warning menu.
+    /// </summary>
     public virtual void CloseWarningMenu()
     {
         pauseWarningMenuUI.SetActive(false);
@@ -98,6 +120,9 @@ public class PauseMenu : MonoBehaviour
         WarningMenuOpen = false;
     }
 
+    /// <summary>
+    /// Loads the main menu scene.
+    /// </summary>
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
@@ -107,6 +132,9 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    /// <summary>
+    /// Quits the application.
+    /// </summary>
     public void Quit()
     {
         Debug.Log("QUIT...");

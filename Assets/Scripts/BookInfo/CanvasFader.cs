@@ -1,25 +1,41 @@
-using UnityEngine;
+// Filename: CanvasFader.cs
+// Author: Nitsan Maman & Ron Shahar
+// Description: This class provides functionality for fading in UI canvases using a fade effect. It ensures a smooth transition for canvases
+// by adjusting their transparency over a defined duration, implemented using Unity's CanvasGroup component.
 
+using UnityEngine;
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("Assembly-CSharp-Editor")]
+
+/// <summary>
+/// Singleton class responsible for handling the fade-in effect of UI canvases in Unity.
+/// It ensures smooth transitions by controlling the alpha value of CanvasGroup components over a set duration.
+/// </summary>
 public class CanvasFader : MonoBehaviour
 {
-    public static CanvasFader Instance { get; private set; }
+    // Singleton instance to allow global access to the CanvasFader functionality
+    public static CanvasFader Instance { get; internal set; }
 
-    public float fadeDuration = 2.0f; // Duration of the fade-in effect
+    // Duration of the fade-in effect
+    public float fadeDuration = 2.0f;
 
-
+    /// <summary>
+    /// Destroys the singleton instance when the GameObject is destroyed.
+    /// </summary>
     private void OnDestroy()
     {
         if (Instance == this)
         {
-            // This means this instance was the singleton and is now being destroyed
             Debug.Log("CanvasFader instance is being destroyed.");
             Instance = null;
         }
     }
 
+    /// <summary>
+    /// Ensures that only one instance of the CanvasFader exists across scenes (singleton pattern).
+    /// </summary>
     private void Awake()
     {
-        // Singleton pattern to ensure a single instance
         if (Instance == null)
         {
             Instance = this;
@@ -32,6 +48,10 @@ public class CanvasFader : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initializes the Canvas by setting its transparency to 0 (completely transparent) using a CanvasGroup component.
+    /// </summary>
+    /// <param name="canvasObject">The GameObject containing the Canvas to be initialized.</param>
     public void InitializeCanvas(GameObject canvasObject)
     {
         if (canvasObject == null)
@@ -40,7 +60,7 @@ public class CanvasFader : MonoBehaviour
             return;
         }
 
-        // Ensure the Canvas starts transparent
+        // Ensure the Canvas starts transparent using a CanvasGroup component
         CanvasGroup canvasGroup = canvasObject.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
         {
@@ -51,6 +71,10 @@ public class CanvasFader : MonoBehaviour
         canvasGroup.alpha = 0f;
     }
 
+    /// <summary>
+    /// Fades in the specified Canvas by gradually increasing its transparency over the set duration.
+    /// </summary>
+    /// <param name="canvasObject">The GameObject containing the Canvas to fade in.</param>
     public void FadeInCanvas(GameObject canvasObject)
     {
         if (canvasObject == null)
@@ -70,6 +94,11 @@ public class CanvasFader : MonoBehaviour
         StartCoroutine(FadeInCoroutine(canvasGroup));
     }
 
+    /// <summary>
+    /// Coroutine to handle the fade-in effect by gradually increasing the CanvasGroup's alpha value.
+    /// </summary>
+    /// <param name="canvasGroup">The CanvasGroup component whose transparency is adjusted.</param>
+    /// <returns>IEnumerator for the coroutine.</returns>
     private System.Collections.IEnumerator FadeInCoroutine(CanvasGroup canvasGroup)
     {
         float elapsedTime = 0f;
