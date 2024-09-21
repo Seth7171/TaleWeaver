@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A10600CA-DE20-5730-46A2-85B7D7148161}</ProjectGuid>
+    <ProjectGuid>{A89A7FBA-2CCA-6372-0154-26540E3A1E46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>UNITY_2022_3_16;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2022_3_16;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;ENVIRO_HD;ENVIRO_LW;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169;USG0001</NoWarn>
@@ -55,128 +55,352 @@
     <UnityVersion>2022.3.16f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="d:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Lite\HDRP Support\Scripts\EnviroSkyboxLite.cs" />
     <Compile Include="Assets\Dice\Scripts\Extensions\Vector3Extensions.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Samples\Scripts\DemoUI.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Lite\URP Support\Scripts\EnviroLiteFogLWRP.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\Page.cs" />
     <Compile Include="Assets\Loading screen package\Scripts\Loading screen types\LoadingScreenManager.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\DitheringModel.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Mirror Integration\EnviroMirrorPlayer.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\MotionBlurModel.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Lux Integration\EnviroLUXIntegration.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Samples\Scripts\FPSController.cs" />
     <Compile Include="Assets\Scripts\BookInfo\PageFlipper.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Utils\GraphicsUtils.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroReflectionProbe.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\URP Support\Scripts\EnviroDistanceBlurPass.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroWindSynchronize.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\TouchPad.cs" />
     <Compile Include="Assets\Scripts\newBook\InappropriateWordsFilter.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\PostProcessingProfile.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\HDRP Support\Scripts\EnviroHDRPSunShafts.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\Unpack.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\KnownLocations.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 01\Scripts\Demo01.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\URP Support\Scripts\EnviroVolumeCloudsLWRP.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\AmbientOcclusionModel.cs" />
     <Compile Include="Assets\Scripts\BookInfo\LastPageLoader.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Front.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\MotionBlurComponent.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\ColorGradingModel.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\FogVolume3 Integration\EnviroFogVolumeIntegration.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\RotateCamera.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Scripts\BookInfo\BookLoader.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroSeasonObjectSwitcher.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Scripts\EnviroHDRPDistanceBlur.cs" />
     <Compile Include="Assets\Scripts\HandBookController.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\MicroSplat Integration\EnviroMicroSplatIntegration.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\PostProcessingContext.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\GrainModel.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualButton.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\AmbientOcclusionComponent.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Photon Integration\EnviroPhotonPlayerAssign.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroCore.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\DepthOfFieldComponent.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroMeshSeasons.cs" />
     <Compile Include="Assets\Scripts\BookInfo\FirstPageLoader.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_02.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroDayNightSwitch.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\RotateObject.cs" />
     <Compile Include="Assets\Scripts\MainMenu\FadeOutImage.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\PlayerSession.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\WordGenerator.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\UserLutComponent.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\DitheringComponent.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\RTP Integration\EnviroRTPIntegration.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\VignetteModel.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Vegetation Studio Pro\EnviroVegetationStudioPro.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroTrigger.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Scripts\EnviroHDRPVolumeClouds.cs" />
     <Compile Include="Assets\Scripts\PauseMenus\PauseMenu.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Lite\Scripts\EnviroSkyRenderingLW.cs" />
     <Compile Include="Assets\Scripts\GameWorld\ClickableText.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\LocationExtractor.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\SelectPlayer.cs" />
     <Compile Include="Assets\Dice\Scripts\Timer.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\URP Support\Scripts\EnviroMoonShaftsLWRP.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\Player.cs" />
+    <Compile Include="Assets\Scripts\newBook\ToolTipManager.cs" />
     <Compile Include="Assets\Scripts\BookInfo\ButtonFader.cs" />
     <Compile Include="Assets\Scripts\Music\DoNotDestroy.cs" />
     <Compile Include="Assets\Scripts\GameWorld\CreateButtonsInBook.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\FxaaComponent.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\ScreenSpaceReflectionModel.cs" />
     <Compile Include="Assets\Scripts\BookInfo\Parser.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroProfile.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\TaaComponent.cs" />
     <Compile Include="Assets\Scripts\EnsureWordWrapping.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageAnimationCompleted.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\GlobalSnow Integration\GlobalSnowIntegration.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\OpenOpenAIURL.cs" />
     <Compile Include="Assets\Scripts\PlayerSelection\ClearFeedbackFromUnity.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\EyeAdaptationComponent.cs" />
     <Compile Include="Assets\HandyHands\scripts\showcasecam.cs" />
     <Compile Include="Assets\Scripts\PlayerStats\LuckBar.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\AntialiasingModel.cs" />
     <Compile Include="Assets\Scripts\BookInfo\Book.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroCopyLightSettings.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\Scripts\EnviroVolumeCloudsQuality.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\Demo02.cs" />
+    <Compile Include="Assets\Scripts\GameWorld\TeleportManager.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\Scripts\EnviroVolumeLight.cs" />
     <Compile Include="Assets\Scripts\GameWorld\PlayerInGame.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\BookAnimationCompleted.cs" />
     <Compile Include="Assets\Scripts\newBook\InputValidator.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 03 - Manual Page Turn\Scripts\Demo03.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\HDRP Support\Scripts\EnviroHDRPMoonShafts.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Samples\Scripts\EventTest.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\URP Support\Scripts\EnviroBlitPass.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map_Left.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
     <Compile Include="Assets\Scripts\PlayerStats\HealthBar.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\PageData.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroVegetationInstance.cs" />
     <Compile Include="Assets\Scripts\PauseMenus\PauseMenuGame.cs" />
     <Compile Include="Assets\Scripts\ErrorsHandler\ErrorHandler.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\UBER Integration\EnviroUBERIntegration.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\ChromaticAberrationModel.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameMechanicsManager.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\GrainComponent.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\AQUAS Integration\EnviroAquasIntegration.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\PlayerData.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\PostProcessingModel.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\ChromaticAberrationComponent.cs" />
     <Compile Include="Assets\Scripts\offset.cs" />
+    <Compile Include="Assets\Scripts\GameWorld\Enviro.cs" />
     <Compile Include="Assets\Scripts\newBook\VentureForthButton.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\EyeAdaptationModel.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\VignetteComponent.cs" />
+    <Compile Include="Assets\Scripts\GameWorld\Player1.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroZone.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroAudioSource.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Pegasus Integration\TriggerControlEnviro.cs" />
     <Compile Include="Assets\Scripts\ScreenResolution.cs" />
     <Compile Include="Assets\Scripts\GameWorld\ToggleFlashLight.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Lite\Scripts\EnviroSkyLite.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Mirror Integration\EnviroMirrorServer.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\URP Support\Scripts\EnviroFogLWRP.cs" />
     <Compile Include="Assets\Scripts\Music\VolumeManager.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\ColorGradingComponent.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroInterior.cs" />
     <Compile Include="Assets\Dice\Scripts\DiceRoller\DiceRoller.cs" />
     <Compile Include="Assets\Scripts\Music\SceneMusicManager.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Samples\Scripts\SampleHUDFPS.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\StopListHelper.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Lite\HDRP Support\Scripts\EnviroSkyboxLiteRenderer.cs" />
     <Compile Include="Assets\EndlessBook\Book\Scripts\EndlessBook.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Gaia Integration\EnviroWithGAIA.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\DepthOfFieldModel.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\MimicChild.cs" />
     <Compile Include="Assets\Dice\Scripts\DiceRoller\DiceSides.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\PageView_Map_Right.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\OpenAI API\OpenAIInterface.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Utils\ColorGradingCurve.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroWeatherPrefab.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\URP Support\Scripts\EnviroSunShaftsLWRP.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroSkyMgr.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\BloomModel.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\FogComponent.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\MegaSplat Integration\EnviroMegaSplatIntegration.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroAudioMixerSupport.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\Scripts\Utilities\EnviroAdditionalCamera.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\CTS Integration\EnviroCTSIntegration.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Scripts\EnviroSkybox.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\Scripts\BookInfo\CanvasFader.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\Rake.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Lite\Scripts\Utilities\EnviroLiteAdditionalCamera.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\URP Support\Scripts\EnviroDistanceBlurLWRP.cs" />
     <Compile Include="Assets\HandyHands\scripts\VisualizeJoint.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\ScreenSpaceReflectionComponent.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballGroupAttribute.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\URP Support\Scripts\EnviroBlitPassShafts.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\UserLutModel.cs" />
     <Compile Include="Assets\Scripts\BookInfo\BookmarkClickHandler.cs" />
+    <Compile Include="Assets\Scripts\newBook\ToolTip.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Utility\EnviroLightning.cs" />
     <Compile Include="Assets\Scripts\Environments\RAKE\StringSplitter.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\EnviroWeatherPreset.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
     <Compile Include="Assets\Dice\Scripts\DiceRoller\DiceEuler.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\PostProcessingBehaviour.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\PostProcessingComponent.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\WAPI Integration\EnviroWorldAPIIntegration.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\Scripts\EnviroSky.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
     <Compile Include="Assets\Loading screen package\Scripts\Loading screen types\DemoSceneManager.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\FogModel.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\URP Support\Scripts\EnviroBlitPassVolumeClouds.cs" />
     <Compile Include="Assets\Scripts\PlayerInfoData\DataManager.cs" />
     <Compile Include="Assets\StarterAssets\FirstPersonController\Scripts\FirstPersonController.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\Scripts\Utilities\EnviroCloudsAnimateWithTime.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\BuiltinDebugViewsComponent.cs" />
     <Compile Include="Assets\Scripts\Music\VolumeControlUI.cs" />
     <Compile Include="Assets\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
     <Compile Include="Assets\Scripts\PlayerStats\ModifierNum.cs" />
     <Compile Include="Assets\EndlessBook\Demos\Demo 02\Scripts\Candle.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\UNet Integration\EnviroUNetPlayer.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\Effects\EnviroPostProcessing.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\Scripts\EnviroSkyRendering.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Scripts\EnviroSkyboxRenderer.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\UNet Integration\EnviroUNetServer.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\ThirdPersonController.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Models\BuiltinDebugViewsModel.cs" />
+    <Compile Include="Assets\PostProcessing\Runtime\Components\BloomComponent.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Photon Integration\EnviroPhotonIntegration.cs" />
+    <Compile Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Scripts\EnviroHDRPFog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\EndlessBook\Demos\Demo 04 - New Input\readme.txt" />
     <None Include="Assets\Scripts\Environments\RAKE\SmartStoplist.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Effects\EnviroBilateralBlur.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\HandyHands\readme.txt" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\MegaSplat Integration\MegaSplat Integration.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\GrainGen.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\EnviroReflectionProbe.shader" />
+    <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\FXAA3.cginc" />
     <None Include="Assets\EndlessBook\changelog.txt" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
+    <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Lite\Resources\Shaders\EnviroLiteMoonShaderCustom.shader" />
+    <None Include="Assets\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroSkyboxFlatClouds.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroFlatCloudMap.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Lite\HDRP Support\Resources\Shaders\EnviroSkyboxLiteHDRP.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Shaders\Particle\EnviroLitParticles.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\Core\EnviroFogCore.hlsl" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Lite\Resources\Shaders\EnviroLiteFogRenderingSimple.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroSkybox.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\LutGen.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\EnviroParticleClouds.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Shaders\Transparent\EnviroTransparentMetallic.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Shaders\Particle\EnviroParticlesAdditive.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\MicroSplat Integration\MicroSplat Integration.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\TAA.cginc" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\HDRP Support\Resources\Shaders\EnviroLightShaftsHDRP.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\EnviroSkyboxSimple.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\FogVolume3 Integration\Fog Volume 3 Integration.txt" />
+    <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\Core\EnviroFogCore.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\HandyHands\shaders\handyskin.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Effects\EnviroFogRenderingDisabled.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Resources\Shaders\Core\EnviroBlurCore.hlsl" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\UBER Integration\UBER Integration.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroShadowCookie.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Core\EnviroVolumeCloudsCore.cginc" />
+    <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
+    <None Include="Assets\Enviro - Sky and Weather\version.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\CTS Integration\CTS Integration Quickstart.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Update Notes.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\Effects\EnviroLightShafts.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Core\EnviroBlurCore.cginc" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Resources\Shaders\EnviroSkyboxHDRP.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Core\EnviroNoiseCore.cginc" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Resources\Shaders\EnviroDistanceBlurHDRP.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\HDRP Support\Resources\Shaders\EnviroBlitTroughHDRP.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\EnviroCubeBlur.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\EnviroBakeCubemap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\PostProcessing\Resources\Bluenoise64\LICENSE_Bluenoise64.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Shaders\Transparent\EnviroTransparent.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Shaders\Particle\EnviroWeatherParticlesAdditive.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Effects\EnviroFogRendering.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\ACES.cginc" />
     <None Include="Assets\StarterAssets\license.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\Lux Integration\Lux Integration.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\FXAA.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Resources\Shaders\EnviroCloudsBlitHDRP.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroDownsampleDepth.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Effects\EnviroFogRenderingSimple.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Core\EnviroVolumeLightCore.cginc" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Effects\EnviroVolumeLight.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\HDRP Support\Resources\Shaders\EnviroFogHDRP.shader" />
+    <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroMoonShader.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Lite\Resources\Shaders\EnviroLiteMoonShader.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\Effects\EnviroClearLightShafts.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
+    <None Include="Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Shaders\Particle\EnviroParticlesAlphaBlend.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Lite\Resources\Shaders\EnviroLiteFogRendering.shader" />
+    <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroBlit.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Shaders\Particle\EnviroParticlesLightning.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\Common.cginc" />
+    <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroWeatherMap.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Shaders\Particle\EnviroWeatherParticles.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\TAA.shader" />
     <None Include="Assets\EndlessBook\Demos\Demo 02\Shaders\Page_04.shader" />
     <None Include="Assets\EndlessBook\readme.txt" />
     <None Include="Assets\VisualX_Studio\Sci-Fi_Loading_Screen_Effects_FREE\VisualX_Sci-Fi Loading Screen Effects_FREE.txt" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\Blit.shader" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.cginc" />
+    <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
+    <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\Effects\EnviroDistanceBlur.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\RTP Integration\RTP Integration.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroCloudsCompose.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroRaymarchClouds.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Enviro Standard\Resources\Shaders\EnviroSkyboxSimpleStandard.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Resources\Shaders\EnviroBlitThrough.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Enviro - Sky and Weather\Core\Scripts\3rd Party Integrations\AQUAS Integration\AQUAS Integration.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -514,18 +738,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Android.Types">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Android.Gradle">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Android.GradleProject">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
