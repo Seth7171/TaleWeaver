@@ -469,6 +469,17 @@ namespace TaleWeaver.Gameplay
                         {
                             PlayerInGame.Instance.GainLuck(1);
                             DiceRoller.Instance.resultText.text = "Critical Success!\n Enemy lose 1 life";
+
+                            // Check if the "Natural 20" trophy has already been achieved
+                            if (PlayerPrefs.GetInt("RolledCriticalSuccess", 0) == 0)
+                            {
+                                // Show the trophy unlocked notification
+                                TrophyFadeManager.Instance.RevealTrophyPanel("RolledCriticalSuccess");
+
+                                // Mark the trophy as achieved in PlayerPrefs
+                                PlayerPrefs.SetInt("RolledCriticalSuccess", 1);
+                            }
+
                             combatwon = true;
                         }
                         else if (DiceRoller.Instance.result == 1)
@@ -506,6 +517,17 @@ namespace TaleWeaver.Gameplay
                         {
                             PlayerInGame.Instance.GainLuck(1);
                             DiceRoller.Instance.resultText.text = "Critical Success!\n Check Passed!";
+
+                            // Check if the "Natural 20" trophy has already been achieved
+                            if (PlayerPrefs.GetInt("RolledCriticalPass", 0) == 0)
+                            {
+                                // Show the trophy unlocked notification
+                                TrophyFadeManager.Instance.RevealTrophyPanel("RolledCriticalPass");
+
+                                // Mark the trophy as achieved in PlayerPrefs
+                                PlayerPrefs.SetInt("RolledCriticalPass", 1);
+                            }
+
                             checkpassed = true;
                         }
                         else if ((DiceRoller.Instance.result + PlayerInGame.Instance.currentSkillModifier) > int.Parse(BookLoader.Instance.checkDiffNum))

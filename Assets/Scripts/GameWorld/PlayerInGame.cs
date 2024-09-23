@@ -74,6 +74,7 @@ public class PlayerInGame : MonoBehaviour
             currentHealth = 10;
             currentLuck = 2;
             currentSkillModifier = 0;
+
         }
         else
         {
@@ -114,6 +115,44 @@ public class PlayerInGame : MonoBehaviour
         {
             GetGender(); // Get the player's gender
             audioSource = GetComponent<AudioSource>(); // Get the audio source component
+
+            // Increment the "Adventures Completed" count in PlayerPrefs
+            int adventuresCompleted = PlayerPrefs.GetInt("AdventuresCompleted", 0);
+            adventuresCompleted++;
+
+            // Save the updated count back into PlayerPrefs
+            PlayerPrefs.SetInt("AdventuresCompleted", adventuresCompleted);
+
+            // Check if the "1 Adventures" trophy needs to be unlocked
+            if (PlayerPrefs.GetInt("Completed1Adventure", 0) == 0)
+            {
+                // Show the trophy unlocked notification
+                TrophyFadeManager.Instance.RevealTrophyPanel("Completed1Adventure");
+
+                // Mark the trophy as achieved in PlayerPrefs
+                PlayerPrefs.SetInt("Completed1Adventure", 1);
+            }
+
+            // Check if the "5 Adventures" trophy needs to be unlocked
+            if (adventuresCompleted >= 5 && PlayerPrefs.GetInt("Completed5Adventures", 0) == 0)
+            {
+                // Show the trophy unlocked notification
+                TrophyFadeManager.Instance.RevealTrophyPanel("Completed5Adventures");
+
+                // Mark the trophy as achieved in PlayerPrefs
+                PlayerPrefs.SetInt("Completed5Adventures", 1);
+            }
+
+            // Check if the "10 Adventures" trophy needs to be unlocked
+            if (adventuresCompleted >= 10 && PlayerPrefs.GetInt("Completed10Adventures", 0) == 0)
+            {
+                // Show the trophy unlocked notification
+                TrophyFadeManager.Instance.RevealTrophyPanel("Completed10Adventures");
+
+                // Mark the trophy as achieved in PlayerPrefs
+                PlayerPrefs.SetInt("Completed10Adventures", 1);
+            }
+
         }
 
         if (OpenAIInterface.Instance != null)
@@ -248,8 +287,18 @@ public class PlayerInGame : MonoBehaviour
         handBookController.is_scroll_lock = true;
         DeathScreen.SetActive(true);
 
+        // Check if the "Die Adventure" trophy has already been achieved
+        if (PlayerPrefs.GetInt("DieAdventure", 0) == 0)
+        {
+            // Show the trophy unlocked notification
+            TrophyFadeManager.Instance.RevealTrophyPanel("DieAdventure");
+
+            // Mark the trophy as achieved in PlayerPrefs
+            PlayerPrefs.SetInt("DieAdventure", 1);
+        }
+
         //need to move from here to when the API finished the conclution page!
-        OpenAIInterface.Instance.SendMessageToExistingBook(PlayerSession.SelectedBookName, "player has died", 11);
+        OpenAIInterface.Instance.SendMessageToExistingBook(PlayerSession.SelectedBookName, "player has died generate death conclusion", 11);
         //SaveDeathConclusionFinished();
     }
 
@@ -284,6 +333,16 @@ public class PlayerInGame : MonoBehaviour
         handBookController.DisableControls();
         handBookController.is_scroll_lock = true;
         VictoryScreen.SetActive(true);
+
+        // Check if the "Won Adventure" trophy has already been achieved
+        if (PlayerPrefs.GetInt("WonAdventure", 0) == 0)
+        {
+            // Show the trophy unlocked notification
+            TrophyFadeManager.Instance.RevealTrophyPanel("WonAdventure");
+
+            // Mark the trophy as achieved in PlayerPrefs
+            PlayerPrefs.SetInt("WonAdventure", 1);
+        }
 
         //need to move from here to when the API finished the conclution page!
         OpenAIInterface.Instance.SendMessageToExistingBook(PlayerSession.SelectedBookName, "combat won, generate conclusion");
