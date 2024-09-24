@@ -37,7 +37,7 @@ Sence & Flow:
 </p>
 
 <p align="center">
-    <img src="Docs/images/NewBookPirate.png?raw=true" width="410"> <img src="Docs/images/NewBookVillage.png?raw=true" width="410">
+    <img src="Docs/images/NewBook.png?raw=true" width="410"> <img src="Docs/images/NewBookVillage.png?raw=true" width="410">
 </p>
 
 <p align="center">
